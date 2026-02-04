@@ -1,5 +1,5 @@
  {
-    "group":      ["wg/json-ld", "cg/json-ld"]
-,   "contacts":   ["p20n", "bigbluehat"]
-,   "repo-type":  "cg-report"
+    "group":      ["wg/json-ld"]
+,   "contacts":   ["pchampin", "bigbluehat"]
+,   "repo-type":  "rec-track"
 }
