@@ -3,8 +3,8 @@
   "@id": "",
   "@type": "mf:Manifest",
   "name": "Tests using YAML-LD JSON Profile",
-  "description": "These tests implement the requirements for the [YAML-LD JSON Profile](https://json-ld.github.io/yaml-ld/spec/#yaml-ld-json-profile).",
-  "baseIri": "https://json-ld.github.io/yaml-ld/tests/",
+  "description": "These tests implement the requirements for the [YAML-LD JSON Profile](https://w3c.github.io/yaml-ld/spec/#yaml-ld-json-profile).",
+  "baseIri": "https://w3c.github.io/yaml-ld/tests/",
   "sequence": [
     {
       "@id":  "#cir-document-content-1-negative",

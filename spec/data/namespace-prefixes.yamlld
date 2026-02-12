@@ -1,6 +1,6 @@
 "@context":
   - https://json-ld.org/contexts/dollar-convenience.jsonld
-  - "@base": https://json-ld.github.io/
+  - "@base": https://w3c.github.io/
     prefix: http://purl.org/vocab/vann/preferredNamespacePrefix
 
 $included:
