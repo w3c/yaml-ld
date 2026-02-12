@@ -1,6 +1,6 @@
 "@context":
   - https://json-ld.org/contexts/dollar-convenience.jsonld
-  - "@base": https://json-ld.github.io/yaml-ld/spec/
+  - "@base": https://w3c.github.io/yaml-ld/spec/
     rdfs: http://www.w3.org/2000/01/rdf-schema#
     schema: https://schema.org/
 
@@ -14,7 +14,7 @@ $included:
   - $id: schema:author
     rdfs:range: schema:Person
 
-  - $id: https://json-ld.github.io/yaml-ld/spec/
+  - $id: https://w3c.github.io/yaml-ld/spec/
     rdfs:label: YAML-LD
     schema:author:
       - name: Vladimir Alexiev
