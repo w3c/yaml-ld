@@ -9,22 +9,32 @@ schema:author:
     dcterms:isReferencedBy: https://greggkellogg.net/foaf.rdf
     schema:givenName: Gregg
     schema:familyName: Kellogg
+    schema:affiliation: Invited Expert
+
+  - $id: https://yeti.sh
+    $type: foaf:Person
+    schema:givenName: Anatoly
+    schema:familyName: Scherbakov
+    schema:affiliation: Invited Expert
 
   - $id: https://github.com/ioggstream
     $type: foaf:Person
     schema:givenName: Roberto
     schema:familyName: Polli
+    schema:affiliation: Par-Tec
 
   - $id: https://github.com/TallTed
     $type: foaf:Person
     schema:givenName: Ted
     schema:familyName: Thibodeau
     schema:honorificSuffix: Jr
+    schema:affiliation: OpenLink Software
 
   - $id: https://github.com/BigBlueHat
     $type: foaf:Person
     schema:givenName: Benjamin
     schema:familyName: Young
+    schema:affiliation: Digital Bazaar
 
 license:
   $id: https://purl.org/NET/rdflicense/W3C1.0
