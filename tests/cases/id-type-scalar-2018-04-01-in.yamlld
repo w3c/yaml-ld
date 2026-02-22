@@ -1,0 +1,8 @@
+"@context":
+  "@base": http://dbpedia.org/resource/
+  dbo: http://dbpedia.org/ontology/
+  dbo:author:
+    "@type": "@id"
+
+"@id": 2018-04-01
+dbo:author: Liu_Cixin

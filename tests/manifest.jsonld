@@ -301,6 +301,15 @@
       "input": "cases/frame/0001-in.yamlld",
       "frame": "cases/frame/0001-frame.yamlld",
       "expect": "cases/frame/0001-out.yamlld"
+    },
+    {
+      "@id": "#id-type-scalar-2018-04-01-positive",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "@id and @type @id scalars (2018-04-01 short story)",
+      "purpose": "Scalar values for @id and context-defined @type @id must remain strings and resolve on expansion.",
+      "req": "must",
+      "input": "cases/id-type-scalar-2018-04-01-in.yamlld",
+      "expect": "cases/id-type-scalar-2018-04-01-out.yamlld"
     }
   ]
 }
