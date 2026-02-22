@@ -66,6 +66,7 @@
       "name": "tag:yaml.org.2002 scalars",
       "purpose": "Otherwise, the conversion result is mapped through the YAML Core Schema.",
       "req": "must",
+      "option": {"extendedYAML": true, "normative": false},
       "input": "cases/cir-scalar-core-1-positive-in.yamlld",
       "expect": "cases/cir-scalar-core-1-positive-out.yamlld"
     },
@@ -75,7 +76,7 @@
       "name": "language-tagged string with i18n (ignored without extendedYAML)",
       "purpose": "Otherwise, the conversion result is mapped through the YAML Core Schema.",
       "req": "must",
-      "option": {"extendedYAML": false},
+      "option": {"extendedYAML": true, "normative": false},
       "input": "cases/cir-scalar-i18n-1-positive-in.yamlld",
       "expect": "cases/cir-scalar-i18n-1-positive-out.yamlld"
     },
@@ -85,7 +86,7 @@
       "name": "Scalars with other node tags (ignored without extendedYAML)",
       "purpose": "Otherwise, the conversion result is mapped through the YAML Core Schema.",
       "req": "must",
-      "option": {"extendedYAML": false},
+      "option": {"extendedYAML": true, "normative": false},
       "input": "cases/cir-scalar-other-1-positive-in.yamlld",
       "expect": "cases/cir-scalar-other-1-positive-out.yamlld"
     },
@@ -167,6 +168,7 @@
       "name": "tag:yaml.org.2002 scalars (RDF)",
       "purpose": "If t resolves with a prefix of `tag:yaml.org.2002:`, the conversion result is mapped through the YAML Core Schema.",
       "req": "must",
+      "option": {"extendedYAML": true, "normative": false},
       "input": "cases/cir-scalar-core-2-positive-in.yamlld",
       "expect": "cases/cir-scalar-core-2-positive-out.nq"
     },
@@ -176,7 +178,7 @@
       "name": "Scalars with other node tags (RDF)  (ignored without extendedYAML)",
       "purpose": "Otherwise, the conversion result is an RDF literal.",
       "req": "may",
-      "option": {"extendedYAML": false},
+      "option": {"extendedYAML": true, "normative": false},
       "input": "cases/cir-scalar-other-2-positive-in.yamlld",
       "expect": "cases/cir-scalar-other-2-positive-out.nq"
     },
@@ -301,6 +303,231 @@
       "input": "cases/frame/0001-in.yamlld",
       "frame": "cases/frame/0001-frame.yamlld",
       "expect": "cases/frame/0001-out.yamlld"
+    },
+    {
+      "@id": "#core-bool-true",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "Lowercase true is a boolean",
+      "purpose": "YAML Core Schema resolves true as boolean.",
+      "req": "must",
+      "input": "cases/yaml-schema/bool-true-in.yamlld",
+      "expect": "cases/yaml-schema/bool-true-out.yamlld"
+    },
+    {
+      "@id": "#core-bool-false",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "Lowercase false is a boolean",
+      "purpose": "YAML Core Schema resolves false as boolean.",
+      "req": "must",
+      "input": "cases/yaml-schema/bool-false-in.yamlld",
+      "expect": "cases/yaml-schema/bool-false-out.yamlld"
+    },
+    {
+      "@id": "#core-bool-true-title",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "Title-case True is a boolean",
+      "purpose": "YAML Core Schema resolves True as boolean true.",
+      "req": "must",
+      "input": "cases/yaml-schema/bool-true-title-in.yamlld",
+      "expect": "cases/yaml-schema/bool-true-out.yamlld"
+    },
+    {
+      "@id": "#core-bool-false-upper",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "Uppercase FALSE is a boolean",
+      "purpose": "YAML Core Schema resolves FALSE as boolean false.",
+      "req": "must",
+      "input": "cases/yaml-schema/bool-false-upper-in.yamlld",
+      "expect": "cases/yaml-schema/bool-false-out.yamlld"
+    },
+    {
+      "@id": "#core-null-null",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "null is null",
+      "purpose": "YAML Core Schema resolves null as null.",
+      "req": "must",
+      "input": "cases/yaml-schema/null-null-in.yamlld",
+      "expect": "cases/yaml-schema/null-null-out.yamlld"
+    },
+    {
+      "@id": "#core-null-tilde",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "Tilde ~ is null",
+      "purpose": "YAML Core Schema resolves ~ as null.",
+      "req": "must",
+      "input": "cases/yaml-schema/null-tilde-in.yamlld",
+      "expect": "cases/yaml-schema/null-null-out.yamlld"
+    },
+    {
+      "@id": "#core-null-upper",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "Uppercase NULL is null",
+      "purpose": "YAML Core Schema resolves NULL as null.",
+      "req": "must",
+      "input": "cases/yaml-schema/null-upper-in.yamlld",
+      "expect": "cases/yaml-schema/null-null-out.yamlld"
+    },
+    {
+      "@id": "#core-int-decimal",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "Decimal integer",
+      "purpose": "YAML Core Schema resolves decimal integers.",
+      "req": "must",
+      "input": "cases/yaml-schema/int-decimal-in.yamlld",
+      "expect": "cases/yaml-schema/int-decimal-out.yamlld"
+    },
+    {
+      "@id": "#core-int-octal",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "Octal integer",
+      "purpose": "YAML Core Schema resolves 0o77 as integer 63.",
+      "req": "must",
+      "input": "cases/yaml-schema/int-octal-in.yamlld",
+      "expect": "cases/yaml-schema/int-octal-out.yamlld"
+    },
+    {
+      "@id": "#core-int-hex",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "Hex integer",
+      "purpose": "YAML Core Schema resolves 0x3A as integer 58.",
+      "req": "must",
+      "input": "cases/yaml-schema/int-hex-in.yamlld",
+      "expect": "cases/yaml-schema/int-hex-out.yamlld"
+    },
+    {
+      "@id": "#core-float-basic",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "Basic float",
+      "purpose": "YAML Core Schema resolves decimal floats.",
+      "req": "must",
+      "input": "cases/yaml-schema/float-basic-in.yamlld",
+      "expect": "cases/yaml-schema/float-basic-out.yamlld"
+    },
+    {
+      "@id": "#core-float-scientific",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "Scientific notation float",
+      "purpose": "YAML Core Schema resolves scientific notation floats.",
+      "req": "must",
+      "input": "cases/yaml-schema/float-scientific-in.yamlld",
+      "expect": "cases/yaml-schema/float-scientific-out.yamlld"
+    },
+    {
+      "@id": "#core-date-ymd",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "Date-like scalar YYYY-MM-DD is a string",
+      "purpose": "YAML 1.2 Core Schema has no timestamp type; 2018-04-01 resolves to a plain string. Some YAML libraries may wish to parse this as a native date object, this should not happen.",
+      "req": "must",
+      "input": "cases/yaml-schema/date-ymd-in.yamlld",
+      "expect": "cases/yaml-schema/date-ymd-out.yamlld"
+    },
+    {
+      "@id": "#core-float-inf-negative",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
+      "name": "Infinity scalar causes error",
+      "purpose": "Float infinity (.inf) cannot be represented in JSON and MUST cause loading document failed.",
+      "req": "must",
+      "input": "cases/yaml-schema/float-inf-in.yamlld",
+      "expectErrorCode": "loading document failed"
+    },
+    {
+      "@id": "#core-float-neg-inf-negative",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
+      "name": "Negative infinity scalar causes error",
+      "purpose": "Float negative infinity (-.inf) cannot be represented in JSON and MUST cause loading document failed.",
+      "req": "must",
+      "input": "cases/yaml-schema/float-neg-inf-in.yamlld",
+      "expectErrorCode": "loading document failed"
+    },
+    {
+      "@id": "#core-float-plus-inf-negative",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
+      "name": "Plus infinity scalar causes error",
+      "purpose": "Float plus infinity (+.inf) cannot be represented in JSON and MUST cause loading document failed.",
+      "req": "must",
+      "input": "cases/yaml-schema/float-plus-inf-in.yamlld",
+      "expectErrorCode": "loading document failed"
+    },
+    {
+      "@id": "#core-float-nan-negative",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
+      "name": "NaN scalar causes error",
+      "purpose": "Float NaN (.nan) cannot be represented in JSON and MUST cause loading document failed.",
+      "req": "must",
+      "input": "cases/yaml-schema/float-nan-in.yamlld",
+      "expectErrorCode": "loading document failed"
+    },
+    {
+      "@id": "#core-float-nan-mixed-negative",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
+      "name": "NaN scalar (.NaN) causes error",
+      "purpose": "Float NaN (.NaN) cannot be represented in JSON and MUST cause loading document failed.",
+      "req": "must",
+      "input": "cases/yaml-schema/float-nan-mixed-in.yamlld",
+      "expectErrorCode": "loading document failed"
+    },
+    {
+      "@id": "#core-float-nan-upper-negative",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
+      "name": "NaN scalar (.NAN) causes error",
+      "purpose": "Float NaN (.NAN) cannot be represented in JSON and MUST cause loading document failed.",
+      "req": "must",
+      "input": "cases/yaml-schema/float-nan-upper-in.yamlld",
+      "expectErrorCode": "loading document failed"
+    },
+    {
+      "@id": "#core-yaml11-yes",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "YAML 1.1 'yes' is a string",
+      "purpose": "YAML 1.2 Core Schema does not recognize yes as boolean; it is a plain string.",
+      "req": "must",
+      "input": "cases/yaml-schema/yaml11-yes-in.yamlld",
+      "expect": "cases/yaml-schema/yaml11-yes-out.yamlld"
+    },
+    {
+      "@id": "#core-yaml11-no",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "YAML 1.1 'no' is a string",
+      "purpose": "YAML 1.2 Core Schema does not recognize no as boolean; it is a plain string.",
+      "req": "must",
+      "input": "cases/yaml-schema/yaml11-no-in.yamlld",
+      "expect": "cases/yaml-schema/yaml11-no-out.yamlld"
+    },
+    {
+      "@id": "#core-yaml11-on",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "YAML 1.1 'on' is a string",
+      "purpose": "YAML 1.2 Core Schema does not recognize on as boolean; it is a plain string.",
+      "req": "must",
+      "input": "cases/yaml-schema/yaml11-on-in.yamlld",
+      "expect": "cases/yaml-schema/yaml11-on-out.yamlld"
+    },
+    {
+      "@id": "#core-yaml11-off",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "YAML 1.1 'off' is a string",
+      "purpose": "YAML 1.2 Core Schema does not recognize off as boolean; it is a plain string.",
+      "req": "must",
+      "input": "cases/yaml-schema/yaml11-off-in.yamlld",
+      "expect": "cases/yaml-schema/yaml11-off-out.yamlld"
+    },
+    {
+      "@id": "#core-yaml11-yes-title",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "YAML 1.1 'Yes' is a string",
+      "purpose": "YAML 1.2 Core Schema does not recognize Yes as boolean; it is a plain string.",
+      "req": "must",
+      "input": "cases/yaml-schema/yaml11-yes-title-in.yamlld",
+      "expect": "cases/yaml-schema/yaml11-yes-title-out.yamlld"
+    },
+    {
+      "@id": "#core-yaml11-yes-upper",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "YAML 1.1 'YES' is a string",
+      "purpose": "YAML 1.2 Core Schema does not recognize YES as boolean; it is a plain string.",
+      "req": "must",
+      "input": "cases/yaml-schema/yaml11-yes-upper-in.yamlld",
+      "expect": "cases/yaml-schema/yaml11-yes-upper-out.yamlld"
     }
   ]
 }
