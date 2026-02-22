@@ -3,7 +3,7 @@
   "@id": "",
   "@type": "mf:Manifest",
   "name": "Tests using YAML-LD JSON Profile",
-  "description": "These tests implement the requirements for the [YAML-LD JSON Profile](https://w3c.github.io/yaml-ld/spec/#yaml-ld-json-profile).",
+  "description": "These tests implement the requirements for the [YAML-LD JSON Profile](https://w3c.github.io/yaml-ld/#yaml-ld-json-profile).",
   "baseIri": "https://w3c.github.io/yaml-ld/tests/",
   "sequence": [
     {
