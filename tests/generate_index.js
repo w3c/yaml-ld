@@ -208,10 +208,10 @@ async function generateHtml(jsonld, manifest, hpath) {
                   <dt>ID</dt><dd>${entry['@id']}</dd></dt>
                   <dt>Type</dt><dd>${entry['@type']}</dd>
                   <dt>Name</dt><dd>${entry.name}</dd></dt>
-                  <dt>Purpose</dt><dd>${marked.parseInline(entry.purpose)}</dd></dt>
+                  <dt>Purpose</dt><dd>${marked.parseInline(entry.purpose ?? '')}</dd></dt>
                   <dt>Input</dt><dd><a href="${entry.input}">${entry.input}</a></dd></dt>
                   <dt>References</dt><dd>${
-                    entry.specRefs.map((r, ndx) => `(<a href="../spec/index.html#${r}">${ndx + 1}</a>)`).join(' ')
+                    entry.specRefs.map((r, ndx) => `(<a href="../index.html#${r}">${ndx + 1}</a>)`).join(' ')
                   }</dd></dt>
                   <dt>Requirement</dt><dd><strong>${entry.req || 'must'}</strong></dd>
                   ${entry.context ? `<dt>Context</dt><dd><a href="${entry.context}">${entry.context}</a></dd>` : ''}
@@ -264,7 +264,7 @@ async function main(jsonld, html, issueMap) {
 }
 
 // Create a map of tests to references by manifest.
-extractIssueMap("../spec/index.html", (issueMap) => {
+extractIssueMap("../index.html", (issueMap) => {
 // Convert manifest, which will recursively convert referenced manifests.
   main("manifest.jsonld", "manifest.html", issueMap)
 });
