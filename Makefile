@@ -5,7 +5,7 @@ install:
 
 .PHONY: spec
 spec:
-	respec --verbose --localhost --src spec/index.html --out web/index.html
+	respec --verbose --localhost --src index.html --out web/index.html
 
 
 .PHONY: serve
