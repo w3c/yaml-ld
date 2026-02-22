@@ -35,6 +35,6 @@ jobs:
       uses: w3c/spec-prod@v2
       with:
         TOOLCHAIN: respec
-        SOURCE: spec/index.html
+        SOURCE: index.html
         VALIDATE_LINKS: false
         VALIDATE_MARKUP: true
