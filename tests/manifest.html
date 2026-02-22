@@ -255,7 +255,11 @@
                   
                   <dt>Expect</dt><dd><a href="cases/cir-scalar-core-1-positive-out.yamlld">cases/cir-scalar-core-1-positive-out.yamlld</a></dd>
                   
-                  
+                  <dt>Options</dt>
+                    <dd><dl class="options">
+                    <dt>extendedYAML</dt><dd>true</dd>
+<dt>normative</dt><dd>false</dd>
+                    </dl></dd>
                 </dl>
               </dd>
 
@@ -277,7 +281,8 @@
                   
                   <dt>Options</dt>
                     <dd><dl class="options">
-                    <dt>extendedYAML</dt><dd>false</dd>
+                    <dt>extendedYAML</dt><dd>true</dd>
+<dt>normative</dt><dd>false</dd>
                     </dl></dd>
                 </dl>
               </dd>
@@ -300,7 +305,8 @@
                   
                   <dt>Options</dt>
                     <dd><dl class="options">
-                    <dt>extendedYAML</dt><dd>false</dd>
+                    <dt>extendedYAML</dt><dd>true</dd>
+<dt>normative</dt><dd>false</dd>
                     </dl></dd>
                 </dl>
               </dd>
@@ -481,7 +487,11 @@
                   
                   <dt>Expect</dt><dd><a href="cases/cir-scalar-core-2-positive-out.nq">cases/cir-scalar-core-2-positive-out.nq</a></dd>
                   
-                  
+                  <dt>Options</dt>
+                    <dd><dl class="options">
+                    <dt>extendedYAML</dt><dd>true</dd>
+<dt>normative</dt><dd>false</dd>
+                    </dl></dd>
                 </dl>
               </dd>
 
@@ -503,7 +513,8 @@
                   
                   <dt>Options</dt>
                     <dd><dl class="options">
-                    <dt>extendedYAML</dt><dd>false</dd>
+                    <dt>extendedYAML</dt><dd>true</dd>
+<dt>normative</dt><dd>false</dd>
                     </dl></dd>
                 </dl>
               </dd>
@@ -640,6 +651,506 @@
                     <dd><dl class="options">
                     <dt>extractAllScripts</dt><dd>false</dd>
                     </dl></dd>
+                </dl>
+              </dd>
+
+              <dt id="core-bool-true">
+                Test core-bool-true Lowercase true is a boolean
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-bool-true</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Lowercase true is a boolean</dd></dt>
+                  <dt>Purpose</dt><dd>YAML Core Schema resolves true as boolean.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/bool-true-in.yamlld">cases/yaml-schema/bool-true-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/yaml-schema/bool-true-out.yamlld">cases/yaml-schema/bool-true-out.yamlld</a></dd>
+                  
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-bool-false">
+                Test core-bool-false Lowercase false is a boolean
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-bool-false</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Lowercase false is a boolean</dd></dt>
+                  <dt>Purpose</dt><dd>YAML Core Schema resolves false as boolean.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/bool-false-in.yamlld">cases/yaml-schema/bool-false-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/yaml-schema/bool-false-out.yamlld">cases/yaml-schema/bool-false-out.yamlld</a></dd>
+                  
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-bool-true-title">
+                Test core-bool-true-title Title-case True is a boolean
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-bool-true-title</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Title-case True is a boolean</dd></dt>
+                  <dt>Purpose</dt><dd>YAML Core Schema resolves True as boolean true.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/bool-true-title-in.yamlld">cases/yaml-schema/bool-true-title-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/yaml-schema/bool-true-out.yamlld">cases/yaml-schema/bool-true-out.yamlld</a></dd>
+                  
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-bool-false-upper">
+                Test core-bool-false-upper Uppercase FALSE is a boolean
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-bool-false-upper</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Uppercase FALSE is a boolean</dd></dt>
+                  <dt>Purpose</dt><dd>YAML Core Schema resolves FALSE as boolean false.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/bool-false-upper-in.yamlld">cases/yaml-schema/bool-false-upper-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/yaml-schema/bool-false-out.yamlld">cases/yaml-schema/bool-false-out.yamlld</a></dd>
+                  
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-null-null">
+                Test core-null-null null is null
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-null-null</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>null is null</dd></dt>
+                  <dt>Purpose</dt><dd>YAML Core Schema resolves null as null.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/null-null-in.yamlld">cases/yaml-schema/null-null-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/yaml-schema/null-null-out.yamlld">cases/yaml-schema/null-null-out.yamlld</a></dd>
+                  
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-null-tilde">
+                Test core-null-tilde Tilde ~ is null
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-null-tilde</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Tilde ~ is null</dd></dt>
+                  <dt>Purpose</dt><dd>YAML Core Schema resolves ~ as null.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/null-tilde-in.yamlld">cases/yaml-schema/null-tilde-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/yaml-schema/null-null-out.yamlld">cases/yaml-schema/null-null-out.yamlld</a></dd>
+                  
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-null-upper">
+                Test core-null-upper Uppercase NULL is null
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-null-upper</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Uppercase NULL is null</dd></dt>
+                  <dt>Purpose</dt><dd>YAML Core Schema resolves NULL as null.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/null-upper-in.yamlld">cases/yaml-schema/null-upper-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/yaml-schema/null-null-out.yamlld">cases/yaml-schema/null-null-out.yamlld</a></dd>
+                  
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-int-decimal">
+                Test core-int-decimal Decimal integer
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-int-decimal</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Decimal integer</dd></dt>
+                  <dt>Purpose</dt><dd>YAML Core Schema resolves decimal integers.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/int-decimal-in.yamlld">cases/yaml-schema/int-decimal-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/yaml-schema/int-decimal-out.yamlld">cases/yaml-schema/int-decimal-out.yamlld</a></dd>
+                  
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-int-octal">
+                Test core-int-octal Octal integer
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-int-octal</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Octal integer</dd></dt>
+                  <dt>Purpose</dt><dd>YAML Core Schema resolves 0o77 as integer 63.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/int-octal-in.yamlld">cases/yaml-schema/int-octal-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/yaml-schema/int-octal-out.yamlld">cases/yaml-schema/int-octal-out.yamlld</a></dd>
+                  
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-int-hex">
+                Test core-int-hex Hex integer
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-int-hex</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Hex integer</dd></dt>
+                  <dt>Purpose</dt><dd>YAML Core Schema resolves 0x3A as integer 58.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/int-hex-in.yamlld">cases/yaml-schema/int-hex-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/yaml-schema/int-hex-out.yamlld">cases/yaml-schema/int-hex-out.yamlld</a></dd>
+                  
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-float-basic">
+                Test core-float-basic Basic float
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-float-basic</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Basic float</dd></dt>
+                  <dt>Purpose</dt><dd>YAML Core Schema resolves decimal floats.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/float-basic-in.yamlld">cases/yaml-schema/float-basic-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/yaml-schema/float-basic-out.yamlld">cases/yaml-schema/float-basic-out.yamlld</a></dd>
+                  
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-float-scientific">
+                Test core-float-scientific Scientific notation float
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-float-scientific</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Scientific notation float</dd></dt>
+                  <dt>Purpose</dt><dd>YAML Core Schema resolves scientific notation floats.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/float-scientific-in.yamlld">cases/yaml-schema/float-scientific-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/yaml-schema/float-scientific-out.yamlld">cases/yaml-schema/float-scientific-out.yamlld</a></dd>
+                  
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-date-ymd">
+                Test core-date-ymd Date-like scalar YYYY-MM-DD is a string
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-date-ymd</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Date-like scalar YYYY-MM-DD is a string</dd></dt>
+                  <dt>Purpose</dt><dd>YAML 1.2 Core Schema has no timestamp type; 2018-04-01 resolves to a plain string. YAML 1.1-era libraries may incorrectly parse this as a native date object.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/date-ymd-in.yamlld">cases/yaml-schema/date-ymd-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/yaml-schema/date-ymd-out.yamlld">cases/yaml-schema/date-ymd-out.yamlld</a></dd>
+                  
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-float-inf-negative">
+                Test core-float-inf-negative Infinity scalar causes error
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-float-inf-negative</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Infinity scalar causes error</dd></dt>
+                  <dt>Purpose</dt><dd>Float infinity (.inf) cannot be represented in JSON and MUST cause loading document failed.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/float-inf-in.yamlld">cases/yaml-schema/float-inf-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-float-neg-inf-negative">
+                Test core-float-neg-inf-negative Negative infinity scalar causes error
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-float-neg-inf-negative</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Negative infinity scalar causes error</dd></dt>
+                  <dt>Purpose</dt><dd>Float negative infinity (-.inf) cannot be represented in JSON and MUST cause loading document failed.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/float-neg-inf-in.yamlld">cases/yaml-schema/float-neg-inf-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-float-plus-inf-negative">
+                Test core-float-plus-inf-negative Plus infinity scalar causes error
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-float-plus-inf-negative</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Plus infinity scalar causes error</dd></dt>
+                  <dt>Purpose</dt><dd>Float plus infinity (+.inf) cannot be represented in JSON and MUST cause loading document failed.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/float-plus-inf-in.yamlld">cases/yaml-schema/float-plus-inf-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-float-nan-negative">
+                Test core-float-nan-negative NaN scalar causes error
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-float-nan-negative</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>NaN scalar causes error</dd></dt>
+                  <dt>Purpose</dt><dd>Float NaN (.nan) cannot be represented in JSON and MUST cause loading document failed.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/float-nan-in.yamlld">cases/yaml-schema/float-nan-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-float-nan-mixed-negative">
+                Test core-float-nan-mixed-negative NaN scalar (.NaN) causes error
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-float-nan-mixed-negative</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>NaN scalar (.NaN) causes error</dd></dt>
+                  <dt>Purpose</dt><dd>Float NaN (.NaN) cannot be represented in JSON and MUST cause loading document failed.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/float-nan-mixed-in.yamlld">cases/yaml-schema/float-nan-mixed-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-float-nan-upper-negative">
+                Test core-float-nan-upper-negative NaN scalar (.NAN) causes error
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-float-nan-upper-negative</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>NaN scalar (.NAN) causes error</dd></dt>
+                  <dt>Purpose</dt><dd>Float NaN (.NAN) cannot be represented in JSON and MUST cause loading document failed.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/float-nan-upper-in.yamlld">cases/yaml-schema/float-nan-upper-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-yaml11-yes">
+                Test core-yaml11-yes YAML 1.1 'yes' is a string
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-yaml11-yes</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>YAML 1.1 'yes' is a string</dd></dt>
+                  <dt>Purpose</dt><dd>YAML 1.2 Core Schema does not recognize yes as boolean; it is a plain string.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/yaml11-yes-in.yamlld">cases/yaml-schema/yaml11-yes-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/yaml-schema/yaml11-yes-out.yamlld">cases/yaml-schema/yaml11-yes-out.yamlld</a></dd>
+                  
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-yaml11-no">
+                Test core-yaml11-no YAML 1.1 'no' is a string
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-yaml11-no</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>YAML 1.1 'no' is a string</dd></dt>
+                  <dt>Purpose</dt><dd>YAML 1.2 Core Schema does not recognize no as boolean; it is a plain string.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/yaml11-no-in.yamlld">cases/yaml-schema/yaml11-no-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/yaml-schema/yaml11-no-out.yamlld">cases/yaml-schema/yaml11-no-out.yamlld</a></dd>
+                  
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-yaml11-on">
+                Test core-yaml11-on YAML 1.1 'on' is a string
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-yaml11-on</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>YAML 1.1 'on' is a string</dd></dt>
+                  <dt>Purpose</dt><dd>YAML 1.2 Core Schema does not recognize on as boolean; it is a plain string.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/yaml11-on-in.yamlld">cases/yaml-schema/yaml11-on-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/yaml-schema/yaml11-on-out.yamlld">cases/yaml-schema/yaml11-on-out.yamlld</a></dd>
+                  
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-yaml11-off">
+                Test core-yaml11-off YAML 1.1 'off' is a string
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-yaml11-off</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>YAML 1.1 'off' is a string</dd></dt>
+                  <dt>Purpose</dt><dd>YAML 1.2 Core Schema does not recognize off as boolean; it is a plain string.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/yaml11-off-in.yamlld">cases/yaml-schema/yaml11-off-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/yaml-schema/yaml11-off-out.yamlld">cases/yaml-schema/yaml11-off-out.yamlld</a></dd>
+                  
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-yaml11-yes-title">
+                Test core-yaml11-yes-title YAML 1.1 'Yes' is a string
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-yaml11-yes-title</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>YAML 1.1 'Yes' is a string</dd></dt>
+                  <dt>Purpose</dt><dd>YAML 1.2 Core Schema does not recognize Yes as boolean; it is a plain string.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/yaml11-yes-title-in.yamlld">cases/yaml-schema/yaml11-yes-title-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/yaml-schema/yaml11-yes-title-out.yamlld">cases/yaml-schema/yaml11-yes-title-out.yamlld</a></dd>
+                  
+                  
+                </dl>
+              </dd>
+
+              <dt id="core-yaml11-yes-upper">
+                Test core-yaml11-yes-upper YAML 1.1 'YES' is a string
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#core-yaml11-yes-upper</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>YAML 1.1 'YES' is a string</dd></dt>
+                  <dt>Purpose</dt><dd>YAML 1.2 Core Schema does not recognize YES as boolean; it is a plain string.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/yaml-schema/yaml11-yes-upper-in.yamlld">cases/yaml-schema/yaml11-yes-upper-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/yaml-schema/yaml11-yes-upper-out.yamlld">cases/yaml-schema/yaml11-yes-upper-out.yamlld</a></dd>
+                  
+                  
                 </dl>
               </dd>
       </dl>
