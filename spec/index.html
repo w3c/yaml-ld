@@ -263,6 +263,36 @@
 <body>
   <section id='abstract'>
     <p>
+      [[JSON-LD11]] is a JSON-based format to serialize Linked Data.
+      In recent years, [[YAML]] has emerged as a more concise format
+      to represent information that had previously been serialized as [[JSON]],
+      including API specifications, data schemas, and Linked Data.
+    </p>
+
+    <p>
+      This document defines YAML-LD as a set of conventions
+      on top of YAML which specify how to serialize Linked Data [[LINKED-DATA]] as [[YAML]]
+      based on JSON-LD syntax, semantics, and APIs.
+    </p>
+
+    <p>
+      Since YAML is more expressive than JSON,
+      both in the available data types and in the document structure
+      (see [[RFC9512]]),
+      this document identifies constraints on YAML
+      such that any <a>YAML-LD document</a> can be represented in JSON-LD.
+    </p>
+  </section>
+
+  <section id='sotd'>
+    <p>This specification was initially developed by the
+      <a href="https://www.w3.org/community/json-ld/">JSON-LD Community Group</a>.</p>
+  </section>
+
+  <section>
+    <h2>Introduction</h2>
+
+    <p>
       <strong>Objective</strong><br>
       This document defines YAML-LD, a set of conventions built on top
       of YAML, which outlines how to serialize Linked Data as YAML
@@ -330,36 +360,6 @@ schema:hasPart:
   - rdfs:label: Introduction
         -->
       </pre>
-
-  </section>
-
-  <section id='sotd'>
-    <p>This specification was initially developed by the
-      <a href="https://www.w3.org/community/json-ld/">JSON-LD Community Group</a>.</p>
-  </section>
-
-  <section>
-    <h2>Introduction</h2>
-    <p>
-      [[JSON-LD11]] is a JSON-based format to serialize Linked Data.
-      In recent years, [[YAML]] has emerged as a more concise format
-      to represent information that had previously been serialized as [[JSON]],
-      including API specifications, data schemas, and Linked Data.
-    </p>
-
-    <p>
-      This document defines YAML-LD as a set of conventions
-      on top of YAML which specify how to serialize Linked Data [[LINKED-DATA]] as [[YAML]]
-      based on JSON-LD syntax, semantics, and APIs.
-    </p>
-
-    <p>
-      Since YAML is more expressive than JSON,
-      both in the available data types and in the document structure
-      (see [[RFC9512]]),
-      this document identifies constraints on YAML
-      such that any <a>YAML-LD document</a> can be represented in JSON-LD.
-    </p>
 
     <div class="ednote">
       See YAML-LD description of this spec at
