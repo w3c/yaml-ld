@@ -71,7 +71,7 @@ dfn{cursor:pointer}
 .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
 </style>
 
-<title>YAML-LD</title>
+<title>YAML-LD 1.0</title>
 
 <link rel="alternate" href="data/spec.yamlld" type="application/ld+yaml">
 
@@ -302,14 +302,11 @@ dd{margin-left:0}
 }
 </style>
 <meta name="color-scheme" content="light">
-<meta name="description" content="Objective
-      This document defines YAML-LD, a set of conventions built on top
-      of YAML, which outlines how to serialize Linked Data as YAML
-      based on JSON-LD syntax, semantics, and APIs. The emergence of
-      YAML as a more concise format for representing information
-      previously serialized as JSON, including Linked Data, has led to
-      the development of YAML-LD.">
-<link rel="canonical" href="https://www.w3.org/TR/yaml-ld/">
+<meta name="description" content="[JSON-LD11] is a JSON-based format to serialize Linked Data.
+      In recent years, [YAML] has emerged as a more concise format
+      to represent information that had previously been serialized as [JSON],
+      including API specifications, data schemas, and Linked Data.">
+<link rel="canonical" href="https://www.w3.org/TR/yaml-ld-10/">
 <script type="application/ld+json">{
   "@context": [
     "http://schema.org",
@@ -332,11 +329,11 @@ dd{margin-left:0}
       }
     }
   ],
-  "id": "https://www.w3.org/TR/yaml-ld/",
+  "id": "https://www.w3.org/TR/yaml-ld-10/",
   "type": [
     "TechArticle"
   ],
-  "name": "YAML-LD",
+  "name": "YAML-LD 1.0",
   "inLanguage": "en",
   "license": "https://www.w3.org/copyright/software-license-2023/",
   "datePublished": "2026-03-05",
@@ -347,7 +344,7 @@ dd{margin-left:0}
   "discussionUrl": "https://github.com/json-ld/yaml-ld/issues/",
   "alternativeHeadline": "",
   "isBasedOn": "",
-  "description": "Objective\n      This document defines YAML-LD, a set of conventions built on top\n      of YAML, which outlines how to serialize Linked Data as YAML\n      based on JSON-LD syntax, semantics, and APIs. The emergence of\n      YAML as a more concise format for representing information\n      previously serialized as JSON, including Linked Data, has led to\n      the development of YAML-LD.",
+  "description": "[JSON-LD11] is a JSON-based format to serialize Linked Data.\n      In recent years, [YAML] has emerged as a more concise format\n      to represent information that had previously been serialized as [JSON],\n      including API specifications, data schemas, and Linked Data.",
   "editor": [
     {
       "type": "Person",
@@ -414,71 +411,6 @@ dd{margin-left:0}
       }
     },
     {
-      "id": "http://yaml.org/spec/1.2/spec.html",
-      "type": "TechArticle",
-      "name": "YAML Ain’t Markup Language (YAML™) Version 1.2",
-      "url": "http://yaml.org/spec/1.2/spec.html",
-      "creator": [
-        {
-          "name": "Oren Ben-Kiki"
-        },
-        {
-          "name": "Clark Evans"
-        },
-        {
-          "name": "Ingy döt Net"
-        }
-      ]
-    },
-    {
-      "id": "https://www.rfc-editor.org/rfc/rfc8259",
-      "type": "TechArticle",
-      "name": "The JavaScript Object Notation (JSON) Data Interchange Format",
-      "url": "https://www.rfc-editor.org/rfc/rfc8259",
-      "creator": [
-        {
-          "name": "T. Bray, Ed."
-        }
-      ],
-      "publisher": {
-        "name": "IETF"
-      }
-    },
-    {
-      "id": "https://www.w3.org/DesignIssues/LinkedData.html",
-      "type": "TechArticle",
-      "name": "Linked Data Design Issues",
-      "url": "https://www.w3.org/DesignIssues/LinkedData.html",
-      "creator": [
-        {
-          "name": "Tim Berners-Lee"
-        }
-      ],
-      "publisher": {
-        "name": "W3C"
-      }
-    },
-    {
-      "id": "https://www.rfc-editor.org/rfc/rfc9512",
-      "type": "TechArticle",
-      "name": "YAML Media Type",
-      "url": "https://www.rfc-editor.org/rfc/rfc9512",
-      "creator": [
-        {
-          "name": "R. Polli"
-        },
-        {
-          "name": "E. Wilde"
-        },
-        {
-          "name": "E. Aro"
-        }
-      ],
-      "publisher": {
-        "name": "IETF"
-      }
-    },
-    {
       "id": "https://www.w3.org/TR/json-ld11-api/",
       "type": "TechArticle",
       "name": "JSON-LD 1.1 Processing Algorithms and API",
@@ -516,6 +448,20 @@ dd{margin-left:0}
       ],
       "publisher": {
         "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc8259",
+      "type": "TechArticle",
+      "name": "The JavaScript Object Notation (JSON) Data Interchange Format",
+      "url": "https://www.rfc-editor.org/rfc/rfc8259",
+      "creator": [
+        {
+          "name": "T. Bray, Ed."
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
       }
     },
     {
@@ -664,6 +610,23 @@ dd{margin-left:0}
       }
     },
     {
+      "id": "http://yaml.org/spec/1.2/spec.html",
+      "type": "TechArticle",
+      "name": "YAML Ain’t Markup Language (YAML™) Version 1.2",
+      "url": "http://yaml.org/spec/1.2/spec.html",
+      "creator": [
+        {
+          "name": "Oren Ben-Kiki"
+        },
+        {
+          "name": "Clark Evans"
+        },
+        {
+          "name": "Ingy döt Net"
+        }
+      ]
+    },
+    {
       "id": "https://www.rfc-editor.org/rfc/rfc3986",
       "type": "TechArticle",
       "name": "Uniform Resource Identifier (URI): Generic Syntax",
@@ -677,6 +640,40 @@ dd{margin-left:0}
         },
         {
           "name": "L. Masinter"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.w3.org/DesignIssues/LinkedData.html",
+      "type": "TechArticle",
+      "name": "Linked Data Design Issues",
+      "url": "https://www.w3.org/DesignIssues/LinkedData.html",
+      "creator": [
+        {
+          "name": "Tim Berners-Lee"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc9512",
+      "type": "TechArticle",
+      "name": "YAML Media Type",
+      "url": "https://www.rfc-editor.org/rfc/rfc9512",
+      "creator": [
+        {
+          "name": "R. Polli"
+        },
+        {
+          "name": "E. Wilde"
+        },
+        {
+          "name": "E. Aro"
         }
       ],
       "publisher": {
@@ -965,7 +962,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 <script id="initialUserConfig" type="application/json">{
   "specStatus": "FPWD",
   "copyrightStart": "2020",
-  "shortName": "yaml-ld",
+  "shortName": "yaml-ld-10",
   "edDraftURI": "https://w3c.github.io/yaml-ld/",
   "github": {
     "repoURL": "https://github.com/json-ld/yaml-ld/",
@@ -1035,7 +1032,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     "json-ld11",
     "json-ld11-api"
   ],
-  "testSuiteURI": "https://json-ld.github.io/yaml-ld/tests/",
+  "testSuiteURI": "https://w3c.github.io/yaml-ld/tests/",
   "postProcess": [
     null
   ],
@@ -1050,24 +1047,24 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 <body class="h-entry" data-cite="WEBIDL json-ld11 json-ld11-api"><div class="head">
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
-    <h1 id="title" class="title">YAML-LD</h1> 
+    <h1 id="title" class="title">YAML-LD 1.0</h1> 
     <p id="w3c-state"><a href="https://www.w3.org/standards/types#FPWD">W3C First Public Working Draft</a> <time class="dt-published" datetime="2026-03-05">05 March 2026</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
         <dt>This version:</dt><dd>
-                <a class="u-url" href="https://www.w3.org/TR/2026/WD-yaml-ld-20260305/">https://www.w3.org/TR/2026/WD-yaml-ld-20260305/</a>
+                <a class="u-url" href="https://www.w3.org/TR/2026/WD-yaml-ld-10-20260305/">https://www.w3.org/TR/2026/WD-yaml-ld-10-20260305/</a>
               </dd>
         <dt>Latest published version:</dt><dd>
-                <a href="https://www.w3.org/TR/yaml-ld/">https://www.w3.org/TR/yaml-ld/</a>
+                <a href="https://www.w3.org/TR/yaml-ld-10/">https://www.w3.org/TR/yaml-ld-10/</a>
               </dd>
         <dt>Latest editor's draft:</dt><dd><a href="https://w3c.github.io/yaml-ld/">https://w3c.github.io/yaml-ld/</a></dd>
         <dt>History:</dt><dd>
-                    <a href="https://www.w3.org/standards/history/yaml-ld/">https://www.w3.org/standards/history/yaml-ld/</a>
+                    <a href="https://www.w3.org/standards/history/yaml-ld-10/">https://www.w3.org/standards/history/yaml-ld-10/</a>
                   </dd><dd>
                     <a href="https://github.com/json-ld/yaml-ld/commits/main">Commit history</a>
                   </dd>
-        <dt>Test suite:</dt><dd><a href="https://json-ld.github.io/yaml-ld/tests/">https://json-ld.github.io/yaml-ld/tests/</a></dd>
+        <dt>Test suite:</dt><dd><a href="https://w3c.github.io/yaml-ld/tests/">https://w3c.github.io/yaml-ld/tests/</a></dd>
         
         
         
@@ -1090,7 +1087,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         (<a href="https://github.com/json-ld/yaml-ld/pulls/">pull requests</a>,
         <a href="https://github.com/json-ld/yaml-ld/issues/new/choose">new issue</a>,
         <a href="https://github.com/json-ld/yaml-ld/issues/">open issues</a>)
-      </dd><dd><a href="mailto:public-linked-json@w3.org?subject=%5Byaml-ld%5D%20YOUR%20TOPIC%20HERE">public-linked-json@w3.org</a> with subject line <kbd>[yaml-ld] <em>… message topic …</em></kbd> (<a rel="discussion" href="https://lists.w3.org/Archives/Public/public-linked-json">archives</a>)</dd>
+      </dd><dd><a href="mailto:public-linked-json@w3.org?subject=%5Byaml-ld-10%5D%20YOUR%20TOPIC%20HERE">public-linked-json@w3.org</a> with subject line <kbd>[yaml-ld-10] <em>… message topic …</em></kbd> (<a rel="discussion" href="https://lists.w3.org/Archives/Public/public-linked-json">archives</a>)</dd>
         
         
       </dl>
@@ -1111,6 +1108,71 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <hr title="Separator for header">
   </div>
   <section id="abstract" class="introductory"><h2>Abstract</h2>
+    <p>
+      [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld11" title="JSON-LD 1.1">JSON-LD11</a></cite>] is a JSON-based format to serialize Linked Data.
+      In recent years, [<cite><a class="bibref" data-link-type="biblio" href="#bib-yaml" title="YAML Ain’t Markup Language (YAML™) Version 1.2">YAML</a></cite>] has emerged as a more concise format
+      to represent information that had previously been serialized as [<cite><a class="bibref" data-link-type="biblio" href="#bib-json" title="The JavaScript Object Notation (JSON) Data Interchange Format">JSON</a></cite>],
+      including API specifications, data schemas, and Linked Data.
+    </p>
+
+    <p>
+      This document defines YAML-LD as a set of conventions
+      on top of YAML which specify how to serialize Linked Data [<cite><a class="bibref" data-link-type="biblio" href="#bib-linked-data" title="Linked Data Design Issues">LINKED-DATA</a></cite>] as [<cite><a class="bibref" data-link-type="biblio" href="#bib-yaml" title="YAML Ain’t Markup Language (YAML™) Version 1.2">YAML</a></cite>]
+      based on JSON-LD syntax, semantics, and APIs.
+    </p>
+
+    <p>
+      Since YAML is more expressive than JSON,
+      both in the available data types and in the document structure
+      (see [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc9512" title="YAML Media Type">RFC9512</a></cite>]),
+      this document identifies constraints on YAML
+      such that any <a href="#dfn-yaml-ld-document" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-yaml-ld-document-1">YAML-LD document</a> can be represented in JSON-LD.
+    </p>
+  </section>
+
+  <section id="sotd" class="introductory"><h2>Status of This Document</h2><p><em>This section describes the status of this
+      document at the time of its publication. A list of current <abbr title="World Wide Web Consortium">W3C</abbr>
+      publications and the latest revision of this technical report can be found
+      in the
+      <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> standards and drafts index</a>.</em></p>
+    <p>This specification was initially developed by the
+      <a href="https://www.w3.org/community/json-ld/">JSON-LD Community Group</a>.</p>
+  <p>
+    This document was published by the <a href="https://www.w3.org/groups/wg/json-ld">JSON-LD Working Group</a> as
+    a First Public Working Draft using the
+        <a href="https://www.w3.org/policies/process/20250818/#recs-and-notes">Recommendation track</a>. 
+  </p><p>Publication as a First Public Working Draft does not
+  imply endorsement by <abbr title="World Wide Web Consortium">W3C</abbr> and its Members. </p><p>
+    This is a draft document and may be updated, replaced, or obsoleted by other
+    documents at any time. It is inappropriate to cite this document as other
+    than a work in progress.
+    
+  </p><p>
+    
+        This document was produced by a group
+        operating under the
+        <a href="https://www.w3.org/policies/patent-policy/"><abbr title="World Wide Web Consortium">W3C</abbr> Patent
+          Policy</a>.
+      
+    
+                <abbr title="World Wide Web Consortium">W3C</abbr> maintains a
+                <a rel="disclosure" href="https://www.w3.org/groups/wg/json-ld/ipr">public list of any patent disclosures</a>
+          made in connection with the deliverables of
+          the group; that page also includes
+          instructions for disclosing a patent. An individual who has actual
+          knowledge of a patent that the individual believes contains
+          <a href="https://www.w3.org/policies/patent-policy/#def-essential">Essential Claim(s)</a>
+          must disclose the information in accordance with
+          <a href="https://www.w3.org/policies/patent-policy/#sec-Disclosure">section 6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
+        
+  </p><p>
+                      This document is governed by the
+                      <a id="w3c_process_revision" href="https://www.w3.org/policies/process/20250818/">18 August 2025 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
+                    </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#how-to-read-this-document"><bdi class="secno">1.1 </bdi>How to read this document</a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">1.2 </bdi>Terminology</a></li><li class="tocline"><a class="tocxref" href="#namespace-prefixes"><bdi class="secno">1.3 </bdi>Namespace Prefixes</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">2. </bdi>Conformance</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#v11"><bdi class="secno">2.1 </bdi>JSON-LD Version</a></li><li class="tocline"><a class="tocxref" href="#testing"><bdi class="secno">2.2 </bdi>Test Suites</a></li></ol></li><li class="tocline"><a class="tocxref" href="#basic-concepts"><bdi class="secno">3. </bdi>Basic Concepts</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#json-vs-yaml"><bdi class="secno">3.1 </bdi>JSON vs YAML comparison</a></li></ol></li><li class="tocline"><a class="tocxref" href="#core-requirements"><bdi class="secno">4. </bdi>Core Requirements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#supported-yaml-features"><bdi class="secno">4.1 </bdi>YAML features supported by YAML-LD</a></li><li class="tocline"><a class="tocxref" href="#encoding"><bdi class="secno">4.2 </bdi>Encoding</a></li><li class="tocline"><a class="tocxref" href="#comments"><bdi class="secno">4.3 </bdi>Comments</a></li><li class="tocline"><a class="tocxref" href="#anchors-aliases"><bdi class="secno">4.4 </bdi>Anchors and Aliases</a></li><li class="tocline"><a class="tocxref" href="#mapping-key-types"><bdi class="secno">4.5 </bdi>Mapping Key Types</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sec"><bdi class="secno">5. </bdi>Security Considerations</a></li><li class="tocline"><a class="tocxref" href="#privacy"><bdi class="secno">6. </bdi>Privacy Considerations</a></li><li class="tocline"><a class="tocxref" href="#int"><bdi class="secno">7. </bdi>Interoperability Considerations</a></li><li class="tocline"><a class="tocxref" href="#html"><bdi class="secno">8. </bdi>Embedding YAML-LD in HTML Documents</a></li><li class="tocline"><a class="tocxref" href="#streams"><bdi class="secno">9. </bdi>Streams</a></li><li class="tocline"><a class="tocxref" href="#iana"><bdi class="secno">A. </bdi>IANA Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#application-ld-yaml"><bdi class="secno">A.1 </bdi>application/ld+yaml</a></li></ol></li><li class="tocline"><a class="tocxref" href="#best-practices"><bdi class="secno">B. </bdi>Best Practices</a></li><li class="tocline"><a class="tocxref" href="#comments-as-whitespace"><bdi class="secno">C. </bdi>Why are comments treated as whitespace?</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#consistency"><bdi class="secno">C.1 </bdi>Consistency</a></li><li class="tocline"><a class="tocxref" href="#predictability"><bdi class="secno">C.2 </bdi>Predictability</a></li></ol></li><li class="tocline"><a class="tocxref" href="#extended-profile"><bdi class="secno">D. </bdi>Extended YAML-LD Profile</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#motivation"><bdi class="secno">D.1 </bdi>Motivation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#specify-node-type"><bdi class="secno">D.1.1 </bdi>Specify node <code>@type</code></a></li><li class="tocline"><a class="tocxref" href="#reduce-duplication"><bdi class="secno">D.1.2 </bdi>Reduce duplication</a></li></ol></li><li class="tocline"><a class="tocxref" href="#approaches"><bdi class="secno">D.2 </bdi>Approaches</a></li><li class="tocline"><a class="tocxref" href="#extended-internal-representation-0"><bdi class="secno">D.3 </bdi>Extended Internal Representation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#conversion-to-ir"><bdi class="secno">D.3.1 </bdi>Conversion to the Internal Representation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#convert-stream"><bdi class="secno">D.3.1.1 </bdi>Converting a <span data-cite="YAML#streams" data-link-type="dfn" class="formerLink">YAML stream</span></a></li><li class="tocline"><a class="tocxref" href="#convert-document"><bdi class="secno">D.3.1.2 </bdi>Converting a <span data-cite="YAML#documents" data-link-type="dfn" class="formerLink">YAML document</span></a></li><li class="tocline"><a class="tocxref" href="#convert-seq"><bdi class="secno">D.3.1.3 </bdi>Converting a <span data-cite="YAML#sequence" data-link-type="dfn" class="formerLink">YAML sequence</span></a></li><li class="tocline"><a class="tocxref" href="#convert-mapping"><bdi class="secno">D.3.1.4 </bdi>Converting a <span data-cite="YAML#mapping" data-link-type="dfn" class="formerLink">YAML mapping</span></a></li><li class="tocline"><a class="tocxref" href="#convert-scalar"><bdi class="secno">D.3.1.5 </bdi>Converting a <span data-cite="YAML#scalar" data-link-type="dfn" class="formerLink">YAML scalar</span></a></li><li class="tocline"><a class="tocxref" href="#convert-alias"><bdi class="secno">D.3.1.6 </bdi>Converting a YAML <span data-cite="YAML#alias-nodes" data-link-type="dfn" class="formerLink">alias node</span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#conversion-to-yaml"><bdi class="secno">D.3.2 </bdi>Conversion to YAML</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#convert-ir"><bdi class="secno">D.3.2.1 </bdi>Converting From the Internal Representation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#profiles"><bdi class="secno">D.3.3 </bdi>Application Profiles</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#yaml-ld-json-profile"><bdi class="secno">D.3.3.1 </bdi>YAML-LD Basic Profile</a></li><li class="tocline"><a class="tocxref" href="#yaml-ld-extended-profile"><bdi class="secno">D.3.3.2 </bdi>YAML-LD Extended Profile</a><ol class="toc"></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#api"><bdi class="secno">D.3.4 </bdi>The Application Programming Interface</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#jsonldprocessor"><bdi class="secno">D.3.4.1 </bdi>JsonLdProcessor</a></li><li class="tocline"><a class="tocxref" href="#jsonldoptions"><bdi class="secno">D.3.4.2 </bdi>JsonLdOptions</a></li><li class="tocline"><a class="tocxref" href="#remote-document-and-context-retrieval"><bdi class="secno">D.3.4.3 </bdi>Remote Document and Context Retrieval</a></li><li class="tocline"><a class="tocxref" href="#yamllderrorcode"><bdi class="secno">D.3.4.4 </bdi>YamlLdErrorCode</a></li></ol></li><li class="tocline"><a class="tocxref" href="#implementations"><bdi class="secno">D.3.5 </bdi>Implementations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#convert-extended-yaml-ld-to-basic-yaml-ld-and-back"><bdi class="secno">D.4 </bdi>Convert Extended YAML-LD to Basic YAML-LD and back</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#tags-to-types"><bdi class="secno">D.4.1 </bdi>YAML <code>!tags</code> → <code>@type</code> declarations</a></li><li class="tocline"><a class="tocxref" href="#resolve-anchors-aliases"><bdi class="secno">D.4.2 </bdi><code>&amp;anchors</code> and <code>*aliases</code></a></li></ol></li><li class="tocline"><a class="tocxref" href="#frag"><bdi class="secno">D.5 </bdi>Fragment identifiers</a></li></ol></li><li class="tocline"><a class="tocxref" href="#ack"><bdi class="secno">E. </bdi>Acknowledgements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#in-memoriam"><bdi class="secno">E.1 </bdi>In Memoriam</a></li><li class="tocline"><a class="tocxref" href="#contributions"><bdi class="secno">E.2 </bdi>Contributions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">F. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">F.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">F.2 </bdi>Informative references</a></li></ol></li></ol></nav>
+
+  <section id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div>
+    
+
     <p>
       <strong>Objective</strong><br>
       This document defines YAML-LD, a set of conventions built on top
@@ -1162,13 +1224,13 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <a class="self-link" href="#example-basic-yaml-ld-document">Example<bdi> 1</bdi></a><span class="example-title">: Basic YAML-LD document</span>
   </div> <pre data-content-type="application/ld+yaml" aria-busy="false"><code class="hljs yaml"><span class="hljs-attr">"@context":</span>
   <span class="hljs-bullet">-</span> <span class="hljs-string">https://json-ld.org/contexts/dollar-convenience.jsonld</span>
-  <span class="hljs-bullet">-</span> <span class="hljs-attr">"@base":</span> <span class="hljs-string">https://json-ld.github.io/yaml-ld/spec/</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">"@base":</span> <span class="hljs-string">https://w3c.github.io/yaml-ld/spec/</span>
     <span class="hljs-attr">rdfs:</span> <span class="hljs-string">http://www.w3.org/2000/01/rdf-schema#</span>
     <span class="hljs-attr">schema:</span> <span class="hljs-string">https://schema.org/</span>
     <span class="hljs-attr">license:</span>
       <span class="hljs-attr">"@type":</span> <span class="hljs-string">"@id"</span>
 
-<span class="hljs-string">$id:</span> <span class="hljs-string">https://json-ld.github.io/yaml-ld/spec/</span>
+<span class="hljs-string">$id:</span> <span class="hljs-string">https://w3c.github.io/yaml-ld/spec/</span>
 <span class="hljs-attr">rdfs:label:</span> <span class="hljs-string">YAML-LD</span>
 <span class="hljs-attr">license:</span> <span class="hljs-string">https://spdx.org/licenses/W3C.html</span>
 <span class="hljs-attr">schema:hasPart:</span>
@@ -1176,71 +1238,6 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   <span class="hljs-bullet">-</span> <span class="hljs-attr">rdfs:label:</span> <span class="hljs-string">Status</span> <span class="hljs-string">of</span> <span class="hljs-string">This</span> <span class="hljs-string">Document</span>
   <span class="hljs-bullet">-</span> <span class="hljs-attr">rdfs:label:</span> <span class="hljs-string">Introduction</span></code></pre>
       </div>
-
-  </section>
-
-  <section id="sotd" class="introductory"><h2>Status of This Document</h2><p><em>This section describes the status of this
-      document at the time of its publication. A list of current <abbr title="World Wide Web Consortium">W3C</abbr>
-      publications and the latest revision of this technical report can be found
-      in the
-      <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> standards and drafts index</a>.</em></p>
-    <p>This specification was initially developed by the
-      <a href="https://www.w3.org/community/json-ld/">JSON-LD Community Group</a>.</p>
-  <p>
-    This document was published by the <a href="https://www.w3.org/groups/wg/json-ld">JSON-LD Working Group</a> as
-    a First Public Working Draft using the
-        <a href="https://www.w3.org/policies/process/20250818/#recs-and-notes">Recommendation track</a>. 
-  </p><p>Publication as a First Public Working Draft does not
-  imply endorsement by <abbr title="World Wide Web Consortium">W3C</abbr> and its Members. </p><p>
-    This is a draft document and may be updated, replaced, or obsoleted by other
-    documents at any time. It is inappropriate to cite this document as other
-    than a work in progress.
-    
-  </p><p>
-    
-        This document was produced by a group
-        operating under the
-        <a href="https://www.w3.org/policies/patent-policy/"><abbr title="World Wide Web Consortium">W3C</abbr> Patent
-          Policy</a>.
-      
-    
-                <abbr title="World Wide Web Consortium">W3C</abbr> maintains a
-                <a rel="disclosure" href="https://www.w3.org/groups/wg/json-ld/ipr">public list of any patent disclosures</a>
-          made in connection with the deliverables of
-          the group; that page also includes
-          instructions for disclosing a patent. An individual who has actual
-          knowledge of a patent that the individual believes contains
-          <a href="https://www.w3.org/policies/patent-policy/#def-essential">Essential Claim(s)</a>
-          must disclose the information in accordance with
-          <a href="https://www.w3.org/policies/patent-policy/#sec-Disclosure">section 6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
-        
-  </p><p>
-                      This document is governed by the
-                      <a id="w3c_process_revision" href="https://www.w3.org/policies/process/20250818/">18 August 2025 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
-                    </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#how-to-read-this-document"><bdi class="secno">1.1 </bdi>How to read this document</a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">1.2 </bdi>Terminology</a></li><li class="tocline"><a class="tocxref" href="#namespace-prefixes"><bdi class="secno">1.3 </bdi>Namespace Prefixes</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">2. </bdi>Conformance</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#v11"><bdi class="secno">2.1 </bdi>JSON-LD Version</a></li><li class="tocline"><a class="tocxref" href="#testing"><bdi class="secno">2.2 </bdi>Test Suites</a></li></ol></li><li class="tocline"><a class="tocxref" href="#basic-concepts"><bdi class="secno">3. </bdi>Basic Concepts</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#json-vs-yaml"><bdi class="secno">3.1 </bdi>JSON vs YAML comparison</a></li></ol></li><li class="tocline"><a class="tocxref" href="#core-requirements"><bdi class="secno">4. </bdi>Core Requirements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#supported-yaml-features"><bdi class="secno">4.1 </bdi>YAML features supported by YAML-LD</a></li><li class="tocline"><a class="tocxref" href="#encoding"><bdi class="secno">4.2 </bdi>Encoding</a></li><li class="tocline"><a class="tocxref" href="#comments"><bdi class="secno">4.3 </bdi>Comments</a></li><li class="tocline"><a class="tocxref" href="#anchors-aliases"><bdi class="secno">4.4 </bdi>Anchors and Aliases</a></li><li class="tocline"><a class="tocxref" href="#mapping-key-types"><bdi class="secno">4.5 </bdi>Mapping Key Types</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sec"><bdi class="secno">5. </bdi>Security Considerations</a></li><li class="tocline"><a class="tocxref" href="#privacy"><bdi class="secno">6. </bdi>Privacy Considerations</a></li><li class="tocline"><a class="tocxref" href="#int"><bdi class="secno">7. </bdi>Interoperability Considerations</a></li><li class="tocline"><a class="tocxref" href="#html"><bdi class="secno">8. </bdi>Embedding YAML-LD in HTML Documents</a></li><li class="tocline"><a class="tocxref" href="#streams"><bdi class="secno">9. </bdi>Streams</a></li><li class="tocline"><a class="tocxref" href="#iana"><bdi class="secno">A. </bdi>IANA Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#application-ld-yaml"><bdi class="secno">A.1 </bdi>application/ld+yaml</a></li></ol></li><li class="tocline"><a class="tocxref" href="#best-practices"><bdi class="secno">B. </bdi>Best Practices</a></li><li class="tocline"><a class="tocxref" href="#comments-as-whitespace"><bdi class="secno">C. </bdi>Why are comments treated as whitespace?</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#consistency"><bdi class="secno">C.1 </bdi>Consistency</a></li><li class="tocline"><a class="tocxref" href="#predictability"><bdi class="secno">C.2 </bdi>Predictability</a></li></ol></li><li class="tocline"><a class="tocxref" href="#extended-profile"><bdi class="secno">D. </bdi>Extended YAML-LD Profile</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#motivation"><bdi class="secno">D.1 </bdi>Motivation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#specify-node-type"><bdi class="secno">D.1.1 </bdi>Specify node <code>@type</code></a></li><li class="tocline"><a class="tocxref" href="#reduce-duplication"><bdi class="secno">D.1.2 </bdi>Reduce duplication</a></li></ol></li><li class="tocline"><a class="tocxref" href="#approaches"><bdi class="secno">D.2 </bdi>Approaches</a></li><li class="tocline"><a class="tocxref" href="#extended-internal-representation-0"><bdi class="secno">D.3 </bdi>Extended Internal Representation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#conversion-to-ir"><bdi class="secno">D.3.1 </bdi>Conversion to the Internal Representation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#convert-stream"><bdi class="secno">D.3.1.1 </bdi>Converting a <span data-cite="YAML#streams" data-link-type="dfn" class="formerLink">YAML stream</span></a></li><li class="tocline"><a class="tocxref" href="#convert-document"><bdi class="secno">D.3.1.2 </bdi>Converting a <span data-cite="YAML#documents" data-link-type="dfn" class="formerLink">YAML document</span></a></li><li class="tocline"><a class="tocxref" href="#convert-seq"><bdi class="secno">D.3.1.3 </bdi>Converting a <span data-cite="YAML#sequence" data-link-type="dfn" class="formerLink">YAML sequence</span></a></li><li class="tocline"><a class="tocxref" href="#convert-mapping"><bdi class="secno">D.3.1.4 </bdi>Converting a <span data-cite="YAML#mapping" data-link-type="dfn" class="formerLink">YAML mapping</span></a></li><li class="tocline"><a class="tocxref" href="#convert-scalar"><bdi class="secno">D.3.1.5 </bdi>Converting a <span data-cite="YAML#scalar" data-link-type="dfn" class="formerLink">YAML scalar</span></a></li><li class="tocline"><a class="tocxref" href="#convert-alias"><bdi class="secno">D.3.1.6 </bdi>Converting a YAML <span data-cite="YAML#alias-nodes" data-link-type="dfn" class="formerLink">alias node</span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#conversion-to-yaml"><bdi class="secno">D.3.2 </bdi>Conversion to YAML</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#convert-ir"><bdi class="secno">D.3.2.1 </bdi>Converting From the Internal Representation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#profiles"><bdi class="secno">D.3.3 </bdi>Application Profiles</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#yaml-ld-json-profile"><bdi class="secno">D.3.3.1 </bdi>YAML-LD Basic Profile</a></li><li class="tocline"><a class="tocxref" href="#yaml-ld-extended-profile"><bdi class="secno">D.3.3.2 </bdi>YAML-LD Extended Profile</a><ol class="toc"></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#api"><bdi class="secno">D.3.4 </bdi>The Application Programming Interface</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#jsonldprocessor"><bdi class="secno">D.3.4.1 </bdi>JsonLdProcessor</a></li><li class="tocline"><a class="tocxref" href="#jsonldoptions"><bdi class="secno">D.3.4.2 </bdi>JsonLdOptions</a></li><li class="tocline"><a class="tocxref" href="#remote-document-and-context-retrieval"><bdi class="secno">D.3.4.3 </bdi>Remote Document and Context Retrieval</a></li><li class="tocline"><a class="tocxref" href="#yamllderrorcode"><bdi class="secno">D.3.4.4 </bdi>YamlLdErrorCode</a></li></ol></li><li class="tocline"><a class="tocxref" href="#implementations"><bdi class="secno">D.3.5 </bdi>Implementations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#convert-extended-yaml-ld-to-basic-yaml-ld-and-back"><bdi class="secno">D.4 </bdi>Convert Extended YAML-LD to Basic YAML-LD and back</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#tags-to-types"><bdi class="secno">D.4.1 </bdi>YAML <code>!tags</code> → <code>@type</code> declarations</a></li><li class="tocline"><a class="tocxref" href="#resolve-anchors-aliases"><bdi class="secno">D.4.2 </bdi><code>&amp;anchors</code> and <code>*aliases</code></a></li></ol></li><li class="tocline"><a class="tocxref" href="#frag"><bdi class="secno">D.5 </bdi>Fragment identifiers</a></li></ol></li><li class="tocline"><a class="tocxref" href="#ack"><bdi class="secno">E. </bdi>Acknowledgements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#in-memoriam"><bdi class="secno">E.1 </bdi>In Memoriam</a></li><li class="tocline"><a class="tocxref" href="#contributions"><bdi class="secno">E.2 </bdi>Contributions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">F. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">F.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">F.2 </bdi>Informative references</a></li></ol></li></ol></nav>
-
-  <section id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div>
-    
-    <p>
-      [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld11" title="JSON-LD 1.1">JSON-LD11</a></cite>] is a JSON-based format to serialize Linked Data.
-      In recent years, [<cite><a class="bibref" data-link-type="biblio" href="#bib-yaml" title="YAML Ain’t Markup Language (YAML™) Version 1.2">YAML</a></cite>] has emerged as a more concise format
-      to represent information that had previously been serialized as [<cite><a class="bibref" data-link-type="biblio" href="#bib-json" title="The JavaScript Object Notation (JSON) Data Interchange Format">JSON</a></cite>],
-      including API specifications, data schemas, and Linked Data.
-    </p>
-
-    <p>
-      This document defines YAML-LD as a set of conventions
-      on top of YAML which specify how to serialize Linked Data [<cite><a class="bibref" data-link-type="biblio" href="#bib-linked-data" title="Linked Data Design Issues">LINKED-DATA</a></cite>] as [<cite><a class="bibref" data-link-type="biblio" href="#bib-yaml" title="YAML Ain’t Markup Language (YAML™) Version 1.2">YAML</a></cite>]
-      based on JSON-LD syntax, semantics, and APIs.
-    </p>
-
-    <p>
-      Since YAML is more expressive than JSON,
-      both in the available data types and in the document structure
-      (see [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc9512" title="YAML Media Type">RFC9512</a></cite>]),
-      this document identifies constraints on YAML
-      such that any <a href="#dfn-yaml-ld-document" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-yaml-ld-document-1">YAML-LD document</a> can be represented in JSON-LD.
-    </p>
 
     <div class="note" id="issue-container-generatedID"><div role="heading" class="ednote-title marker" id="h-ednote" aria-level="3"><span>Editor's note</span></div><div class="">
       See YAML-LD description of this spec at
@@ -3650,8 +3647,6 @@ $type: WebContent</code></pre>
       <a href="https://www.w3.org/TR/json-ld11-api/"><cite>JSON-LD 1.1 Processing Algorithms and API</cite></a>. Gregg Kellogg; Dave Longley; Pierre-Antoine Champin.  W3C. 16 July 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld11-api/">https://www.w3.org/TR/json-ld11-api/</a>
     </dd><dt id="bib-json-ld11-framing">[JSON-LD11-FRAMING]</dt><dd>
       <a href="https://www.w3.org/TR/json-ld11-framing/"><cite>JSON-LD 1.1 Framing</cite></a>. Dave Longley; Gregg Kellogg; Pierre-Antoine Champin.  W3C. 16 July 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld11-framing/">https://www.w3.org/TR/json-ld11-framing/</a>
-    </dd><dt id="bib-linked-data">[LINKED-DATA]</dt><dd>
-      <a href="https://www.w3.org/DesignIssues/LinkedData.html"><cite>Linked Data Design Issues</cite></a>. Tim Berners-Lee.  W3C. 27 July 2006. W3C-Internal Document. URL: <a href="https://www.w3.org/DesignIssues/LinkedData.html">https://www.w3.org/DesignIssues/LinkedData.html</a>
     </dd><dt id="bib-rfc2119">[RFC2119]</dt><dd>
       <a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>
     </dd><dt id="bib-rfc3986">[RFC3986]</dt><dd>
@@ -3668,8 +3663,6 @@ $type: WebContent</code></pre>
       <a href="https://www.rfc-editor.org/rfc/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>
     </dd><dt id="bib-rfc9110">[RFC9110]</dt><dd>
       <a href="https://httpwg.org/specs/rfc9110.html"><cite>HTTP Semantics</cite></a>. R. Fielding, Ed.; M. Nottingham, Ed.; J. Reschke, Ed. IETF. June 2022. Internet Standard. URL: <a href="https://httpwg.org/specs/rfc9110.html">https://httpwg.org/specs/rfc9110.html</a>
-    </dd><dt id="bib-rfc9512">[RFC9512]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc9512"><cite>YAML Media Type</cite></a>. R. Polli; E. Wilde; E. Aro.  IETF. February 2024. Informational. URL: <a href="https://www.rfc-editor.org/rfc/rfc9512">https://www.rfc-editor.org/rfc/rfc9512</a>
     </dd><dt id="bib-yaml">[YAML]</dt><dd>
       <a href="http://yaml.org/spec/1.2/spec.html"><cite>YAML Ain’t Markup Language (YAML™) Version 1.2</cite></a>. Oren Ben-Kiki; Clark Evans; Ingy döt Net. 1 October 2009. URL: <a href="http://yaml.org/spec/1.2/spec.html">http://yaml.org/spec/1.2/spec.html</a>
     </dd></dl>
@@ -3683,6 +3676,8 @@ $type: WebContent</code></pre>
       <a href="https://www.w3.org/TR/json-ld/"><cite>JSON-LD 1.0</cite></a>. Manu Sporny; Gregg Kellogg; Markus Lanthaler.  W3C. 3 November 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld/">https://www.w3.org/TR/json-ld/</a>
     </dd><dt id="bib-json-ld-bp">[json-ld-bp]</dt><dd>
       <a href="https://w3c.github.io/json-ld-bp/"><cite>JSON-LD Best Practices</cite></a>. Gregg Kellogg; Ivan Herman; BigBlueHat; A. Soroka; Ruben Taelman; David I. Lehn; Philippe Le Hegaret.  W3C. 2022-05-24. W3C Group Note. URL: <a href="https://w3c.github.io/json-ld-bp/">https://w3c.github.io/json-ld-bp/</a>
+    </dd><dt id="bib-linked-data">[LINKED-DATA]</dt><dd>
+      <a href="https://www.w3.org/DesignIssues/LinkedData.html"><cite>Linked Data Design Issues</cite></a>. Tim Berners-Lee.  W3C. 27 July 2006. W3C-Internal Document. URL: <a href="https://www.w3.org/DesignIssues/LinkedData.html">https://www.w3.org/DesignIssues/LinkedData.html</a>
     </dd><dt id="bib-owl2-syntax">[OWL2-SYNTAX]</dt><dd>
       <a href="https://www.w3.org/TR/owl2-syntax/"><cite>OWL 2 Web Ontology Language Structural Specification and Functional-Style Syntax (Second Edition)</cite></a>. Boris Motik; Peter Patel-Schneider; Bijan Parsia.  W3C. 11 December 2012. W3C Recommendation. URL: <a href="https://www.w3.org/TR/owl2-syntax/">https://www.w3.org/TR/owl2-syntax/</a>
     </dd><dt id="bib-rdf-schema">[RDF-SCHEMA]</dt><dd>
@@ -3693,6 +3688,8 @@ $type: WebContent</code></pre>
       <a href="https://www.rfc-editor.org/rfc/rfc2045"><cite>Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies</cite></a>. N. Freed; N. Borenstein.  IETF. November 1996. Draft Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc2045">https://www.rfc-editor.org/rfc/rfc2045</a>
     </dd><dt id="bib-rfc6839">[RFC6839]</dt><dd>
       <a href="https://www.rfc-editor.org/rfc/rfc6839"><cite>Additional Media Type Structured Syntax Suffixes</cite></a>. T. Hansen; A. Melnikov.  IETF. January 2013. Informational. URL: <a href="https://www.rfc-editor.org/rfc/rfc6839">https://www.rfc-editor.org/rfc/rfc6839</a>
+    </dd><dt id="bib-rfc9512">[RFC9512]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc9512"><cite>YAML Media Type</cite></a>. R. Polli; E. Wilde; E. Aro.  IETF. February 2024. Informational. URL: <a href="https://www.rfc-editor.org/rfc/rfc9512">https://www.rfc-editor.org/rfc/rfc9512</a>
     </dd><dt id="bib-turtle">[TURTLE]</dt><dd>
       <a href="https://www.w3.org/TR/turtle/"><cite>RDF 1.1 Turtle</cite></a>. Eric Prud'hommeaux; Gavin Carothers.  W3C. 25 February 2014. W3C Recommendation. URL: <a href="https://www.w3.org/TR/turtle/">https://www.w3.org/TR/turtle/</a>
     </dd><dt id="bib-uri">[URI]</dt><dd>
@@ -3723,7 +3720,7 @@ $type: WebContent</code></pre>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-yaml-ld-document-1" title="§ 1. Introduction">§ 1. Introduction</a> 
+      <a href="#ref-for-dfn-yaml-ld-document-1" title="§ Abstract">§ Abstract</a> 
     </li><li>
       <a href="#ref-for-dfn-yaml-ld-document-2" title="§ 1.2 Terminology">§ 1.2 Terminology</a> 
     </li><li>
