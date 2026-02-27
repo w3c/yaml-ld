@@ -1,0 +1,75 @@
+$id: "spec:"
+$: YAML-LD
+schema:author:
+  - orcid:0009-0001-8740-4213
+  - orcid:0000-0001-7508-7428
+  - orcid:0000-0001-7046-4474
+
+  - $id: https://greggkellogg.net/foaf#me
+    dcterms:isReferencedBy: https://greggkellogg.net/foaf.rdf
+    schema:givenName: Gregg
+    schema:familyName: Kellogg
+    schema:affiliation: Invited Expert
+
+  - $id: https://yeti.sh
+    $type: foaf:Person
+    schema:givenName: Anatoly
+    schema:familyName: Scherbakov
+    schema:affiliation: Invited Expert
+
+  - $id: https://github.com/ioggstream
+    $type: foaf:Person
+    schema:givenName: Roberto
+    schema:familyName: Polli
+    schema:affiliation: Par-Tec
+
+  - $id: https://github.com/TallTed
+    $type: foaf:Person
+    schema:givenName: Ted
+    schema:familyName: Thibodeau
+    schema:honorificSuffix: Jr
+    schema:affiliation: OpenLink Software
+
+  - $id: https://github.com/BigBlueHat
+    $type: foaf:Person
+    schema:givenName: Benjamin
+    schema:familyName: Young
+    schema:affiliation: Digital Bazaar
+
+license:
+  $id: https://purl.org/NET/rdflicense/W3C1.0
+  dcterms:isReferencedBy: https://purl.org/NET/rdflicense/W3C1.0.ttl
+
+dcterms:references:
+  - data:namespace-prefixes.yaml
+
+"@context":
+  "@import": https://json-ld.org/contexts/dollar-convenience.jsonld
+  "@base": https://w3c.github.io/yaml-ld/spec/
+  data: https://w3c.github.io/yaml-ld/spec/data/
+
+  spec: https://w3c.github.io/yaml-ld/spec/
+
+  prov: http://www.w3.org/ns/prov#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  schema: https://schema.org/
+  dcterms: http://purl.org/dc/terms/
+  foaf: http://xmlns.com/foaf/0.1/
+  orcid: https://orcid.org/
+
+  schema:author:
+    "@type": "@id"
+
+  rdfs:range:
+    "@type": "@id"
+
+  $: rdfs:label
+  license:
+    "@id": schema:license
+    "@type": "@id"
+
+  dcterms:isReferencedBy:
+    "@type": "@id"
+
+  dcterms:references:
+    "@type": "@id"
