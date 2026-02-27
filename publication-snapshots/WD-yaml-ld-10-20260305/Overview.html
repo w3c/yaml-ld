@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta name="generator" content="ReSpec 35.6.1">
+<meta name="generator" content="ReSpec 35.8.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -747,38 +747,6 @@ dd{margin-left:0}
       }
     },
     {
-      "id": "https://w3c.github.io/json-ld-bp/",
-      "type": "TechArticle",
-      "name": "JSON-LD Best Practices",
-      "url": "https://w3c.github.io/json-ld-bp/",
-      "creator": [
-        {
-          "name": "Gregg Kellogg"
-        },
-        {
-          "name": "Ivan Herman"
-        },
-        {
-          "name": "BigBlueHat"
-        },
-        {
-          "name": "A. Soroka"
-        },
-        {
-          "name": "Ruben Taelman"
-        },
-        {
-          "name": "David I. Lehn"
-        },
-        {
-          "name": "Philippe Le Hegaret"
-        }
-      ],
-      "publisher": {
-        "name": "W3C"
-      }
-    },
-    {
       "id": "https://www.w3.org/TR/turtle/",
       "type": "TechArticle",
       "name": "RDF 1.1 Turtle",
@@ -1024,8 +992,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         "Ruben Taelman",
         "David I. Lehn",
         "Philippe Le Hegaret"
-      ],
-      "id": "json-ld-bp"
+      ]
     }
   },
   "xref": [
@@ -1168,7 +1135,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </p><p>
                       This document is governed by the
                       <a id="w3c_process_revision" href="https://www.w3.org/policies/process/20250818/">18 August 2025 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
-                    </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#how-to-read-this-document"><bdi class="secno">1.1 </bdi>How to read this document</a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">1.2 </bdi>Terminology</a></li><li class="tocline"><a class="tocxref" href="#namespace-prefixes"><bdi class="secno">1.3 </bdi>Namespace Prefixes</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">2. </bdi>Conformance</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#v11"><bdi class="secno">2.1 </bdi>JSON-LD Version</a></li><li class="tocline"><a class="tocxref" href="#testing"><bdi class="secno">2.2 </bdi>Test Suites</a></li></ol></li><li class="tocline"><a class="tocxref" href="#basic-concepts"><bdi class="secno">3. </bdi>Basic Concepts</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#json-vs-yaml"><bdi class="secno">3.1 </bdi>JSON vs YAML comparison</a></li></ol></li><li class="tocline"><a class="tocxref" href="#core-requirements"><bdi class="secno">4. </bdi>Core Requirements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#supported-yaml-features"><bdi class="secno">4.1 </bdi>YAML features supported by YAML-LD</a></li><li class="tocline"><a class="tocxref" href="#encoding"><bdi class="secno">4.2 </bdi>Encoding</a></li><li class="tocline"><a class="tocxref" href="#comments"><bdi class="secno">4.3 </bdi>Comments</a></li><li class="tocline"><a class="tocxref" href="#anchors-aliases"><bdi class="secno">4.4 </bdi>Anchors and Aliases</a></li><li class="tocline"><a class="tocxref" href="#mapping-key-types"><bdi class="secno">4.5 </bdi>Mapping Key Types</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sec"><bdi class="secno">5. </bdi>Security Considerations</a></li><li class="tocline"><a class="tocxref" href="#privacy"><bdi class="secno">6. </bdi>Privacy Considerations</a></li><li class="tocline"><a class="tocxref" href="#int"><bdi class="secno">7. </bdi>Interoperability Considerations</a></li><li class="tocline"><a class="tocxref" href="#html"><bdi class="secno">8. </bdi>Embedding YAML-LD in HTML Documents</a></li><li class="tocline"><a class="tocxref" href="#streams"><bdi class="secno">9. </bdi>Streams</a></li><li class="tocline"><a class="tocxref" href="#iana"><bdi class="secno">A. </bdi>IANA Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#application-ld-yaml"><bdi class="secno">A.1 </bdi>application/ld+yaml</a></li></ol></li><li class="tocline"><a class="tocxref" href="#best-practices"><bdi class="secno">B. </bdi>Best Practices</a></li><li class="tocline"><a class="tocxref" href="#comments-as-whitespace"><bdi class="secno">C. </bdi>Why are comments treated as whitespace?</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#consistency"><bdi class="secno">C.1 </bdi>Consistency</a></li><li class="tocline"><a class="tocxref" href="#predictability"><bdi class="secno">C.2 </bdi>Predictability</a></li></ol></li><li class="tocline"><a class="tocxref" href="#extended-profile"><bdi class="secno">D. </bdi>Extended YAML-LD Profile</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#motivation"><bdi class="secno">D.1 </bdi>Motivation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#specify-node-type"><bdi class="secno">D.1.1 </bdi>Specify node <code>@type</code></a></li><li class="tocline"><a class="tocxref" href="#reduce-duplication"><bdi class="secno">D.1.2 </bdi>Reduce duplication</a></li></ol></li><li class="tocline"><a class="tocxref" href="#approaches"><bdi class="secno">D.2 </bdi>Approaches</a></li><li class="tocline"><a class="tocxref" href="#extended-internal-representation-0"><bdi class="secno">D.3 </bdi>Extended Internal Representation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#conversion-to-ir"><bdi class="secno">D.3.1 </bdi>Conversion to the Internal Representation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#convert-stream"><bdi class="secno">D.3.1.1 </bdi>Converting a <span data-cite="YAML#streams" data-link-type="dfn" class="formerLink">YAML stream</span></a></li><li class="tocline"><a class="tocxref" href="#convert-document"><bdi class="secno">D.3.1.2 </bdi>Converting a <span data-cite="YAML#documents" data-link-type="dfn" class="formerLink">YAML document</span></a></li><li class="tocline"><a class="tocxref" href="#convert-seq"><bdi class="secno">D.3.1.3 </bdi>Converting a <span data-cite="YAML#sequence" data-link-type="dfn" class="formerLink">YAML sequence</span></a></li><li class="tocline"><a class="tocxref" href="#convert-mapping"><bdi class="secno">D.3.1.4 </bdi>Converting a <span data-cite="YAML#mapping" data-link-type="dfn" class="formerLink">YAML mapping</span></a></li><li class="tocline"><a class="tocxref" href="#convert-scalar"><bdi class="secno">D.3.1.5 </bdi>Converting a <span data-cite="YAML#scalar" data-link-type="dfn" class="formerLink">YAML scalar</span></a></li><li class="tocline"><a class="tocxref" href="#convert-alias"><bdi class="secno">D.3.1.6 </bdi>Converting a YAML <span data-cite="YAML#alias-nodes" data-link-type="dfn" class="formerLink">alias node</span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#conversion-to-yaml"><bdi class="secno">D.3.2 </bdi>Conversion to YAML</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#convert-ir"><bdi class="secno">D.3.2.1 </bdi>Converting From the Internal Representation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#profiles"><bdi class="secno">D.3.3 </bdi>Application Profiles</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#yaml-ld-json-profile"><bdi class="secno">D.3.3.1 </bdi>YAML-LD Basic Profile</a></li><li class="tocline"><a class="tocxref" href="#yaml-ld-extended-profile"><bdi class="secno">D.3.3.2 </bdi>YAML-LD Extended Profile</a><ol class="toc"></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#api"><bdi class="secno">D.3.4 </bdi>The Application Programming Interface</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#jsonldprocessor"><bdi class="secno">D.3.4.1 </bdi>JsonLdProcessor</a></li><li class="tocline"><a class="tocxref" href="#jsonldoptions"><bdi class="secno">D.3.4.2 </bdi>JsonLdOptions</a></li><li class="tocline"><a class="tocxref" href="#remote-document-and-context-retrieval"><bdi class="secno">D.3.4.3 </bdi>Remote Document and Context Retrieval</a></li><li class="tocline"><a class="tocxref" href="#yamllderrorcode"><bdi class="secno">D.3.4.4 </bdi>YamlLdErrorCode</a></li></ol></li><li class="tocline"><a class="tocxref" href="#implementations"><bdi class="secno">D.3.5 </bdi>Implementations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#convert-extended-yaml-ld-to-basic-yaml-ld-and-back"><bdi class="secno">D.4 </bdi>Convert Extended YAML-LD to Basic YAML-LD and back</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#tags-to-types"><bdi class="secno">D.4.1 </bdi>YAML <code>!tags</code> → <code>@type</code> declarations</a></li><li class="tocline"><a class="tocxref" href="#resolve-anchors-aliases"><bdi class="secno">D.4.2 </bdi><code>&amp;anchors</code> and <code>*aliases</code></a></li></ol></li><li class="tocline"><a class="tocxref" href="#frag"><bdi class="secno">D.5 </bdi>Fragment identifiers</a></li></ol></li><li class="tocline"><a class="tocxref" href="#ack"><bdi class="secno">E. </bdi>Acknowledgements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#in-memoriam"><bdi class="secno">E.1 </bdi>In Memoriam</a></li><li class="tocline"><a class="tocxref" href="#contributions"><bdi class="secno">E.2 </bdi>Contributions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">F. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">F.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">F.2 </bdi>Informative references</a></li></ol></li></ol></nav>
+                    </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#how-to-read-this-document"><bdi class="secno">1.1 </bdi>How to read this document</a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">1.2 </bdi>Terminology</a></li><li class="tocline"><a class="tocxref" href="#namespace-prefixes"><bdi class="secno">1.3 </bdi>Namespace Prefixes</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">2. </bdi>Conformance</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#v11"><bdi class="secno">2.1 </bdi>JSON-LD Version</a></li><li class="tocline"><a class="tocxref" href="#testing"><bdi class="secno">2.2 </bdi>Test Suites</a></li></ol></li><li class="tocline"><a class="tocxref" href="#basic-concepts"><bdi class="secno">3. </bdi>Basic Concepts</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#json-vs-yaml"><bdi class="secno">3.1 </bdi>JSON vs YAML comparison</a></li></ol></li><li class="tocline"><a class="tocxref" href="#core-requirements"><bdi class="secno">4. </bdi>Core Requirements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#supported-yaml-features"><bdi class="secno">4.1 </bdi>YAML features supported by YAML-LD</a></li><li class="tocline"><a class="tocxref" href="#encoding"><bdi class="secno">4.2 </bdi>Encoding</a></li><li class="tocline"><a class="tocxref" href="#comments"><bdi class="secno">4.3 </bdi>Comments</a></li><li class="tocline"><a class="tocxref" href="#anchors-aliases"><bdi class="secno">4.4 </bdi>Anchors and Aliases</a></li><li class="tocline"><a class="tocxref" href="#mapping-key-types"><bdi class="secno">4.5 </bdi>Mapping Key Types</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sec"><bdi class="secno">5. </bdi>Security Considerations</a></li><li class="tocline"><a class="tocxref" href="#privacy"><bdi class="secno">6. </bdi>Privacy Considerations</a></li><li class="tocline"><a class="tocxref" href="#int"><bdi class="secno">7. </bdi>Interoperability Considerations</a></li><li class="tocline"><a class="tocxref" href="#html"><bdi class="secno">8. </bdi>Embedding YAML-LD in HTML Documents</a></li><li class="tocline"><a class="tocxref" href="#streams"><bdi class="secno">9. </bdi>Streams</a></li><li class="tocline"><a class="tocxref" href="#iana"><bdi class="secno">A. </bdi>IANA Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#application-ld-yaml"><bdi class="secno">A.1 </bdi>application/ld+yaml</a></li></ol></li><li class="tocline"><a class="tocxref" href="#comments-as-whitespace"><bdi class="secno">B. </bdi>Why are comments treated as whitespace?</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#consistency"><bdi class="secno">B.1 </bdi>Consistency</a></li><li class="tocline"><a class="tocxref" href="#predictability"><bdi class="secno">B.2 </bdi>Predictability</a></li></ol></li><li class="tocline"><a class="tocxref" href="#extended-profile"><bdi class="secno">C. </bdi>Extended YAML-LD Profile</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#motivation"><bdi class="secno">C.1 </bdi>Motivation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#specify-node-type"><bdi class="secno">C.1.1 </bdi>Specify node <code>@type</code></a></li><li class="tocline"><a class="tocxref" href="#reduce-duplication"><bdi class="secno">C.1.2 </bdi>Reduce duplication</a></li></ol></li><li class="tocline"><a class="tocxref" href="#approaches"><bdi class="secno">C.2 </bdi>Approaches</a></li><li class="tocline"><a class="tocxref" href="#extended-internal-representation-0"><bdi class="secno">C.3 </bdi>Extended Internal Representation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#conversion-to-ir"><bdi class="secno">C.3.1 </bdi>Conversion to the Internal Representation</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#convert-stream"><bdi class="secno">C.3.1.1 </bdi>Converting a <span data-cite="YAML#streams" data-link-type="dfn" class="formerLink">YAML stream</span></a></li><li class="tocline"><a class="tocxref" href="#convert-document"><bdi class="secno">C.3.1.2 </bdi>Converting a <span data-cite="YAML#documents" data-link-type="dfn" class="formerLink">YAML document</span></a></li><li class="tocline"><a class="tocxref" href="#convert-seq"><bdi class="secno">C.3.1.3 </bdi>Converting a <span data-cite="YAML#sequence" data-link-type="dfn" class="formerLink">YAML sequence</span></a></li><li class="tocline"><a class="tocxref" href="#convert-mapping"><bdi class="secno">C.3.1.4 </bdi>Converting a <span data-cite="YAML#mapping" data-link-type="dfn" class="formerLink">YAML mapping</span></a></li><li class="tocline"><a class="tocxref" href="#convert-scalar"><bdi class="secno">C.3.1.5 </bdi>Converting a <span data-cite="YAML#scalar" data-link-type="dfn" class="formerLink">YAML scalar</span></a></li><li class="tocline"><a class="tocxref" href="#convert-alias"><bdi class="secno">C.3.1.6 </bdi>Converting a YAML <span data-cite="YAML#alias-nodes" data-link-type="dfn" class="formerLink">alias node</span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#conversion-to-yaml"><bdi class="secno">C.3.2 </bdi>Conversion to YAML</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#convert-ir"><bdi class="secno">C.3.2.1 </bdi>Converting From the Internal Representation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#profiles"><bdi class="secno">C.3.3 </bdi>Application Profiles</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#yaml-ld-json-profile"><bdi class="secno">C.3.3.1 </bdi>YAML-LD Basic Profile</a></li><li class="tocline"><a class="tocxref" href="#yaml-ld-extended-profile"><bdi class="secno">C.3.3.2 </bdi>YAML-LD Extended Profile</a><ol class="toc"></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#api"><bdi class="secno">C.3.4 </bdi>The Application Programming Interface</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#jsonldprocessor"><bdi class="secno">C.3.4.1 </bdi>JsonLdProcessor</a></li><li class="tocline"><a class="tocxref" href="#jsonldoptions"><bdi class="secno">C.3.4.2 </bdi>JsonLdOptions</a></li><li class="tocline"><a class="tocxref" href="#remote-document-and-context-retrieval"><bdi class="secno">C.3.4.3 </bdi>Remote Document and Context Retrieval</a></li><li class="tocline"><a class="tocxref" href="#yamllderrorcode"><bdi class="secno">C.3.4.4 </bdi>YamlLdErrorCode</a></li></ol></li><li class="tocline"><a class="tocxref" href="#implementations"><bdi class="secno">C.3.5 </bdi>Implementations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#convert-extended-yaml-ld-to-basic-yaml-ld-and-back"><bdi class="secno">C.4 </bdi>Convert Extended YAML-LD to Basic YAML-LD and back</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#tags-to-types"><bdi class="secno">C.4.1 </bdi>YAML <code>!tags</code> → <code>@type</code> declarations</a></li><li class="tocline"><a class="tocxref" href="#resolve-anchors-aliases"><bdi class="secno">C.4.2 </bdi><code>&amp;anchors</code> and <code>*aliases</code></a></li></ol></li><li class="tocline"><a class="tocxref" href="#frag"><bdi class="secno">C.5 </bdi>Fragment identifiers</a></li></ol></li><li class="tocline"><a class="tocxref" href="#ack"><bdi class="secno">D. </bdi>Acknowledgements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#in-memoriam"><bdi class="secno">D.1 </bdi>In Memoriam</a></li><li class="tocline"><a class="tocxref" href="#contributions"><bdi class="secno">D.2 </bdi>Contributions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">E. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">E.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">E.2 </bdi>Informative references</a></li></ol></li></ol></nav>
 
   <section id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div>
     
@@ -1224,13 +1191,13 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <a class="self-link" href="#example-basic-yaml-ld-document">Example<bdi> 1</bdi></a><span class="example-title">: Basic YAML-LD document</span>
   </div> <pre data-content-type="application/ld+yaml" aria-busy="false"><code class="hljs yaml"><span class="hljs-attr">"@context":</span>
   <span class="hljs-bullet">-</span> <span class="hljs-string">https://json-ld.org/contexts/dollar-convenience.jsonld</span>
-  <span class="hljs-bullet">-</span> <span class="hljs-attr">"@base":</span> <span class="hljs-string">https://w3c.github.io/yaml-ld/spec/</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">"@base":</span> <span class="hljs-string">https://w3c.github.io/yaml-ld/</span>
     <span class="hljs-attr">rdfs:</span> <span class="hljs-string">http://www.w3.org/2000/01/rdf-schema#</span>
     <span class="hljs-attr">schema:</span> <span class="hljs-string">https://schema.org/</span>
     <span class="hljs-attr">license:</span>
       <span class="hljs-attr">"@type":</span> <span class="hljs-string">"@id"</span>
 
-<span class="hljs-string">$id:</span> <span class="hljs-string">https://w3c.github.io/yaml-ld/spec/</span>
+<span class="hljs-string">$id:</span> <span class="hljs-string">https://w3c.github.io/yaml-ld/</span>
 <span class="hljs-attr">rdfs:label:</span> <span class="hljs-string">YAML-LD</span>
 <span class="hljs-attr">license:</span> <span class="hljs-string">https://spdx.org/licenses/W3C.html</span>
 <span class="hljs-attr">schema:hasPart:</span>
@@ -2127,159 +2094,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     </section>
   </section>
 
-    <section id="best-practices" class="informative"><div class="header-wrapper"><h2 id="b-best-practices"><bdi class="secno">B. </bdi>Best Practices</h2><a class="self-link" href="#best-practices" aria-label="Permalink for Section B."></a></div><p><em>This section is non-normative.</em></p>
-      
-
-      <p>Here, we propose to YAML-LD users a bit of advice which, although optional, might suggest one or two
-        useful thoughts.</p>
-
-       <div class="practice advisement"><a class="marker self-link" href="#bp-use-json-ld-best-practices"><bdi lang="en">Best Practice 1</bdi></a>: <span id="bp-use-json-ld-best-practices" class="practicelab">Follow JSON-LD best practices</span>
-          <p class="practicedesc">
-            
-            …in order to achieve a greater level of reusability, performance, and human friendliness among YAML-LD aware
-            systems. The [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld-bp" title="JSON-LD Best Practices">json-ld-bp</a></cite>] document is as relevant to YAML-LD as it is to [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld11" title="JSON-LD 1.1">JSON-LD11</a></cite>].
-          </p>
-       </div>
-
-      <div class="practice advisement"><a class="marker self-link" href="#bp-prebuilt-contexts"><bdi lang="en">Best Practice 2</bdi></a>: <span id="bp-prebuilt-contexts" class="practicelab">Do not force users to author contexts</span>
-        <p class="practicedesc">
-          
-
-          Instead, provide pre-built contexts that the user can reference by URL for a majority of common use cases.
-        </p>
-      </div>
-
-      <p>YAML-LD is intended to simplify the authoring of Linked Data for a wide range of domain experts; its target
-        audience is not comprised solely of IT professionals. [<cite><a class="bibref" data-link-type="biblio" href="#bib-yaml" title="YAML Ain’t Markup Language (YAML™) Version 1.2">YAML</a></cite>] is chosen as a medium to minimize syntactic noise,
-        and to keep the authored documents concise and clear. [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld11" title="JSON-LD 1.1">JSON-LD11</a></cite>] (and hence YAML-LD) Context comprises a special
-        language of its own. A requirement to <i>author</i> such a context would make the domain expert's job much
-        harder, which we, as system architects and developers, should try to avoid.</p>
-
-      <div class="practice advisement"><a class="marker self-link" href="#bp-conceal-contexts"><bdi lang="en">Best Practice 3</bdi></a>: <span id="bp-conceal-contexts" class="practicelab">Use a default context</span>
-        <p class="practicedesc">
-          
-        </p>
-
-        If most, or all, of a user's documents are based on one particular context, try to make it the default in order
-        to rescue the user from copy-pasting the same technical incantation from one document to another.
-      </div>
-
-      <p>For instance, according to [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld11-api" title="JSON-LD 1.1 Processing Algorithms and API">JSON-LD11-API</a></cite>], the <code>expand()</code> method of a JSON-LD processor accepts an
-        <code>expandContext</code> argument which can be used to provide a default system context.</p>
-
-      <div class="practice advisement"><a class="marker self-link" href="#bp-alias-keywords"><bdi lang="en">Best Practice 4</bdi></a>: <span id="bp-alias-keywords" class="practicelab">Alias JSON-LD keywords</span>
-        <p class="practicedesc">
-          
-
-          If possible, map JSON-LD keywords containing the <code>@</code> character to keywords that do not contain it.
-        </p>
-      </div>
-
-      <p>The <code>@</code> character is reserved in YAML, and thus requires quoting (or escaping), as in the following
-        example:</p>
-
-      <div class="example" id="quoted-example">
-        <div class="marker">
-    <a class="self-link" href="#quoted-example">Example<bdi> 8</bdi></a><span class="example-title">: Example YAML-LD document with quoted keywords</span>
-  </div> <pre class="json" data-content-type="application/ld+yaml" aria-busy="false"><code class="hljs">"@context": https://schema.org
-"@id": https://w3.org/yaml-ld/
-"@type": WebContent</code></pre>
-      </div>
-
-      <p>
-        The need to quote these keywords has to be learnt, and introduces one more little irregularity to the document
-        author's life. Further, on most keyboard layouts, typing quotes will require <code>Shift</code>, which reduces typing speed,
-        albeit slightly.
-      </p>
-
-      <p>
-        In order to avoid this, the context might introduce custom mappings for JSON-LD keywords —
-        to make authoring more convenient. The exact mapping might vary depending on the domain, but we provide two
-        examples, both published at <a href="https://json-ld.org">json-ld.org</a>:
-      </p>
-
-      <ul>
-        <li>
-          <a href="https://json-ld.org/contexts/convenience.jsonld"><code>convenience.jsonld</code></a>
-          maps <code>@id</code> → <code>id</code> and so on, removing the <code>@</code> character
-        </li>
-        <li>
-          <a href="https://json-ld.org/contexts/dollar-convenience.jsonld"><code> dollar-convenience.jsonld </code></a>
-          maps <code>@id</code> → <code>$id</code> and so on, replacing <code>@</code> with <code>$</code>.
-        </li>
-      </ul>
-
-      <div class="practice advisement"><a class="marker self-link" href="#bp-convenience-context"><bdi lang="en">Best Practice 5</bdi></a>: <span id="bp-convenience-context" class="practicelab">Use a <dfn id="dfn-convenience-context" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Convenience Context</dfn></span>
-        <p class="practicedesc">
-          
-        </p><p>
-          YAML-LD users may use a JSON-LD context provided as part of this specification, or a similar custom context,
-          to improve the authoring experience and readability.
-        </p>
-      </div>
-
-      <p>
-        Unfortunately, <code>@context</code> keyword cannot be aliased as per JSON-LD specification and will have
-        to stay as-is.
-      </p>
-
-      <p>
-        Consider <a href="#quoted-example" class="box-ref">Example<bdi> 8</bdi></a> reformatted using the <code>$</code>-<a href="#dfn-convenience-context" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-convenience-context-1">convenience context</a>:</p>
-
-        <div class="example" id="example-example-yaml-ld-document-with-convenience-context">
-        <div class="marker">
-    <a class="self-link" href="#example-example-yaml-ld-document-with-convenience-context">Example<bdi> 9</bdi></a><span class="example-title">: Example YAML-LD document with Convenience Context</span>
-  </div> <pre class="json" data-format="application/ld+json" aria-busy="false"><code class="hljs">"@context":
-  - https://json-ld.org/contexts/dollar-convenience.jsonld
-  - https://schema.org
-
-$id: https://w3.org/yaml-ld/
-$type: WebContent</code></pre>
-      </div>
-
-      <div class="practice advisement"><a class="marker self-link" href="#bp-avoid-streams-in-html-scripts"><bdi lang="en">Best Practice 6</bdi></a>: <span id="bp-avoid-streams-in-html-scripts" class="practicelab">
-            Avoid stuffing more than one YAML document into a single <code>&lt;script&gt;</code> HTML tag. Create one tag per document instead.
-          </span>
-        <p class="practicedesc">
-          
-        </p>
-      </div>
-
-      <p>Consider the following example.</p>
-
-      <div class="example" id="example-yaml-ld-document-stream-embedded-in-html">
-        <div class="marker">
-    <a class="self-link" href="#example-yaml-ld-document-stream-embedded-in-html">Example<bdi> 10</bdi></a><span class="example-title">: YAML-LD document stream embedded in HTML</span>
-  </div> <pre data-content-type="application/ld+yaml" aria-busy="false"><code class="hljs yaml"><span class="hljs-string">&lt;script</span> <span class="hljs-string">type="application/ld+yaml"&gt;</span>
-  <span class="hljs-attr">"@context":</span> <span class="hljs-string">https://json-ld.org/contexts/person.jsonld</span>
-  <span class="hljs-attr">"@id":</span> <span class="hljs-string">https://dbpedia.org/resource/John_Lennon</span>
-  <span class="hljs-attr">name:</span> <span class="hljs-string">John</span> <span class="hljs-string">Lennon</span>
-  <span class="hljs-attr">born:</span> <span class="hljs-number">1940-10-09</span>
-  <span class="hljs-attr">spouse:</span>
-    <span class="hljs-bullet">-</span> <span class="hljs-string">https://dbpedia.org/resource/Yoko_Ono</span>
-    <span class="hljs-bullet">-</span> <span class="hljs-string">https://dbpedia.org/resource/Cynthia_Lennon</span>
-<span class="hljs-meta">---</span>
-  <span class="hljs-attr">"@context":</span> <span class="hljs-string">https://json-ld.org/contexts/person.jsonld</span>
-  <span class="hljs-attr">"@id":</span> <span class="hljs-string">https://dbpedia.org/resource/Yoko_Ono</span>
-  <span class="hljs-attr">born:</span> <span class="hljs-number">1933-02-18</span>
-<span class="hljs-meta">---</span>
-  <span class="hljs-attr">"@context":</span> <span class="hljs-string">https://json-ld.org/contexts/person.jsonld</span>
-  <span class="hljs-attr">"@id":</span> <span class="hljs-string">https://dbpedia.org/resource/Cynthia_Lennon</span>
-  <span class="hljs-attr">born:</span> <span class="hljs-number">1939-09-10</span>
-<span class="hljs-string">&lt;/script&gt;</span></code></pre>
-      </div>
-
-      <p>The YAML specification states in <a href="http://yaml.org/spec/1.2/spec.html#912-document-markers">Document Markers</a> section that <code>---</code>, the document separator sequence, must be at the root level of the document, which means indentation level of 0.</p>
-
-      <p>Aside from the document separator, YAML content inside the <code>&lt;script&gt;</code> block can be indented however the author of the document pleases. The strict rule for indentation of the separator is an important exception.</p>
-
-      <p>It is therefore best to avoid nesting YAML streams inside <code>&lt;script&gt;</code> blocks; instead, create one such block per document.</p>
-  </section>
-
-  <section id="comments-as-whitespace" class="informative"><div class="header-wrapper"><h2 id="c-why-are-comments-treated-as-whitespace"><bdi class="secno">C. </bdi>Why are comments treated as whitespace?</h2><a class="self-link" href="#comments-as-whitespace" aria-label="Permalink for Section C."></a></div><p><em>This section is non-normative.</em></p>
+  <section id="comments-as-whitespace" class="informative"><div class="header-wrapper"><h2 id="b-why-are-comments-treated-as-whitespace"><bdi class="secno">B. </bdi>Why are comments treated as whitespace?</h2><a class="self-link" href="#comments-as-whitespace" aria-label="Permalink for Section B."></a></div><p><em>This section is non-normative.</em></p>
     
 
-    <section id="consistency"><div class="header-wrapper"><h3 id="c-1-consistency"><bdi class="secno">C.1 </bdi>Consistency</h3><a class="self-link" href="#consistency" aria-label="Permalink for Section C.1"></a></div>
+    <section id="consistency"><div class="header-wrapper"><h3 id="b-1-consistency"><bdi class="secno">B.1 </bdi>Consistency</h3><a class="self-link" href="#consistency" aria-label="Permalink for Section B.1"></a></div>
       
 
       <dl>
@@ -2307,7 +2125,7 @@ $type: WebContent</code></pre>
       </dl>
     </section>
 
-    <section id="predictability"><div class="header-wrapper"><h3 id="c-2-predictability"><bdi class="secno">C.2 </bdi>Predictability</h3><a class="self-link" href="#predictability" aria-label="Permalink for Section C.2"></a></div>
+    <section id="predictability"><div class="header-wrapper"><h3 id="b-2-predictability"><bdi class="secno">B.2 </bdi>Predictability</h3><a class="self-link" href="#predictability" aria-label="Permalink for Section B.2"></a></div>
       
 
       <p>
@@ -2338,10 +2156,10 @@ $type: WebContent</code></pre>
     </section>
   </section>
 
-    <section id="extended-profile" class="informative"><div class="header-wrapper"><h2 id="d-extended-yaml-ld-profile"><bdi class="secno">D. </bdi>Extended YAML-LD Profile</h2><a class="self-link" href="#extended-profile" aria-label="Permalink for Section D."></a></div><p><em>This section is non-normative.</em></p>
+    <section id="extended-profile" class="informative"><div class="header-wrapper"><h2 id="c-extended-yaml-ld-profile"><bdi class="secno">C. </bdi>Extended YAML-LD Profile</h2><a class="self-link" href="#extended-profile" aria-label="Permalink for Section C."></a></div><p><em>This section is non-normative.</em></p>
       
 
-      <section id="motivation"><div class="header-wrapper"><h3 id="d-1-motivation"><bdi class="secno">D.1 </bdi>Motivation</h3><a class="self-link" href="#motivation" aria-label="Permalink for Section D.1"></a></div>
+      <section id="motivation"><div class="header-wrapper"><h3 id="c-1-motivation"><bdi class="secno">C.1 </bdi>Motivation</h3><a class="self-link" href="#motivation" aria-label="Permalink for Section C.1"></a></div>
         
 
         <p>
@@ -2367,7 +2185,7 @@ $type: WebContent</code></pre>
           <strong>Basic Profile of YAML-LD</strong>.
         </div></div>
 
-        <section id="specify-node-type"><div class="header-wrapper"><h4 id="d-1-1-specify-node-type"><bdi class="secno">D.1.1 </bdi>Specify node <code>@type</code></h4><a class="self-link" href="#specify-node-type" aria-label="Permalink for Section D.1.1"></a></div>
+        <section id="specify-node-type"><div class="header-wrapper"><h4 id="c-1-1-specify-node-type"><bdi class="secno">C.1.1 </bdi>Specify node <code>@type</code></h4><a class="self-link" href="#specify-node-type" aria-label="Permalink for Section C.1.1"></a></div>
           
 
           <p>
@@ -2396,7 +2214,7 @@ $type: WebContent</code></pre>
               <p>Using a YAML Tag, as shown below:</p>
               <div class="example" id="example-yaml-ld-with-tags">
         <div class="marker">
-    <a class="self-link" href="#example-yaml-ld-with-tags">Example<bdi> 11</bdi></a><span class="example-title">: YAML-LD with tags</span>
+    <a class="self-link" href="#example-yaml-ld-with-tags">Example<bdi> 8</bdi></a><span class="example-title">: YAML-LD with tags</span>
   </div> <pre data-result-for="YAML-LD: Tags" data-content-type="application/ld+json" aria-busy="false"><code class="hljs yaml"><span class="hljs-string">%TAG</span> <span class="hljs-type">!xsd</span><span class="hljs-string">!</span> <span class="hljs-string">http://www.w3.org/2001/XMLSchema%23</span>
 <span class="hljs-meta">---</span>
 <span class="hljs-attr">"@context":</span> <span class="hljs-string">https://schema.org</span>
@@ -2414,7 +2232,7 @@ $type: WebContent</code></pre>
           </ul>
         </section>
 
-        <section id="reduce-duplication"><div class="header-wrapper"><h4 id="d-1-2-reduce-duplication"><bdi class="secno">D.1.2 </bdi>Reduce duplication</h4><a class="self-link" href="#reduce-duplication" aria-label="Permalink for Section D.1.2"></a></div>
+        <section id="reduce-duplication"><div class="header-wrapper"><h4 id="c-1-2-reduce-duplication"><bdi class="secno">C.1.2 </bdi>Reduce duplication</h4><a class="self-link" href="#reduce-duplication" aria-label="Permalink for Section C.1.2"></a></div>
           
 
           <p>
@@ -2438,7 +2256,7 @@ $type: WebContent</code></pre>
         </section>
       </section>
 
-      <section id="approaches"><div class="header-wrapper"><h3 id="d-2-approaches"><bdi class="secno">D.2 </bdi>Approaches</h3><a class="self-link" href="#approaches" aria-label="Permalink for Section D.2"></a></div>
+      <section id="approaches"><div class="header-wrapper"><h3 id="c-2-approaches"><bdi class="secno">C.2 </bdi>Approaches</h3><a class="self-link" href="#approaches" aria-label="Permalink for Section C.2"></a></div>
         
 
         <p>
@@ -2454,7 +2272,7 @@ $type: WebContent</code></pre>
         </ul>
       </section>
 
-      <section id="extended-internal-representation-0"><div class="header-wrapper"><h3 id="d-3-extended-internal-representation"><bdi class="secno">D.3 </bdi>Extended Internal Representation</h3><a class="self-link" href="#extended-internal-representation-0" aria-label="Permalink for Section D.3"></a></div>
+      <section id="extended-internal-representation-0"><div class="header-wrapper"><h3 id="c-3-extended-internal-representation"><bdi class="secno">C.3 </bdi>Extended Internal Representation</h3><a class="self-link" href="#extended-internal-representation-0" aria-label="Permalink for Section C.3"></a></div>
         
 
         <p>
@@ -2514,7 +2332,7 @@ $type: WebContent</code></pre>
         </p>
 
 
-        <section id="conversion-to-ir"><div class="header-wrapper"><h4 id="d-3-1-conversion-to-the-internal-representation"><bdi class="secno">D.3.1 </bdi>Conversion to the Internal Representation</h4><a class="self-link" href="#conversion-to-ir" aria-label="Permalink for Section D.3.1"></a></div>
+        <section id="conversion-to-ir"><div class="header-wrapper"><h4 id="c-3-1-conversion-to-the-internal-representation"><bdi class="secno">C.3.1 </bdi>Conversion to the Internal Representation</h4><a class="self-link" href="#conversion-to-ir" aria-label="Permalink for Section C.3.1"></a></div>
           
 
           <p>YAML-LD processing is defined by converting YAML to the
@@ -2531,7 +2349,7 @@ $type: WebContent</code></pre>
             rather than a specific syntactic representation.</p>
 
           <aside class="example" id="example-yaml-sequences"><div class="marker">
-    <a class="self-link" href="#example-yaml-sequences">Example<bdi> 12</bdi></a><span class="example-title">: YAML Sequences</span>
+    <a class="self-link" href="#example-yaml-sequences">Example<bdi> 9</bdi></a><span class="example-title">: YAML Sequences</span>
   </div>
             <p>For example, YAML has multiple ways to encode an <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list">array</a>,
               YAML <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#block-sequences">block sequences</a> and
@@ -2568,7 +2386,7 @@ $type: WebContent</code></pre>
             So that the resulting YAML is valid YAML-LD, resolving to the same graph as the original JSON-LD.
           </p></div>
 
-          <section id="convert-stream" class="algorithm"><div class="header-wrapper"><h5 id="d-3-1-1-converting-a-yaml-stream"><bdi class="secno">D.3.1.1 </bdi>Converting a <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#streams">YAML stream</a></h5><a class="self-link" href="#convert-stream" aria-label="Permalink for Section D.3.1.1"></a></div>
+          <section id="convert-stream" class="algorithm"><div class="header-wrapper"><h5 id="c-3-1-1-converting-a-yaml-stream"><bdi class="secno">C.3.1.1 </bdi>Converting a <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#streams">YAML stream</a></h5><a class="self-link" href="#convert-stream" aria-label="Permalink for Section C.3.1.1"></a></div>
             
 
             <p>A <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#streams">YAML stream</a> is composed of zero or more <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#documents">YAML documents</a>.</p>
@@ -2580,11 +2398,11 @@ $type: WebContent</code></pre>
               </li>
               <li>Otherwise, if the <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#streams">stream</a> contains a single <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#documents">YAML document</a>,
                 set <var>stream content</var> the result of
-                <a href="#convert-document" class="sectionRef sec-ref"><bdi class="secno">D.3.1.2 </bdi>Converting a <span>YAML document</span></a>.
+                <a href="#convert-document" class="sectionRef sec-ref"><bdi class="secno">C.3.1.2 </bdi>Converting a <span>YAML document</span></a>.
               </li>
               <li>Otherwise: for each <var>document</var> in the <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#streams">stream</a>:
                 <ol>
-                  <li>Set <var>doc</var> to the result of <a href="#convert-document" class="sectionRef sec-ref"><bdi class="secno">D.3.1.2 </bdi>Converting a <span>YAML document</span></a> for <var>document</var>.</li>
+                  <li>Set <var>doc</var> to the result of <a href="#convert-document" class="sectionRef sec-ref"><bdi class="secno">C.3.1.2 </bdi>Converting a <span>YAML document</span></a> for <var>document</var>.</li>
                   <li>If <var>doc</var> is an <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list">array</a>,
                     merge it to the end of <var>stream content</var>.
                   </li>
@@ -2610,7 +2428,7 @@ $type: WebContent</code></pre>
               in the failure of this processing step.</p>
           </section>
 
-          <section id="convert-document" class="algorithm"><div class="header-wrapper"><h5 id="d-3-1-2-converting-a-yaml-document"><bdi class="secno">D.3.1.2 </bdi>Converting a <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#documents">YAML document</a></h5><a class="self-link" href="#convert-document" aria-label="Permalink for Section D.3.1.2"></a></div>
+          <section id="convert-document" class="algorithm"><div class="header-wrapper"><h5 id="c-3-1-2-converting-a-yaml-document"><bdi class="secno">C.3.1.2 </bdi>Converting a <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#documents">YAML document</a></h5><a class="self-link" href="#convert-document" aria-label="Permalink for Section C.3.1.2"></a></div>
             
 
             <p>From the <a href="http://yaml.org/spec/1.2/spec.html#">YAML grammar</a>,
@@ -2663,7 +2481,7 @@ $type: WebContent</code></pre>
               in the failure of this processing step.</p>
           </section>
 
-          <section id="convert-seq" class="algorithm"><div class="header-wrapper"><h5 id="d-3-1-3-converting-a-yaml-sequence"><bdi class="secno">D.3.1.3 </bdi>Converting a <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#sequence">YAML sequence</a></h5><a class="self-link" href="#convert-seq" aria-label="Permalink for Section D.3.1.3"></a></div>
+          <section id="convert-seq" class="algorithm"><div class="header-wrapper"><h5 id="c-3-1-3-converting-a-yaml-sequence"><bdi class="secno">C.3.1.3 </bdi>Converting a <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#sequence">YAML sequence</a></h5><a class="self-link" href="#convert-seq" aria-label="Permalink for Section C.3.1.3"></a></div>
             
 
             <p>Both <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#block-sequences">block sequences</a> and <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#flow-sequences">flow sequences</a>
@@ -2692,7 +2510,7 @@ $type: WebContent</code></pre>
               in the failure of this processing step.</p>
           </section>
 
-          <section id="convert-mapping" class="algorithm"><div class="header-wrapper"><h5 id="d-3-1-4-converting-a-yaml-mapping"><bdi class="secno">D.3.1.4 </bdi>Converting a <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#mapping">YAML mapping</a></h5><a class="self-link" href="#convert-mapping" aria-label="Permalink for Section D.3.1.4"></a></div>
+          <section id="convert-mapping" class="algorithm"><div class="header-wrapper"><h5 id="c-3-1-4-converting-a-yaml-mapping"><bdi class="secno">C.3.1.4 </bdi>Converting a <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#mapping">YAML mapping</a></h5><a class="self-link" href="#convert-mapping" aria-label="Permalink for Section C.3.1.4"></a></div>
             
 
             <p>Both <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#block-mappings">block mappings</a> and <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#flow-mappings">flow mappings</a>
@@ -2737,7 +2555,7 @@ $type: WebContent</code></pre>
               in the failure of this processing step.</p>
           </section>
 
-          <section id="convert-scalar" class="algorithm"><div class="header-wrapper"><h5 id="d-3-1-5-converting-a-yaml-scalar"><bdi class="secno">D.3.1.5 </bdi>Converting a <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#scalar">YAML scalar</a></h5><a class="self-link" href="#convert-scalar" aria-label="Permalink for Section D.3.1.5"></a></div>
+          <section id="convert-scalar" class="algorithm"><div class="header-wrapper"><h5 id="c-3-1-5-converting-a-yaml-scalar"><bdi class="secno">C.3.1.5 </bdi>Converting a <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#scalar">YAML scalar</a></h5><a class="self-link" href="#convert-scalar" aria-label="Permalink for Section C.3.1.5"></a></div>
             
 
             <ol>
@@ -2798,7 +2616,7 @@ $type: WebContent</code></pre>
             </p></div>
           </section>
 
-          <section id="convert-alias" class="algorithm"><div class="header-wrapper"><h5 id="d-3-1-6-converting-a-yaml-alias-node"><bdi class="secno">D.3.1.6 </bdi>Converting a YAML <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#alias-nodes">alias node</a></h5><a class="self-link" href="#convert-alias" aria-label="Permalink for Section D.3.1.6"></a></div>
+          <section id="convert-alias" class="algorithm"><div class="header-wrapper"><h5 id="c-3-1-6-converting-a-yaml-alias-node"><bdi class="secno">C.3.1.6 </bdi>Converting a YAML <a data-link-type="dfn" href="http://yaml.org/spec/1.2/spec.html#alias-nodes">alias node</a></h5><a class="self-link" href="#convert-alias" aria-label="Permalink for Section C.3.1.6"></a></div>
             
 
             <p>
@@ -2830,7 +2648,7 @@ $type: WebContent</code></pre>
           </section>
         </section>
 
-        <section id="conversion-to-yaml"><div class="header-wrapper"><h4 id="d-3-2-conversion-to-yaml"><bdi class="secno">D.3.2 </bdi>Conversion to YAML</h4><a class="self-link" href="#conversion-to-yaml" aria-label="Permalink for Section D.3.2"></a></div>
+        <section id="conversion-to-yaml"><div class="header-wrapper"><h4 id="c-3-2-conversion-to-yaml"><bdi class="secno">C.3.2 </bdi>Conversion to YAML</h4><a class="self-link" href="#conversion-to-yaml" aria-label="Permalink for Section C.3.2"></a></div>
           
 
           <p>The conversion process from the <a data-link-type="dfn" href="https://www.w3.org/TR/json-ld11-api/#dfn-internal-representation">internal representation</a>
@@ -2877,7 +2695,7 @@ $type: WebContent</code></pre>
 
           <div class="example" id="example-serialized-representation-of-the-extended-internal-representation">
         <div class="marker">
-    <a class="self-link" href="#example-serialized-representation-of-the-extended-internal-representation">Example<bdi> 13</bdi></a><span class="example-title">: Serialized representation of the extended internal representation</span>
+    <a class="self-link" href="#example-serialized-representation-of-the-extended-internal-representation">Example<bdi> 10</bdi></a><span class="example-title">: Serialized representation of the extended internal representation</span>
   </div> <pre data-result-for="YAML-LD with multiple documents" data-content-type="application/ld+json" aria-busy="false"><code class="hljs yaml"><span class="hljs-string">%TAG</span> <span class="hljs-type">!xsd</span><span class="hljs-string">!</span> <span class="hljs-string">http://www.w3.org/2001/XMLSchema%23</span>
 <span class="hljs-meta">---</span>
 <span class="hljs-attr">"@context":</span> <span class="hljs-string">https://schema.org</span>
@@ -2911,10 +2729,10 @@ $type: WebContent</code></pre>
 <span class="hljs-attr">name:</span> <span class="hljs-string">Pierre-Antoine</span> <span class="hljs-string">Champin</span></code></pre>
           </div></div>
 
-          <p>See <a href="#example-serialized-representation-of-the-extended-internal-representation" class="box-ref">Example<bdi> 13</bdi></a> for an example
+          <p>See <a href="#example-serialized-representation-of-the-extended-internal-representation" class="box-ref">Example<bdi> 10</bdi></a> for an example
             of serializing the extended internal representation.</p>
 
-          <section id="convert-ir" class="algorithm"><div class="header-wrapper"><h5 id="d-3-2-1-converting-from-the-internal-representation"><bdi class="secno">D.3.2.1 </bdi>Converting From the Internal Representation</h5><a class="self-link" href="#convert-ir" aria-label="Permalink for Section D.3.2.1"></a></div>
+          <section id="convert-ir" class="algorithm"><div class="header-wrapper"><h5 id="c-3-2-1-converting-from-the-internal-representation"><bdi class="secno">C.3.2.1 </bdi>Converting From the Internal Representation</h5><a class="self-link" href="#convert-ir" aria-label="Permalink for Section C.3.2.1"></a></div>
             
 
             <p>
@@ -2985,7 +2803,7 @@ $type: WebContent</code></pre>
           </section>
         </section>
 
-        <section id="profiles"><div class="header-wrapper"><h4 id="d-3-3-application-profiles"><bdi class="secno">D.3.3 </bdi>Application Profiles</h4><a class="self-link" href="#profiles" aria-label="Permalink for Section D.3.3"></a></div>
+        <section id="profiles"><div class="header-wrapper"><h4 id="c-3-3-application-profiles"><bdi class="secno">C.3.3 </bdi>Application Profiles</h4><a class="self-link" href="#profiles" aria-label="Permalink for Section C.3.3"></a></div>
           
 
           <p>This section identifies two application profiles for operating with
@@ -3009,7 +2827,7 @@ $type: WebContent</code></pre>
           <p>Application profiles can be set using the <a data-link-type="interface" data-lt="JsonLdProcessor" href="https://www.w3.org/TR/json-ld11-api/#dom-jsonldprocessor"><code>JsonLdProcessor</code></a>
             API interface, as well as an HTTP request profile (see <a href="#iana" class="sectionRef sec-ref"><bdi class="secno">A. </bdi>IANA Considerations</a>).</p>
 
-          <section id="yaml-ld-json-profile"><div class="header-wrapper"><h5 id="d-3-3-1-yaml-ld-basic-profile"><bdi class="secno">D.3.3.1 </bdi>YAML-LD Basic Profile</h5><a class="self-link" href="#yaml-ld-json-profile" aria-label="Permalink for Section D.3.3.1"></a></div>
+          <section id="yaml-ld-json-profile"><div class="header-wrapper"><h5 id="c-3-3-1-yaml-ld-basic-profile"><bdi class="secno">C.3.3.1 </bdi>YAML-LD Basic Profile</h5><a class="self-link" href="#yaml-ld-json-profile" aria-label="Permalink for Section C.3.3.1"></a></div>
             
 
             <p>
@@ -3020,7 +2838,7 @@ $type: WebContent</code></pre>
               <em class="rfc2119">SHOULD</em> be avoided and <em class="rfc2119">MUST</em> be converted to the closest
               scalar type from the <a href="http://yaml.org/spec/1.2/spec.html#core-schema">YAML Core Schema</a>,
               if found.
-              See <a href="#convert-scalar" class="sectionRef sec-ref"><bdi class="secno">D.3.1.5 </bdi>Converting a <span>YAML scalar</span></a>
+              See <a href="#convert-scalar" class="sectionRef sec-ref"><bdi class="secno">C.3.1.5 </bdi>Converting a <span>YAML scalar</span></a>
               for specifics.
             </p>
 
@@ -3048,7 +2866,7 @@ $type: WebContent</code></pre>
             </p>
           </section>
 
-          <section id="yaml-ld-extended-profile"><div class="header-wrapper"><h5 id="d-3-3-2-yaml-ld-extended-profile"><bdi class="secno">D.3.3.2 </bdi>YAML-LD Extended Profile</h5><a class="self-link" href="#yaml-ld-extended-profile" aria-label="Permalink for Section D.3.3.2"></a></div>
+          <section id="yaml-ld-extended-profile"><div class="header-wrapper"><h5 id="c-3-3-2-yaml-ld-extended-profile"><bdi class="secno">C.3.3.2 </bdi>YAML-LD Extended Profile</h5><a class="self-link" href="#yaml-ld-extended-profile" aria-label="Permalink for Section C.3.3.2"></a></div>
             
 
             <p>
@@ -3088,7 +2906,7 @@ $type: WebContent</code></pre>
               Consier something like <code>!id</code> as a local tag to denote IRIs.
             </p></div>
 
-            <section id="extended-internal-representation"><div class="header-wrapper"><h6 id="d-3-3-2-1-the-json-ld-extended-internal-representation"><bdi class="secno">D.3.3.2.1 </bdi>The JSON-LD Extended Internal Representation</h6><a class="self-link" href="#extended-internal-representation" aria-label="Permalink for Section D.3.3.2.1"></a></div>
+            <section id="extended-internal-representation"><div class="header-wrapper"><h6 id="c-3-3-2-1-the-json-ld-extended-internal-representation"><bdi class="secno">C.3.3.2.1 </bdi>The JSON-LD Extended Internal Representation</h6><a class="self-link" href="#extended-internal-representation" aria-label="Permalink for Section C.3.3.2.1"></a></div>
               
 
               <p>
@@ -3152,7 +2970,7 @@ $type: WebContent</code></pre>
           </section>
         </section>
 
-        <section id="api"><div class="header-wrapper"><h4 id="d-3-4-the-application-programming-interface"><bdi class="secno">D.3.4 </bdi>The Application Programming Interface</h4><a class="self-link" href="#api" aria-label="Permalink for Section D.3.4"></a></div>
+        <section id="api"><div class="header-wrapper"><h4 id="c-3-4-the-application-programming-interface"><bdi class="secno">C.3.4 </bdi>The Application Programming Interface</h4><a class="self-link" href="#api" aria-label="Permalink for Section C.3.4"></a></div>
           
 
           <p>
@@ -3169,7 +2987,7 @@ $type: WebContent</code></pre>
             <a href="#dfn-yaml-ld-extended-profile" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-yaml-ld-extended-profile-6">YAML-LD extended profile</a>.
           </p>
 
-          <section id="jsonldprocessor"><div class="header-wrapper"><h5 id="d-3-4-1-jsonldprocessor"><bdi class="secno">D.3.4.1 </bdi>JsonLdProcessor</h5><a class="self-link" href="#jsonldprocessor" aria-label="Permalink for Section D.3.4.1"></a></div>
+          <section id="jsonldprocessor"><div class="header-wrapper"><h5 id="c-3-4-1-jsonldprocessor"><bdi class="secno">C.3.4.1 </bdi>JsonLdProcessor</h5><a class="self-link" href="#jsonldprocessor" aria-label="Permalink for Section C.3.4.1"></a></div>
             
 
             <p>
@@ -3187,31 +3005,31 @@ $type: WebContent</code></pre>
               <dd>
                 Updates step 10 of the <a data-link-type="method" data-lt="compact()" href="https://www.w3.org/TR/json-ld11-api/#dom-jsonldprocessor-compact"><code>compact</code></a><code>()</code> algorithm
                 to serialize the the result as YAML rather than JSON
-                as defined in <a href="#conversion-to-yaml" class="sectionRef sec-ref"><bdi class="secno">D.3.2 </bdi>Conversion to YAML</a>.
+                as defined in <a href="#conversion-to-yaml" class="sectionRef sec-ref"><bdi class="secno">C.3.2 </bdi>Conversion to YAML</a>.
               </dd>
               <dt><a data-link-type="method" data-lt="expand()" href="https://www.w3.org/TR/json-ld11-api/#dom-jsonldprocessor-expand"><code>expand</code></a><code>()</code></dt>
               <dd>
                 Updates step 9 of the <a data-link-type="method" data-lt="expand()" href="https://www.w3.org/TR/json-ld11-api/#dom-jsonldprocessor-expand"><code>expand</code></a><code>()</code> algorithm
                 to serialize the the result as YAML rather than JSON
-                as defined in <a href="#conversion-to-yaml" class="sectionRef sec-ref"><bdi class="secno">D.3.2 </bdi>Conversion to YAML</a>.
+                as defined in <a href="#conversion-to-yaml" class="sectionRef sec-ref"><bdi class="secno">C.3.2 </bdi>Conversion to YAML</a>.
               </dd>
               <dt><a data-link-type="method" data-lt="flatten()" href="https://www.w3.org/TR/json-ld11-api/#dom-jsonldprocessor-flatten"><code>flatten</code></a><code>()</code></dt>
               <dd>
                 Updates step 7 of the <a data-link-type="method" data-lt="flatten()" href="https://www.w3.org/TR/json-ld11-api/#dom-jsonldprocessor-flatten"><code>flatten</code></a><code>()</code> algorithm
                 to serialize the the result as YAML rather than JSON
-                as defined in <a href="#conversion-to-yaml" class="sectionRef sec-ref"><bdi class="secno">D.3.2 </bdi>Conversion to YAML</a>.
+                as defined in <a href="#conversion-to-yaml" class="sectionRef sec-ref"><bdi class="secno">C.3.2 </bdi>Conversion to YAML</a>.
               </dd>
               <dd>
                 Updates step 22 of the
                 <a href="https://www.w3.org/TR/json-ld11-framing/#dom-jsonldprocessor-frame">frame()</a>
                 algorithm to serialize the the result as YAML rather than JSON
-                as defined in <a href="#conversion-to-yaml" class="sectionRef sec-ref"><bdi class="secno">D.3.2 </bdi>Conversion to YAML</a>.
+                as defined in <a href="#conversion-to-yaml" class="sectionRef sec-ref"><bdi class="secno">C.3.2 </bdi>Conversion to YAML</a>.
               </dd>
               <dt><a data-link-type="method" data-lt="fromRdf()" href="https://www.w3.org/TR/json-ld11-api/#dom-jsonldprocessor-fromrdf"><code>fromRdf</code></a><code>()</code></dt>
               <dd>
                 Updates step 3 of the <a data-link-type="method" data-lt="fromRdf()" href="https://www.w3.org/TR/json-ld11-api/#dom-jsonldprocessor-fromrdf"><code>fromRdf</code></a><code>()</code> algorithm
                 to serialize the the result as YAML rather than JSON
-                as defined in <a href="#conversion-to-yaml" class="sectionRef sec-ref"><bdi class="secno">D.3.2 </bdi>Conversion to YAML</a>.
+                as defined in <a href="#conversion-to-yaml" class="sectionRef sec-ref"><bdi class="secno">C.3.2 </bdi>Conversion to YAML</a>.
               </dd>
               <dd>
                 Updates the
@@ -3261,7 +3079,7 @@ $type: WebContent</code></pre>
               </dd></dl>
           </section>
 
-          <section id="jsonldoptions"><div class="header-wrapper"><h5 id="d-3-4-2-jsonldoptions"><bdi class="secno">D.3.4.2 </bdi>JsonLdOptions</h5><a class="self-link" href="#jsonldoptions" aria-label="Permalink for Section D.3.4.2"></a></div>
+          <section id="jsonldoptions"><div class="header-wrapper"><h5 id="c-3-4-2-jsonldoptions"><bdi class="secno">C.3.4.2 </bdi>JsonLdOptions</h5><a class="self-link" href="#jsonldoptions" aria-label="Permalink for Section C.3.4.2"></a></div>
             
             <p>The <a data-link-type="dictionary" data-lt="JsonLdOptions" href="https://www.w3.org/TR/json-ld11-api/#dom-jsonldoptions"><code>JsonLdOptions</code></a> type is used to pass various options to the
               <a data-link-type="interface" data-lt="JsonLdProcessor" href="https://www.w3.org/TR/json-ld11-api/#dom-jsonldprocessor"><code>JsonLdProcessor</code></a> methods.</p>
@@ -3364,7 +3182,7 @@ $type: WebContent</code></pre>
               </dd></dl>
           </section>
 
-          <section class="documentLoader" id="remote-document-and-context-retrieval"><div class="header-wrapper"><h5 id="d-3-4-3-remote-document-and-context-retrieval"><bdi class="secno">D.3.4.3 </bdi>Remote Document and Context Retrieval</h5><a class="self-link" href="#remote-document-and-context-retrieval" aria-label="Permalink for Section D.3.4.3"></a></div>
+          <section class="documentLoader" id="remote-document-and-context-retrieval"><div class="header-wrapper"><h5 id="c-3-4-3-remote-document-and-context-retrieval"><bdi class="secno">C.3.4.3 </bdi>Remote Document and Context Retrieval</h5><a class="self-link" href="#remote-document-and-context-retrieval" aria-label="Permalink for Section C.3.4.3"></a></div>
             
 
             <p>This section describes an update to the
@@ -3397,7 +3215,7 @@ $type: WebContent</code></pre>
                 or any media type with a <code>+yaml</code> suffix as defined in [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc6839" title="Additional Media Type Structured Syntax Suffixes">RFC6839</a></cite>]
                 transform <var>document</var> to the <a data-link-type="dfn" href="https://www.w3.org/TR/json-ld11-api/#dfn-internal-representation">internal representation</a>
                 (or <a href="#dfn-extended-internal-representation" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-extended-internal-representation-13">extended internal representation</a>)
-                as described in <a href="#conversion-to-ir" class="sectionRef sec-ref"><bdi class="secno">D.3.1 </bdi>Conversion to the Internal Representation</a>.
+                as described in <a href="#conversion-to-ir" class="sectionRef sec-ref"><bdi class="secno">C.3.1 </bdi>Conversion to the Internal Representation</a>.
                 Additionally, if the <a data-link-type="attribute" href="https://www.w3.org/TR/json-ld11-api/#dom-remotedocument-profile"><code>profile</code></a> parameter
                 includes <code>http://www.w3.org/ns/json-ld#extended</code>, set the <a data-link-type="idl" href="#dfn-processingmode" class="internalDFN" id="ref-for-dfn-processingmode-8"><code>processingMode</code></a> option to <code>yaml-ld-extended</code>.
               </li>
@@ -3411,7 +3229,7 @@ $type: WebContent</code></pre>
             </p></div>
           </section>
 
-          <section id="yamllderrorcode"><div class="header-wrapper"><h5 id="d-3-4-4-yamllderrorcode"><bdi class="secno">D.3.4.4 </bdi>YamlLdErrorCode</h5><a class="self-link" href="#yamllderrorcode" aria-label="Permalink for Section D.3.4.4"></a></div>
+          <section id="yamllderrorcode"><div class="header-wrapper"><h5 id="c-3-4-4-yamllderrorcode"><bdi class="secno">C.3.4.4 </bdi>YamlLdErrorCode</h5><a class="self-link" href="#yamllderrorcode" aria-label="Permalink for Section C.3.4.4"></a></div>
             
             <p>The <dfn data-export="" data-dfn-type="enum" id="dom-yamllderrorcode" data-idl="enum" data-title="YamlLdErrorCode" data-dfn-for="" tabindex="0" aria-haspopup="dialog"><code>YamlLdErrorCode</code></dfn> represents the collection of valid YAML-LD error codes,
               which extends the <a data-link-type="enum" data-lt="JsonLdErrorCode" href="https://www.w3.org/TR/json-ld11-api/#dom-jsonlderrorcode"><code>JsonLdErrorCode</code></a> definitions.</p>
@@ -3431,7 +3249,7 @@ $type: WebContent</code></pre>
           </section>
         </section>
 
-        <section id="implementations"><div class="header-wrapper"><h4 id="d-3-5-implementations"><bdi class="secno">D.3.5 </bdi>Implementations</h4><a class="self-link" href="#implementations" aria-label="Permalink for Section D.3.5"></a></div>
+        <section id="implementations"><div class="header-wrapper"><h4 id="c-3-5-implementations"><bdi class="secno">C.3.5 </bdi>Implementations</h4><a class="self-link" href="#implementations" aria-label="Permalink for Section C.3.5"></a></div>
           
 
           <p>
@@ -3441,7 +3259,7 @@ $type: WebContent</code></pre>
 
       </section>
 
-      <section id="convert-extended-yaml-ld-to-basic-yaml-ld-and-back"><div class="header-wrapper"><h3 id="d-4-convert-extended-yaml-ld-to-basic-yaml-ld-and-back"><bdi class="secno">D.4 </bdi>Convert Extended YAML-LD to Basic YAML-LD and back</h3><a class="self-link" href="#convert-extended-yaml-ld-to-basic-yaml-ld-and-back" aria-label="Permalink for Section D.4"></a></div>
+      <section id="convert-extended-yaml-ld-to-basic-yaml-ld-and-back"><div class="header-wrapper"><h3 id="c-4-convert-extended-yaml-ld-to-basic-yaml-ld-and-back"><bdi class="secno">C.4 </bdi>Convert Extended YAML-LD to Basic YAML-LD and back</h3><a class="self-link" href="#convert-extended-yaml-ld-to-basic-yaml-ld-and-back" aria-label="Permalink for Section C.4"></a></div>
         
 
         <p>
@@ -3544,14 +3362,14 @@ $type: WebContent</code></pre>
           </tbody>
         </table>
 
-        <section id="tags-to-types"><div class="header-wrapper"><h4 id="d-4-1-yaml-tags-type-declarations"><bdi class="secno">D.4.1 </bdi>YAML <code>!tags</code> → <code>@type</code> declarations</h4><a class="self-link" href="#tags-to-types" aria-label="Permalink for Section D.4.1"></a></div>
+        <section id="tags-to-types"><div class="header-wrapper"><h4 id="c-4-1-yaml-tags-type-declarations"><bdi class="secno">C.4.1 </bdi>YAML <code>!tags</code> → <code>@type</code> declarations</h4><a class="self-link" href="#tags-to-types" aria-label="Permalink for Section C.4.1"></a></div>
           
 
           <div style="display: flex">
               <div>
                 <div class="example" id="example-extended-yaml-ld-with-tags">
         <div class="marker">
-    <a class="self-link" href="#example-extended-yaml-ld-with-tags">Example<bdi> 14</bdi></a><span class="example-title">: Extended YAML-LD with tags</span>
+    <a class="self-link" href="#example-extended-yaml-ld-with-tags">Example<bdi> 11</bdi></a><span class="example-title">: Extended YAML-LD with tags</span>
   </div> <pre data-result-for="YAML-LD: Tags" data-content-type="application/ld+json" aria-busy="false"><code class="hljs yaml"><span class="hljs-string">%TAG</span> <span class="hljs-type">!xsd</span><span class="hljs-string">!</span> <span class="hljs-string">http://www.w3.org/2001/XMLSchema%23</span>
 <span class="hljs-meta">---</span>
 <span class="hljs-attr">"@context":</span> <span class="hljs-string">https://schema.org</span>
@@ -3564,7 +3382,7 @@ $type: WebContent</code></pre>
               <div>
                 <div class="example" id="example-basic-yaml-ld">
         <div class="marker">
-    <a class="self-link" href="#example-basic-yaml-ld">Example<bdi> 15</bdi></a><span class="example-title">: Basic YAML-LD</span>
+    <a class="self-link" href="#example-basic-yaml-ld">Example<bdi> 12</bdi></a><span class="example-title">: Basic YAML-LD</span>
   </div> <pre data-result-for="YAML-LD: Tags" data-content-type="application/ld+json" aria-busy="false"><code class="hljs yaml"><span class="hljs-attr">"@context":</span>
   <span class="hljs-bullet">-</span> <span class="hljs-attr">"@import":</span> <span class="hljs-string">https://schema.org</span>
   <span class="hljs-bullet">-</span> <span class="hljs-attr">xsd:</span> <span class="hljs-string">"http://www.w3.org/2001/XMLSchema#"</span>
@@ -3579,7 +3397,7 @@ $type: WebContent</code></pre>
             </div>
         </section>
 
-        <section id="resolve-anchors-aliases"><div class="header-wrapper"><h4 id="d-4-2-anchors-and-aliases"><bdi class="secno">D.4.2 </bdi><code>&amp;anchors</code> and <code>*aliases</code></h4><a class="self-link" href="#resolve-anchors-aliases" aria-label="Permalink for Section D.4.2"></a></div>
+        <section id="resolve-anchors-aliases"><div class="header-wrapper"><h4 id="c-4-2-anchors-and-aliases"><bdi class="secno">C.4.2 </bdi><code>&amp;anchors</code> and <code>*aliases</code></h4><a class="self-link" href="#resolve-anchors-aliases" aria-label="Permalink for Section C.4.2"></a></div>
           
 
           <p>
@@ -3590,7 +3408,7 @@ $type: WebContent</code></pre>
         </section>
       </section>
 
-      <section id="frag" class="informative"><div class="header-wrapper"><h3 id="d-5-fragment-identifiers"><bdi class="secno">D.5 </bdi>Fragment identifiers</h3><a class="self-link" href="#frag" aria-label="Permalink for Section D.5"></a></div><p><em>This section is non-normative.</em></p>
+      <section id="frag" class="informative"><div class="header-wrapper"><h3 id="c-5-fragment-identifiers"><bdi class="secno">C.5 </bdi>Fragment identifiers</h3><a class="self-link" href="#frag" aria-label="Permalink for Section C.5"></a></div><p><em>This section is non-normative.</em></p>
         
         <p>Fragment identifiers used with <a href="#application-ld-yaml">application/ld+yaml</a>
          are treated as in RDF syntaxes, as per
@@ -3606,10 +3424,10 @@ $type: WebContent</code></pre>
       </section>
     </section>
 
-    <section id="ack" class="appendix informative"><div class="header-wrapper"><h2 id="e-acknowledgements"><bdi class="secno">E. </bdi>Acknowledgements</h2><a class="self-link" href="#ack" aria-label="Permalink for Appendix E."></a></div><p><em>This section is non-normative.</em></p>
+    <section id="ack" class="appendix informative"><div class="header-wrapper"><h2 id="d-acknowledgements"><bdi class="secno">D. </bdi>Acknowledgements</h2><a class="self-link" href="#ack" aria-label="Permalink for Appendix D."></a></div><p><em>This section is non-normative.</em></p>
       
 
-      <section id="in-memoriam"><div class="header-wrapper"><h3 id="e-1-in-memoriam"><bdi class="secno">E.1 </bdi>In Memoriam</h3><a class="self-link" href="#in-memoriam" aria-label="Permalink for Appendix E.1"></a></div>
+      <section id="in-memoriam"><div class="header-wrapper"><h3 id="d-1-in-memoriam"><bdi class="secno">D.1 </bdi>In Memoriam</h3><a class="self-link" href="#in-memoriam" aria-label="Permalink for Appendix D.1"></a></div>
       <p>Gregg Kellogg was a central figure in the story of JSON-LD and YAML-LD.
       He worked tirelessly on JSON-LD and many other specifications for more than a decade,
       right up until his death on September 6th, 2025. Gregg's passion for solving
@@ -3619,7 +3437,7 @@ $type: WebContent</code></pre>
       consistent, careful, and kindly delivered contributions during their most
       formative years.</p>
 
-      </section><section id="contributions"><div class="header-wrapper"><h3 id="e-2-contributions"><bdi class="secno">E.2 </bdi>Contributions</h3><a class="self-link" href="#contributions" aria-label="Permalink for Appendix E.2"></a></div>
+      </section><section id="contributions"><div class="header-wrapper"><h3 id="d-2-contributions"><bdi class="secno">D.2 </bdi>Contributions</h3><a class="self-link" href="#contributions" aria-label="Permalink for Appendix D.2"></a></div>
       <p>
           The editors would especially like to thank the following individuals for making significant
           contributions to the authoring and editing of this specification:
@@ -3635,7 +3453,7 @@ $type: WebContent</code></pre>
     </section></section>
   
 
-<section id="references" class="appendix"><div class="header-wrapper"><h2 id="f-references"><bdi class="secno">F. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix F."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="f-1-normative-references"><bdi class="secno">F.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix F.1"></a></div>
+<section id="references" class="appendix"><div class="header-wrapper"><h2 id="e-references"><bdi class="secno">E. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix E."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="e-1-normative-references"><bdi class="secno">E.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix E.1"></a></div>
     
     <dl class="bibliography"><dt id="bib-html">[HTML]</dt><dd>
       <a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Anne van Kesteren; Domenic Denicola; Dominic Farolino; Ian Hickson; Philip Jägenstedt; Simon Pieters.  WHATWG. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
@@ -3666,7 +3484,7 @@ $type: WebContent</code></pre>
     </dd><dt id="bib-yaml">[YAML]</dt><dd>
       <a href="http://yaml.org/spec/1.2/spec.html"><cite>YAML Ain’t Markup Language (YAML™) Version 1.2</cite></a>. Oren Ben-Kiki; Clark Evans; Ingy döt Net. 1 October 2009. URL: <a href="http://yaml.org/spec/1.2/spec.html">http://yaml.org/spec/1.2/spec.html</a>
     </dd></dl>
-  </section><section id="informative-references"><div class="header-wrapper"><h3 id="f-2-informative-references"><bdi class="secno">F.2 </bdi>Informative references</h3><a class="self-link" href="#informative-references" aria-label="Permalink for Appendix F.2"></a></div>
+  </section><section id="informative-references"><div class="header-wrapper"><h3 id="e-2-informative-references"><bdi class="secno">E.2 </bdi>Informative references</h3><a class="self-link" href="#informative-references" aria-label="Permalink for Appendix E.2"></a></div>
     
     <dl class="bibliography"><dt id="bib-ecmascript">[ECMASCRIPT]</dt><dd>
       <a href="https://tc39.es/ecma262/multipage/"><cite>ECMAScript Language Specification</cite></a>.  Ecma International. URL: <a href="https://tc39.es/ecma262/multipage/">https://tc39.es/ecma262/multipage/</a>
@@ -3674,8 +3492,6 @@ $type: WebContent</code></pre>
       <a href="https://infra.spec.whatwg.org/"><cite>Infra Standard</cite></a>. Anne van Kesteren; Domenic Denicola.  WHATWG. Living Standard. URL: <a href="https://infra.spec.whatwg.org/">https://infra.spec.whatwg.org/</a>
     </dd><dt id="bib-json-ld">[JSON-LD]</dt><dd>
       <a href="https://www.w3.org/TR/json-ld/"><cite>JSON-LD 1.0</cite></a>. Manu Sporny; Gregg Kellogg; Markus Lanthaler.  W3C. 3 November 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld/">https://www.w3.org/TR/json-ld/</a>
-    </dd><dt id="bib-json-ld-bp">[json-ld-bp]</dt><dd>
-      <a href="https://w3c.github.io/json-ld-bp/"><cite>JSON-LD Best Practices</cite></a>. Gregg Kellogg; Ivan Herman; BigBlueHat; A. Soroka; Ruben Taelman; David I. Lehn; Philippe Le Hegaret.  W3C. 2022-05-24. W3C Group Note. URL: <a href="https://w3c.github.io/json-ld-bp/">https://w3c.github.io/json-ld-bp/</a>
     </dd><dt id="bib-linked-data">[LINKED-DATA]</dt><dd>
       <a href="https://www.w3.org/DesignIssues/LinkedData.html"><cite>Linked Data Design Issues</cite></a>. Tim Berners-Lee.  W3C. 27 July 2006. W3C-Internal Document. URL: <a href="https://www.w3.org/DesignIssues/LinkedData.html">https://www.w3.org/DesignIssues/LinkedData.html</a>
     </dd><dt id="bib-owl2-syntax">[OWL2-SYNTAX]</dt><dd>
@@ -3736,7 +3552,7 @@ $type: WebContent</code></pre>
     </li><li>
       <a href="#ref-for-dfn-yaml-ld-document-9" title="§ A.1 application/ld+yaml">§ A.1 application/ld+yaml</a> <a href="#ref-for-dfn-yaml-ld-document-10" title="Reference 2">(2)</a> <a href="#ref-for-dfn-yaml-ld-document-11" title="Reference 3">(3)</a> 
     </li><li>
-      <a href="#ref-for-dfn-yaml-ld-document-12" title="§ D.3 Extended Internal Representation">§ D.3 Extended Internal Representation</a> 
+      <a href="#ref-for-dfn-yaml-ld-document-12" title="§ C.3 Extended Internal Representation">§ C.3 Extended Internal Representation</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-json-document" aria-label="Links in this document to definition: JSON document">
@@ -3751,18 +3567,6 @@ $type: WebContent</code></pre>
       <a href="#ref-for-dfn-json-document-1" title="§ 7. Interoperability Considerations">§ 7. Interoperability Considerations</a> 
     </li>
   </ul>
-    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-convenience-context" aria-label="Links in this document to definition: Convenience Context">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="#dfn-convenience-context" aria-label="Permalink for definition: Convenience Context. Activate to close this dialog.">Permalink</a>
-         
-      </div>
-      <p><b>Referenced in:</b></p>
-      <ul>
-    <li>
-      <a href="#ref-for-dfn-convenience-context-1" title="§ B. Best Practices">§ B. Best Practices</a> 
-    </li>
-  </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-yaml-ld-basic-profile" aria-label="Links in this document to definition: YAML-LD Basic profile">
       <span class="caret"></span>
       <div>
@@ -3774,21 +3578,21 @@ $type: WebContent</code></pre>
     <li>
       <a href="#ref-for-dfn-yaml-ld-basic-profile-1" title="§ 2. Conformance">§ 2. Conformance</a> 
     </li><li>
-      <a href="#ref-for-dfn-yaml-ld-basic-profile-2" title="§ D.3 Extended Internal Representation">§ D.3 Extended Internal Representation</a> 
+      <a href="#ref-for-dfn-yaml-ld-basic-profile-2" title="§ C.3 Extended Internal Representation">§ C.3 Extended Internal Representation</a> 
     </li><li>
-      <a href="#ref-for-dfn-yaml-ld-basic-profile-3" title="§ D.3.1 Conversion to the Internal Representation">§ D.3.1 Conversion to the Internal Representation</a> 
+      <a href="#ref-for-dfn-yaml-ld-basic-profile-3" title="§ C.3.1 Conversion to the Internal Representation">§ C.3.1 Conversion to the Internal Representation</a> 
     </li><li>
-      <a href="#ref-for-dfn-yaml-ld-basic-profile-4" title="§ D.3.1.6 Converting a YAML alias node">§ D.3.1.6 Converting a YAML alias node</a> 
+      <a href="#ref-for-dfn-yaml-ld-basic-profile-4" title="§ C.3.1.6 Converting a YAML alias node">§ C.3.1.6 Converting a YAML alias node</a> 
     </li><li>
-      <a href="#ref-for-dfn-yaml-ld-basic-profile-5" title="§ D.3.3 Application Profiles">§ D.3.3 Application Profiles</a> <a href="#ref-for-dfn-yaml-ld-basic-profile-6" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-yaml-ld-basic-profile-5" title="§ C.3.3 Application Profiles">§ C.3.3 Application Profiles</a> <a href="#ref-for-dfn-yaml-ld-basic-profile-6" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-yaml-ld-basic-profile-7" title="§ D.3.3.1 YAML-LD Basic Profile">§ D.3.3.1 YAML-LD Basic Profile</a> 
+      <a href="#ref-for-dfn-yaml-ld-basic-profile-7" title="§ C.3.3.1 YAML-LD Basic Profile">§ C.3.3.1 YAML-LD Basic Profile</a> 
     </li><li>
-      <a href="#ref-for-dfn-yaml-ld-basic-profile-8" title="§ D.3.3.2 YAML-LD Extended Profile">§ D.3.3.2 YAML-LD Extended Profile</a> <a href="#ref-for-dfn-yaml-ld-basic-profile-9" title="Reference 2">(2)</a> <a href="#ref-for-dfn-yaml-ld-basic-profile-10" title="Reference 3">(3)</a> 
+      <a href="#ref-for-dfn-yaml-ld-basic-profile-8" title="§ C.3.3.2 YAML-LD Extended Profile">§ C.3.3.2 YAML-LD Extended Profile</a> <a href="#ref-for-dfn-yaml-ld-basic-profile-9" title="Reference 2">(2)</a> <a href="#ref-for-dfn-yaml-ld-basic-profile-10" title="Reference 3">(3)</a> 
     </li><li>
-      <a href="#ref-for-dfn-yaml-ld-basic-profile-11" title="§ D.3.3.2.1 The JSON-LD Extended Internal Representation">§ D.3.3.2.1 The JSON-LD Extended Internal Representation</a> 
+      <a href="#ref-for-dfn-yaml-ld-basic-profile-11" title="§ C.3.3.2.1 The JSON-LD Extended Internal Representation">§ C.3.3.2.1 The JSON-LD Extended Internal Representation</a> 
     </li><li>
-      <a href="#ref-for-dfn-yaml-ld-basic-profile-12" title="§ D.3.4.2 JsonLdOptions">§ D.3.4.2 JsonLdOptions</a> 
+      <a href="#ref-for-dfn-yaml-ld-basic-profile-12" title="§ C.3.4.2 JsonLdOptions">§ C.3.4.2 JsonLdOptions</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-yaml-ld-extended-profile" aria-label="Links in this document to definition: YAML-LD extended profile">
@@ -3800,15 +3604,15 @@ $type: WebContent</code></pre>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-yaml-ld-extended-profile-1" title="§ D.3 Extended Internal Representation">§ D.3 Extended Internal Representation</a> <a href="#ref-for-dfn-yaml-ld-extended-profile-2" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-yaml-ld-extended-profile-1" title="§ C.3 Extended Internal Representation">§ C.3 Extended Internal Representation</a> <a href="#ref-for-dfn-yaml-ld-extended-profile-2" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-yaml-ld-extended-profile-3" title="§ D.3.3 Application Profiles">§ D.3.3 Application Profiles</a> <a href="#ref-for-dfn-yaml-ld-extended-profile-4" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-yaml-ld-extended-profile-3" title="§ C.3.3 Application Profiles">§ C.3.3 Application Profiles</a> <a href="#ref-for-dfn-yaml-ld-extended-profile-4" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-yaml-ld-extended-profile-5" title="§ D.3.3.2 YAML-LD Extended Profile">§ D.3.3.2 YAML-LD Extended Profile</a> 
+      <a href="#ref-for-dfn-yaml-ld-extended-profile-5" title="§ C.3.3.2 YAML-LD Extended Profile">§ C.3.3.2 YAML-LD Extended Profile</a> 
     </li><li>
-      <a href="#ref-for-dfn-yaml-ld-extended-profile-6" title="§ D.3.4 The Application Programming Interface">§ D.3.4 The Application Programming Interface</a> 
+      <a href="#ref-for-dfn-yaml-ld-extended-profile-6" title="§ C.3.4 The Application Programming Interface">§ C.3.4 The Application Programming Interface</a> 
     </li><li>
-      <a href="#ref-for-dfn-yaml-ld-extended-profile-7" title="§ D.3.4.2 JsonLdOptions">§ D.3.4.2 JsonLdOptions</a> <a href="#ref-for-dfn-yaml-ld-extended-profile-8" title="Reference 2">(2)</a> <a href="#ref-for-dfn-yaml-ld-extended-profile-9" title="Reference 3">(3)</a> <a href="#ref-for-dfn-yaml-ld-extended-profile-10" title="Reference 4">(4)</a> 
+      <a href="#ref-for-dfn-yaml-ld-extended-profile-7" title="§ C.3.4.2 JsonLdOptions">§ C.3.4.2 JsonLdOptions</a> <a href="#ref-for-dfn-yaml-ld-extended-profile-8" title="Reference 2">(2)</a> <a href="#ref-for-dfn-yaml-ld-extended-profile-9" title="Reference 3">(3)</a> <a href="#ref-for-dfn-yaml-ld-extended-profile-10" title="Reference 4">(4)</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-extended-internal-representation" aria-label="Links in this document to definition: JSON-LD extended internal representation">
@@ -3820,17 +3624,17 @@ $type: WebContent</code></pre>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-extended-internal-representation-1" title="§ D.3 Extended Internal Representation">§ D.3 Extended Internal Representation</a> <a href="#ref-for-dfn-extended-internal-representation-2" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-extended-internal-representation-1" title="§ C.3 Extended Internal Representation">§ C.3 Extended Internal Representation</a> <a href="#ref-for-dfn-extended-internal-representation-2" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-extended-internal-representation-3" title="§ D.3.3.2 YAML-LD Extended Profile">§ D.3.3.2 YAML-LD Extended Profile</a> <a href="#ref-for-dfn-extended-internal-representation-4" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-extended-internal-representation-3" title="§ C.3.3.2 YAML-LD Extended Profile">§ C.3.3.2 YAML-LD Extended Profile</a> <a href="#ref-for-dfn-extended-internal-representation-4" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-extended-internal-representation-5" title="§ D.3.3.2.1 The JSON-LD Extended Internal Representation">§ D.3.3.2.1 The JSON-LD Extended Internal Representation</a> <a href="#ref-for-dfn-extended-internal-representation-6" title="Reference 2">(2)</a> <a href="#ref-for-dfn-extended-internal-representation-7" title="Reference 3">(3)</a> 
+      <a href="#ref-for-dfn-extended-internal-representation-5" title="§ C.3.3.2.1 The JSON-LD Extended Internal Representation">§ C.3.3.2.1 The JSON-LD Extended Internal Representation</a> <a href="#ref-for-dfn-extended-internal-representation-6" title="Reference 2">(2)</a> <a href="#ref-for-dfn-extended-internal-representation-7" title="Reference 3">(3)</a> 
     </li><li>
-      <a href="#ref-for-dfn-extended-internal-representation-8" title="§ D.3.4.1 JsonLdProcessor">§ D.3.4.1 JsonLdProcessor</a> 
+      <a href="#ref-for-dfn-extended-internal-representation-8" title="§ C.3.4.1 JsonLdProcessor">§ C.3.4.1 JsonLdProcessor</a> 
     </li><li>
-      <a href="#ref-for-dfn-extended-internal-representation-9" title="§ D.3.4.2 JsonLdOptions">§ D.3.4.2 JsonLdOptions</a> <a href="#ref-for-dfn-extended-internal-representation-10" title="Reference 2">(2)</a> <a href="#ref-for-dfn-extended-internal-representation-11" title="Reference 3">(3)</a> 
+      <a href="#ref-for-dfn-extended-internal-representation-9" title="§ C.3.4.2 JsonLdOptions">§ C.3.4.2 JsonLdOptions</a> <a href="#ref-for-dfn-extended-internal-representation-10" title="Reference 2">(2)</a> <a href="#ref-for-dfn-extended-internal-representation-11" title="Reference 3">(3)</a> 
     </li><li>
-      <a href="#ref-for-dfn-extended-internal-representation-12" title="§ D.3.4.3 Remote Document and Context Retrieval">§ D.3.4.3 Remote Document and Context Retrieval</a> <a href="#ref-for-dfn-extended-internal-representation-13" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-extended-internal-representation-12" title="§ C.3.4.3 Remote Document and Context Retrieval">§ C.3.4.3 Remote Document and Context Retrieval</a> <a href="#ref-for-dfn-extended-internal-representation-13" title="Reference 2">(2)</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-processingmode" aria-label="Links in this document to definition: processingMode">
@@ -3844,17 +3648,17 @@ $type: WebContent</code></pre>
     <li>
       <a href="#ref-for-dfn-processingmode-1" title="§ 2.2 Test Suites">§ 2.2 Test Suites</a> 
     </li><li>
-      <a href="#ref-for-dfn-processingmode-2" title="§ D.3 Extended Internal Representation">§ D.3 Extended Internal Representation</a> 
+      <a href="#ref-for-dfn-processingmode-2" title="§ C.3 Extended Internal Representation">§ C.3 Extended Internal Representation</a> 
     </li><li>
-      <a href="#ref-for-dfn-processingmode-3" title="§ D.3.1.5 Converting a YAML scalar">§ D.3.1.5 Converting a YAML scalar</a> 
+      <a href="#ref-for-dfn-processingmode-3" title="§ C.3.1.5 Converting a YAML scalar">§ C.3.1.5 Converting a YAML scalar</a> 
     </li><li>
-      <a href="#ref-for-dfn-processingmode-4" title="§ D.3.1.6 Converting a YAML alias node">§ D.3.1.6 Converting a YAML alias node</a> 
+      <a href="#ref-for-dfn-processingmode-4" title="§ C.3.1.6 Converting a YAML alias node">§ C.3.1.6 Converting a YAML alias node</a> 
     </li><li>
-      <a href="#ref-for-dfn-processingmode-5" title="§ D.3.2 Conversion to YAML">§ D.3.2 Conversion to YAML</a> 
+      <a href="#ref-for-dfn-processingmode-5" title="§ C.3.2 Conversion to YAML">§ C.3.2 Conversion to YAML</a> 
     </li><li>
-      <a href="#ref-for-dfn-processingmode-6" title="§ D.3.4.1 JsonLdProcessor">§ D.3.4.1 JsonLdProcessor</a> 
+      <a href="#ref-for-dfn-processingmode-6" title="§ C.3.4.1 JsonLdProcessor">§ C.3.4.1 JsonLdProcessor</a> 
     </li><li>
-      <a href="#ref-for-dfn-processingmode-7" title="§ D.3.4.3 Remote Document and Context Retrieval">§ D.3.4.3 Remote Document and Context Retrieval</a> <a href="#ref-for-dfn-processingmode-8" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-processingmode-7" title="§ C.3.4.3 Remote Document and Context Retrieval">§ C.3.4.3 Remote Document and Context Retrieval</a> <a href="#ref-for-dfn-processingmode-8" title="Reference 2">(2)</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dom-yamllderrorcode" aria-label="Links in this document to definition: YamlLdErrorCode">
@@ -3866,7 +3670,7 @@ $type: WebContent</code></pre>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dom-yamllderrorcode-1" title="§ D.3.4.4 YamlLdErrorCode">§ D.3.4.4 YamlLdErrorCode</a> 
+      <a href="#ref-for-dom-yamllderrorcode-1" title="§ C.3.4.4 YamlLdErrorCode">§ C.3.4.4 YamlLdErrorCode</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dom-yamllderrorcode-invalid-encoding" aria-label="Links in this document to definition: invalid-encoding">
@@ -3880,7 +3684,7 @@ $type: WebContent</code></pre>
     <li>
       <a href="#ref-for-dom-yamllderrorcode-invalid-encoding-1" title="§ 4.2 Encoding">§ 4.2 Encoding</a> 
     </li><li>
-      <a href="#ref-for-dom-yamllderrorcode-invalid-encoding-2" title="§ D.3.4.4 YamlLdErrorCode">§ D.3.4.4 YamlLdErrorCode</a> 
+      <a href="#ref-for-dom-yamllderrorcode-invalid-encoding-2" title="§ C.3.4.4 YamlLdErrorCode">§ C.3.4.4 YamlLdErrorCode</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dom-yamllderrorcode-mapping-key-error" aria-label="Links in this document to definition: mapping-key-error">
@@ -3892,9 +3696,9 @@ $type: WebContent</code></pre>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dom-yamllderrorcode-mapping-key-error-1" title="§ D.3.1.4 Converting a YAML mapping">§ D.3.1.4 Converting a YAML mapping</a> 
+      <a href="#ref-for-dom-yamllderrorcode-mapping-key-error-1" title="§ C.3.1.4 Converting a YAML mapping">§ C.3.1.4 Converting a YAML mapping</a> 
     </li><li>
-      <a href="#ref-for-dom-yamllderrorcode-mapping-key-error-2" title="§ D.3.4.4 YamlLdErrorCode">§ D.3.4.4 YamlLdErrorCode</a> 
+      <a href="#ref-for-dom-yamllderrorcode-mapping-key-error-2" title="§ C.3.4.4 YamlLdErrorCode">§ C.3.4.4 YamlLdErrorCode</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dom-yamllderrorcode-profile-error" aria-label="Links in this document to definition: profile-error">
@@ -3906,13 +3710,13 @@ $type: WebContent</code></pre>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dom-yamllderrorcode-profile-error-1" title="§ D.3 Extended Internal Representation">§ D.3 Extended Internal Representation</a> 
+      <a href="#ref-for-dom-yamllderrorcode-profile-error-1" title="§ C.3 Extended Internal Representation">§ C.3 Extended Internal Representation</a> 
     </li><li>
-      <a href="#ref-for-dom-yamllderrorcode-profile-error-2" title="§ D.3.1.6 Converting a YAML alias node">§ D.3.1.6 Converting a YAML alias node</a> 
+      <a href="#ref-for-dom-yamllderrorcode-profile-error-2" title="§ C.3.1.6 Converting a YAML alias node">§ C.3.1.6 Converting a YAML alias node</a> 
     </li><li>
-      <a href="#ref-for-dom-yamllderrorcode-profile-error-3" title="§ D.3.4.2 JsonLdOptions">§ D.3.4.2 JsonLdOptions</a> 
+      <a href="#ref-for-dom-yamllderrorcode-profile-error-3" title="§ C.3.4.2 JsonLdOptions">§ C.3.4.2 JsonLdOptions</a> 
     </li><li>
-      <a href="#ref-for-dom-yamllderrorcode-profile-error-4" title="§ D.3.4.4 YamlLdErrorCode">§ D.3.4.4 YamlLdErrorCode</a> 
+      <a href="#ref-for-dom-yamllderrorcode-profile-error-4" title="§ C.3.4.4 YamlLdErrorCode">§ C.3.4.4 YamlLdErrorCode</a> 
     </li>
   </ul>
     </div><script id="respec-highlight-vars">(() => {
