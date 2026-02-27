@@ -10,6 +10,7 @@ on:
 
 jobs:
   add-to-project:
+    if: ${{ false }} # DISABLE THIS ACTION FOR THE MOMENT
     name: Add PR and issues to project
     runs-on: ubuntu-latest
     steps:
