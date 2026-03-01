@@ -1032,6 +1032,119 @@ schema:hasPart:
         Mapping key type MUST be a <code>string</code>. Otherwise, a processing error is raised.
       </p>
     </section>
+
+    <section id="scalar-value-types">
+      <h2>Scalar Value Types</h2>
+
+      <p id="yaml-core-schema-requirement" data-tests="
+        manifest.html#core-bool-true,
+        manifest.html#core-bool-false,
+        manifest.html#core-bool-true-title,
+        manifest.html#core-bool-false-upper,
+        manifest.html#core-null-null,
+        manifest.html#core-null-tilde,
+        manifest.html#core-null-upper,
+        manifest.html#core-int-decimal,
+        manifest.html#core-int-octal,
+        manifest.html#core-int-hex,
+        manifest.html#core-float-basic,
+        manifest.html#core-float-scientific,
+        manifest.html#core-date-ymd,
+        manifest.html#core-float-inf-negative,
+        manifest.html#core-float-neg-inf-negative,
+        manifest.html#core-float-plus-inf-negative,
+        manifest.html#core-float-nan-negative,
+        manifest.html#core-float-nan-mixed-negative,
+        manifest.html#core-float-nan-upper-negative,
+        manifest.html#core-yaml11-yes,
+        manifest.html#core-yaml11-no,
+        manifest.html#core-yaml11-on,
+        manifest.html#core-yaml11-off,
+        manifest.html#core-yaml11-yes-title,
+        manifest.html#core-yaml11-yes-upper">
+        YAML-LD uses the <a data-cite="YAML#core-schema">YAML Core Schema</a> for scalar type resolution.
+        Float values that cannot be represented in [[JSON]] — specifically
+        infinity (<code>.inf</code>, <code>-.inf</code>, <code>+.inf</code>) and
+        not-a-number (<code>.nan</code>) — MUST cause a
+        <a data-cite="JSON-LD11-API#dom-jsonlderrorcode-loading-document-failed">loading-document-failed</a>
+        error.
+      </p>
+      <p>
+        The <a data-cite="YAML#core-schema">YAML Core Schema</a> does not define a timestamp type;
+        scalars such as <code>2018-04-01</code> resolve to plain strings.
+        However, many YAML libraries implement YAML 1.1 timestamp resolution by default
+        and will silently convert such scalars to native date or datetime objects.
+        YAML-LD processors MUST NOT perform such conversion and MUST treat these values as strings.
+      </p>
+
+      <aside class="note" title="Core Schema type resolution">
+        <p>
+          The following table summarizes scalar type resolution per the
+          <a data-cite="YAML#core-schema">YAML Core Schema</a> and YAML-LD behaviour:
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Pattern</th>
+              <th>Resolved tag</th>
+              <th>YAML-LD</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>null | Null | NULL | ~</code></td>
+              <td><code>tag:yaml.org,2002:null</code></td>
+              <td>JSON <code>null</code></td>
+            </tr>
+            <tr>
+              <td><em>(empty)</em></td>
+              <td><code>tag:yaml.org,2002:null</code></td>
+              <td>JSON <code>null</code></td>
+            </tr>
+            <tr>
+              <td><code>true | True | TRUE | false | False | FALSE</code></td>
+              <td><code>tag:yaml.org,2002:bool</code></td>
+              <td>JSON <code>true</code> / <code>false</code></td>
+            </tr>
+            <tr>
+              <td><code>[-+]?[0-9]+</code></td>
+              <td><code>tag:yaml.org,2002:int</code> (base 10)</td>
+              <td>JSON number</td>
+            </tr>
+            <tr>
+              <td><code>0o[0-7]+</code></td>
+              <td><code>tag:yaml.org,2002:int</code> (base 8)</td>
+              <td>JSON number</td>
+            </tr>
+            <tr>
+              <td><code>0x[0-9a-fA-F]+</code></td>
+              <td><code>tag:yaml.org,2002:int</code> (base 16)</td>
+              <td>JSON number</td>
+            </tr>
+            <tr>
+              <td><code>[-+]?(\.[0-9]+|[0-9]+(\.[0-9]*)?)([eE][-+]?[0-9]+)?</code></td>
+              <td><code>tag:yaml.org,2002:float</code> (number)</td>
+              <td>JSON number</td>
+            </tr>
+            <tr>
+              <td><code>[-+]?(\.inf|\.Inf|\.INF)</code></td>
+              <td><code>tag:yaml.org,2002:float</code> (infinity)</td>
+              <td>raises <code>loading-document-failed</code></td>
+            </tr>
+            <tr>
+              <td><code>\.nan|\.NaN|\.NAN</code></td>
+              <td><code>tag:yaml.org,2002:float</code> (NaN)</td>
+              <td>raises <code>loading-document-failed</code></td>
+            </tr>
+            <tr>
+              <td><em>(any other)</em></td>
+              <td><code>tag:yaml.org,2002:str</code></td>
+              <td>JSON string</td>
+            </tr>
+          </tbody>
+        </table>
+      </aside>
+    </section>
   </section>
 
   <section id="sec" class="informative">
