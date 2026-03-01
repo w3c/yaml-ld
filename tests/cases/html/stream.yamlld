@@ -1,7 +1,7 @@
 - "@id": https://dbpedia.org/resource/John_Lennon
   http://schema.org/birthDate:
   - "@type": http://www.w3.org/2001/XMLSchema#date
-    "@value": 1940-10-09
+    "@value": "1940-10-09"
   http://xmlns.com/foaf/0.1/name:
   - "@value": John Lennon
   http://schema.org/spouse:
@@ -10,8 +10,8 @@
 - "@id": https://dbpedia.org/resource/Yoko_Ono
   http://schema.org/birthDate:
   - "@type": http://www.w3.org/2001/XMLSchema#date
-    "@value": 1933-02-18
+    "@value": "1933-02-18"
 - "@id": https://dbpedia.org/resource/Cynthia_Lennon
   http://schema.org/birthDate:
   - "@type": http://www.w3.org/2001/XMLSchema#date
-    "@value": 1939-09-10
+    "@value": "1939-09-10"
