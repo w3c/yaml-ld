@@ -7,7 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "generate": "./tests/generate_index.js"
+    "generate": "./tests/generate_index.js",
+    "serve": "live-server . --port=1234 --no-browser"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,8 @@
   "dependencies": {
     "jsdom": "^20.0.0",
     "marked": "^4.1.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
   }
 }
