@@ -9,9 +9,8 @@ spec:
 
 
 .PHONY: serve
-.ONESHELL: serve
 serve:
-	python -m http.server --directory web 1234
+	npm run serve
 
 .PHONY: html-manifest
 .ONESHELL: html-manifest
