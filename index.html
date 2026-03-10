@@ -1062,7 +1062,7 @@ schema:hasPart:
         manifest.html#core-yaml11-off,
         manifest.html#core-yaml11-yes-title,
         manifest.html#core-yaml11-yes-upper">
-        YAML-LD uses the <a data-cite="YAML#core-schema">YAML Core Schema</a> for scalar type resolution.
+        YAML-LD uses the <a data-cite="YAML#103-core-schema">YAML Core Schema</a> for scalar type resolution.
         Float values that cannot be represented in [[JSON]] — specifically
         infinity (<code>.inf</code>, <code>-.inf</code>, <code>+.inf</code>) and
         not-a-number (<code>.nan</code>) — MUST cause a
@@ -1070,7 +1070,7 @@ schema:hasPart:
         error.
       </p>
       <p>
-        The <a data-cite="YAML#core-schema">YAML Core Schema</a> does not define a timestamp type;
+        The <a data-cite="YAML#103-core-schema">YAML Core Schema</a> does not define a timestamp type;
         scalars such as <code>2018-04-01</code> resolve to plain strings.
         However, many YAML libraries implement YAML 1.1 timestamp resolution by default
         and will silently convert such scalars to native date or datetime objects.
@@ -1080,7 +1080,7 @@ schema:hasPart:
       <aside class="note" title="Core Schema type resolution">
         <p>
           The following table summarizes scalar type resolution per the
-          <a data-cite="YAML#core-schema">YAML Core Schema</a> and YAML-LD behaviour:
+          <a data-cite="YAML#103-core-schema">YAML Core Schema</a> and YAML-LD behaviour:
         </p>
         <table>
           <thead>
@@ -1864,7 +1864,7 @@ schema:hasPart:
                 manifest.html#cir-scalar-core-2-positive">
                     If |t| resolves with a prefix of `tag:yaml.org.2002:`,
                     the conversion result is mapped through the
-                    <a data-cite="YAML#core-schema">YAML Core Schema</a>.
+                    <a data-cite="YAML#103-core-schema">YAML Core Schema</a>.
                   </li>
                   <li id="cir-scalar-i18n">
                     Otherwise, if |t| resolves with a prefix of `https://www.w3.org/ns/i18n#`,
@@ -1897,7 +1897,7 @@ schema:hasPart:
             manifest.html#cir-scalar-i18n-1-positive,
             manifest.html#cir-scalar-other-1-positive">
                 Otherwise, the conversion result is mapped through the
-                <a data-cite="YAML#core-schema">YAML Core Schema</a>.
+                <a data-cite="YAML#103-core-schema">YAML Core Schema</a>.
               </li>
             </ol>
 
@@ -2133,11 +2133,11 @@ schema:hasPart:
 
             <p>
               The <dfn>YAML-LD Basic profile</dfn>
-              is based on the <a data-cite="YAML#core-schema">YAML Core Schema</a>,
+              is based on the <a data-cite="YAML#103-core-schema">YAML Core Schema</a>,
               which interprets only a limited set of <a>node tags</a>.
               <a>YAML scalars</a> with <a>node tags</a> outside of the defined range
               SHOULD be avoided and MUST be converted to the closest
-              scalar type from the <a data-cite="YAML#core-schema">YAML Core Schema</a>,
+              scalar type from the <a data-cite="YAML#103-core-schema">YAML Core Schema</a>,
               if found.
               See <a href="#convert-scalar" class="sectionRef"></a>
               for specifics.
@@ -2172,7 +2172,7 @@ schema:hasPart:
 
             <p>
               The <dfn>YAML-LD extended profile</dfn>
-              extends the <a data-cite="YAML#core-schema">YAML Core Schema</a>,
+              extends the <a data-cite="YAML#103-core-schema">YAML Core Schema</a>,
               allowing <a>node tags</a> to specify <a>RDF literals</a>
               by using a <a>JSON-LD extended internal representation</a> capable
               of directly representing <a>RDF literals</a>.
@@ -2264,7 +2264,7 @@ schema:hasPart:
                 and <a>extended internal representation</a>
                 using <a>value objects</a>,
                 but this treatment is consistent with
-                [[YAML]] <a data-cite="YAML#core-schema">Core Schema</a>
+                [[YAML]] <a data-cite="YAML#103-core-schema">Core Schema</a>
                 <a data-cite="YAML#1022-tag-resolution">Tag Resolution</a>.
               </p>
             </section>
@@ -2458,7 +2458,7 @@ schema:hasPart:
                   <li>
                     Otherwise, it serializes <a>RDF literal</a> values
                     to the closest <a>scalar</a> representation
-                    from the <a data-cite="YAML#core-schema">YAML Core Schema</a>.
+                    from the <a data-cite="YAML#103-core-schema">YAML Core Schema</a>.
                   </li>
                 </ul>
               </dd>
@@ -2476,7 +2476,7 @@ schema:hasPart:
                     and transforms <a>YAML scalar</a> values
                     having <a>node tags</a>
                     &mdash; outside those allowed for the
-                    <a data-cite="YAML#core-schema">YAML Core Schema</a> &mdash;
+                    <a data-cite="YAML#103-core-schema">YAML Core Schema</a> &mdash;
                     to <a>RDF literals</a>.
                   </li>
                   <li>
