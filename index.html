@@ -1017,6 +1017,52 @@ schema:hasPart:
         }
       -->
     </pre>
+
+    <aside class="note" title="Anchors within a @context block">
+    <p>
+      Anchors are also useful <em>within</em> a <code>@context</code> block.
+      When several terms share the same term definition — for example, all
+      IRI-valued properties, or all language-tagged string properties — the
+      shared definition can be anchored once and aliased for each term,
+      avoiding repetition.
+    </p>
+
+    <p>
+      The example below defines, and uses, a context for
+      <a data-cite="RDF-SCHEMA#">RDF Schema</a> using two anchors:
+      <code>&amp;iri</code> for IRI-valued properties and
+      <code>&amp;lang</code> for language-tagged string properties.
+    </p>
+
+    <pre class="example yaml"
+         data-transform="updateExample"
+         data-content-type="application/ld+yaml"
+         title="YAML-LD context with anchors">
+      <!--
+      "@context":
+        rdfs: http://www.w3.org/2000/01/rdf-schema#
+
+        rdfs:domain: &iri
+          "@type": "@id"
+
+        rdfs:range:         *iri
+        rdfs:subClassOf:    *iri
+        rdfs:subPropertyOf: *iri
+        rdfs:isDefinedBy:   *iri
+        rdfs:seeAlso:       *iri
+
+        rdfs:label: &lang
+          "@container": "@language"
+        rdfs:comment: *lang
+      
+      "@id": https://example.org/Moon
+      rdfs:label:
+        en: Moon
+        it: Luna
+      rdfs:seeAlso: https://dbpedia.org/resource/Moon
+      -->
+    </pre>
+    </aside>
     </section>
 
     <section id="mapping-key-types">
