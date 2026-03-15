@@ -11,7 +11,7 @@ spec:
 .PHONY: serve
 .ONESHELL: serve
 serve:
-	python -m http.server --directory web 1234
+	python -m http.server --directory . 1234
 
 .PHONY: html-manifest
 .ONESHELL: html-manifest
