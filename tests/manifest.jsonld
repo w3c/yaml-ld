@@ -163,6 +163,15 @@
       "expect": "cases/aa-cycles-3-positive-out.yamlld"
     },
     {
+      "@id": "#aa-information-1-positive",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "Anchor names do not convey semantic information",
+      "purpose": "Anchor names are a serialization detail and MUST NOT be used to convey relevant information.",
+      "req": "must",
+      "input": "cases/aa-information-1-positive-in.yamlld",
+      "expect": "cases/aa-information-1-positive-out.nq"
+    },
+    {
       "@id": "#cir-scalar-core-2-positive",
       "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
       "name": "tag:yaml.org.2002 scalars (RDF)",
