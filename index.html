@@ -836,11 +836,11 @@ schema:hasPart:
     </pre>
 
     <p>
-      This document is based on YAML 1.2.2,
-      but YAML-LD is not tied to a specific version of YAML.
-      Implementers concerned about features related to a specific YAML version
-      can specify it in documents using the `%YAML` directive
+      This specification is based on YAML 1.2.2.
+      YAML-LD processors MUST use a YAML 1.2 (or later, backward-compatible) implementation.
+      Implementers may specify the YAML version in documents using the `%YAML` directive
       (see <a href="#int" class="sectionRef"></a>).
+      See <a href="#int" class="sectionRef"></a> for interoperability concerns with YAML 1.1.
     </p>
   </section>
 
@@ -1169,12 +1169,18 @@ schema:hasPart:
       and the Interoperability considerations of the <code>+yaml</code> structured syntax suffix.
     </p>
     <p>
-      The YAML-LD format and the media type registration are not restricted to a specific
-      version of YAML,
-      but implementers that want to use YAML-LD with YAML versions
-      other than 1.2.2 need to be aware that the considerations and analysis provided
-      here, including interoperability and security considerations, are based
-      on the YAML 1.2.2 specification.
+      The considerations and analysis provided here, including interoperability
+      and security considerations, are based on the YAML 1.2.2 specification.
+    </p>
+    <p>
+      Many popular YAML libraries default to YAML 1.1 parsing.
+      YAML 1.1 implementations cause interoperability issues; in particular,
+      the so-called "Norway problem" arises because YAML 1.1 treats
+      <code>no</code>, <code>No</code>, <code>NO</code>, <code>yes</code>,
+      <code>on</code>, <code>off</code>, and similar values as booleans,
+      whereas YAML 1.2 Core Schema treats them as plain strings.
+      YAML-LD processors that use a YAML 1.1 library will fail the conformance
+      tests and are not compliant.
     </p>
   </section>
 
