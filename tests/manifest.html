@@ -471,6 +471,26 @@
                 </dl>
               </dd>
 
+              <dt id="aa-information-1-positive">
+                Test aa-information-1-positive Anchor names do not convey semantic information
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#aa-information-1-positive</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ToRDFTest</dd>
+                  <dt>Name</dt><dd>Anchor names do not convey semantic information</dd></dt>
+                  <dt>Purpose</dt><dd>Anchor names are a serialization detail and MUST NOT be used to convey relevant information.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/aa-information-1-positive-in.yamlld">cases/aa-information-1-positive-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#aa-information">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+                  
+                  
+                  <dt>Expect</dt><dd><a href="cases/aa-information-1-positive-out.nq">cases/aa-information-1-positive-out.nq</a></dd>
+                  
+                  
+                </dl>
+              </dd>
+
               <dt id="cir-scalar-core-2-positive">
                 Test cir-scalar-core-2-positive tag:yaml.org.2002 scalars (RDF)
               </dt>
@@ -902,7 +922,7 @@
                   <dt>ID</dt><dd>#core-date-ymd</dd></dt>
                   <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
                   <dt>Name</dt><dd>Date-like scalar YYYY-MM-DD is a string</dd></dt>
-                  <dt>Purpose</dt><dd>YAML 1.2 Core Schema has no timestamp type; 2018-04-01 resolves to a plain string. YAML 1.1-era libraries may incorrectly parse this as a native date object.</dd></dt>
+                  <dt>Purpose</dt><dd>YAML 1.2 Core Schema has no timestamp type; 2018-04-01 resolves to a plain string. Some YAML libraries may wish to parse this as a native date object, this should not happen.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/yaml-schema/date-ymd-in.yamlld">cases/yaml-schema/date-ymd-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
