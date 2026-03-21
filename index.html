@@ -1211,6 +1211,71 @@ schema:hasPart:
         </table>
       </aside>
     </section>
+
+    <section id="json-literals" class="informative">
+      <h2>JSON literals</h2>
+
+      <p>
+        A <a data-cite="JSON-LD11#json-literals">JSON literal</a> is a
+        <a>value object</a> with <code>@type</code> <code>@json</code> (often with
+        <code>@value</code> in expanded form). The YAML for that value need not look like
+        <a data-cite="RFC8259#section-2">JSON text</a>; idiomatic YAML and JSON-like flow can
+        yield the same literal after parsing to a
+        <a data-cite="JSON-LD11-API#dfn-internal-representation">internal representation</a>
+        and processing as in [[JSON-LD11]].
+      </p>
+
+      <pre class="example yaml"
+           data-transform="updateExample"
+           data-content-type="application/ld+yaml"
+           title="YAML-LD WebContent with JSON literal (idiomatic YAML under @value)">
+      <!--
+      "@context":
+        "@version": 1.1
+        schema: https://schema.org/
+        profile: https://w3c.github.io/yaml-ld/vocab#processorProfile
+      "@id": https://w3.org/yaml-ld/
+      "@type": schema:WebContent
+      name: YAML-LD
+      profile:
+        "@type": "@json"
+        "@value":
+          jsonLd: "1.1"
+          yaml: "1.2"
+          defaultProfile: "basic"
+          testSuite: "https://w3c.github.io/yaml-ld/tests/"
+      -->
+      </pre>
+
+      <pre class="example yaml"
+           data-transform="updateExample"
+           data-content-type="application/ld+yaml"
+           title="YAML-LD WebContent with JSON literal (flow @value)">
+      <!--
+      "@context":
+        "@version": 1.1
+        schema: https://schema.org/
+        profile: https://w3c.github.io/yaml-ld/vocab#processorProfile
+      "@id": https://w3.org/yaml-ld/
+      "@type": schema:WebContent
+      name: YAML-LD
+      profile:
+        "@type": "@json"
+        "@value": {jsonLd: "1.1", yaml: "1.2", defaultProfile: "basic", testSuite: "https://w3c.github.io/yaml-ld/tests/"}
+      -->
+      </pre>
+
+      <p>
+        Authors may use JSON-shaped YAML flow for the literal's <code>@value</code> when
+        readers or tools are expected to see JSON-like text.
+      </p>
+
+      <p>
+        When the literal is expressed as RDF, the lexical form and value space of
+        <a data-cite="JSON-LD11#the-rdf-json-datatype"><code>rdf:JSON</code></a>
+        and JSON Canonicalization Scheme [[RFC8785]] apply; that is separate from how the literal is written in YAML.
+      </p>
+    </section>
   </section>
 
   <section id="sec" class="informative">
