@@ -910,6 +910,17 @@ schema:hasPart:
 
     <section id="anchors-aliases">
     <h2>Anchors and Aliases</h2>
+    <p class="note">
+      In this specification, <em>anchor</em> means YAML's
+      <a data-cite="YAML#node-anchors">node anchor</a> mechanism
+      (with <a data-cite="YAML#alias-nodes">alias nodes</a>, using <code>&amp;</code> and <code>*</code>
+      in the serialization) to reuse the same logical node by reference in the serialized graph.
+      It is not related to <a data-cite="HTML#the-a-element">HTML hyperlinks</a>
+      or <a data-cite="URI#section-3.5">URL fragment identifiers</a>.
+      See [[YAML]]
+      <a data-cite="YAML#3222-anchors-and-aliases">§3.2.2.2 Anchors and Aliases</a> and
+      <a data-cite="YAML#node-anchors">§6.9.2 Node Anchors</a>.
+    </p>
     <p id="aa-information" data-tests="manifest.html#aa-information-1-positive">
       Since <a>anchor names</a> are a serialization detail, such anchors
       MUST NOT be used to convey relevant information,
