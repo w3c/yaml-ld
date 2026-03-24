@@ -914,7 +914,7 @@ schema:hasPart:
       Since <a>anchor names</a> are a serialization detail, such anchors
       MUST NOT be used to convey relevant information,
       MAY be altered when processing the document,
-      and MAY be dropped when interpreting the document as JSON-LD.
+      and MAY be dropped during YAML-LD processing.
     </p>
 
     <p id="aa-cycles" data-tests="
@@ -945,24 +945,22 @@ schema:hasPart:
          title="YAML-LD with node anchors">
        <!--
       "@context":
-        "@import": https://schema.org
+        schema: https://schema.org/
         country: https://example.org/country/
 
-      "@included":
-        - &US
-          "@id": country:US
-        - "@id": https://www.w3.org/community/json-ld
-          "@type": Organization
-          member:
-            - "@id": https://github.com/gkellogg
-              "@type": Person
-              name: Gregg Kellogg
-              country: *US
-            - "@id": https://github.com/BigBlueHat
-              "@type": Person
-              name: Benjamin Young
-              country: *US
-          # - …
+      "@id": https://www.w3.org/community/json-ld
+      "@type": schema:Organization
+      schema:member:
+        - "@id": https://github.com/gkellogg
+          "@type": schema:Person
+          name: Gregg Kellogg
+          country: &US
+            "@id": country:US
+        - "@id": https://github.com/BigBlueHat
+          "@type": schema:Person
+          name: Benjamin Young
+          country: *US
+        # - …
       -->
     </pre>
 
@@ -983,36 +981,29 @@ schema:hasPart:
       <!--
         {
           "@context": {
-            "@import": "https://schema.org",
+            "schema": "https://schema.org/",
             "country": "https://example.org/country/"
           },
-          "@included": [
+          "@id": "https://www.w3.org/community/json-ld",
+          "@type": "schema:Organization",
+          "schema:member": [
             {
-              "@id": "country:US"
+              "@id": "https://github.com/gkellogg",
+              "@type": "schema:Person",
+              "name": "Gregg Kellogg",
+              "country": {
+                "@id": "country:US"
+              }
             },
             {
-              "@id": "https://www.w3.org/community/json-ld",
-              "@type": "Organization",
-              "member": [
-                {
-                  "@id": "https://github.com/gkellogg",
-                  "@type": "Person",
-                  "name": "Gregg Kellogg",
-                  "country": {
-                    "@id": "country:US"
-                  }
-                },
-                {
-                  "@id": "https://github.com/BigBlueHat",
-                  "@type": "Person",
-                  "name": "Benjamin Young",
-                  "country": {
-                    "@id": "country:US"
-                  }
-                },
-                …
-              ]
-            }
+              "@id": "https://github.com/BigBlueHat",
+              "@type": "schema:Person",
+              "name": "Benjamin Young",
+              "country": {
+                "@id": "country:US"
+              }
+            },
+            …
           ]
         }
       -->
