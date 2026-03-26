@@ -1217,8 +1217,9 @@ schema:hasPart:
 
       <p>
         A <a data-cite="JSON-LD11#json-literals">JSON literal</a> is represented by a
-        <a>value object</a> with <code>@type</code> <code>@json</code> (often with
-        <code>@value</code> in expanded form). The YAML for that value need not look like
+        <a>value object</a> with <code>@type</code> <code>@json</code>
+        (in expanded form), and arbitrary data in its `@value`.
+        In a YAML-LD document, the `@value` need not look like
         <a data-cite="RFC8259#section-2">JSON text</a>; idiomatic YAML and JSON-like flow can
         yield the same literal after parsing to an
         <a data-cite="JSON-LD11-API#dfn-internal-representation">internal representation</a>
