@@ -815,7 +815,7 @@ schema:hasPart:
       {
         "@context": "https://schema.org",
 
-        "@id": "https://w3.org/yaml-ld/",
+        "@id": "https://w3c.github.io/yaml-ld/",
         "@type": "WebContent",
         "name": "YAML-LD",
         "author": {
@@ -840,7 +840,7 @@ schema:hasPart:
       <!--
       "@context": https://schema.org
 
-      "@id": https://w3.org/yaml-ld/
+      "@id": https://w3c.github.io/yaml-ld/
       "@type": WebContent
       name: YAML-LD
       author:
@@ -1216,67 +1216,69 @@ schema:hasPart:
       <h2>JSON literals</h2>
 
       <p>
-        A <a data-cite="JSON-LD11#json-literals">JSON literal</a> is represented by a
-        <a>value object</a> with <code>@type</code> <code>@json</code>
-        (in expanded form), and arbitrary data in its `@value`.
-        In a YAML-LD document, the `@value` need not look like
-        <a data-cite="RFC8259#section-2">JSON text</a>; idiomatic YAML and JSON-like flow can
-        yield the same literal after parsing to an
-        <a data-cite="JSON-LD11-API#dfn-internal-representation">internal representation</a>
-        and processing as in [[JSON-LD11]].
+        The <code>@json</code> keyword from JSON-LD 1.1 defines a <a data-cite="JSON-LD11#dfn-json-literal">JSON literal</a> as a <a>value object</a> with
+        <code>@type</code> <code>@json</code> and <code>@value</code> containing JSON data. A processor treats such a value as a JSON literal, rather than
+        interpreting it further as JSON-LD. Consider the following example.
       </p>
 
       <pre class="example yaml"
            data-transform="updateExample"
            data-content-type="application/ld+yaml"
-           title="YAML-LD WebContent with JSON literal (idiomatic YAML under @value)">
+           title="JSON literal metadata about YAML-LD specification">
       <!--
       "@context":
-        "@version": 1.1
-        schema: https://schema.org/
-        profile: https://w3c.github.io/yaml-ld/vocab#processorProfile
-      "@id": https://w3.org/yaml-ld/
-      "@type": schema:WebContent
-      name: YAML-LD
-      profile:
+        metadata: https://example.org/vocab#metadata
+      "@id": https://w3c.github.io/yaml-ld/
+      metadata:
         "@type": "@json"
         "@value":
           jsonLd: "1.1"
           yaml: "1.2"
           defaultProfile: "basic"
-          testSuite: "https://w3c.github.io/yaml-ld/tests/"
+          testSuite: https://w3c.github.io/yaml-ld/tests/
       -->
       </pre>
 
-      <pre class="example yaml"
+      <p>
+        Consider the expanded form.
+      </p>
+
+      <pre class="example json"
            data-transform="updateExample"
-           data-content-type="application/ld+yaml"
-           title="YAML-LD WebContent with JSON literal (flow @value)">
+           data-content-type="application/ld+json"
+           title="Expanded JSON literal metadata about YAML-LD specification">
       <!--
-      "@context":
-        "@version": 1.1
-        schema: https://schema.org/
-        profile: https://w3c.github.io/yaml-ld/vocab#processorProfile
-      "@id": https://w3.org/yaml-ld/
-      "@type": schema:WebContent
-      name: YAML-LD
-      profile:
-        "@type": "@json"
-        "@value": {jsonLd: "1.1", yaml: "1.2", defaultProfile: "basic", testSuite: "https://w3c.github.io/yaml-ld/tests/"}
+      [
+        {
+          "@id": "https://w3c.github.io/yaml-ld/",
+          "https://example.org/vocab#metadata": [
+            {
+              "@type": "@json",
+              "@value": {
+                "jsonLd": "1.1",
+                "yaml": "1.2",
+                "defaultProfile": "basic",
+                "testSuite": "https://w3c.github.io/yaml-ld/tests/"
+              }
+            }
+          ]
+        }
+      ]
       -->
       </pre>
 
       <p>
-        Authors may use JSON-shaped YAML flow for the literal's <code>@value</code> when
-        readers or tools are expected to see JSON-like text.
+        Although the keyword is named <code>@json</code>, it does not require the
+        value of <code>@value</code> to be written using JSON syntax in YAML-LD. As this example shows, the metadata
+        value object is preserved during expansion in its JSON-LD form, — as this keyword mandates.
       </p>
 
       <p>
-        When is converted as RDF, the JSON literal's lexical form is
+        When it is converted to RDF, the JSON literal's lexical form is
         <a data-cite="RFC8259#section-2">JSON text</a> reconstructed from the
-        <a data-cite="JSON-LD11-API#dfn-internal-representation">internal representation</a>;
-        that is separate from how the literal is written in YAML.
+        <a data-cite="JSON-LD11-API#dfn-internal-representation">internal representation</a>.
       </p>
+
     </section>
   </section>
 
@@ -1370,7 +1372,7 @@ schema:hasPart:
          title="YAML-LD with several documents in one file">
       <!--
       "@base": https://schema.org
-      "@id": https://w3.org/yaml-ld/
+      "@id": https://w3c.github.io/yaml-ld/
       "@type": WebContent
       name: YAML-LD
       ---
@@ -1644,7 +1646,7 @@ schema:hasPart:
                 %TAG !xsd! http://www.w3.org/2001/XMLSchema%23
                 ---
                 "@context": https://schema.org
-                "@id": https://w3.org/yaml-ld/
+                "@id": https://w3c.github.io/yaml-ld/
                 dateModified: !xsd:date 2023-06-26
               </pre>
 
