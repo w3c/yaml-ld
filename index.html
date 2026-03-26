@@ -1272,9 +1272,10 @@ schema:hasPart:
       </p>
 
       <p>
-        When the literal is expressed as RDF, the lexical form and value space of
-        <a data-cite="JSON-LD11#the-rdf-json-datatype"><code>rdf:JSON</code></a>
-        and JSON Canonicalization Scheme [[RFC8785]] apply; that is separate from how the literal is written in YAML.
+        When is converted as RDF, the JSON literal's lexical form is
+        <a data-cite="RFC8259#section-2">JSON text</a> reconstructed from the
+        <a data-cite="JSON-LD11-API#dfn-internal-representation">internal representation</a>;
+        that is separate from how the literal is written in YAML.
       </p>
     </section>
   </section>
