@@ -1,6 +1,10 @@
 - "@id": https://w3.org/yaml-ld/
   "@type":
     - https://schema.org/WebContent
+  https://schema.org/name:
+    - "@value": YAML-LD
 - "@id": https://www.w3.org/TR/json-ld11/
   "@type":
     - https://schema.org/WebContent
+  https://schema.org/name:
+    - "@value": JSON-LD
