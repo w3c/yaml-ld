@@ -278,7 +278,7 @@
   <section id='abstract'>
     <p>
       This document is a <strong>W3C Draft Group Note</strong> that collects
-      <dfn data-export="">Extended YAML-LD Profile</dfn> ideas: possible uses of additional
+      <strong>Extended YAML-LD Profile</strong> ideas: possible uses of additional
       [[YAML]] features together with [[JSON-LD11]] and the [[[JSON-LD11-API]]] [[JSON-LD11-API]]
       when serializing Linked Data as YAML-LD.
       It is <strong>not normative</strong> and is <strong>not</strong> required or referenced by
@@ -325,6 +325,104 @@
       if this material were incorporated into a future specification; it does not alter
       conformance to the current YAML-LD specification on its own.
     </p>
+  </section>
+
+  <section id="terminology" class="informative">
+    <h2>Terminology</h2>
+
+    <p>This document uses the following terms as defined in external specifications
+      and defines terms specific to this note.</p>
+
+    <p>A <dfn>YAML-LD document</dfn> is any <a>YAML document</a> from
+      which a conversion to [[JSON]] produces
+      a valid <a>JSON-LD document</a> which can be interpreted as [[LINKED-DATA]].
+    </p>
+
+    <p>
+      The term <dfn data-cite="RFC6838#" data-no-xref="">media type</dfn> is imported from [[RFC6838]].</p>
+    <p>
+      The term
+      <dfn data-cite="JSON#section-2" data-no-xref="">JSON</dfn> is imported from [[JSON]].</p>
+
+    <p>
+      The terms
+      <dfn data-cite="JSON-LD11#dfn-json-ld-document" data-no-xref="">JSON-LD document</dfn>, and
+      <dfn data-cite="JSON-LD11#dfn-value-object" data-no-xref="">value object</dfn>
+      are imported from [[JSON-LD11]].
+    </p>
+
+    <p>
+      The terms
+      <dfn data-cite="JSON-LD11-API#dfn-internal-representation" data-lt="JSON-LD internal representation" data-no-xref="">internal representation</dfn>, and
+      <dfn data-cite="JSON-LD11#dom-jsonldoptions-documentloader">documentLoader</dfn>
+      are imported from [[JSON-LD11-API]].
+    </p>
+
+    <p>The terms
+      <dfn data-cite="INFRA#list" data-no-xref="">array</dfn>,
+      <dfn data-cite="INFRA#boolean" data-no-xref="">boolean</dfn>,
+      <dfn data-cite="INFRA#ordered-map" data-no-xref="">map</dfn>,
+      <dfn data-cite="INFRA#map-entry" data-lt="entry" data-no-xref="">map entry</dfn>,
+      <dfn data-cite="INFRA#nulls" data-no-xref="">null</dfn>, and
+      <dfn data-cite="INFRA#javascript-string" data-no-xref="">string</dfn>
+      are imported from [[INFRA]].</p>
+
+    <p>
+      The term
+      <dfn data-cite="ECMASCRIPT#sec-terms-and-definitions-number-value" data-lt="number|JSON number" data-no-xref="">number</dfn>
+      is imported from [[ECMASCRIPT]].
+    </p>
+
+    <p>
+      The terms <dfn data-cite="YAML#" data-no-xref="">YAML</dfn>,
+      <dfn data-cite="YAML#representation-graph" data-lt="representation graph" data-no-xref="">YAML representation graph</dfn>,
+      <dfn data-cite="YAML#streams" data-no-xref="" data-lt="stream">YAML stream</dfn>,
+      <dfn data-cite="YAML#directives" data-no-xref="" data-lt="directive">YAML directive</dfn>,
+      <dfn data-cite="YAML#tag-directives" data-no-xref="">TAG directive</dfn>,
+      <dfn data-cite="YAML#documents" data-no-xref="" data-lt="documents">YAML document</dfn>,
+      <dfn data-cite="YAML#sequence" data-no-xref="">YAML sequence</dfn>
+      (either
+      <dfn data-cite="YAML#block-sequences" data-no-xref="">block sequence</dfn> or
+      <dfn data-cite="YAML#flow-sequences" data-no-xref="">flow sequence</dfn>),
+      <dfn data-cite="YAML#mapping" data-no-xref="">YAML mapping</dfn>
+      (either
+      <dfn data-cite="YAML#block-mappings" data-no-xref="">block mapping</dfn> or
+      <dfn data-cite="YAML#flow-mappings" data-no-xref="">flow mapping</dfn>),
+      <dfn data-cite="YAML#nodes" data-no-xref="" data-lt="YAML node|YAML nodes">node</dfn>,
+      <dfn data-cite="YAML#scalar" data-no-xref="" data-lt="YAML scalar|YAML scalars|scalar">scalar</dfn>,
+      <dfn data-cite="YAML#node-anchors" data-lt="anchor name|anchored nodes|node anchors|anchor names" data-no-xref="">node anchor</dfn>,
+      <dfn data-cite="YAML#node-tags" data-no-xref="" data-lt="node tags|Node tags">node tags</dfn>,
+      and <dfn data-cite="YAML#alias-nodes" data-no-xref="" data-lt="alias node|alias nodes">alias node</dfn>,
+      are imported from [[YAML]].</p>
+
+    <p>The term
+      <dfn data-cite="RFC9110#content.negotiation" data-no-xref="">content negotiation</dfn>
+      is imported from [[RFC9110]].
+    </p>
+
+    <p>
+      The terms
+      <dfn data-cite="RDF11-CONCEPTS#dfn-literal" data-no-xref="" data-lt="RDF literal|RDF literals">RDF literal</dfn>,
+      <dfn data-cite="RDF11-CONCEPTS#dfn-language-tagged-string" data-no-xref="" data-lt="language-tagged string|language-tagged strings">language-tagged string</dfn>,
+      <dfn data-cite="RDF11-CONCEPTS#dfn-datatype-iri" data-no-xref="">datatype IRI</dfn>, and
+      <dfn data-cite="RDF11-CONCEPTS#dfn-language-tag" data-no-xref="">language tag</dfn>
+      are imported from [[RDF11-CONCEPTS]].
+    </p>
+
+    <p>The terms
+      <dfn data-cite="URI#section-3.5" data-no-xref="">fragment</dfn> and
+      <dfn data-cite="URI#section-3.5" data-no-xref="">fragment identifier</dfn>
+      in this document are to be interpreted as in [[URI]].
+    </p>
+
+    <p>The term <dfn data-cite="LINKED-DATA#" data-no-xref="">Linked Data</dfn> is imported from [[LINKED-DATA]].
+    </p>
+
+    <p>The <dfn>YAML-LD Basic profile</dfn> and the
+      <dfn>YAML-LD extended profile</dfn> are defined in this document.</p>
+
+    <p>The <dfn data-lt="extended internal representation">JSON-LD extended internal representation</dfn>
+      is defined in this document as an extension of the <a>internal representation</a>.</p>
   </section>
 
     <section id="extended-profile" class="informative">
@@ -1020,7 +1118,7 @@
             <h3>YAML-LD Basic Profile</h3>
 
             <p>
-              The <dfn>YAML-LD Basic profile</dfn>
+              The <a>YAML-LD Basic profile</a>
               is based on the <a data-cite="YAML#103-core-schema">YAML Core Schema</a>,
               which interprets only a limited set of <a>node tags</a>.
               <a>YAML scalars</a> with <a>node tags</a> outside of the defined range
@@ -1059,7 +1157,7 @@
             <h3>YAML-LD Extended Profile</h3>
 
             <p>
-              The <dfn>YAML-LD extended profile</dfn>
+              The <a>YAML-LD extended profile</a>
               extends the <a data-cite="YAML#103-core-schema">YAML Core Schema</a>,
               allowing <a>node tags</a> to specify <a>RDF literals</a>
               by using a <a>JSON-LD extended internal representation</a> capable
@@ -1100,9 +1198,7 @@
 
               <p>
                 This specification defines
-                the <dfn data-lt="extended internal representation">
-                JSON-LD extended internal representation
-              </dfn>, an extension
+                the <a>JSON-LD extended internal representation</a>, an extension
                 of the JSON-LD <a>internal representation</a>.
               </p>
 
