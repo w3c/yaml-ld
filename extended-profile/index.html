@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>YAML-LD 1.0</title>
-<link rel="alternate" href="data/spec.yamlld" type="application/ld+yaml" />
+<title>YAML-LD Extended Profile</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
-<script src="common/common.js" class="remove" defer></script>
+<script src="../common/common.js" class="remove" defer></script>
 <script class='remove'>
   // Use fragment identifier of test as name.
   function data_test_display() {
@@ -18,10 +17,11 @@
   }
 
   var respecConfig = {
-    specStatus: "ED",
+    specStatus: "DNOTE",
+    subtitle: "Non-normative design material for a possible future YAML-LD revision",
     copyrightStart:    "2020",
-    shortName:  "yaml-ld-10",
-    edDraftURI: "https://w3c.github.io/yaml-ld/",
+    shortName:  "yaml-ld-extended-profile",
+    edDraftURI: "https://w3c.github.io/yaml-ld/extended-profile/",
     github: {
       repoURL: "https://github.com/w3c/yaml-ld/",
         branch: "main"
@@ -277,30 +277,41 @@
 <body>
   <section id='abstract'>
     <p>
-      [[JSON-LD11]] is a JSON-based format to serialize Linked Data [[LINKED-DATA]].
-      In recent years, [[YAML]] has emerged as a more concise format
-      to represent information that had previously been serialized as [[JSON]],
-      including API specifications, data schemas, and Linked Data.
+      This document is a <strong>W3C Draft Group Note</strong> that collects
+      <dfn data-export="">Extended YAML-LD Profile</dfn> ideas: possible uses of additional
+      [[YAML]] features together with [[JSON-LD11]] and the [[[JSON-LD11-API]]] [[JSON-LD11-API]]
+      when serializing Linked Data as YAML-LD.
+      It is <strong>not normative</strong> and is <strong>not</strong> required or referenced by
+      the current YAML-LD specification; it is kept so that a future version of YAML-LD might
+      reuse or adapt this material.
     </p>
 
     <p>
-      This document defines YAML-LD as a set of conventions
-      on top of YAML which specify how to serialize Linked Data as YAML
-      based on JSON-LD syntax, semantics, and APIs.
+      Normative requirements for YAML-LD today are defined only in the
+      <a href="https://www.w3.org/TR/yaml-ld/">YAML-LD</a> specification
+      (see also the <a href="../">Editor’s Draft</a>).
+      Everything in this note—including algorithms, profiles, and API discussion—is
+      informative exploration only.
     </p>
 
     <p>
-      Since YAML is more expressive than JSON,
-      both in the available data types and in the document structure
-      (see [[RFC9512]]),
-      this document identifies constraints on YAML
-      such that any <a>YAML-LD document</a> can be represented in JSON-LD.
+      Topics here include YAML node tags, anchors and aliases, and extended internal representations.
+      None of this alters conformance for the current Basic Profile or obliges implementations
+      until such time as a future specification explicitly adopts it.
     </p>
   </section>
 
   <section id='sotd'>
-    <p>This specification was initially developed by the
-      <a href="https://www.w3.org/community/json-ld/">JSON-LD Community Group</a>.</p>
+    <p>
+      This document is a <strong>Draft Group Note</strong> developed by the
+      <a href="https://www.w3.org/groups/wg/json-ld/">JSON-LD Working Group</a>.
+      Discussion takes place on the
+      <a href="https://lists.w3.org/Archives/Public/public-linked-json/">public-linked-json</a>
+      mailing list.
+      It is <strong>not</strong> part of the normative requirements of the current
+      <a href="https://www.w3.org/TR/yaml-ld/">YAML-LD</a> specification; it is non-normative
+      material that may inform a later revision.
+    </p>
   </section>
 
     <section id="extended-profile" class="informative">
