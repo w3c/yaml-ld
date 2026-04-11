@@ -7,6 +7,11 @@ install:
 spec:
 	respec --verbose --localhost --src index.html --out web/index.html
 
+.PHONY: extended-profile
+extended-profile:
+	mkdir -p web/extended-profile
+	respec --verbose --localhost --src extended-profile/index.html --out web/extended-profile/index.html
+
 
 .PHONY: serve
 .ONESHELL: serve
