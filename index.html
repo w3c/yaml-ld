@@ -592,7 +592,7 @@ schema:hasPart:
 <section id="conformance">
   <p>
     A <a>YAML-LD document</a> complies with
-    the <a>YAML-LD Basic profile</a> of this specification
+    the <dfn data-export="">YAML-LD Basic profile</dfn> of this specification
     if it follows the normative statements from this specification
     and can be transformed into a [[JSON-LD11]] representation,
     then back to a conforming YAML-LD document,
@@ -631,7 +631,7 @@ schema:hasPart:
 
     <ul>
       <li>
-        <a href="#dfn-processingmode">processingMode</a> option is provided and set to `json-ld-1.0`.
+        <a data-cite="JSON-LD11-API#dom-jsonldoptions-processingmode">processingMode</a> option is provided and set to `json-ld-1.0`.
       </li>
     </ul>
 
@@ -892,7 +892,7 @@ schema:hasPart:
 
       <p>
         Perspectives for support of the additional YAML features are analyzed in
-        <a href="#extended-profile">Extended Profile</a> informative addendum to this specification.
+        <a href="extended-profile/">Extended Profile</a> informative addendum to this specification.
       </p>
     </section>
 
@@ -1282,6 +1282,29 @@ schema:hasPart:
     </section>
   </section>
 
+  <section id="error-codes">
+    <h2>YamlLdErrorCode</h2>
+    <p>The <dfn>YamlLdErrorCode</dfn> represents the collection of valid YAML-LD error codes,
+      which extends the {{JsonLdErrorCode}} definitions.</p>
+
+    <pre class="idl">
+enum YamlLdErrorCode {
+  "invalid-encoding",
+  "mapping-key-error",
+  "profile-error"
+};
+    </pre>
+
+    <dl data-dfn-for="YamlLdErrorCode" data-sort>
+      <dt><dfn>invalid-encoding</dfn></dt>
+      <dd>The character encoding of an input is invalid.</dd>
+      <dt><dfn>mapping-key-error</dfn></dt>
+      <dd>A <a>YAML mapping</a> key was found that was not a <a>string</a>.</dd>
+      <dt><dfn>profile-error</dfn></dt>
+      <dd>The parsed YAML document contains features incompatible with the specified profile.</dd>
+    </dl>
+  </section>
+
   <section id="sec" class="informative">
     <h2>Security Considerations</h2>
 
@@ -1452,10 +1475,10 @@ schema:hasPart:
             </p>
             <dl>
               <dt><code>http://www.w3.org/ns/json-ld#extended</code></dt>
-              <dd>To request or specify <a href="#extended-profile">extended</a> <a>YAML-LD document</a> form.
+              <dd>To request or specify <a href="extended-profile/">extended</a> <a>YAML-LD document</a> form.
                 <div class="ednote">
                   This is a placeholder for specifying something like an
-                  <a href="#extended-profile">extended</a> <a>YAML-LD document</a> form
+                  <a href="extended-profile/">extended</a> <a>YAML-LD document</a> form
                   making use of YAML-specific features.
                 </div></dd>
             </dl>
