@@ -1,0 +1,2913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>YAML-LD 1.0</title>
+<link rel="alternate" href="data/spec.yamlld" type="application/ld+yaml" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
+<script src="common/common.js" class="remove" defer></script>
+<script class='remove'>
+  // Use fragment identifier of test as name.
+  function data_test_display() {
+      const test_references = document.querySelectorAll('details.respec-tests-details a');
+      for( const a of test_references ) {
+          const href = a.href;
+          const test_reference = href.split('#')[1];
+          a.textContent = test_reference;
+      }
+  }
+
+  var respecConfig = {
+    specStatus: "ED",
+    copyrightStart:    "2020",
+    shortName:  "yaml-ld-10",
+    edDraftURI: "https://w3c.github.io/yaml-ld/",
+    github: {
+      repoURL: "https://github.com/w3c/yaml-ld/",
+        branch: "main"
+    },
+    doJsonLd:   true,
+    editors: [
+        { name:       "Anatoly Scherbakov",
+          url:        "https://yeti.sh",
+          w3cid:      "138097",
+          company:    "Invited Expert" },
+        { name:       "Gregg Kellogg",
+          url:        "https://greggkellogg.net/",
+          w3cid:      "44770",
+          note: "until 2025-09-06",
+          extras: [
+            {name: "in memoriam", class: "former"},
+          ],
+          company:    "Invited Expert" },
+    ],
+
+    authors: [
+        { name:       "Gregg Kellogg",
+          url:        "https://greggkellogg.net/",
+          w3cid:      "44770",
+          company:    "Invited Expert" },
+        { name:       "Anatoly Scherbakov",
+          url:        "https://yeti.sh",
+          w3cid:      "138097",
+          company:    "Invited Expert" },
+        { name:       "Roberto Polli",
+          company:    "Par-Tec",
+          companyURL: "https://www.par-tec.it/" },
+    ],
+
+    localBiblio: {
+      "json-ld-bp": {
+        title: "JSON-LD Best Practices",
+        href: "https://w3c.github.io/json-ld-bp/",
+        publisher: "W3C",
+        date: "2022-05-24",
+        status: "W3C Group Note",
+        authors: [
+          "Gregg Kellogg",
+          "Ivan Herman",
+          "BigBlueHat",
+          "A. Soroka",
+          "Ruben Taelman",
+          "David I. Lehn",
+          "Philippe Le Hegaret",
+        ],
+      },
+      // Default [[YAML]] (SpecRef) uses yaml.org/spec/1.2/spec.html, which now redirects to
+      // spec/1.2-old/ — fragment ids there do not match this document's data-cite targets (e.g.
+      // #node-anchors). YAML-LD targets YAML 1.2.2; point all YAML#… links there.
+      YAML: {
+        title: "YAML Ain't Markup Language (YAML™) version 1.2.2",
+        href: "https://yaml.org/spec/1.2.2/",
+        publisher: "YAML Language Development Team",
+        date: "2021-10-01",
+        authors: [
+          "Oren Ben-Kiki",
+          "Clark Evans",
+          "Ingy döt Net",
+        ],
+      },
+    },
+
+    // Cross-reference definitions
+    xref: ["json-ld11", "json-ld11-api"],
+    testSuiteURI: "https://w3c.github.io/yaml-ld/tests/",
+    postProcess: [data_test_display],
+
+    group: "wg/json-ld",
+    wgPublicList: "public-linked-json",
+    maxTocLevel:        4,
+  };
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Add example button selection logic
+    for (const button of document.querySelectorAll(".ds-selector-tabs .selectors button")) {
+      button.onclick = () => {
+        const ex = button.closest(".ds-selector-tabs");
+        ex.querySelector("button.selected").classList.remove("selected");
+        ex.querySelector(".selected").classList.remove("selected");
+        button.classList.add('selected');
+        ex.querySelector("." + button.dataset.selects).classList.add("selected");
+      }
+    }
+
+    // Toggle show/hide changes
+    for (const elem of document.querySelectorAll(".show-changes")) {
+      elem.onclick = () => {
+        if (elem.classList.contains("selected")) {
+          // Remove highlight class from elements having "changed" class
+          elem.classList.remove("selected");
+          for (const changed of document.querySelectorAll(".changed")) {
+            changed.classList.remove("highlight");
+          }
+        } else {
+          // Add highlight class to elements having "changed" class
+          elem.classList.add("selected");
+          for (const changed of document.querySelectorAll(".changed")) {
+            changed.classList.add("highlight");
+          }
+        }
+      }
+    }
+  });
+</script>
+<style>
+  .hidden { display: none;}
+  .hl-bold { font-weight: bold; color: #0a3; }
+  .comment { color: #999; }
+  table, thead, tr, td { padding: 5px; border-width: 1px; border-spacing: 0px; border-style: solid; border-collapse: collapse; }
+  table.example {width: 100%;}
+  .example > pre.context:before {
+    content: "Context";
+    float: right;
+    font: x-large Arial, sans-serif;
+    color: gray;
+    border: solid thin black;
+    padding: 0.2em;
+  }
+  .example > pre.frame:before {
+    content: "Frame";
+    float: right;
+    font: x-large Arial, sans-serif;
+    color: gray;
+    border: solid thin black;
+    padding: 0.2em;
+  }
+  .example > pre.input:before {
+    content: "Input";
+    float: right;
+    font: x-large Arial, sans-serif;
+    color: gray;
+    border: solid thin black;
+    padding: 0.2em;
+  }
+  .example > pre.result:before {
+    content: "Result";
+    float: right;
+    font: x-large Arial, sans-serif;
+    color: gray;
+    border: solid thin black;
+    padding: 0.2em;
+  }
+  .example > pre.flattened:before {
+    content: "Flattened";
+    float: right;
+    font: x-large Arial, sans-serif;
+    color: gray;
+    border: solid thin black;
+    padding: 0.2em;
+  }
+  .example > pre.expanded:before {
+    content: "Expanded";
+    float: right;
+    font: x-large Arial, sans-serif;
+    color: gray;
+    border: solid thin black;
+    padding: 0.2em;
+  }
+  .example > pre.turtle:before {
+    content: "Turtle";
+    float: right;
+    font: x-large Arial, sans-serif;
+    color: gray;
+    border: solid thin black;
+    padding: 0.2em;
+  }
+  aside.example {
+    overflow-y: hidden;
+  }
+  /* example tab selection */
+  .ds-selector-tabs {
+    padding-bottom: 2em;
+  }
+  .ds-selector-tabs .selectors {
+    padding: 0;
+    border-bottom: 1px solid #ccc;
+    height: 28px;
+  }
+  .ds-selector-tabs .selectors button {
+    display: inline-block;
+    min-width: 54px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+    height: 27px;
+    padding: 0 8px;
+    line-height: 27px;
+    transition: all,0.218s;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    color: #666;
+    border: 1px solid transparent;
+  }
+  .ds-selector-tabs .selectors button:first-child {
+    margin-left: 2px;
+  }
+  .ds-selector-tabs .selectors button.selected {
+    color: #202020 !important;
+    border: 1px solid #ccc;
+    border-bottom: 1px solid #fff !important;
+  }
+  .ds-selector-tabs .selectors button:hover {
+    background-color: transparent;
+    color: #202020;
+    cursor: pointer;
+  }
+  .ds-selector-tabs pre:not(.preserve), .ds-selector-tabs table:not(.preserve) {
+    display: none;
+  }
+  .ds-selector-tabs pre.selected, .ds-selector-tabs table.selected {
+    display: block;
+  }
+  a.playground {
+    display: inline-block;
+    width: 150px;
+    border: 1px solid transparent;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    background-color: rgb(192, 192, 192);
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  a[href].playground {
+    padding: 4px 0 3px 8px;
+    border-bottom: none;
+    text-decoration: none;
+    color: #666;
+  }
+  .algorithm ol {
+    counter-reset: numsection;
+    list-style-type: none;
+  }
+  .algorithm ol>li {
+    margin: 0.5em 0;
+  }
+  .algorithm ol>li:before {
+    font-weight: bold;
+    counter-increment: numsection;
+    content: counters(numsection, ".") ") ";
+  }
+  code {
+    color:#c63501
+  }  
+</style>
+</head>
+<body>
+  <section id='abstract'>
+    <p>
+      [[JSON-LD11]] is a JSON-based format to serialize Linked Data [[LINKED-DATA]].
+      In recent years, [[YAML]] has emerged as a more concise format
+      to represent information that had previously been serialized as [[JSON]],
+      including API specifications, data schemas, and Linked Data.
+    </p>
+
+    <p>
+      This document defines YAML-LD as a set of conventions
+      on top of YAML which specify how to serialize Linked Data as YAML
+      based on JSON-LD syntax, semantics, and APIs.
+    </p>
+
+    <p>
+      Since YAML is more expressive than JSON,
+      both in the available data types and in the document structure
+      (see [[RFC9512]]),
+      this document identifies constraints on YAML
+      such that any <a>YAML-LD document</a> can be represented in JSON-LD.
+    </p>
+  </section>
+
+  <section id='sotd'>
+    <p>This specification was initially developed by the
+      <a href="https://www.w3.org/community/json-ld/">JSON-LD Community Group</a>.</p>
+  </section>
+
+  <section>
+    <h2>Introduction</h2>
+
+    <p>
+      <strong>Objective</strong><br>
+      This document defines YAML-LD, a set of conventions built on top
+      of YAML, which outlines how to serialize Linked Data as YAML
+      based on JSON-LD syntax, semantics, and APIs. The emergence of
+      YAML as a more concise format for representing information
+      previously serialized as JSON, including Linked Data, has led to
+      the development of YAML-LD.
+    </p>
+
+    <p>
+      <strong>Methods</strong><br>
+      This document defines constraints on YAML so that any YAML-LD
+      document can be represented in JSON-LD. This is necessary
+      because YAML is more expressive than JSON, in terms of both
+      available data types and document structure. This document
+      also registers the <code>application/ld+yaml</code> media type.
+    </p>
+
+    <p>
+      <strong>Results</strong><br>
+      This document provides a clear description of how to serialize
+      Linked Data in YAML. It also describes the basic concepts and
+      core requirements for implementing YAML-LD, including a
+      comparison of JSON versus YAML, the supported YAML features,
+      and encoding considerations.
+    </p>
+
+    <p>
+      <strong>Limitations</strong><br>
+      The YAML feature set is richer than that of JSON, and a number of
+      YAML features are not supported in this specification. However,
+      ground is laid for future development of a version of YAML-LD
+      which will support those features — via the Extended YAML-LD
+      Profile.
+    </p>
+    <p>
+      <strong>Conclusions</strong><br>
+      YAML-LD offers an efficient way to encode Linked Data in a
+      variety of programming languages which can use YAML.
+    </p>
+
+    <p>
+      <strong>An introductory YAML-LD example</strong> is presented below.
+    </p>
+
+      <pre class="example yaml"
+           data-transform="updateExample"
+           data-content-type="application/ld+yaml"
+           title="Basic YAML-LD document">
+        <!--
+"@context":
+  - https://json-ld.org/contexts/dollar-convenience.jsonld
+  - "@base": https://w3c.github.io/yaml-ld/
+    rdfs: http://www.w3.org/2000/01/rdf-schema#
+    schema: https://schema.org/
+    license:
+      "@type": "@id"
+
+$id: https://w3c.github.io/yaml-ld/
+rdfs:label: YAML-LD
+license: https://spdx.org/licenses/W3C.html
+schema:hasPart:
+  - rdfs:label: Abstract
+  - rdfs:label: Status of This Document
+  - rdfs:label: Introduction
+        -->
+      </pre>
+
+    <div class="ednote">
+      See YAML-LD description of this spec at
+      <a href="data/spec.yamlld" target="_blank">
+        <code>spec.yamlld</code>
+      </a>.
+    </div>
+
+  <section class="informative">
+    <h2>How to read this document</h2>
+
+    <p>
+      To understand the basics of this specification, one must be familiar with the following:
+    </p>
+    <ul>
+      <li>[[YAML]] data markup language, which is the underlying syntax for YAML-LD</li>
+      <li>basic Linked Data [[LINKED-DATA]] principles</li>
+    </ul>
+
+    <p>
+      This document is intended primarily for two main audiences, as described below.
+    </p>
+
+    <ul>
+      <li>
+        <strong>Software developers</strong> who want to &mdash;
+        <ul>
+          <li>encode Linked Data in a variety of programming languages which can use YAML</li>
+          <li>convert existing YAML to YAML-LD</li>
+          <li>understand the design decisions and language syntax for YAML-LD</li>
+          <li>implement processors and APIs for YAML-LD</li>
+          <li>generate or consume Linked Data, an RDF Graph, or an RDF Dataset in a YAML syntax</li>
+        </ul>
+
+        <p>Among related technologies, JSON-LD familiarity would be required to
+           build most YAML-LD capable applications, while RDF familiarity is only
+           required when it is desired to convert YAML-LD to RDF graphs, or vice
+           versa.
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Other professionals, both IT and otherwise</strong> who want to read and/or produce Linked Data documents
+          in YAML-LD format. Such documents can be &mdash;
+        </p>
+
+        <ul>
+          <li>consumed by programming systems capable of understanding YAML-LD</li>
+          <li>transformed with JSON-LD framing algorithms</li>
+          <li>published on the Web for human and machine consumption</li>
+        </ul>
+
+        <p>
+          For these users, familiarity with JSON-LD is not required, but understanding of Linked Data principles
+          might be beneficial.
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="informative">
+    <h2>Terminology</h2>
+
+    <p>This document uses the following terms as defined in external specifications
+      and defines terms specific to JSON-LD.</p>
+
+    <p>A <dfn>YAML-LD stream</dfn> is a <a data-cite="YAML#92-streams" data-no-xref="">YAML stream</a>
+      of <a>YAML-LD documents</a>.
+    </p>
+    
+    <p>A <dfn>YAML-LD document</dfn> is any <a>YAML document</a> from
+      which a conversion to [[JSON]] produces
+      a valid <a>JSON-LD document</a> which can be interpreted as [[LINKED-DATA]].
+    </p>
+
+    <p>
+      The term <dfn data-cite="RFC6838#" data-no-xref="">media type</dfn> is imported from [[RFC6838]].</p>
+    <p>
+      The term
+      <dfn data-cite="JSON#section-2" data-no-xref="">JSON</dfn> is imported from [[JSON]].</p>
+    <p>The term
+      <dfn data-no-xref="">JSON document</dfn> represents a serialization of a resource
+      conforming to the [[JSON]] grammar.</p>
+
+    <p>
+      The terms
+      <dfn data-cite="JSON-LD11#dfn-json-ld-document" data-no-xref="">JSON-LD document</dfn>, and
+      <dfn data-cite="JSON-LD11#dfn-value-object" data-no-xref="">value object</dfn>
+      are imported from [[JSON-LD11]].
+    </p>
+
+
+    <p>
+      The terms
+      <dfn data-cite="JSON-LD11-API#dfn-internal-representation" data-lt="JSON-LD internal representation" data-no-xref="">internal representation</dfn>, and
+      <dfn data-cite="JSON-LD11#dom-jsonldoptions-documentloader">documentLoader</dfn>
+      are imported from [[JSON-LD11-API]].
+    </p>
+
+    <p>The terms
+      <dfn data-cite="INFRA#list" data-no-xref="">array</dfn>,
+      <dfn data-cite="INFRA#boolean" data-no-xref="">boolean</dfn>,
+      <dfn data-cite="INFRA#ordered-map" data-no-xref="">map</dfn>,
+      <dfn data-cite="INFRA#map-entry" data-lt="entry" data-no-xref="">map entry</dfn>,
+      <dfn data-cite="INFRA#nulls" data-no-xref="">null</dfn>, and
+      <dfn data-cite="INFRA#javascript-string" data-no-xref="">string</dfn>
+      are imported from [[INFRA]].</p>
+
+    <p>
+      The term
+      <dfn data-cite="ECMASCRIPT#sec-terms-and-definitions-number-value" data-lt="number|JSON number" data-no-xref="">number</dfn>
+      is imported from [[ECMASCRIPT]].
+    </p>
+
+    <p>
+      The terms <dfn data-cite="YAML#" data-no-xref="">YAML</dfn>,
+      <dfn data-cite="YAML#representation-graph" data-lt="representation graph" data-no-xref="">YAML representation graph</dfn>,
+      <dfn data-cite="YAML#streams" data-no-xref="" data-lt="stream">YAML stream</dfn>,
+      <dfn data-cite="YAML#directives" data-no-xref="" data-lt="directive">YAML directive</dfn>,
+      <dfn data-cite="YAML#tag-directives" data-no-xref="">TAG directive</dfn>,
+      <dfn data-cite="YAML#documents" data-no-xref="" data-lt="documents">YAML document</dfn>,
+      <dfn data-cite="YAML#sequence" data-no-xref="">YAML sequence</dfn>
+      (either
+      <dfn data-cite="YAML#block-sequences" data-no-xref="">block sequence</dfn> or
+      <dfn data-cite="YAML#flow-sequences" data-no-xref="">flow sequence</dfn>),
+      <dfn data-cite="YAML#mapping" data-no-xref="">YAML mapping</dfn>
+      (either
+      <dfn data-cite="YAML#block-mappings" data-no-xref="">block mapping</dfn> or
+      <dfn data-cite="YAML#flow-mappings" data-no-xref="">flow mapping</dfn>),
+      <dfn data-cite="YAML#nodes" data-no-xref="" data-lt="YAML node">node</dfn>,
+      <dfn data-cite="YAML#scalar" data-no-xref="" data-lt="YAML scalar">scalar</dfn>,
+      <dfn data-cite="YAML#node-anchors" data-lt="anchor name|anchored nodes" data-no-xref="">node anchor</dfn>,
+      <dfn data-cite="YAML#node-tags" data-no-xref="">node tags</dfn>,
+      and <dfn data-cite="YAML#alias-nodes" data-no-xref="">alias node</dfn>,
+      are imported from [[YAML]].</p>
+
+    <p>The term
+      <dfn data-cite="RFC9110#content.negotiation" data-no-xref="">content negotiation</dfn>
+      is imported from [[RFC9110]].
+    </p>
+
+    <p>
+      The terms
+      <dfn data-cite="RDF11-CONCEPTS#dfn-literal" data-no-xref="">RDF literal</dfn>,
+      <dfn data-cite="RDF11-CONCEPTS#dfn-language-tagged-string" data-no-xref="">language-tagged string</dfn>,
+      <dfn data-cite="RDF11-CONCEPTS#dfn-datatype-iri" data-no-xref="">datatype IRI</dfn>, and
+      <dfn data-cite="RDF11-CONCEPTS#dfn-language-tag" data-no-xref="">language tag</dfn>
+      are imported from [[RDF11-CONCEPTS]].
+    </p>
+
+    <p>The terms
+      <dfn data-cite="URI#section-3.5" data-no-xref="">fragment</dfn> and
+      <dfn data-cite="URI#section-3.5" data-no-xref="">fragment identifier</dfn>
+      in this document are to be interpreted as in [[URI]].
+    </p>
+
+    <p>The term <dfn data-cite="LINKED-DATA#" data-no-xref="">Linked Data</dfn> is imported from [[LINKED-DATA]].
+    </p>
+  </section>
+
+  <section class="informative">
+    <h2>Namespace Prefixes</h2>
+
+    <p>This specification makes use of the following namespace prefixes:</p>
+    <table class="simple">
+      <thead><tr>
+        <th>Prefix</th>
+        <th>IRI</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>ex</td>
+          <td>https://example.org/</td>
+        </tr>
+        <tr>
+          <td>i18n</td>
+          <td>https://www.w3.org/ns/i18n#</td>
+        </tr>
+        <tr>
+          <td>rdf</td>
+          <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td>
+        </tr>
+        <tr>
+          <td>rdfs</td>
+          <td>http://www.w3.org/2000/01/rdf-schema#</td>
+        </tr>
+        <tr>
+          <td>xsd</td>
+          <td>http://www.w3.org/2001/XMLSchema#</td>
+        </tr>
+        <tr>
+          <td>schema</td>
+          <td>https://schema.org/</td>
+        </tr>
+        <tr>
+          <td>prov</td>
+          <td>http://www.w3.org/ns/prov#</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ednote">
+      See YAML-LD version of this table at
+      <a href="data/namespace-prefixes.yamlld" target="_blank">
+        <code>namespace-prefixes.yamlld</code>
+      </a>.
+    </div>
+
+    <p>These are used within this document as part of a <a data-cite="JSON-LD11#dfn-compact-iri">compact IRI</a>
+      as a shorthand for the resulting <a data-cite="rfc3987#section-2">IRI</a>, such as <code>schema:url</code>
+      used to represent <code>https://schema.org/url</code>.
+    </p>
+  </section>
+  </section>
+
+<section id="conformance">
+  <p>
+    A <a>YAML-LD document</a> complies with
+    the <a>YAML-LD Basic profile</a> of this specification
+    if it follows the normative statements from this specification
+    and can be transformed into a [[JSON-LD11]] representation,
+    then back to a conforming YAML-LD document,
+    without loss of semantic information.
+  </p>
+
+  <p>
+    For convenience, normative statements for documents are often phrased
+    as statements on the properties of the document.
+  </p>
+
+  <section id="v11">
+    <h2>JSON-LD Version</h2>
+
+    <p>YAML-LD supports [[[JSON-LD11]]] [[JSON-LD11]] and later.</p>
+  </section>
+
+  <section id="testing">
+    <h2>Test Suites</h2>
+
+    <p>To be conformant, an implementation MUST satisfy all test cases from the following test suites:</p>
+
+    <ul>
+      <li>
+        <a href="https://w3c.github.io/yaml-ld/tests/">YAML-LD tests</a> (this specification);
+      </li>
+      <li>
+        <a href="https://w3c.github.io/json-ld-api/tests/">JSON-LD API tests</a> [[JSON-LD11-API]];
+      </li>
+      <li>
+        <a href="https://w3c.github.io/json-ld-framing/tests/">JSON-LD Framing tests</a> [[JSON-LD11-FRAMING]],
+      </li>
+    </ul>
+
+    <p>...disregarding the test cases where:</p>
+
+    <ul>
+      <li>
+        <a href="#dfn-processingmode">processingMode</a> option is provided and set to `json-ld-1.0`.
+      </li>
+    </ul>
+
+    <p class="note">
+      Since <a href="#json-vs-yaml">YAML is a superset of JSON</a>, testing a YAML-LD implementation against
+      test cases from JSON-LD test suites should be trivial.
+    </p>
+  </section>
+</section>
+
+  <section id="basic-concepts" class="informative">
+    <h2>Basic Concepts</h2>
+
+    <section id="json-vs-yaml">
+      <h3>JSON vs YAML comparison</h3>
+
+      <p>YAML is a superset of JSON, i.e., every valid JSON document is also a valid YAML document.
+        YAML also offers a number of extra features, chief amongst which is improved human readability due to the ability to use minimal punctuation.</p>
+      <p>YAML is more flexible than JSON, as illustrated by the comparison table below.</p>
+
+      <table class="simple">
+        <thead>
+        <tr>
+          <th>Features</th>
+          <th>[[JSON]]</th>
+          <th>[[YAML]]</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th colspan="3">Allowed encodings</th>
+        </tr>
+
+        <tr>
+          <th>UTF-8</th>
+          <td><a data-cite="JSON#section-8.1">✅</a></td>
+          <td><a data-cite="YAML#52-character-encodings">✅</a></td>
+        </tr>
+
+        <tr>
+          <th>UTF-16</th>
+          <td><a data-cite="JSON#section-8.1">❌</a></td>
+          <td><a data-cite="YAML#52-character-encodings">✅</a></td>
+        </tr>
+
+        <tr>
+          <th>UTF-32</th>
+          <td><a data-cite="JSON#section-8.1">❌</a></td>
+          <td><a data-cite="YAML#52-character-encodings">✅</a></td>
+        </tr>
+
+        <tr>
+          <th colspan="3">Native data types</th>
+        </tr>
+
+        <tr>
+          <th><code>{}</code> object</th>
+          <td><a data-cite="JSON#section-4">✅</a></td>
+          <td><a data-cite="YAML#3211-nodes">✅</a></td>
+        </tr>
+
+        <tr>
+          <th><code>[]</code> array</th>
+          <td><a data-cite="JSON#section-5">✅</a></td>
+          <td><a data-cite="YAML#3211-nodes">✅</a></td>
+        </tr>
+
+        <tr>
+          <th>string</th>
+          <td><a data-cite="JSON#section-7">✅</a></td>
+          <td><a data-cite="YAML#3211-nodes">✅</a></td>
+        </tr>
+
+        <tr>
+          <th>number</th>
+          <td><a data-cite="JSON#section-6">✅</a></td>
+          <td>
+            ✅
+            <br>
+            <a data-cite="YAML#10213-integer">integer</a>
+            <br>
+            <a data-cite="YAML#10214-floating-point">floating
+            point</a></td>
+        </tr>
+
+        <tr>
+          <th>bool</th>
+          <td><a data-cite="JSON#section-3">✅</a></td>
+          <td><a data-cite="YAML#10212-boolean">✅</a></td>
+        </tr>
+
+        <tr>
+          <th>null</th>
+          <td><a data-cite="JSON#section-3">✅</a></td>
+          <td><a data-cite="YAML#10211-null">✅</a></td>
+        </tr>
+
+        <tr>
+          <th colspan="3">Features</th>
+        </tr>
+
+        <tr>
+          <th>Delimited strings, arrays, objects</th>
+          <td><a data-cite="JSON#section-4">✅</a></td>
+          <td><a data-cite="YAML#chapter-7-flow-style-productions">✅</a></td>
+        </tr>
+
+        <tr>
+          <th>Punctuation-free strings, arrays, objects</th>
+          <td>❌</td>
+          <td><a data-cite="YAML#chapter-8-block-style-productions">✅</a></td>
+        </tr>
+
+        <tr>
+          <th>Custom types</th>
+          <td>❌</td>
+          <td>✅ via <a data-cite="YAML#tags">tags</a></td>
+        </tr>
+
+        <tr>
+          <th>Cycles</th>
+          <td>❌</td>
+          <td><a data-cite="YAML#321-representation-graph">✅</a></td>
+        </tr>
+        <tr>
+          <th>Documents per file</th>
+          <td>1</td>
+          <td>⩾ 1 via <a>YAML stream</a></td>
+        </tr>
+
+        <tr>
+          <th>Comments</th>
+          <td>❌</td>
+          <td><a data-cite="YAML#3233-comments">✅</a></td>
+        </tr>
+
+        <tr>
+          <th>Anchors & aliases</th>
+          <td>❌</td>
+          <td><a data-cite="YAML#3222-anchors-and-aliases">✅</a></td>
+        </tr>
+
+        <tr>
+          <th>Mapping key types</th>
+          <td><code>string</code></td>
+          <td>
+            <a data-cite="YAML#3211-nodes">Any type representable in YAML</a>, from strings to mappings
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div class="ednote">
+        See YAML-LD version of this table at
+        <a href="data/json-vs-yaml.yamlld" target="_blank">
+          <code>json-vs-yaml.yamlld</code>
+        </a>.
+    </div>
+    </section>
+
+    <p>
+      The first goal of this specification is to allow a <a>JSON-LD document</a> to be
+      processed and serialized into YAML, and then back into JSON-LD, without
+      losing any semantic information.</p>
+
+    <p>This is always possible because</p>
+
+    <ul>
+      <li>a <a>YAML representation graph</a> can always represent a tree</li>
+      <li>set of JSON data types is a subset of the set of YAML data types</li>
+      <li>JSON encoding is UTF-8.</li>
+    </ul>
+
+    <p>Example: The JSON-LD document below</p>
+    <pre class="example json"
+         data-transform="updateExample"
+         data-result-for="Basic YAML-LD document"
+         data-content-type="application/ld+json"
+         title="Basic JSON-LD document">
+      <!--
+      {
+        "@context": "https://schema.org",
+
+        "@id": "https://w3c.github.io/yaml-ld/",
+        "@type": "WebContent",
+        "name": "YAML-LD",
+        "author": {
+          "@id": "https://www.w3.org/community/json-ld",
+          "name": "JSON-LD Community Group"
+        }
+      }
+      -->
+    </pre>
+
+    <p>
+      Can be serialized as YAML as follows.
+      Note that entries
+      starting with  `@` need to be enclosed in quotes
+      because `@` is a reserved character in YAML.
+    </p>
+
+    <pre class="example yaml"
+         data-transform="updateExample"
+         data-content-type="application/ld+yaml"
+         title="Basic YAML-LD document">
+      <!--
+      "@context": https://schema.org
+
+      "@id": https://w3c.github.io/yaml-ld/
+      "@type": WebContent
+      name: YAML-LD
+      author:
+        "@id": https://www.w3.org/community/json-ld
+        name: JSON-LD Community Group
+      -->
+    </pre>
+
+    <p>
+      This specification is based on YAML 1.2.2.
+      YAML-LD processors MUST use a YAML 1.2 (or later, backward-compatible) implementation.
+      Implementers may specify the YAML version in documents using the `%YAML` directive
+      (see <a href="#int" class="sectionRef"></a>).
+      See <a href="#int" class="sectionRef"></a> for interoperability concerns with YAML 1.1.
+    </p>
+  </section>
+
+  <section id="core-requirements" class="normative">
+    <h2>Core Requirements</h2>
+
+    <section id="supported-yaml-features" class="informative">
+      <h2>YAML features supported by YAML-LD</h2>
+
+      <dl>
+        <dt>Encoding</dt>
+        <dd>UTF-8 <a href="#encoding">only</a>.</dd>
+
+        <dt>Native data types</dt>
+        <dd>Every native data type that the YAML-LD parser supports.</dd>
+
+        <dt>Tags</dt>
+        <dd>Ignored.</dd>
+
+        <dt>Comments</dt>
+        <dd><a href="#comments">Treated as whitespace</a>.</dd>
+
+        <dt>Anchors & aliases</dt>
+        <dd>Resolved by YAML parser. Anchors & alias names are ignored.</dd>
+
+        <dt>Cycles defined using anchors & aliases</dt>
+        <dd>Not permitted.</dd>
+
+        <dt>YAML Streams</dt>
+        <dd>Treated identically to arrays.</dd>
+
+        <dt>Mapping key types other than <code>string</code></dt>
+        <dd><a href="#mapping-key-types">Not supported.</a></dd>
+      </dl>
+
+      <p>
+        Perspectives for support of the additional YAML features are analyzed in
+        <a href="#extended-profile">Extended Profile</a> informative addendum to this specification.
+      </p>
+    </section>
+
+    <section id="encoding">
+    <h2>Encoding</h2>
+
+    <p id="cr-utf8" data-tests="
+      manifest.html#cr-utf8-1-positive,
+      manifest.html#cr-utf8-2-negative">
+      A <a>YAML-LD document</a> MUST be encoded in UTF-8,
+      to ensure interoperability with [[JSON]];
+      otherwise, an
+      <a data-link-for="YamlLdErrorCode">invalid-encoding</a>
+      MUST be detected, and processing aborted.
+    </p>
+    </section>
+
+    <section id="comments">
+      <h2>Comments</h2>
+      <p id="cr-comments" data-tests="manifest.html#cr-comments-1-positive">
+        Comments in <a>YAML-LD documents</a> are treated as white space.
+      </p>
+
+      <p>
+        See Interoperability considerations of "+yaml" structured syntax suffix
+        for more details.
+      </p>
+    </section>
+
+    <section id="anchors-aliases">
+    <h2>Anchors and Aliases</h2>
+    <p class="note">
+      In this specification, <em>anchor</em> means YAML's
+      <a data-cite="YAML#node-anchors">node anchor</a> mechanism
+      (with <a data-cite="YAML#alias-nodes">alias nodes</a>, using <code>&amp;</code> and <code>*</code>
+      in the serialization) to reuse the same logical node by reference in the serialized graph.
+      It is not related to <a data-cite="HTML#the-a-element">HTML hyperlinks</a>
+      or <a data-cite="URI#section-3.5">URL fragment identifiers</a>.
+      See [[YAML]]
+      <a data-cite="YAML#3222-anchors-and-aliases">§3.2.2.2 Anchors and Aliases</a> and
+      <a data-cite="YAML#node-anchors">§6.9.2 Node Anchors</a>.
+    </p>
+    <p id="aa-information" data-tests="manifest.html#aa-information-1-positive">
+      Since <a>anchor names</a> are a serialization detail, such anchors
+      MUST NOT be used to convey relevant information,
+      MAY be altered when processing the document,
+      and MAY be dropped during YAML-LD processing.
+    </p>
+
+    <p id="aa-cycles" data-tests="
+      manifest.html#aa-cycles-1-positive,
+      manifest.html#aa-cycles-2-negative,
+      manifest.html#aa-cycles-3-positive">
+      A <a>YAML-LD document</a> MAY contain <a>anchored nodes</a> and <a>alias nodes</a>,
+      but its <a>representation graph</a> MUST NOT contain cycles;
+      otherwise, a
+      <a data-cite="JSON-LD11-API#dom-jsonlderrorcode-loading-document-failed">loading-document-failed</a>
+      error MUST be detected, and processing aborted.
+    </p>
+
+    <p>
+      When interpreting the document as JSON-LD,
+      alias nodes MUST be resolved by value to their target nodes.
+    </p>
+
+    <p>
+      The <a>YAML-LD document</a> in the following example
+      contains alias nodes for the `{"@id": "country:US"}` object:
+    </p>
+
+    <pre class="example yaml"
+         id="example-with-anchors"
+         data-transform="updateExample"
+         data-content-type="application/ld+yaml"
+         title="YAML-LD with node anchors">
+       <!--
+      "@context":
+        schema: https://schema.org/
+        country: https://example.org/country/
+
+      "@id": https://www.w3.org/community/json-ld
+      "@type": schema:Organization
+      schema:member:
+        - "@id": https://github.com/gkellogg
+          "@type": schema:Person
+          name: Gregg Kellogg
+          country: &US
+            "@id": country:US
+        - "@id": https://github.com/BigBlueHat
+          "@type": schema:Person
+          name: Benjamin Young
+          country: *US
+        # - …
+      -->
+    </pre>
+
+    <p>
+      While the <a>representation graph</a>
+      (and eventually the in-memory representation
+      of the data structure, e.g., a Python dictionary or a Java hashmap)
+      will still contain references between nodes,
+      the JSON-LD serialization will not — since, by the time it is formed,
+      all the anchors have been resolved, as shown below.
+    </p>
+
+    <pre class="example json"
+         data-transform="updateExample"
+         data-result-for="YAML-LD with node anchors"
+         data-content-type="application/ld+json"
+         title="JSON-LD resulting from YAML with node anchors">
+      <!--
+        {
+          "@context": {
+            "schema": "https://schema.org/",
+            "country": "https://example.org/country/"
+          },
+          "@id": "https://www.w3.org/community/json-ld",
+          "@type": "schema:Organization",
+          "schema:member": [
+            {
+              "@id": "https://github.com/gkellogg",
+              "@type": "schema:Person",
+              "name": "Gregg Kellogg",
+              "country": {
+                "@id": "country:US"
+              }
+            },
+            {
+              "@id": "https://github.com/BigBlueHat",
+              "@type": "schema:Person",
+              "name": "Benjamin Young",
+              "country": {
+                "@id": "country:US"
+              }
+            },
+            …
+          ]
+        }
+      -->
+    </pre>
+
+    <aside class="note" title="Anchors within a @context block">
+    <p>
+      Anchors are also useful <em>within</em> a <code>@context</code> block.
+      When several terms share the same term definition — for example, all
+      IRI-valued properties, or all language-tagged string properties — the
+      shared definition can be anchored once and aliased for each term,
+      avoiding repetition.
+    </p>
+
+    <p>
+      The example below defines, and uses, a context for
+      <a data-cite="RDF-SCHEMA#">RDF Schema</a> using two anchors:
+      <code>&amp;iri</code> for IRI-valued properties and
+      <code>&amp;lang</code> for language-tagged string properties.
+    </p>
+
+    <pre class="example yaml"
+         data-transform="updateExample"
+         data-content-type="application/ld+yaml"
+         title="YAML-LD context with anchors">
+      <!--
+      "@context":
+        rdfs: http://www.w3.org/2000/01/rdf-schema#
+
+        rdfs:domain: &iri
+          "@type": "@id"
+
+        rdfs:range:         *iri
+        rdfs:subClassOf:    *iri
+        rdfs:subPropertyOf: *iri
+        rdfs:isDefinedBy:   *iri
+        rdfs:seeAlso:       *iri
+
+        rdfs:label: &lang
+          "@container": "@language"
+        rdfs:comment: *lang
+      
+      "@id": https://example.org/Moon
+      rdfs:label:
+        en: Moon
+        it: Luna
+      rdfs:seeAlso: https://dbpedia.org/resource/Moon
+      -->
+    </pre>
+    <p>
+      Note however that only YAML-LD processors are expected to support YAML-LD contexts.
+      In order to be more broadly usable, a context such as this one should also be converted and published in the JSON-LD syntax.
+    </p>
+    </aside>
+    </section>
+
+    <section id="mapping-key-types">
+      <h2>Mapping Key Types</h2>
+
+      <p id="aa-mapping-key-types" data-tests="
+        manifest.html#cir-mapping-key-1-negative,
+        manifest.html#cir-mapping-key-2-negative,
+        manifest.html#cir-mapping-key-3-negative,
+        manifest.html#cir-mapping-key-4-negative,
+        manifest.html#cir-mapping-key-5-negative,
+      ">
+        Mapping key type MUST be a <code>string</code>. Otherwise, a processing error is raised.
+      </p>
+    </section>
+
+    <section id="scalar-value-types">
+      <h2>Scalar Value Types</h2>
+
+      <p id="yaml-core-schema-requirement" data-tests="
+        manifest.html#core-bool-true,
+        manifest.html#core-bool-false,
+        manifest.html#core-bool-true-title,
+        manifest.html#core-bool-false-upper,
+        manifest.html#core-null-null,
+        manifest.html#core-null-tilde,
+        manifest.html#core-null-upper,
+        manifest.html#core-int-decimal,
+        manifest.html#core-int-octal,
+        manifest.html#core-int-hex,
+        manifest.html#core-float-basic,
+        manifest.html#core-float-scientific,
+        manifest.html#core-date-ymd,
+        manifest.html#core-float-inf-negative,
+        manifest.html#core-float-neg-inf-negative,
+        manifest.html#core-float-plus-inf-negative,
+        manifest.html#core-float-nan-negative,
+        manifest.html#core-float-nan-mixed-negative,
+        manifest.html#core-float-nan-upper-negative,
+        manifest.html#core-yaml11-yes,
+        manifest.html#core-yaml11-no,
+        manifest.html#core-yaml11-on,
+        manifest.html#core-yaml11-off,
+        manifest.html#core-yaml11-yes-title,
+        manifest.html#core-yaml11-yes-upper">
+        YAML-LD uses the <a data-cite="YAML#103-core-schema">YAML Core Schema</a> for scalar type resolution.
+        Float values that cannot be represented in [[JSON]] — specifically
+        infinity (<code>.inf</code>, <code>-.inf</code>, <code>+.inf</code>) and
+        not-a-number (<code>.nan</code>) — MUST cause a
+        <a data-cite="JSON-LD11-API#dom-jsonlderrorcode-loading-document-failed">loading-document-failed</a>
+        error.
+      </p>
+      <p>
+        The <a data-cite="YAML#103-core-schema">YAML Core Schema</a> does not define a timestamp type;
+        scalars such as <code>2018-04-01</code> resolve to plain strings.
+        However, many YAML libraries implement YAML 1.1 timestamp resolution by default
+        and will silently convert such scalars to native date or datetime objects.
+        YAML-LD processors MUST NOT perform such conversion and MUST treat these values as strings.
+      </p>
+
+      <aside class="note" title="Core Schema type resolution">
+        <p>
+          The following table summarizes scalar type resolution per the
+          <a data-cite="YAML#103-core-schema">YAML Core Schema</a> and YAML-LD behaviour:
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Pattern</th>
+              <th>Resolved tag</th>
+              <th>YAML-LD</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>null | Null | NULL | ~</code></td>
+              <td><code>tag:yaml.org,2002:null</code></td>
+              <td>JSON <code>null</code></td>
+            </tr>
+            <tr>
+              <td><em>(empty)</em></td>
+              <td><code>tag:yaml.org,2002:null</code></td>
+              <td>JSON <code>null</code></td>
+            </tr>
+            <tr>
+              <td><code>true | True | TRUE | false | False | FALSE</code></td>
+              <td><code>tag:yaml.org,2002:bool</code></td>
+              <td>JSON <code>true</code> / <code>false</code></td>
+            </tr>
+            <tr>
+              <td><code>[-+]?[0-9]+</code></td>
+              <td><code>tag:yaml.org,2002:int</code> (base 10)</td>
+              <td>JSON number</td>
+            </tr>
+            <tr>
+              <td><code>0o[0-7]+</code></td>
+              <td><code>tag:yaml.org,2002:int</code> (base 8)</td>
+              <td>JSON number</td>
+            </tr>
+            <tr>
+              <td><code>0x[0-9a-fA-F]+</code></td>
+              <td><code>tag:yaml.org,2002:int</code> (base 16)</td>
+              <td>JSON number</td>
+            </tr>
+            <tr>
+              <td><code>[-+]?(\.[0-9]+|[0-9]+(\.[0-9]*)?)([eE][-+]?[0-9]+)?</code></td>
+              <td><code>tag:yaml.org,2002:float</code> (number)</td>
+              <td>JSON number</td>
+            </tr>
+            <tr>
+              <td><code>[-+]?(\.inf|\.Inf|\.INF)</code></td>
+              <td><code>tag:yaml.org,2002:float</code> (infinity)</td>
+              <td>raises <code>loading-document-failed</code></td>
+            </tr>
+            <tr>
+              <td><code>\.nan|\.NaN|\.NAN</code></td>
+              <td><code>tag:yaml.org,2002:float</code> (NaN)</td>
+              <td>raises <code>loading-document-failed</code></td>
+            </tr>
+            <tr>
+              <td><em>(any other)</em></td>
+              <td><code>tag:yaml.org,2002:str</code></td>
+              <td>JSON string</td>
+            </tr>
+          </tbody>
+        </table>
+      </aside>
+    </section>
+
+    <section id="json-literals" class="informative">
+      <h2>JSON literals</h2>
+
+      <p>
+        The <code>@json</code> keyword from JSON-LD 1.1 defines a <a data-cite="JSON-LD11#dfn-json-literal">JSON literal</a> as a <a>value object</a> with
+        <code>@type</code> <code>@json</code> and <code>@value</code> containing JSON data. A processor treats such a value as a JSON literal, rather than
+        interpreting it further as JSON-LD. Consider the following example.
+      </p>
+
+      <pre class="example yaml"
+           data-transform="updateExample"
+           data-content-type="application/ld+yaml"
+           title="JSON literal metadata about YAML-LD specification">
+      <!--
+      "@context":
+        metadata: https://example.org/vocab#metadata
+      "@id": https://w3c.github.io/yaml-ld/
+      metadata:
+        "@type": "@json"
+        "@value":
+          jsonLd: "1.1"
+          yaml: "1.2"
+          defaultProfile: "basic"
+          testSuite: https://w3c.github.io/yaml-ld/tests/
+      -->
+      </pre>
+
+      <p>
+        Consider the expanded form.
+      </p>
+
+      <pre class="example json"
+           data-transform="updateExample"
+           data-content-type="application/ld+json"
+           title="Expanded JSON literal metadata about YAML-LD specification">
+      <!--
+      [
+        {
+          "@id": "https://w3c.github.io/yaml-ld/",
+          "https://example.org/vocab#metadata": [
+            {
+              "@type": "@json",
+              "@value": {
+                "jsonLd": "1.1",
+                "yaml": "1.2",
+                "defaultProfile": "basic",
+                "testSuite": "https://w3c.github.io/yaml-ld/tests/"
+              }
+            }
+          ]
+        }
+      ]
+      -->
+      </pre>
+
+      <p>
+        Although the keyword is named <code>@json</code>, it does not require the
+        value of <code>@value</code> to be written using JSON syntax in YAML-LD. As this example shows, the metadata
+        value object is preserved during expansion in its JSON-LD form, — as this keyword mandates.
+      </p>
+
+      <p>
+        When it is converted to RDF, the JSON literal's lexical form is
+        <a data-cite="RFC8259#section-2">JSON text</a> reconstructed from the
+        <a data-cite="JSON-LD11-API#dfn-internal-representation">internal representation</a>.
+      </p>
+
+    </section>
+  </section>
+
+  <section id="sec" class="informative">
+    <h2>Security Considerations</h2>
+
+    <p>See <a data-cite="JSON-LD11#iana-security">Security considerations in JSON-LD 1.1</a>
+       and <code>+yaml</code> structured syntax suffix.</p>
+  </section>
+
+  <section id="privacy" class="informative">
+    <h2>Privacy Considerations</h2>
+
+    <p>See <a data-cite="JSON-LD11#privacy">Privacy considerations in JSON-LD 1.1</a>.
+  </section>
+
+  <section id="int" class="informative">
+    <h2>Interoperability Considerations</h2>
+
+    <p>
+      For general interoperability considerations on the serialization of
+      <a>JSON documents</a> in [[YAML]], see YAML
+      and the Interoperability considerations of the <code>+yaml</code> structured syntax suffix.
+    </p>
+    <p>
+      The considerations and analysis provided here, including interoperability
+      and security considerations, are based on the YAML 1.2.2 specification.
+    </p>
+    <p>
+      Many popular YAML libraries default to YAML 1.1 parsing.
+      YAML 1.1 implementations cause interoperability issues; in particular,
+      the so-called "Norway problem" arises because YAML 1.1 treats
+      <code>no</code>, <code>No</code>, <code>NO</code>, <code>yes</code>,
+      <code>on</code>, <code>off</code>, and similar values as booleans,
+      whereas YAML 1.2 Core Schema treats them as plain strings.
+      YAML-LD processors that use a YAML 1.1 library will fail the conformance
+      tests and are not compliant.
+    </p>
+  </section>
+
+  <section id="html">
+    <h2>Embedding YAML-LD in HTML Documents</h2>
+
+    <p>
+      YAML-LD content can be easily embedded in HTML [[HTML]] by placing it
+      in a <code>&lt;script></code> element with the `type` attribute set to
+      `application/ld+yaml`, as illustrated in an example below.
+    </p>
+
+    <pre class="example yaml"
+     data-transform="updateExample"
+     data-content-type="application/ld+yaml"
+     title="YAML-LD document embedded in HTML">
+    <!--
+    <script type="application/ld+yaml">
+      "@context": https://json-ld.org/contexts/person.jsonld
+      "@id": https://dbpedia.org/resource/John_Lennon
+      name: John Lennon
+      born: 1940-10-09
+      spouse:
+        - https://dbpedia.org/resource/Yoko_Ono
+        - https://dbpedia.org/resource/Cynthia_Lennon
+    </script>
+    -->
+    </pre>
+
+    <p data-tests="manifest.html#html-dedent-needed,manifest.html#html-dedent-not-needed">
+      YAML syntax is indentation based. Therefore, when processing each `&lt;script>` block with YAML-LD content,
+      YAML-LD processor MUST preserve the content of the block for YAML parsing <em>as-is</em>, including whitespace characters.
+    </p>
+
+    <p data-tests="manifest.html#html-and-yaml-streams">
+      If the YAML-LD <code>&lt;script></code> tag contains a <a>YAML Stream</a> with multiple <a>YAML documents</a>, each of these documents MUST be treated as if it was included in a separate <code>&lt;script></code> tag. See <a href="#streams">Streams</a> for details.
+    </p>
+  </section>
+
+
+  <section id="streams">
+    <h2>Streams</h2>
+
+    <p>
+      Every YAML-LD file is a <a>YAML-LD stream</a>
+      and might contain multiple <a>YAML-LD documents</a>,
+      as shown in the example below.
+    </p>
+
+    <pre class="example yaml"
+         data-transform="updateExample"
+         data-result-for="YAML-LD with multiple documents"
+         data-content-type="application/ld+json"
+         title="YAML-LD with several documents in one file">
+      <!--
+      "@base": https://schema.org
+      "@id": https://w3c.github.io/yaml-ld/
+      "@type": WebContent
+      name: YAML-LD
+      ---
+      "@base": https://schema.org
+      "@id": https://www.w3.org/TR/json-ld11/
+      "@type": WebContent
+      name: JSON-LD
+      -->
+    </pre>
+
+    <p class="informative">
+      [[JSON-LD11-API]] defines the
+      <a data-cite="JSON-LD11-API#dom-jsonldoptions-extractallscripts">`extractAllScripts`</a> flag, which allows to parse
+      multiple `&lt;script>` tags with YAML-LD content.
+    </p>
+
+    <p data-tests="manifest.html#two-documents-from-stream,manifest.html#one-document-from-stream">
+      A conformant YAML-LD specification MUST take this flag into account
+      while parsing a normal YAML-LD document.
+    </p>
+
+    <ul>
+      <li>
+        If the flag is `true`, the <a>YAML stream</a> is considered an array,
+        and each document in it is an item in that array, even if there is
+        only one document in the stream;
+      </li>
+      <li>
+        If the flag is `false`, only the first document in the stream will be processed.
+      </li>
+    </ul>
+
+    <p class="note" title="Interoperability considerations on YAML streams">
+      For interoperability considerations on YAML streams,
+      see <a data-cite="RFC9512#section-3.2">the relevant section in YAML Media Type</a>.
+    </p>
+  </section>
+
+  <section id="iana" class="appendix normative">
+    <h2>IANA Considerations</h2>
+
+    <p>This section has been submitted to the Internet Engineering Steering
+      Group (IESG) for review, approval, and registration with IANA.</p>
+    <p>
+      This section describes the information required to register the above media type according to [[RFC6838]]
+    </p>
+
+    <section>
+    <h3>application/ld+yaml</h3>
+    <dl>
+      <dt>Type name:</dt>
+      <dd>application</dd>
+      <dt>Subtype name:</dt>
+      <dd>ld+yaml</dd>
+      <dt>Required parameters:</dt>
+      <dd>N/A</dd>
+      <dt>Optional parameters:</dt>
+      <dd>
+        <dl>
+          <dt><code>profile</code></dt>
+          <dd>
+            <p>A non-empty list of space-separated URIs identifying specific
+              constraints or conventions that apply to a <a>YAML-LD document</a> according to [[RFC6906]].
+              A profile does not change the semantics of the resource representation
+              when processed without profile knowledge, so that clients both with
+              and without knowledge of a profiled resource can safely use the same
+              representation. The <code>profile</code> parameter MAY be used by
+              clients to express their preferences in the content negotiation process.
+              If the profile parameter is given, a server SHOULD return a document that
+              honors the profiles in the list which it recognizes,
+              and MUST ignore the profiles in the list which it does not recognize.
+              It is RECOMMENDED that profile URIs are dereferenceable and provide
+              useful documentation at that URI. For more information and background
+              please refer to [[RFC6906]].</p>
+            <p>This specification allows the use of the `profile` parameters listed in
+              <a data-cite="JSON-LD11#iana-considerations"> and additionally defines the following:</a>
+            </p>
+            <dl>
+              <dt><code>http://www.w3.org/ns/json-ld#extended</code></dt>
+              <dd>To request or specify <a href="#extended-profile">extended</a> <a>YAML-LD document</a> form.
+                <div class="ednote">
+                  This is a placeholder for specifying something like an
+                  <a href="#extended-profile">extended</a> <a>YAML-LD document</a> form
+                  making use of YAML-specific features.
+                </div></dd>
+            </dl>
+            <p>
+              When used as a <a data-cite="RFC4288#section-4.3">media type parameter</a> [[RFC4288]]
+              in an <a data-cite="rfc9110#rfc.section.12.5.1">HTTP Accept header field</a> [[RFC9110]],
+              the value of the <code>profile</code> parameter MUST be enclosed in quotes (<code>"</code>) if it contains
+              special characters such as whitespace, which is required when multiple profile URIs are combined.</p>
+            <p>When processing the "profile" media type parameter, it is important to
+              note that its value contains one or more URIs and not IRIs. In some cases
+              it might therefore be necessary to convert between IRIs and URIs as specified in
+              <a data-cite="RFC3986#section-5.1">section 3 Relationship between IRIs and URIs</a>
+              of [[RFC3987]].</p>
+          </dd>
+        </dl>
+      </dd>
+      <dt>Encoding considerations:</dt>
+      <dd>Same as <code>+yaml</code>.</dd>
+      <dt id="iana-security">Security considerations:</dt>
+      <dd>See <a href="#sec" class="sectionRef"></a>.</dd>
+      <dt>Interoperability considerations:</dt>
+      <dd>See <a href="#int" class="sectionRef"></a>.</dd>
+      <dt>Published specification:</dt>
+      <dd>http://www.w3.org/TR/yaml-ld</dd>
+      <dt>Applications that use this media type:</dt>
+      <dd>Any programming environment that requires the exchange of
+        directed graphs.
+      </dd>
+      <dt>Additional information:</dt>
+      <dd>
+        <dl>
+          <dt>Deprecated alias names for this type:</dt>
+          <dd>N/A</dd>
+          <dt>Magic number(s):</dt>
+          <dd>Same as <code>application/yaml</code></dd>
+          <dt>File extension(s):</dt>
+          <dd>
+            <ul>
+              <li><code>.yaml</code></li>
+              <li><code>.yamlld</code></li>
+            </ul>
+          </dd>
+          <dt>Macintosh file type code(s):</dt>
+          <dd>Same as <code>application/yaml</code></dd>
+          <dt>Windows Clipboard Name:</dt>
+          <dd>Same as <code>application/yaml</code></dd>
+        </dl>
+      </dd>
+      <dt>Person &amp; email address to contact for further information:</dt>
+      <dd>W3C JSON-LD Working Group &lt;public-json-ld-wg@w3.org&gt;</dd>
+      <dt>Intended usage:</dt>
+      <dd>Common</dd>
+      <dt>Restrictions on usage:</dt>
+      <dd>N/A</dd>
+      <dt>Author(s):</dt>
+      <dd>Roberto Polli, Gregg Kellogg</dd>
+      <dt>Change controller:</dt>
+      <dd>W3C</dd>
+    </dl>
+    </section>
+  </section>
+
+  <section id="comments-as-whitespace" class="informative">
+    <h2>Why are comments treated as whitespace?</h2>
+
+    <section>
+      <h2>Consistency</h2>
+
+      <dl>
+        <dt>[[?TURTLE]] and other Linked Data serializations which support comments</dt>
+        <dd>do not provide a means to preserve them
+          when processing and serializing the document
+          in other formats
+        </dd>
+
+        <dt>YAML</dt>
+        <dd>
+          requires that parts of the document not reflected by
+
+          <a>representation graph</a>, such as
+
+          <ul>
+            <li>comments</li>
+            <li>directives</li>
+            <li>mapping key order</li>
+            <li>anchor names</li>
+          </ul>
+
+          must not be used to convey application level information.
+        </dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2>Predictability</h2>
+
+      <p>
+        Theoretically, we could try harvesting YAML comments into
+        JSON-LD documents. We would define a specific predicate, like
+        <code>https://json-ld.org/yaml-ld/comment</code>, and convert
+        every <code># My comment</code> fragment into a
+        <code>{"yaml-ld:comment": "My comment"}</code> piece of the JSON-LD
+        document.
+      </p>
+
+      <p>
+        This would, however, have the following impacts on 
+        implementations:
+      </p>
+
+      <ul>
+        <li>
+          They would be more complicated, because most industrially 
+          available YAML parsers discard comments on reading YAML data
+        </li>
+        <li>
+          They would be less predictable, because order of keys is not
+          preserved in JSON — and therefore, when converting a JSON-LD
+          document back to YAML-LD, comments might be displaced.
+        </li>
+      </ul>
+    </section>
+  </section>
+
+    <section id="extended-profile" class="informative">
+      <h2>Extended YAML-LD Profile</h2>
+
+      <section>
+        <h2>Motivation</h2>
+
+        <p>
+          The YAML-LD specification relies upon YAML to serialize Linked Data to the extent
+          that YAML is compatible with JSON, which simplifies the operation and usage
+          of YAML-LD. However, the <a href="#json-vs-yaml">more
+          expressive feature set</a> of YAML invites us to represent
+          Linked Data in a more expressive way.
+        </p>
+
+        <p>
+          In the cases described above, one of the possible expressive methods is a
+          specific feature of YAML language. To leverage those methods, we propose an
+          <strong>Extended YAML-LD Profile</strong> which will implement all such features.
+        </p>
+
+        <div class="ednote">
+          The Extended Profile is out of scope for the normative part
+          of this specification; we leave it for later versions,
+          pending feedback from the community and new knowledge gained
+          from practical experience of using the basic version
+          of YAML-LD that we will henceforth call
+          <strong>Basic Profile of YAML-LD</strong>.
+        </div>
+
+        <section>
+          <h2>Specify node <code>@type</code></h2>
+
+          <p>
+            When converting JSON-LD to RDF, <code>@type</code> translates to
+            one of the following:
+          </p>
+
+          <ul>
+            <li>an <code>rdf:type</code> edge</li>
+            <li>a <code>datatype</code> mark for a <code>Literal</code> node</li>
+          </ul>
+
+          <p>Possible ways to specify this in YAML-LD are the following:</p>
+
+          <ul>
+            <li>
+              In the <code>@context</code>, but there we can only say that the node is an IRI,
+              we cannot specify a particular <code>rdf:type</code>
+            </li>
+            <li>
+              Using [[RDF-SCHEMA]] and [[OWL2-SYNTAX]] based logical reasoning, for instance, via
+              <code>rdfs:domain</code> or <code>rdfs:range</code> properties
+            </li>
+            <li>Inline, using the <code>@type</code> keyword</li>
+            <li>
+              <p>Using a YAML Tag, as shown below:</p>
+              <pre
+                class="example yaml"
+                data-transform="updateExample"
+                data-result-for="YAML-LD: Tags"
+                data-content-type="application/ld+json"
+                title="YAML-LD with tags"
+              >
+                %TAG !xsd! http://www.w3.org/2001/XMLSchema%23
+                ---
+                "@context": https://schema.org
+                "@id": https://w3c.github.io/yaml-ld/
+                dateModified: !xsd:date 2023-06-26
+              </pre>
+
+              <p>
+                Here, <code>%TAG</code> declares the <code>!xsd:</code> prefix for tags used
+                in the document. YAML treats tags as IRIs, which brings it close to the LD family
+                of data formats. Note that the directives section must be separated
+                from the main document with <code>---</code> (a line containing exactly three hyphens).
+              </p>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Reduce duplication</h2>
+
+          <p>
+            If a segment of a YAML document has to be repeated more than once, one of the
+            following approaches can be taken:
+          </p>
+
+          <ul>
+            <li>Repeat the segment as many times as necessary</li>
+            <li>
+              If the segment represents a node, designate it once
+              with a YAML-LD <code>@id</code>, and then address it by the given identifier
+            </li>
+            <li>
+              <p>
+                Use YAML <a data-cite="YAML#3222-anchors-and-aliases">anchors & aliases</a>
+                as shown in <a href="#example-with-anchors"></a>.
+              </p>
+            </li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <h2>Approaches</h2>
+
+        <p>
+          Two alternative approaches have been proposed to implement the Extended profile:
+        </p>
+
+        <ul>
+          <li>Extended Internal Representation</li>
+          <li>
+            Preprocessor to convert an Extended YAML-LD document
+            to a plain YAML-LD document
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Extended Internal Representation</h2>
+
+        <p>
+          This approach implies extending the
+          <a>JSON-LD internal representation</a> to allow a more complete expression
+          of native data types within YAML-LD, and allows use of the complete
+          [[[JSON-LD11-API]]] [[JSON-LD11-API]]
+          <a data-cite="JSON-LD11-API#the-application-programming-interface">
+            Application Programming Interface
+          </a>
+          to manipulate extended YAML-LD documents.
+        </p>
+
+        <p>
+          A <a>YAML-LD document</a> complies with
+          the <a>YAML-LD extended profile</a> of this specification
+          if it follows the normative statements from this specification
+          and can be transformed into the
+          <a>JSON-LD extended internal representation</a>,
+          then back to a conforming YAML-LD document,
+          without loss of semantic information.
+        </p>
+
+        <p id="cr-well-formed" data-tests="
+        manifest.html#cr-well-formed-1-positive,
+        manifest.html#cr-well-formed-2-negative,
+        manifest.html#cr-well-formed-3-negative">
+          As [[YAML]] has well-defined representation requirements,
+          all YAML-LD streams MUST form a
+          <a data-cite="YAML#well-formed-streams-and-identified-aliases">
+            well-formed stream
+          </a>
+          and use <a>alias node</a> defined by a previous <a>node</a>
+          with a corresponding <a data-lt="node anchor">anchor</a>;
+          otherwise, a
+          <a data-cite="JSON-LD11-API#dom-jsonlderrorcode-loading-document-failed">loading-document-failed</a>
+          error has been detected and processing is aborted.
+        </p>
+
+        <p>
+          The <a>YAML-LD extended profile</a> allows full use of
+          <a>anchor names</a> and <a>alias nodes</a> subject to
+          the requirements described above in this section.
+        </p>
+
+        <p id="cir-extended" data-tests="">
+          If the {{JsonLdOptions/processingMode}} API parameter is `yaml-ld-extended`, the processing result
+          will be in the <a>extended internal representation</a>.
+        </p>
+
+        <p id="aa-json-aliases" data-tests="manifest.html#aa-cycles-1-positive">
+          When processing using the <a>YAML-LD Basic profile</a>,
+          documents MUST NOT contain <a>alias nodes</a>;
+          otherwise, a
+          <a data-link-for="YamlLdErrorCode">profile-error</a>
+          error has been detected and processing is aborted.
+        </p>
+
+
+        <section id="conversion-to-ir">
+          <h2>Conversion to the Internal Representation</h2>
+
+          <p>YAML-LD processing is defined by converting YAML to the
+            <a>internal representation</a> and using [[[JSON-LD11-API]]]
+            to process on that representation,
+            after which the representation is converted back to YAML.
+            As information specific to a given <a>YAML document</a> structure is lost
+            in this transformation, much of the specifics of that
+            original representation are therefore lost in that conversion,
+            limiting the ability to fully round-trip a YAML-LD document back
+            to an equivalent representation.
+            Consequently, round-tripping in this context is limited to preservation of the semantic
+            representation of a document,
+            rather than a specific syntactic representation.</p>
+
+          <aside class="example" title="YAML Sequences">
+            <p>For example, YAML has multiple ways to encode an <a>array</a>,
+              YAML <a>block sequences</a> and
+              <a>flow sequences</a>.
+              Both forms describe the same <a>array</a> of two <a>strings</a>.</p>
+
+            <p>A YAML <a>block sequence</a>:</p>
+            <pre data-transform="updateExample"
+                 data-content-type="application/yaml">
+          <!--
+            - one
+            - two
+          -->
+        </pre>
+
+            <p>A YAML <a>flow sequence</a>:</p>
+            <pre data-transform="updateExample"
+                 data-content-type="application/yaml">
+          <!--
+            [one, two]
+          -->
+        </pre>
+          </aside>
+
+          <p>The conversion process represented here is compatible with
+            the description of
+            "Composing the Representation Graph" from the
+            <a data-cite="YAML#load">3.1.2 Load</a> section of [[YAML]].
+            The steps described below for converting to the
+            <a>internal representation</a> operate upon that
+            <a data-cite="YAML#representation-graph"></a>.
+          </p>
+
+          <p>When operating using the <a>YAML-LD Basic profile</a>,
+            it is intended that the common feature provided by most
+            YAML libraries of transforming YAML directly to JSON
+            satisfies the requirements for parsing a YAML-LD file.
+          </p>
+
+          <p class="issue" data-number="12">
+            As a developer,
+            I want to be able to convert JSON-LD documents to YAML-LD by simply serializing the document using any
+            standard YAML library,
+            So that the resulting YAML is valid YAML-LD, resolving to the same graph as the original JSON-LD.
+          </p>
+
+          <section id="convert-stream" class="algorithm">
+            <h3>Converting a <a>YAML stream</a></h3>
+
+            <p>A <a>YAML stream</a> is composed of zero or more <a>YAML documents</a>.</p>
+
+            <ol>
+              <li>Set |stream content| to an empty <a>array</a>.</li>
+              <li>If the <a>stream</a> is empty,
+                set |stream content| to an empty <a>array</a>.
+              </li>
+              <li>Otherwise, if the <a>stream</a> contains a single <a>YAML document</a>,
+                set |stream content| the result of
+                <a href="#convert-document" class="sectionRef"></a>.
+              </li>
+              <li>Otherwise: for each |document| in the <a>stream</a>:
+                <ol>
+                  <li>Set |doc| to the result of <a href="#convert-document" class="sectionRef"></a> for |document|.</li>
+                  <li>If |doc| is an <a>array</a>,
+                    merge it to the end of |stream content|.
+                  </li>
+                  <li>Otherwise, append |doc| to |stream content|</li>
+                </ol>
+                <div class="ednote">
+                  This step is inconsistent with other statements about processing each
+                  document separately, resulting in some other stream of JSON-LD output
+                  (i.e., something like <em>NDJSOND-LD</em>).
+                  Also, presumably an empty stream would result in either
+                  an empty <em>NDJSON-LD</em> document, or an empty [[JSON-LD]] document.
+                </div>
+              </li>
+              <li>The conversion result is |stream content|.</li>
+            </ol>
+
+            <p id="cir-stream" data-tests="
+          manifest.html#cr-utf8-2-negative,
+          manifest.html#cr-well-formed-2-negative,
+          manifest.html#aa-cycles-2-negative,
+          manifest.html#cr-well-formed-3-negative">
+              Any error reported in a recursive processing step MUST result
+              in the failure of this processing step.</p>
+          </section>
+
+          <section id="convert-document" class="algorithm">
+            <h3>Converting a <a>YAML document</a></h3>
+
+            <p>From the <a data-cite="YAML#">YAML grammar</a>,
+              a YAML document MAY be preceded by a
+              <a data-cite="YAML#rule-l-document-prefix">Document Prefix</a>
+              and/or a set of
+              <a data-cite="YAML#rule-l-directive">directives</a>
+              followed by a
+              <a data-cite="YAML#rule-l-bare-document">YAML bare document</a>,
+              which is composed of a single <a>node</a>.
+            </p>
+
+            <ol>
+              <li>Create an empty |named nodes| <a>map</a>
+                which will be used to associate each <a>alias node</a>
+                with the <a>node</a>
+                having the corresponding <a>node anchor</a>.
+              </li>
+              <li id="cir-document-content" data-tests="manifest.html#cir-document-content-1-negative">
+                Set |document content| to the result
+                of processing the <a>node</a> associated with the
+                <a data-cite="YAML#rule-l-bare-document">YAML bare document</a>,
+                using the appropriate conversion step defined in this section.
+                If that <a>node</a> is not one of the following, a
+                <a data-cite="JSON-LD11-API#dom-jsonlderrorcode-loading-document-failed">loading-document-failed</a>
+                error has been detected and processing is aborted.
+
+                <ul>
+                  <li><a>block sequence</a>,</li>
+                  <li><a>block mapping</a>, or</li>
+                  <li><a>flow sequence</a>,</li>
+                  <li><a>flow mapping</a>, or</li>
+                </ul>
+
+                <div class="note">
+                  A <a>node</a> may be of another type, but this is incompatilbe
+                  with JSON-LD, where the top-most node must be either an
+                  <a>array</a> or <a>map</a>.
+                </div>
+              </li>
+              <li>The conversion result is |document content|.</li>
+            </ol>
+
+            <p id="cir-document" data-tests="
+          manifest.html#cr-utf8-2-negative,
+          manifest.html#cr-well-formed-2-negative,
+          manifest.html#aa-cycles-2-negative,
+          manifest.html#cr-well-formed-3-negative">
+              Any error reported in a recursive processing step MUST result
+              in the failure of this processing step.</p>
+          </section>
+
+          <section id="convert-seq" class="algorithm">
+            <h3>Converting a <a>YAML sequence</a></h3>
+
+            <p>Both <a>block sequences</a> and <a>flow sequences</a>
+              are directly aligned with
+              an <a>array</a> in the <a>internal representation</a>.</p>
+
+            <ol>
+              <li>Set |sequence content| to an empty <a>array</a>.</li>
+              <li>If the <a data-lt="YAML sequence">sequence</a> has a
+                <a>node anchor</a>,
+                add a reference from the anchor name to the
+                <a data-lt="YAML sequence">sequence</a>
+                in the |named nodes| <a>map</a>.
+              </li>
+              <li>For each <a>node</a> |n| in the
+                <a data-lt="YAML sequence">sequence</a>,
+                append the result of processing |n|
+                to |sequence content|
+                using the appropriate conversion step.
+              </li>
+              <li>The conversion result is |sequence content|.</li>
+            </ol>
+
+            <p id="cir-seq">
+              Any error reported in a recursive processing step MUST result
+              in the failure of this processing step.</p>
+          </section>
+
+          <section id="convert-mapping" class="algorithm">
+            <h3>Converting a <a>YAML mapping</a></h3>
+
+            <p>Both <a>block mappings</a> and <a>flow mappings</a>
+              are directly aligned with
+              a <a>map</a> in the <a>internal representation</a>.</p>
+
+            <ol>
+              <li>Set |mapping content| to an empty <a>map</a>.</li>
+              <li>Otherwise, if the <a data-lt="YAML mapping">mapping</a> has a
+                <a>node anchor</a>,
+                add a reference from the anchor name to
+                the <a data-lt="YAML mapping">mapping</a>
+                in the |named nodes| <a>map</a>.
+              </li>
+              <li>For each |entry| in the <a data-lt="YAML mapping">mapping</a>
+                composed of a key/value pair:
+                <ol>
+                  <li>Set |key| and |value|
+                    to the result of processing |entry|
+                    using the appropriate conversion step.
+                  </li>
+                  <li id="cir-mapping-key" data-tests="manifest.html#cir-mapping-key-1-negative">
+                    If |key| is not a <a>string</a>,
+                    a <a data-link-for="YamlLdErrorCode">mapping-key-error</a>
+                    error has been detected and processing MUST be aborted.
+                  </li>
+                  <li>Add a new <a>entry</a> to
+                    |mapping content| using
+                    |key| and |value|.
+                  </li>
+                </ol>
+              </li>
+              <li>The conversion result is |mapping content|.</li>
+            </ol>
+
+            <p id="cir-mapping" data-tests="
+          manifest.html#cr-utf8-2-negative,
+          manifest.html#cr-well-formed-2-negative,
+          manifest.html#aa-cycles-2-negative,
+          manifest.html#cr-well-formed-3-negative">
+              Any error reported in a recursive processing step MUST result
+              in the failure of this processing step.</p>
+          </section>
+
+          <section id="convert-scalar" class="algorithm">
+            <h3>Converting a <a>YAML scalar</a></h3>
+
+            <ol>
+              <li>If the {{JsonLdOptions/processingMode}} option is `yaml-ld-extended`,
+                and <a>node</a> |n|
+                has a <a>node tag</a> |t|,
+                |n| is mapped as follows:
+                <ol>
+                  <li id="cir-scalar-core" data-tests="
+                manifest.html#cir-scalar-core-1-positive,
+                manifest.html#cir-scalar-core-2-positive">
+                    If |t| resolves with a prefix of `tag:yaml.org.2002:`,
+                    the conversion result is mapped through the
+                    <a data-cite="YAML#103-core-schema">YAML Core Schema</a>.
+                  </li>
+                  <li id="cir-scalar-i18n">
+                    Otherwise, if |t| resolves with a prefix of `https://www.w3.org/ns/i18n#`,
+                    and the suffix <strong>does not</strong> contain
+                    an underscore (`"_"`),
+                    the conversion result is a <a>language-tagged string</a>
+                    with value taken from |n|,
+                    and a <a>language tag</a> taken from the suffix of |t|.
+                    <div class="note">
+                      <a>Node tags</a> including an underscore (`"_"`),
+                      such as `i18n:ar-eg_rtl` describe a combination
+                      of language and text direction.
+                      See <a data-cite="JSON-LD11#the-i18n-namespace">
+                      The `i18n` Namespace
+                    </a>
+                      in [[JSON-LD11]].
+                    </div>
+                  </li>
+                  <li id="cir-scalar-other" data-tests="
+                manifest.html#cir-scalar-other-1-positive,
+                manifest.html#cir-scalar-other-2-positive">
+                    Otherwise, the conversion result is an
+                    <a>RDF literal</a> with value taken from |n|
+                    and <a>datatype IRI</a> taken from |t|.
+                  </li>
+                </ol>
+              </li>
+              <li id="cir-scalar-json" data-tests="
+            manifest.html#cir-scalar-core-1-positive,
+            manifest.html#cir-scalar-i18n-1-positive,
+            manifest.html#cir-scalar-other-1-positive">
+                Otherwise, the conversion result is mapped through the
+                <a data-cite="YAML#103-core-schema">YAML Core Schema</a>.
+              </li>
+            </ol>
+
+            <p class="note">
+              Implementations may retain the
+              representation as an <a data-cite="YAML#integer">YAML Integer</a>,
+              or <a data-cite="YAML#floating-point">YAML Floating Point</a>,
+              but a JSON-LD processor must treat them uniformly
+              as a <a>number</a>, although the specific type of number
+              value SHOULD be retained for round-tripping.
+            </p>
+          </section>
+
+          <section id="convert-alias" class="algorithm">
+            <h3>Converting a YAML <a>alias node</a></h3>
+
+            <p>
+              The conversion result is the value of the entry
+              in the |named nodes| <a>map</a> having the <a>node</a> entry.
+              If none exist, the document is invalid,
+              and processing MUST end in failure.
+            </p>
+
+            <p id="cir-alias-json" data-tests="
+          manifest.html#cr-well-formed-1-positive,
+          manifest.html#cr-well-formed-2-negative">
+              If an <a>alias node</a> is encountered when processing the
+              <a>YAML representation graph</a>
+              and the {{JsonLdOptions/processingMode}} option is not equal to `yaml-ld-extended`,
+              the <a>YAML-LD Basic profile</a> has been selected.
+              A <a data-link-for="YamlLdErrorCode">profile-error</a>
+              error has been detected and processing MUST be aborted.
+            </p>
+
+            <p id="cir-alias-cycles" data-tests="
+          manifest.html#aa-cycles-1-positive,
+          manifest.html#aa-cycles-2-negative,
+          manifest.html#aa-cycles-3-positive">
+              If a cycle is detected,
+              a processing error MUST be returned,
+              and processing aborted.
+            </p>
+          </section>
+        </section>
+
+        <section id="conversion-to-yaml">
+          <h2>Conversion to YAML</h2>
+
+          <p>The conversion process from the <a>internal representation</a>
+            involves turning that representation back into a YAML
+            <a>representation graph</a>
+            and relies on the description of
+            "Serializing the Representation Graph" from the
+            <a data-cite="YAML#dump">3.1.1 Dump</a> section of [[YAML]]
+            for the final serialization.
+          </p>
+
+          <p>
+            As the <a>internal representation</a> is rooted by either
+            an <a>array</a> or a <a>map</a>,
+            the process of transforming the <a>internal representation</a>
+            to YAML begins by preparing an empty <a>representation graph</a>
+            which will be rooted with either a
+            <a>YAML mapping</a> or <a>YAML sequence</a>.
+          </p>
+
+          <p>
+            Although outside of the scope of this specification,
+            processors MAY use
+            <a>YAML directives</a>, including <a>TAG directives</a>, and
+            <a data-cite="YAML#document-markers">Document markers</a>,
+            as appropriate for best results.
+            Specifically, if the {{JsonLdOptions/processingMode}} API parameter is `yaml-ld-extended`,
+            the document SHOULD use the `%YAML` directive with
+            version set to at least `1.2`.
+            To improve readability and reduce document size,
+            the document MAY use a `%TAG` directive appropriate for
+            <a>RDF literals</a> contained within the representation.
+          </p>
+
+          <p class="note">
+            The use of `%TAG` directives in YAML-LD is similar to the use
+            of the `PREFIX` directive in [[?Turtle]]
+            or the general use of terms as prefixes to create
+            <a data-cite="JSON-LD11#dfn-compact-iri">Compact IRIs</a> in [[JSON-LD11]]:
+            they not change the meaning of the encoded scalars.
+          </p>
+
+          <!-- fixme: Identical to "Extended YAML-LD with tags" example -->
+
+          <pre class="example yaml"
+               data-transform="updateExample"
+               data-result-for="YAML-LD with multiple documents"
+               data-content-type="application/ld+json"
+               title="Serialized representation of the extended internal representation">
+      <!--
+      %TAG !xsd! http://www.w3.org/2001/XMLSchema%23
+      ---
+      "@context": https://schema.org
+      "@id": https://github.com/gkellogg
+      "@type": Person
+      name: !xsd!string Gregg Kellogg
+      birthDate: !xsd!date 1970-01-01
+      -->
+      </pre>
+
+          <p class="note">
+            Although allowed within the YAML Grammar, some current YAML parsers
+            do not allow the use of `"#"` within a tag URI. Substituting
+            the `"%23"` escape is a workaround for this problem, that will
+            hopefully become unnecessary as implementations are updated.
+          </p>
+
+          <div class="issue markdown" data-number="6">
+            <p>A concrete proposal in that direction would be to use a tag at the
+              top-level of any "idiomatic" YAML-LD document, applying to the whole
+              object/array that makes the document.</p>
+
+            <p>It might also include a version
+              to identify the specification that it relates to, allowing
+              for version announcement that could be used for future-proofing.</p>
+
+            <p>The following block is one example:</p>
+
+            <pre>
+        !yaml-ld
+        $context: http://schema.org
+        $type: Person
+        name: Pierre-Antoine Champin
+        </pre>
+          </div>
+
+          <p>See <a href="#example-serialized-representation-of-the-extended-internal-representation"></a> for an example
+            of serializing the extended internal representation.</p>
+
+          <section id="convert-ir" class="algorithm">
+            <h3>Converting From the Internal Representation</h3>
+
+            <p>
+              This algorithm describes the steps to convert
+              each element from the <a>internal representation</a>
+              into corresponding <a>YAML nodes</a> by recursively
+              processing each element |n|.
+            </p>
+
+            <ol>
+              <li id="convert-array">
+                If |n| is an <a>array</a>,
+                the conversion result is a <a>YAML sequence</a>
+                with child nodes of the sequence taken by converting
+                each value of |n| using this algorithm.
+              </li>
+              <li id="convert-map">
+                Otherwise, if |n| is an <a>map</a>,
+                the conversion result is a <a>YAML mapping</a>
+                with keys and values taken by converting each
+                key/value pair of |n| using this algorithm.
+              </li>
+              <li id="convert-literal">
+                Otherwise, if |n| is an <a>RDF literal</a>:
+                <ol>
+                  <li>
+                    If the <a>datatype IRI</a>
+                    of |n| is `xsd:string`,
+                    the conversion is a <a>YAML scalar</a>
+                    with the value taken from that value of |n|.
+                  </li>
+                  <li>Otherwise, if |n| is a <a>language-tagged string</a>,
+                    the conversion is a <a>YAML scalar</a>
+                    with the value taken from that value of |n|
+                    and a <a>node tag</a> constructed by appending
+                    that <a>language tag</a> to
+                    `https://www.w3.org/ns/i18n#`.
+                  </li>
+                  <li>
+                    Otherwise, the conversion is a <a>YAML scalar</a>
+                    with the value taken from that value of |n|
+                    and a <a>node tag</a> taken from the
+                    <a>datatype IRI</a> of |n|.
+                  </li>
+                </ol>
+              </li>
+              <li id="convert-number">
+                Otherwise, if |n| is a <a>number</a>,
+                the conversion result is a <a>YAML scalar</a>
+                with the value taken from |n|.
+              </li>
+              <li id="convert-boolean">
+                Otherwise, if |n| is a <a>boolean</a>,
+                the conversion result is a <a>YAML scalar</a>
+                with the value either `true` or `false`
+                based on the value of |n|.
+              </li>
+              <li id="convert-null">
+                Otherwise, if |n| is <a>null</a>,
+                the conversion result is a <a>YAML scalar</a>
+                with the value `null`.
+              </li>
+              <li id="convert-string">
+                Otherwise, conversion result is a <a>YAML scalar</a>
+                with the value taken from |n|.
+              </li>
+            </ol>
+          </section>
+        </section>
+
+        <section id="profiles">
+          <h2>Application Profiles</h2>
+
+          <p>This section identifies two application profiles for operating with
+            YAML-LD:</p>
+          <ul>
+            <li>the <a>YAML-LD Basic profile</a>, and</li>
+            <li>the <a>YAML-LD Extended profile</a>.</li>
+          </ul>
+
+          <p>Application profiles allow publishers to use YAML-LD
+            either for maximum interoperability,
+            or for maximum expressivity.
+            The <a>YAML-LD Basic profile</a> provides for complete round-tripping
+            between YAML-LD documents and JSON-LD documents.
+            The <a>YAML-LD extended profile</a> allows for
+            fuller use of YAML features to enhance the ability to
+            represent a larger number of native datatypes
+            and reduce document redundancy.</p>
+
+
+          <p>Application profiles can be set using the {{JsonLdProcessor}}
+            API interface, as well as an HTTP request profile (see <a href="#iana" class="sectionRef"></a>).</p>
+
+          <section id="yaml-ld-json-profile">
+            <h3>YAML-LD Basic Profile</h3>
+
+            <p>
+              The <dfn>YAML-LD Basic profile</dfn>
+              is based on the <a data-cite="YAML#103-core-schema">YAML Core Schema</a>,
+              which interprets only a limited set of <a>node tags</a>.
+              <a>YAML scalars</a> with <a>node tags</a> outside of the defined range
+              SHOULD be avoided and MUST be converted to the closest
+              scalar type from the <a data-cite="YAML#103-core-schema">YAML Core Schema</a>,
+              if found.
+              See <a href="#convert-scalar" class="sectionRef"></a>
+              for specifics.
+            </p>
+
+            <p id="jp-utf8" data-tests="
+          manifest.html#cr-utf8-1-positive,
+          manifest.html#cr-utf8-2-negative">
+              Although YAML supports several additional encodings,
+              YAML-LD documents in the <a>YAML-LD Basic Profile</a>
+              MUST NOT use encodings other than UTF-8.
+            </p>
+
+            <p>
+              Keys used in a <a>YAML mapping</a> MUST be <a>strings</a>.
+            </p>
+
+            <p>
+              Although YAML-LD documents MAY include <a>node anchors</a>,
+              documents MUST NOT use <a>alias nodes</a>.
+            </p>
+
+            <p>
+              A <a>YAML stream</a> MUST include only a single <a>YAML document</a>,
+              as the <a>JSON-LD internal representation</a> only supports
+              a single document model.
+            </p>
+          </section>
+
+          <section id="yaml-ld-extended-profile">
+            <h3>YAML-LD Extended Profile</h3>
+
+            <p>
+              The <dfn>YAML-LD extended profile</dfn>
+              extends the <a data-cite="YAML#103-core-schema">YAML Core Schema</a>,
+              allowing <a>node tags</a> to specify <a>RDF literals</a>
+              by using a <a>JSON-LD extended internal representation</a> capable
+              of directly representing <a>RDF literals</a>.
+            </p>
+
+            <p id="ep-utf8" data-tests="
+          manifest.html#cr-utf8-1-positive,
+          manifest.html#cr-utf8-2-negative">
+              As with the <a>YAML-LD Basic profile</a>,
+              YAML-LD documents in the <a>YAML-LD extended profile</a>
+              MUST NOT use encodings other than UTF-8.
+            </p>
+
+            <p>
+              As with the <a>YAML-LD Basic profile</a>,
+              keys used in a <a>YAML mapping</a> MUST be <a>strings</a>.
+            </p>
+
+            <p>
+              YAML-LD docucments MAY use <a>alias nodes</a>,
+              as long as dereferencing these aliases does not result in a loop.
+            </p>
+
+            <p>
+              As with the <a>YAML-LD Basic profile</a>,
+              a <a>YAML stream</a> MUST include only a single <a>YAML document</a>,
+              as the <a>JSON-LD extended internal representation</a> only supports
+              a single document model.
+            </p>
+
+            <p class="issue" data-number="79">
+              Consier something like `!id` as a local tag to denote IRIs.
+            </p>
+
+            <section id="extended-internal-representation">
+              <h4>The JSON-LD Extended Internal Representation</h4>
+
+              <p>
+                This specification defines
+                the <dfn data-lt="extended internal representation">
+                JSON-LD extended internal representation
+              </dfn>, an extension
+                of the JSON-LD <a>internal representation</a>.
+              </p>
+
+              <p>
+                In addition to <a>maps</a>, <a>arrays</a>, and <a>strings</a>,
+                the <a>internal representation</a> allows native representation
+                of <a>numbers</a>, <a>boolean</a> values, and <a>nulls</a>.
+                The <a>extended internal representation</a> allows for native
+                representation of <a>RDF literals</a>, both
+                with a <a>datatype IRI</a>,
+                and <a>language-tagged strings</a>.
+              </p>
+
+              <p>
+                When transforming from the <a>extended internal representation</a>
+                to the <a>internal representation</a> &mdash;
+                for example when serializing to JSON
+                or to the <a>YAML-LD Basic profile</a> &mdash;
+                implementations MUST transform <a>RDF literals</a> to the closest
+                native representation of the <a>internal representation</a>:
+              </p>
+
+              <ul>
+                <li>
+                  Literals with datatype
+                  <a data-cite="xmlschema11-2#boolean">`xsd:boolean`</a>
+                  are transformed to either `true` or `false`,
+                </li>
+                <li>
+                  Literals with datatype
+                  <a data-cite="xmlschema11-2#decimal">`xsd:decimal`</a>,
+                  <a data-cite="xmlschema11-2#decimal">`xsd:double`</a>,
+                  <a data-cite="xmlschema11-2#decimal">`xsd:float`</a>,
+                  or derived datatypes,
+                  are transformed to a native <a>number</a>,
+                </li>
+                <li>
+                  All other literals are transformed to a native <a>string</a>.
+                </li>
+              </ul>
+
+              <p class="ednote">
+                An alternative would be to transform such literals to
+                JSON-LD <a>value objects</a>,
+                and we may want to provide a means of transforming between
+                the <a>internal representation</a>
+                and <a>extended internal representation</a>
+                using <a>value objects</a>,
+                but this treatment is consistent with
+                [[YAML]] <a data-cite="YAML#103-core-schema">Core Schema</a>
+                <a data-cite="YAML#1022-tag-resolution">Tag Resolution</a>.
+              </p>
+            </section>
+          </section>
+        </section>
+
+        <section id="api">
+          <h2>The Application Programming Interface</h2>
+
+          <p>
+            This specification extends the [[[JSON-LD11-API]]] [[JSON-LD11-API]]
+            <a data-cite="JSON-LD11-API#the-application-programming-interface">
+              Application Programming Interface
+            </a>
+            and the [[[JSON-LD11-FRAMING]]] [[JSON-LD11-FRAMING]]
+            <a data-cite="JSON-LD11-API#the-application-programming-interface">
+              Application Programming Interface
+            </a>
+            to manage the serialization and deserialization of [[YAML]]
+            and to enable an option for setting the
+            <a>YAML-LD extended profile</a>.
+          </p>
+
+          <section id="jsonldprocessor">
+            <h3>JsonLdProcessor</h3>
+
+            <p>
+              The
+              <a data-cite="JSON-LD11-API#dfn-json-ld-processor">JSON-LD Processor</a>
+              interface is the high-level programming structure that developers
+              use to access the JSON-LD transformation methods.
+              The updates below is an experimental
+              extension of the {{JsonLdProcessor}} interface defined in the
+              JSON-LD 1.1 API [[JSON-LD11-API]]
+              to serialize output as YAML rather than JSON.
+            </p>
+
+            <dl data-sort>
+              <dt>{{JsonLdProcessor/compact()}}</dt>
+              <dd>
+                Updates step 10 of the {{JsonLdProcessor/compact()}} algorithm
+                to serialize the the result as YAML rather than JSON
+                as defined in <a href="#conversion-to-yaml" class="sectionRef"></a>.
+              </dd>
+              <dt>{{JsonLdProcessor/expand()}}</dt>
+              <dd>
+                Updates step 9 of the {{JsonLdProcessor/expand()}} algorithm
+                to serialize the the result as YAML rather than JSON
+                as defined in <a href="#conversion-to-yaml" class="sectionRef"></a>.
+              </dd>
+              <dt>{{JsonLdProcessor/flatten()}}</dt>
+              <dd>
+                Updates step 7 of the {{JsonLdProcessor/flatten()}} algorithm
+                to serialize the the result as YAML rather than JSON
+                as defined in <a href="#conversion-to-yaml" class="sectionRef"></a>.
+              </dd>
+              <dd>
+                Updates step 22 of the
+                <a data-cite="JSON-LD11-FRAMING#dom-jsonldprocessor-frame">frame()</a>
+                algorithm to serialize the the result as YAML rather than JSON
+                as defined in <a href="#conversion-to-yaml" class="sectionRef"></a>.
+              </dd>
+              <dt>{{JsonLdProcessor/fromRdf()}}</dt>
+              <dd>
+                Updates step 3 of the {{JsonLdProcessor/fromRdf()}} algorithm
+                to serialize the the result as YAML rather than JSON
+                as defined in <a href="#conversion-to-yaml" class="sectionRef"></a>.
+              </dd>
+              <dd>
+                Updates the
+                <a data-cite="JSON-LD11-API#rdf-to-object-conversion">RDF to Object Conversion</a> algorithm
+                before step 2.6 as follows:
+                <blockquote>
+                  Otherwise, if the {{JsonLdOptions/useNativeTypes}} flag is set,
+                  the {{JsonLdOptions/processingMode}} parameter is `yaml-ld-extended`,
+                  and the <a>datatype IRI</a>
+                  of |value| is not `xsd:string`:
+                  <ol>
+                    <li>
+                      If |value| is a <a>language-tagged string</a>
+                      set |converted value| to a new <a>RDF literal</a>
+                      composed of the
+                      <a data-cite="RDF11-CONCEPTS#dfn-lexical-form">lexical form</a>
+                      of |value| and
+                      <a>datatype IRI</a>
+                      composed of `https://www.w3.org/ns/i18n#` followed by
+                      the
+                      <a>language tag</a>
+                      of |value|.
+                    </li>
+                    <li>
+                      Otherwise, et |converted value| to |value|.
+                    </li>
+                  </ol>
+                </blockquote>
+              </dd>
+              <dt>{{JsonLdProcessor/toRdf()}}</dt>
+              <dd>
+                Updates the
+                <a data-cite="JSON-LD11-API#object-to-rdf-conversion">Object to RDF Conversion</a> algorithm
+                before step 10 as follows:
+                <blockquote>
+                  <ol>
+                    <li>
+                      Otherwise, if |value| is an <a>RDF literal</a>,
+                      |value| is left unmodified.
+                      <span class="note">
+                    This will only be the case when processing a value from an
+                    <a>extended internal representation</a>.
+                  </span>
+                    </li>
+                  </ol>
+                </blockquote>
+              </dd>
+            </dl>
+          </section>
+
+          <section id="jsonldoptions">
+            <h3>JsonLdOptions</h3>
+            <p>The {{JsonLdOptions}} type is used to pass various options to the
+              {{JsonLdProcessor}} methods.</p>
+
+            <p>
+              This specification reuses the following option defined in [[JSON-LD11-API]]:
+            </p>
+
+            <dl data-sort>
+              <dt><dfn data-dfn-for="JsonLdOptions">processingMode</dfn></dt>
+              <dd>Possible values are detailed in the table below.</dd>
+              <dd>
+                <table class="simple">
+                  <thead>
+                    <tr>
+                      <th>Value</th>
+                      <th>Meaning</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>json-ld-1.0</code></td>
+                      <td>
+                        Processor MUST raise a <a data-link-for="YamlLdErrorCode">profile-error</a>,
+                        as JSON-LD 1.0 algorithms are not supported
+                        by YAML-LD.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Not Provided, or <code>json-ld-1.1</code></td>
+                      <td>The document conforms to <a>YAML-LD Basic profile</a>.</td>
+                    </tr>
+                    <tr>
+                      <td><code>yaml-ld-extended</code></td>
+                      <td>
+                        The document MUST be processed in conformance with
+                        <a>YAML-LD extended profile</a>.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Other values starting with <code>yaml-ld</code>
+                      </td>
+                      <td>
+                        Reserved for future versions of this specification.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Other Values</td>
+                      <td>
+                        Can be used by YAML-LD processors to enable custom
+                        processing algorithms.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </dd>
+              <dd>
+                When <a>YAML-LD extended profile</a> is used for
+                serializing the <a>internal representation</a>
+                (or <a>extended internal representation</a>)
+                into a <a>YAML representation graph</a>:
+
+                <ul>
+                  <li>
+                    <a>YAML-LD extended profile</a> allows the use
+                    of <a>node tags</a>
+                    when serializing <a>RDF literal</a> values
+                    having datatypes other than `xsd:string`
+                    or <a>language-tagged strings</a>
+                    as <a>scalar</a> values.
+                  </li>
+                  <li>
+                    Otherwise, it serializes <a>RDF literal</a> values
+                    to the closest <a>scalar</a> representation
+                    from the <a data-cite="YAML#103-core-schema">YAML Core Schema</a>.
+                  </li>
+                </ul>
+              </dd>
+              <dd>
+                When used for the {{documentLoader}},
+                it causes documents of type `application/ld+yaml`
+                to be parsed into a <a>YAML representation graph</a>
+                and generates an <a>internal representation</a>
+                (or <a>extended internal representation</a>):
+
+                <ul>
+                  <li>
+                    <a>YAML-LD extended profile</a> creates an
+                    <a>extended internal representation</a>
+                    and transforms <a>YAML scalar</a> values
+                    having <a>node tags</a>
+                    &mdash; outside those allowed for the
+                    <a data-cite="YAML#103-core-schema">YAML Core Schema</a> &mdash;
+                    to <a>RDF literals</a>.
+                  </li>
+                  <li>
+                    Otherwise, it drops any <a>node tags</a>
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </section>
+
+          <section class="documentLoader">
+            <h3>Remote Document and Context Retrieval</h3>
+
+            <p>This section describes an update to the
+              built-in {{LoadDocumentCallback}}
+              to load <a>YAML streams</a> and <a>documents</a>
+              into the <a>internal representation</a>,
+              or into the <a>extended internal representation</a>
+              if the {{JsonLdOptions/processingMode}} parameter is `yaml-ld-extended`.</p>
+
+            <p>
+              The {{LoadDocumentCallback}} algorithm in [[JSON-LD11-API]]
+              is updated as follows:
+            </p>
+
+            <ul>
+              <li>
+                <a data-cite="JSON-LD11-API#LoadDocumentCallback-step-2">Step 2</a>
+                is updated to prefer
+                <a data-cite="rfc2045#section-5">Content-Type</a> `application/ld+yaml`,
+                followed by `application/yaml`,
+                followed by the other specified
+                <a data-cite="rfc2045#section-5">Content-Types</a>.
+              </li>
+              <li>
+                After <a data-cite="JSON-LD11-API#LoadDocumentCallback-step-5">step 5</a>,
+                add the following processing step:
+                Otherwise, if the retrieved resource's
+                <a data-cite="rfc2045#section-5">Content-Type</a>
+                is either `application/yaml`
+                or any media type with a `+yaml` suffix as defined in [[RFC6839]]
+                transform |document| to the <a>internal representation</a>
+                (or <a>extended internal representation</a>)
+                as described in <a href="#conversion-to-ir" class="sectionRef"></a>.
+                Additionally, if the {{RemoteDocument/profile}} parameter
+                includes `http://www.w3.org/ns/json-ld#extended`, set the {{JsonLdOptions/processingMode}} option to `yaml-ld-extended`.
+              </li>
+            </ul>
+
+            <p class="note">
+              These updates are intended to be compatible with other updates
+              to the {{LoadDocumentCallback}}, such as
+              <a data-cite="JSON-LD11-API#process-html">Process HTML</a>
+              as defined in [[JSON-LD11-API]].
+            </p>
+          </section>
+
+          <section>
+            <h4>YamlLdErrorCode</h4>
+            <p>The <dfn>YamlLdErrorCode</dfn> represents the collection of valid YAML-LD error codes,
+              which extends the {{JsonLdErrorCode}} definitions.</p>
+
+            <pre class="idl">
+          enum YamlLdErrorCode {
+            "invalid-encoding",
+            "mapping-key-error",
+            "profile-error"
+          };
+        </pre>
+
+            <dl data-dfn-for="YamlLdErrorCode" data-sort>
+              <dt><dfn>invalid-encoding</dfn></dt>
+              <dd>The character encoding of an input is invalid.</dd>
+              <dt><dfn>mapping-key-error</dfn></dt>
+              <dd>A <a>YAML mapping</a> key was found that was not a <a>string</a>.</dd>
+              <dt><dfn>profile-error</dfn></dt>
+              <dd>The parsed YAML document contains features incompatible with the specified profile.</dd>
+            </dl>
+          </section>
+        </section>
+
+        <section>
+          <h2>Implementations</h2>
+
+          <p>
+            TODO: Implementations for Extended Internal Representation.
+          </p>
+        </section>
+
+      </section>
+
+      <section>
+        <h2>Convert Extended YAML-LD to Basic YAML-LD and back</h2>
+
+        <p>
+          This approach is simpler than the Extended Internal Representation because it
+          does not require any changes to the internal structures of existing JSON-LD
+          libraries.
+        </p>
+
+        <p>
+          Instead, we implement two API functions:
+        </p>
+
+        <dl>
+          <dt><code>extended_to_basic(extended_document: YAML-LD) → YAML-LD</code></dt>
+          <dd>
+            <ul>
+              <li>Converts the document to Basic YAML-LD form</li>
+            </ul>
+          </dd>
+
+          <dt><code>basic_to_extended(basic_document: YAML-LD) → YAML-LD</code></dt>
+          <dd>
+            <ul>
+              <li>Converts YAML-LD → JSON</li>
+              <li>Performs JSON-LD expansion → the resulting JSON-LD document</li>
+              <li>Converts Expanded JSON-LD document back to YAML-LD</li>
+              <li>
+                Converts it to the Extended form, making
+                use of YAML-LD features to express the document more concisely.
+              </li>
+            </ul>
+          </dd>
+        </dl>
+
+        <div class="note">
+          You won't typically need to perform these steps manually
+          because libraries such as <code>rdflib</code> will take care of them
+          under the covers, but it can help with troubleshooting and
+          optimization to know what's going on. So, you start with YAML,
+          convert it to JSON, perform JSON-LD Expansion, convert that to
+          YAML-LD, and do any necessary <em>basic → extended</em> or <em>extended → basic</em>
+          conversion on the YAML-LD. Alternatively, your library might do
+          YAML-LD expansion directly on the initial YAML document, and then
+          do any necessary <em>basic → extended</em> or <em>extended → basic</em> conversion on
+          the YAML-LD.
+        </div>
+
+        <p>
+          Both of these functions recursively process the source document.
+          Every branch and leaf are copied as is, unless they match one of the following
+          cases.
+        </p>
+
+        <p>Generally, these two equalities <strong>do not</strong> hold:</p>
+
+        <ul>
+          <li><code>extended_to_basic(basic_to_extended(document)) = document</code></li>
+          <li><code>basic_to_extended(extended_to_basic(document)) = document</code></li>
+        </ul>
+
+        <p>
+          When the extended → basic conversion resolves YAML tags
+          we no longer know where the original document used tags and where
+          it used <code>@type</code> calls. Thus, information is lost.
+        </p>
+
+        <p>
+          Both of these functions lose information about anchors and
+          references because they're resolved by the YAML processor
+          underlying the implementation.
+        </p>
+
+        <table class="simple">
+          <thead>
+            <tr>
+              <th></th>
+              <th><code>extended_to_basic</code></th>
+              <th><code>basic_to_extended</code></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>YAML Tags</th>
+              <td>
+                <a href="#tags-to-types">Convert</a> YAML <code>!tags</code>
+                → <code>@type</code> JSON-LD keywords
+              </td>
+              <td>(nothing)</td>
+            </tr>
+            <tr>
+              <th>Anchors and aliases</th>
+              <td><a href="#resolve-anchors-aliases">Resolve</a> anchors and aliases</td>
+              <td>(nothing)</td>
+            </tr>
+            <tr>
+              <th>Comments</th>
+              <td>Keep as-is</td>
+              <td>Remove<br><small>(Due to JSON-LD & Expansion.)</small></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <section id="tags-to-types">
+          <h2>YAML tag shorthands → <code>@type</code> declarations</h2>
+
+          <div style="display: flex">
+              <div>
+                <pre
+                  class="example yaml"
+                  data-transform="updateExample"
+                  data-result-for="YAML-LD: Tags"
+                  data-content-type="application/ld+json"
+                  title="Extended YAML-LD with tags"
+                >
+              %TAG !xsd! http://www.w3.org/2001/XMLSchema%23
+              ---
+              "@context": https://schema.org
+              "@id": https://github.com/gkellogg
+              "@type": Person
+              name: !xsd!string Gregg Kellogg
+              birthDate: !xsd!date 1970-01-01
+                </pre>
+              </div>
+              <div>
+                <pre
+                  class="example yaml"
+                  data-transform="updateExample"
+                  data-result-for="YAML-LD: Tags"
+                  data-content-type="application/ld+json"
+                  title="Basic YAML-LD"
+                >
+                  "@context":
+                    - "@import": https://schema.org
+                    - xsd: "http://www.w3.org/2001/XMLSchema#"
+                  "@id": https://github.com/gkellogg
+                  "@type": Person
+                  name: Gregg Kellogg
+                  birthDate:
+                    "@value": 1970-01-01
+                    "@type": xsd:date
+                </pre>
+              </div>
+            </div>
+        </section>
+
+        <section id="resolve-anchors-aliases">
+          <h2><code>&anchors</code> and <code>*aliases</code></h2>
+
+          <p>
+            Substitute every <code>*alias</code> with the content of
+            the <code>&anchor</code> alias references to. This is standard behavior
+            of YAML tools and libraries.
+          </p>
+        </section>
+      </section>
+
+      <section id="frag" class="informative">
+        <h3>Fragment identifiers</h3>
+        <p>Fragment identifiers used with <a href="#application-ld-yaml">application/ld+yaml</a>
+         are treated as in RDF syntaxes, as per
+         <a data-cite="RDF11-CONCEPTS#section-fragID">RDF 1.1 Concepts and Abstract Syntax</a>
+         [[RDF11-CONCEPTS]]
+         and do not follow the process defined for <code>application/yaml</code>.
+        </p>
+
+        <div class="ednote">
+          Perhaps more on fragment identifiers from
+          <a href="https://github.com/w3c/yaml-ld/issues/31">Issue 31</a>.
+        </div>
+      </section>
+    </section>
+
+    <section id="ack" class="appendix informative">
+      <h2>Acknowledgements</h2>
+
+      <h3>In Memoriam</h3>
+      <p>Gregg Kellogg was a central figure in the story of JSON-LD and YAML-LD.
+      He worked tirelessly on JSON-LD and many other specifications for more than a decade,
+      right up until his death on September 6th, 2025. Gregg's passion for solving
+      hard problems with finesse was only exceeded by his willingness to collaborate
+      with and encourage others in reaching that destination. The JSON-LD and
+      broader Linked Data communities will be forever grateful for Gregg's
+      consistent, careful, and kindly delivered contributions during their most
+      formative years.</p>
+
+      <h3>Contributions</h3>
+      <p>
+          The editors would especially like to thank the following individuals for making significant
+          contributions to the authoring and editing of this specification:
+      </p>
+
+      <ul class="ack">
+          <li>Vladimir Alexiev (Ontotext)</li>
+          <li>Rob Atkinson (Open Geospatial Consortium)</li>
+          <li>Pierre-Antoine Champin (W3C)</li>
+          <li>Ted Thibodeau Jr (OpenLink Software)</li>
+          <li>Benjamin Young (Digital Bazaar)</li>
+      </ul>
+    </section>
+  </body>
+</html>
