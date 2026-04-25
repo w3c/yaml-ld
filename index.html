@@ -969,6 +969,15 @@ schema:hasPart:
       alias nodes MUST be resolved by value to their target nodes.
     </p>
 
+    <aside class="note" title="Anchors and aliases are YAML serialization features">
+      <p>
+        Converting a YAML-LD document with anchors or aliases to JSON-LD,
+        and then serializing it back to YAML-LD, preserves the semantic data
+        but is not expected to recreate the original anchors, aliases,
+        or anchor names.
+      </p>
+    </aside>
+
     <p>
       The <a>YAML-LD document</a> in the following example
       contains alias nodes for the `{"@id": "country:US"}` object:
