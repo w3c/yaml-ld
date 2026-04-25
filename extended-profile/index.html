@@ -597,10 +597,9 @@
 
         <p id="aa-json-aliases" data-tests="manifest.html#aa-cycles-1-positive">
           When processing using the <a>YAML-LD Basic profile</a>,
-          documents MUST NOT contain <a>alias nodes</a>;
-          otherwise, a
-          <a data-link-for="YamlLdErrorCode">profile-error</a>
-          error has been detected and processing is aborted.
+          <a>alias nodes</a> are resolved by value to their target nodes.
+          Anchor names and alias structure are not retained in the
+          JSON-LD representation.
         </p>
 
 
@@ -912,9 +911,9 @@
               If an <a>alias node</a> is encountered when processing the
               <a>YAML representation graph</a>
               and the {{JsonLdOptions/processingMode}} option is not equal to `yaml-ld-extended`,
-              the <a>YAML-LD Basic profile</a> has been selected.
-              A <a data-link-for="YamlLdErrorCode">profile-error</a>
-              error has been detected and processing MUST be aborted.
+              the conversion result is the value of the target node,
+              as described in the
+              <a href="#aa-json-aliases">Basic profile alias handling</a>.
             </p>
 
             <p id="cir-alias-cycles" data-tests="
@@ -1141,8 +1140,9 @@
             </p>
 
             <p>
-              Although YAML-LD documents MAY include <a>node anchors</a>,
-              documents MUST NOT use <a>alias nodes</a>.
+              YAML-LD documents MAY include <a>node anchors</a> and
+              <a>alias nodes</a>, as long as dereferencing these aliases
+              does not result in a loop.
             </p>
 
             <p>
@@ -1177,7 +1177,7 @@
             </p>
 
             <p>
-              YAML-LD docucments MAY use <a>alias nodes</a>,
+              YAML-LD documents MAY use <a>alias nodes</a>,
               as long as dereferencing these aliases does not result in a loop.
             </p>
 
