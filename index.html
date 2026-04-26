@@ -669,51 +669,58 @@ schema:hasPart:
           <th>Features</th>
           <th>[[JSON]]</th>
           <th>[[YAML]]</th>
+          <th>YAML-LD</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-          <th colspan="3">Allowed encodings</th>
+          <th colspan="4">Allowed encodings</th>
         </tr>
 
         <tr>
           <th>UTF-8</th>
           <td><a data-cite="JSON#section-8.1">✅</a></td>
           <td><a data-cite="YAML#52-character-encodings">✅</a></td>
+          <td><a href="#encoding">✅</a></td>
         </tr>
 
         <tr>
           <th>UTF-16</th>
           <td><a data-cite="JSON#section-8.1">❌</a></td>
           <td><a data-cite="YAML#52-character-encodings">✅</a></td>
+          <td><a href="#encoding">❌</a></td>
         </tr>
 
         <tr>
           <th>UTF-32</th>
           <td><a data-cite="JSON#section-8.1">❌</a></td>
           <td><a data-cite="YAML#52-character-encodings">✅</a></td>
+          <td><a href="#encoding">❌</a></td>
         </tr>
 
         <tr>
-          <th colspan="3">Native data types</th>
+          <th colspan="4">Native data types</th>
         </tr>
 
         <tr>
           <th><code>{}</code> object</th>
           <td><a data-cite="JSON#section-4">✅</a></td>
           <td><a data-cite="YAML#3211-nodes">✅</a></td>
+          <td>✅</td>
         </tr>
 
         <tr>
           <th><code>[]</code> array</th>
           <td><a data-cite="JSON#section-5">✅</a></td>
           <td><a data-cite="YAML#3211-nodes">✅</a></td>
+          <td>✅</td>
         </tr>
 
         <tr>
           <th>string</th>
           <td><a data-cite="JSON#section-7">✅</a></td>
           <td><a data-cite="YAML#3211-nodes">✅</a></td>
+          <td><a href="#scalar-value-types">✅</a></td>
         </tr>
 
         <tr>
@@ -726,63 +733,74 @@ schema:hasPart:
             <br>
             <a data-cite="YAML#10214-floating-point">floating
             point</a></td>
+          <td><a href="#scalar-value-types">✅</a></td>
         </tr>
 
         <tr>
           <th>bool</th>
           <td><a data-cite="JSON#section-3">✅</a></td>
           <td><a data-cite="YAML#10212-boolean">✅</a></td>
+          <td><a href="#scalar-value-types">✅</a></td>
         </tr>
 
         <tr>
           <th>null</th>
           <td><a data-cite="JSON#section-3">✅</a></td>
           <td><a data-cite="YAML#10211-null">✅</a></td>
+          <td><a href="#scalar-value-types">✅</a></td>
         </tr>
 
         <tr>
-          <th colspan="3">Features</th>
+          <th colspan="4">Features</th>
         </tr>
 
         <tr>
           <th>Delimited strings, arrays, objects</th>
           <td><a data-cite="JSON#section-4">✅</a></td>
           <td><a data-cite="YAML#chapter-7-flow-style-productions">✅</a></td>
+          <td>✅</td>
         </tr>
 
         <tr>
           <th>Punctuation-free strings, arrays, objects</th>
           <td>❌</td>
           <td><a data-cite="YAML#chapter-8-block-style-productions">✅</a></td>
+          <td>✅</td>
         </tr>
 
         <tr>
           <th>Custom types</th>
           <td>❌</td>
           <td>✅ via <a data-cite="YAML#tags">tags</a></td>
+          <td><a href="#node-tags">Core Schema only</a></td>
         </tr>
 
-        <tr>
-          <th>Cycles</th>
-          <td>❌</td>
-          <td><a data-cite="YAML#321-representation-graph">✅</a></td>
-        </tr>
         <tr>
           <th>Documents per file</th>
           <td>1</td>
           <td>⩾ 1 via <a>YAML stream</a></td>
+          <td>⩾ 1 (depending on <code>extractAllScripts</code> flag, see <a href="#streams">Stream handling</a>)</td>
         </tr>
 
         <tr>
           <th>Comments</th>
           <td>❌</td>
           <td><a data-cite="YAML#3233-comments">✅</a></td>
+          <td>✅ <a href="#comments">Treated as Whitespace</a></td>
         </tr>
 
         <tr>
           <th>Anchors & aliases</th>
           <td>❌</td>
           <td><a data-cite="YAML#3222-anchors-and-aliases">✅</a></td>
+          <td>✅ <a href="#anchors-aliases">Anchor names do not bear semantic information</a></td>
+        </tr>
+
+        <tr>
+          <th>Cycles</th>
+          <td>❌</td>
+          <td><a data-cite="YAML#321-representation-graph">✅</a></td>
+          <td><a href="#anchors-aliases">❌ Not permitted</a></td>
         </tr>
 
         <tr>
@@ -791,6 +809,7 @@ schema:hasPart:
           <td>
             <a data-cite="YAML#3211-nodes">Any type representable in YAML</a>, from strings to mappings
           </td>
+          <td><a href="#mapping-key-types"><code>string</code></a></td>
         </tr>
         </tbody>
       </table>
@@ -871,41 +890,6 @@ schema:hasPart:
 
   <section id="core-requirements" class="normative">
     <h2>Core Requirements</h2>
-
-    <section id="supported-yaml-features" class="informative">
-      <h2>YAML features supported by YAML-LD</h2>
-
-      <dl>
-        <dt>Encoding</dt>
-        <dd>UTF-8 <a href="#encoding">only</a>.</dd>
-
-        <dt>Native data types</dt>
-        <dd>Every native data type that the YAML-LD parser supports.</dd>
-
-        <dt>Tags</dt>
-        <dd>Ignored.</dd>
-
-        <dt>Comments</dt>
-        <dd><a href="#comments">Treated as whitespace</a>.</dd>
-
-        <dt>Anchors & aliases</dt>
-        <dd>Resolved by YAML parser. Anchors & alias names are ignored.</dd>
-
-        <dt>Cycles defined using anchors & aliases</dt>
-        <dd>Not permitted.</dd>
-
-        <dt>YAML Streams</dt>
-        <dd>Treated identically to arrays.</dd>
-
-        <dt>Mapping key types other than <code>string</code></dt>
-        <dd><a href="#mapping-key-types">Not supported.</a></dd>
-      </dl>
-
-      <p>
-        Perspectives for support of the additional YAML features are analyzed in
-        [[yaml-ld-extended-profile]] informative addendum to this specification.
-      </p>
-    </section>
 
     <section id="encoding">
     <h2>Encoding</h2>
@@ -1163,6 +1147,12 @@ schema:hasPart:
         YAML-LD processors MUST NOT perform such conversion and MUST treat these values as strings.
       </p>
 
+      <p id="node-tags">
+        YAML-LD does not assign additional JSON-LD meaning to <a>node tags</a>
+        beyond the scalar type resolution defined by the
+        <a data-cite="YAML#103-core-schema">YAML Core Schema</a>.
+      </p>
+
       <aside class="note" title="Core Schema type resolution">
         <p>
           The following table summarizes scalar type resolution per the
@@ -1230,6 +1220,61 @@ schema:hasPart:
           </tbody>
         </table>
       </aside>
+    </section>
+
+    <section id="streams">
+      <h2>Streams</h2>
+
+      <p>
+        Every YAML-LD file is a <a>YAML-LD stream</a>
+        and might contain multiple <a>YAML-LD documents</a>,
+        as shown in the example below.
+      </p>
+
+      <pre class="example yaml"
+           data-transform="updateExample"
+           data-result-for="YAML-LD with multiple documents"
+           data-content-type="application/ld+json"
+           title="YAML-LD with several documents in one file">
+      <!--
+      "@base": https://schema.org
+      "@id": https://w3c.github.io/yaml-ld/
+      "@type": WebContent
+      name: YAML-LD
+      ---
+      "@base": https://schema.org
+      "@id": https://www.w3.org/TR/json-ld11/
+      "@type": WebContent
+      name: JSON-LD
+      -->
+    </pre>
+
+      <p class="informative">
+        [[JSON-LD11-API]] defines the
+        <a data-cite="JSON-LD11-API#dom-jsonldoptions-extractallscripts">`extractAllScripts`</a> flag, which allows to parse
+        multiple `&lt;script>` tags with YAML-LD content.
+      </p>
+
+      <p data-tests="manifest.html#two-documents-from-stream,manifest.html#one-document-from-stream">
+        A conformant YAML-LD specification MUST take this flag into account
+        while parsing a normal YAML-LD document.
+      </p>
+
+      <ul>
+        <li>
+          If the flag is `true`, the <a>YAML stream</a> is considered an array,
+          and each document in it is an item in that array, even if there is
+          only one document in the stream;
+        </li>
+        <li>
+          If the flag is `false`, only the first document in the stream will be processed.
+        </li>
+      </ul>
+
+      <p class="note" title="Interoperability considerations on YAML streams">
+        For interoperability considerations on YAML streams,
+        see <a data-cite="RFC9512#section-3.2">the relevant section in YAML Media Type</a>.
+      </p>
     </section>
 
     <section id="json-literals" class="informative">
@@ -1395,62 +1440,6 @@ enum YamlLdErrorCode {
 
     <p data-tests="manifest.html#html-and-yaml-streams">
       If the YAML-LD <code>&lt;script></code> tag contains a <a>YAML Stream</a> with multiple <a>YAML documents</a>, each of these documents MUST be treated as if it was included in a separate <code>&lt;script></code> tag. See <a href="#streams">Streams</a> for details.
-    </p>
-  </section>
-
-
-  <section id="streams">
-    <h2>Streams</h2>
-
-    <p>
-      Every YAML-LD file is a <a>YAML-LD stream</a>
-      and might contain multiple <a>YAML-LD documents</a>,
-      as shown in the example below.
-    </p>
-
-    <pre class="example yaml"
-         data-transform="updateExample"
-         data-result-for="YAML-LD with multiple documents"
-         data-content-type="application/ld+json"
-         title="YAML-LD with several documents in one file">
-      <!--
-      "@base": https://schema.org
-      "@id": https://w3c.github.io/yaml-ld/
-      "@type": WebContent
-      name: YAML-LD
-      ---
-      "@base": https://schema.org
-      "@id": https://www.w3.org/TR/json-ld11/
-      "@type": WebContent
-      name: JSON-LD
-      -->
-    </pre>
-
-    <p class="informative">
-      [[JSON-LD11-API]] defines the
-      <a data-cite="JSON-LD11-API#dom-jsonldoptions-extractallscripts">`extractAllScripts`</a> flag, which allows to parse
-      multiple `&lt;script>` tags with YAML-LD content.
-    </p>
-
-    <p data-tests="manifest.html#two-documents-from-stream,manifest.html#one-document-from-stream">
-      A conformant YAML-LD specification MUST take this flag into account
-      while parsing a normal YAML-LD document.
-    </p>
-
-    <ul>
-      <li>
-        If the flag is `true`, the <a>YAML stream</a> is considered an array,
-        and each document in it is an item in that array, even if there is
-        only one document in the stream;
-      </li>
-      <li>
-        If the flag is `false`, only the first document in the stream will be processed.
-      </li>
-    </ul>
-
-    <p class="note" title="Interoperability considerations on YAML streams">
-      For interoperability considerations on YAML streams,
-      see <a data-cite="RFC9512#section-3.2">the relevant section in YAML Media Type</a>.
     </p>
   </section>
 
