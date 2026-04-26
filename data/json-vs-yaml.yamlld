@@ -1,148 +1,292 @@
 "@context":
   - https://json-ld.org/contexts/dollar-convenience.jsonld
   - "@base": https://w3c.github.io/
+    "$": rdfs:label
+    comparison:
+      "@id": https://w3c.github.io/yaml-ld/data/json-vs-yaml.yamlld#
+      "@prefix": true
+    json: comparison:json
+    yaml: comparison:yaml
+    yamlld: comparison:yaml-ld
+    yaml-ld:
+      "@id": https://w3c.github.io/yaml-ld/#
+      "@prefix": true
+    rfc8259:
+      "@id": https://www.rfc-editor.org/rfc/rfc8259#
+      "@prefix": true
+    yaml-spec:
+      "@id": https://yaml.org/spec/1.2.2/#
+      "@prefix": true
     rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
     rdfs: http://www.w3.org/2000/01/rdf-schema#
     prov: http://www.w3.org/ns/prov#
+    prov:wasDerivedFrom:
+      "@type": "@id"
 
 $id: JSONOrYAMLFeature
+$: JSON vs YAML comparison
+$included:
+  - $id: comparison:json
+    $: Supported by JSON
+  - $id: comparison:yaml
+    $: Supported by YAML
+  - $id: comparison:yaml-ld
+    $: Supported by YAML-LD
+  - $id: prov:value
+    $: value
+  - $id: prov:wasDerivedFrom
+    $: was derived from
 $reverse:
   rdf:type:
     - rdfs:label: UTF-8
-      $type: Encoding
+      rdf:type: &encoding
+        $id: yaml-ld:encoding
+        $: Encoding
       json:
-        - prov:value: yes
-          prov:wasDerivedFrom: JSON#section-8.1
+        - &json-encoding
+          prov:value: true
+          prov:wasDerivedFrom:
+            $id: rfc8259:section-8.1
+            $: RFC 8259 section 8.1 Character Encoding
       yaml:
-        - prov:value: yes
-          prov:wasDerivedFrom: YAML#52-character-encodings
+        - &yaml-encoding
+          prov:value: true
+          prov:wasDerivedFrom:
+            $id: yaml-spec:52-character-encodings
+            $: YAML 5.2 Character Encodings
+      yamlld: &yamlld-encoding
+        prov:value: true
+        prov:wasDerivedFrom: yaml-ld:encoding
 
     - rdfs:label: UTF-16
+      rdf:type: *encoding
       json:
-        - prov:value: no
-          prov:wasDerivedFrom: JSON#section-8.1
+        - <<: *json-encoding
+          prov:value: false
       yaml:
-        - prov:value: yes
-          prov:wasDerivedFrom: YAML#52-character-encodings
+        - *yaml-encoding
+      yamlld:
+        <<: *yamlld-encoding
+        prov:value: false
 
     - rdfs:label: UTF-32
+      rdf:type: *encoding
       json:
-        - prov:value: no
-          prov:wasDerivedFrom: JSON#section-8.1
+        - <<: *json-encoding
+          prov:value: false
       yaml:
-        - prov:value: yes
-          prov:wasDerivedFrom: YAML#52-character-encodings
+        - *yaml-encoding
+      yamlld:
+        <<: *yamlld-encoding
+        prov:value: false
 
-    - rdfs:label: "<code>{}</code> object"
+    - rdfs:label: object
       rdf:type:
         $id: native-data-types
         rdfs:label: Native data types
       json:
-        prov:value: yes
-        prov:wasDerivedFrom: JSON#section-4
+        prov:value: true
+        prov:wasDerivedFrom:
+          $id: rfc8259:section-4
+          $: RFC 8259 section 4 Objects
       yaml:
-        prov:value: yes
-        prov:wasDerivedFrom: YAML#3211-nodes
+        prov:value: true
+        prov:wasDerivedFrom: &yaml-nodes
+          $id: yaml-spec:3211-nodes
+          $: YAML 3.2.1.1 Nodes
+      yamlld:
+        prov:value: true
 
-    - rdfs:label: "<code>[]</code> array"
+    - rdfs:label: array
       $type: native-data-types
       json:
-        prov:value: yes
-        prov:wasDerivedFrom: JSON#section-5
+        prov:value: true
+        prov:wasDerivedFrom:
+          $id: rfc8259:section-5
+          $: RFC 8259 section 5 Arrays
       yaml:
-        prov:value: yes
-        prov:wasDerivedFrom: YAML#3211-nodes
+        prov:value: true
+        prov:wasDerivedFrom: *yaml-nodes
+      yamlld:
+        prov:value: true
 
     - rdfs:label: string
       $type: native-data-types
       json:
-        prov:value: yes
-        prov:wasDerivedFrom: JSON#section-7
+        prov:value: true
+        prov:wasDerivedFrom:
+          $id: rfc8259:section-7
+          $: RFC 8259 section 7 Strings
       yaml:
-        prov:value: yes
-        prov:wasDerivedFrom: YAML#3211-nodes
+        prov:value: true
+        prov:wasDerivedFrom: *yaml-nodes
+      yamlld:
+        prov:value: true
+        prov:wasDerivedFrom:
+          $id: yaml-ld:scalar-value-types
+          $: Scalar Value Types
 
     - rdfs:label: number
       $type: native-data-types
       json:
-        prov:value: yes
-        prov:wasDerivedFrom: JSON#section-6
+        prov:value: true
+        prov:wasDerivedFrom:
+          $id: rfc8259:section-6
+          $: RFC 8259 section 6 Numbers
       yaml:
         - prov:value: integer
-          prov:wasDerivedFrom: YAML#10213-integer
+          prov:wasDerivedFrom:
+            $id: yaml-spec:10213-integer
+            $: YAML 10.2.1.3 Integer
         - prov:value: floating point
-          prov:wasDerivedFrom: YAML#10214-floating-point
+          prov:wasDerivedFrom:
+            $id: yaml-spec:10214-floating-point
+            $: YAML 10.2.1.4 Floating Point
+      yamlld:
+        prov:value: true
+        prov:wasDerivedFrom:
+          $id: yaml-ld:scalar-value-types
+          $: Scalar Value Types
 
     - rdfs:label: bool
       $type: native-data-types
       json:
-        prov:value: yes
-        prov:wasDerivedFrom: JSON#section-3
+        prov:value: true
+        prov:wasDerivedFrom: &rfc8259-section-3
+          $id: rfc8259:section-3
+          $: RFC 8259 section 3 Values
       yaml:
-        prov:value: yes
-        prov:wasDerivedFrom: YAML#10212-boolean
+        prov:value: true
+        prov:wasDerivedFrom:
+          $id: yaml-spec:10212-boolean
+          $: YAML 10.2.1.2 Boolean
+      yamlld:
+        prov:value: true
+        prov:wasDerivedFrom:
+          $id: yaml-ld:scalar-value-types
+          $: Scalar Value Types
 
-    - rdfs:label: null
+    - rdfs:label: "null"
       $type: native-data-types
       json:
-        prov:value: yes
-        prov:wasDerivedFrom: JSON#section-3
+        prov:value: true
+        prov:wasDerivedFrom: *rfc8259-section-3
       yaml:
-        prov:value: yes
-        prov:wasDerivedFrom: YAML#10211-null
+        prov:value: true
+        prov:wasDerivedFrom:
+          $id: yaml-spec:10211-null
+          $: YAML 10.2.1.1 Null
+      yamlld:
+        prov:value: true
+        prov:wasDerivedFrom:
+          $id: yaml-ld:scalar-value-types
+          $: Scalar Value Types
 
     - rdfs:label: Delimited strings, arrays, objects
       rdf:type:
         $id: features
         rdfs:label: Features
       json:
-        prov:value: yes
-        prov:wasDerivedFrom: JSON#section-4
+        prov:value: true
+        prov:wasDerivedFrom:
+          $id: rfc8259:section-4
+          $: RFC 8259 section 4 Objects
       yaml:
-        prov:value: yes
-        prov:wasDerivedFrom: YAML#chapter-7-flow-style-productions
+        prov:value: true
+        prov:wasDerivedFrom:
+          $id: yaml-spec:chapter-7-flow-style-productions
+          $: YAML Chapter 7 Flow Style Productions
+      yamlld:
+        prov:value: true
 
     - rdfs:label: Punctuation-free strings, arrays, objects
       $type: features
-      json: no
+      json: false
       yaml:
-        prov:value: yes
-        prov:wasDerivedFrom: YAML#chapter-8-block-style-productions
+        prov:value: true
+        prov:wasDerivedFrom:
+          $id: yaml-spec:chapter-8-block-style-productions
+          $: YAML Chapter 8 Block Style Productions
+      yamlld:
+        prov:value: true
 
     - rdfs:label: Custom types
       $type: features
-      json: no
+      json: false
       yaml:
-        prov:value: yes
-        prov:wasDerivedFrom: YAML#tags
-
-    - rdfs:label: Cycles
-      $type: features
-      json: no
-      yaml:
-        prov:value: yes
-        prov:wasDerivedFrom: YAML#321-representation-graph
+        prov:value: true
+        prov:wasDerivedFrom:
+          $id: yaml-spec:tags
+          $: YAML 6.9.2 Node Tags
+      yamlld:
+        prov:value: Core Schema only
+        prov:wasDerivedFrom:
+          $id: yaml-ld:node-tags
+          $: Node Tags
 
     - rdfs:label: Documents per file
       json: 1
       yaml:
         prov:value: ⩾ 1
-        prov:wasDerivedFrom: YAML stream
+        prov:wasDerivedFrom:
+          $id: yaml-spec:streams
+          $: YAML 9.1 Streams
+      yamlld:
+        prov:value: ⩾ 1 (depending on `extractAllScripts` flag, see Stream handling)
+        prov:wasDerivedFrom:
+          $id: yaml-ld:streams
+          $: Stream handling
 
     - rdfs:label: Comments
-      json: no
+      json: false
       yaml:
-        prov:value: yes
-        prov:wasDerivedFrom: YAML#3233-comments
+        prov:value: true
+        prov:wasDerivedFrom:
+          $id: yaml-spec:3233-comments
+          $: YAML 3.2.3.3 Comments
+      yamlld:
+        $: ✅ Treated as Whitespace
+        prov:value: true
+        prov:wasDerivedFrom:
+          $id: yaml-ld:comments
+          $: Comments
 
     - rdfs:label: Anchors & aliases
-      json: no
+      json: false
       yaml:
-        prov:value: yes
-        prov:wasDerivedFrom: YAML#3222-anchors-and-aliases
+        prov:value: true
+        prov:wasDerivedFrom:
+          $id: yaml-spec:3222-anchors-and-aliases
+          $: YAML 3.2.2.2 Anchors and Aliases
+      yamlld:
+        $: ✅ Anchor names do not bear semantic information
+        prov:value: true
+        prov:wasDerivedFrom:
+          $id: yaml-ld:anchors-aliases
+          $: Anchors and Aliases
+
+    - rdfs:label: Cycles
+      $type: features
+      json: false
+      yaml:
+        prov:value: true
+        prov:wasDerivedFrom:
+          $id: yaml-spec:321-representation-graph
+          $: YAML 3.2.1 Representation Graph
+      yamlld:
+        $: ❌ Not permitted
+        prov:value: false
+        prov:wasDerivedFrom:
+          $id: yaml-ld:anchors-aliases
+          $: Anchors and Aliases
 
     - rdfs:label: Mapping key types
       json: string
       yaml:
         prov:value: Any type representable in YAML, from strings to mappings
-        prov:wasDerivedFrom: YAML#3211-nodes
+        prov:wasDerivedFrom: *yaml-nodes
+      yamlld:
+        prov:value: string
+        prov:wasDerivedFrom:
+          $id: yaml-ld:mapping-key-types
+          $: Mapping Key Types
