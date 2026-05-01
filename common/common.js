@@ -1,13 +1,11 @@
-/* globals require */
 /* JSON-LD Working Group common spec JavaScript */
 
 /*
 * Implement tabbed examples.
 */
-require(["core/pubsubhub"], (respecEvents) => {
+function postProcess() {
   "use strict";
 
-  respecEvents.sub('end-all', (documentElement) => {
     //
     // Playground
     //
@@ -74,8 +72,13 @@ require(["core/pubsubhub"], (respecEvents) => {
         .replace(/####([^#]*)####/g, '<span class="comment">$1</span>');
       pre.innerHTML = content;
     }
-  });
-});
+}
+
+if (document.respec) {
+  document.respec.ready.then(postProcess);
+} else {
+  document.addEventListener("DOMContentLoaded", postProcess);
+}
 
 function _esc(s) {
   return s.replace(/&/g,'&amp;')
