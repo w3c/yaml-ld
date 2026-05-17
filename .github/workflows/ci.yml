@@ -50,7 +50,7 @@ jobs:
         # https://github.com/w3c/spec-prod/issues/222
         # VALIDATE_LINKS: true
         VALIDATE_MARKUP: true
-        W3C_ECHIDNA_TOKEN: ${{ secrets.ECHIDNA_TOKEN }}
+        W3C_ECHIDNA_TOKEN: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && matrix.source == 'index.html' && secrets.ECHIDNA_TOKEN || '' }}
         W3C_WG_DECISION_URL: https://www.w3.org/2026/04/01-json-ld-minutes.html#58ba
         W3C_BUILD_OVERRIDE: |
           specStatus: ${{ matrix.specStatus }}
