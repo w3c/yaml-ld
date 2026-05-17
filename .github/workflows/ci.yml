@@ -45,7 +45,10 @@ jobs:
       with:
         TOOLCHAIN: respec
         SOURCE: ${{ matrix.source }}
-        VALIDATE_LINKS: true
+        # We would like to enable link validation here, but spec-prod's
+        # link-checker path currently fails upstream:
+        # https://github.com/w3c/spec-prod/issues/222
+        # VALIDATE_LINKS: true
         VALIDATE_MARKUP: true
         W3C_ECHIDNA_TOKEN: ${{ secrets.ECHIDNA_TOKEN }}
         W3C_WG_DECISION_URL: https://www.w3.org/2026/04/01-json-ld-minutes.html#58ba
