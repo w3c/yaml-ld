@@ -9,8 +9,17 @@ on:
 
 jobs:
   tests:
-    name: Build, Validate and Deploy
+    name: Build, Validate and Deploy (${{ matrix.source }})
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - source: index.html
+            specStatus: WD
+            shortName: yaml-ld-10
+          - source: extended-profile/index.html
+            specStatus: DNOTE
+            shortName: yaml-ld-extended-profile
     steps:
     - uses: actions/checkout@v2
 
@@ -35,11 +44,11 @@ jobs:
       uses: w3c/spec-prod@v2
       with:
         TOOLCHAIN: respec
-        SOURCE: index.html
-        VALIDATE_LINKS: false
+        SOURCE: ${{ matrix.source }}
+        VALIDATE_LINKS: true
         VALIDATE_MARKUP: true
         W3C_ECHIDNA_TOKEN: ${{ secrets.ECHIDNA_TOKEN }}
         W3C_WG_DECISION_URL: https://www.w3.org/2026/04/01-json-ld-minutes.html#58ba
         W3C_BUILD_OVERRIDE: |
-          specStatus: WD
-          shortName: yaml-ld-10
+          specStatus: ${{ matrix.specStatus }}
+          shortName: ${{ matrix.shortName }}
