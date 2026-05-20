@@ -1,0 +1,43 @@
+# This workflow validates the extended profile note for markup and examples.
+name: Extended Profile
+
+on:
+  push:
+    branches: [ '**' ]
+    paths:
+      - '.github/workflows/extended-profile.yml'
+      - 'common/**'
+      - 'extended-profile/**'
+      - 'package-lock.json'
+      - 'package.json'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/extended-profile.yml'
+      - 'common/**'
+      - 'extended-profile/**'
+      - 'package-lock.json'
+      - 'package.json'
+
+jobs:
+  tests:
+    name: Build and Validate Extended Profile
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    # Validate via ReSpec
+    # See https://github.com/w3c/spec-prod/blob/main/docs/examples.md
+    - name: ReSpec Checker
+      uses: w3c/spec-prod@v2
+      with:
+        TOOLCHAIN: respec
+        SOURCE: extended-profile/index.html
+        # We would like to enable link validation here, but spec-prod's
+        # link-checker path currently fails upstream:
+        # https://github.com/w3c/spec-prod/issues/222
+        # VALIDATE_LINKS: true
+        VALIDATE_MARKUP: true
+        W3C_BUILD_OVERRIDE: |
+          specStatus: DNOTE
+          shortName: yaml-ld-extended-profile
