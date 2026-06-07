@@ -1,0 +1,16 @@
+[
+  {
+    "@id": "https://w3c.github.io/yaml-ld/",
+    "https://example.org/vocab#metadata": [
+      {
+        "@type": "@json",
+        "@value": {
+          "jsonLd": "1.1",
+          "yaml": "1.2",
+          "defaultProfile": "basic",
+          "testSuite": "https://w3c.github.io/yaml-ld/tests/"
+        }
+      }
+    ]
+  }
+]
