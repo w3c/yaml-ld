@@ -1,0 +1,27 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "country": "https://example.org/country/"
+  },
+  "@id": "https://www.w3.org/community/json-ld",
+  "@type": "schema:Organization",
+  "schema:member": [
+    {
+      "@id": "https://github.com/gkellogg",
+      "@type": "schema:Person",
+      "name": "Gregg Kellogg",
+      "country": {
+        "@id": "country:US"
+      }
+    },
+    {
+      "@id": "https://github.com/BigBlueHat",
+      "@type": "schema:Person",
+      "name": "Benjamin Young",
+      "country": {
+        "@id": "country:US"
+      }
+    },
+    "…"
+  ]
+}
