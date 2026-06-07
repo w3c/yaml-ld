@@ -615,10 +615,19 @@ schema:hasPart:
     as statements on the properties of the document.
   </p>
 
-  <section id="v11">
-    <h2>JSON-LD Version</h2>
+  <section id="versions">
+    <h2>Base Specification Versions</h2>
 
     <p>YAML-LD supports [[[JSON-LD11]]] [[JSON-LD11]] and later.</p>
+
+    <p>
+      YAML-LD is based on [[[YAML]]] [[YAML]].
+      YAML-LD processors MUST use a YAML 1.2 (or later, backward-compatible)
+      implementation; see <a href="#int" class="sectionRef"></a> for the
+      interoperability concerns that arise with YAML 1.1.
+      Implementers MAY specify the YAML version in documents using the
+      `%YAML` directive.
+    </p>
   </section>
 
   <section id="testing">
@@ -835,7 +844,7 @@ schema:hasPart:
       <li>JSON encoding is UTF-8.</li>
     </ul>
 
-    <p>Example: The JSON-LD document below</p>
+    <p>Example: Consider the JSON-LD document below.</p>
     <pre class="example json"
          data-transform="updateExample"
          data-result-for="Basic YAML-LD document"
@@ -857,7 +866,7 @@ schema:hasPart:
     </pre>
 
     <p>
-      Can be serialized as YAML as follows.
+      This document can be serialized as YAML as follows.
       Note that entries
       starting with  `@` need to be enclosed in quotes
       because `@` is a reserved character in YAML.
@@ -878,14 +887,6 @@ schema:hasPart:
         name: JSON-LD Community Group
       -->
     </pre>
-
-    <p>
-      This specification is based on YAML 1.2.2.
-      YAML-LD processors MUST use a YAML 1.2 (or later, backward-compatible) implementation.
-      Implementers may specify the YAML version in documents using the `%YAML` directive
-      (see <a href="#int" class="sectionRef"></a>).
-      See <a href="#int" class="sectionRef"></a> for interoperability concerns with YAML 1.1.
-    </p>
   </section>
 
   <section id="core-requirements" class="normative">
@@ -952,15 +953,6 @@ schema:hasPart:
       When interpreting the document as JSON-LD,
       alias nodes MUST be resolved by value to their target nodes.
     </p>
-
-    <aside class="note" title="Anchors and aliases are features of YAML serialization">
-      <p>
-        Converting a YAML-LD document with anchors or aliases to JSON-LD,
-        and then serializing it back to YAML-LD, preserves the semantic data
-        but is not expected to recreate the original anchors, aliases,
-        or anchor names.
-      </p>
-    </aside>
 
     <p>
       The <a>YAML-LD document</a> in the following example
@@ -1037,6 +1029,15 @@ schema:hasPart:
         }
       -->
     </pre>
+
+    <aside class="note" title="Anchors and aliases are features of YAML serialization">
+      <p>
+        Converting a YAML-LD document with anchors or aliases to JSON-LD,
+        and then serializing it back to YAML-LD, preserves the semantic data
+        but is not expected to recreate the original anchors, aliases,
+        or anchor names.
+      </p>
+    </aside>
 
     <aside class="note" title="Anchors within a @context block">
     <p>
