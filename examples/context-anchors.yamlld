@@ -1,0 +1,21 @@
+"@context":
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+
+  rdfs:domain: &iri
+    "@type": "@id"
+
+  rdfs:range:         *iri
+  rdfs:subClassOf:    *iri
+  rdfs:subPropertyOf: *iri
+  rdfs:isDefinedBy:   *iri
+  rdfs:seeAlso:       *iri
+
+  rdfs:label: &lang
+    "@container": "@language"
+  rdfs:comment: *lang
+
+"@id": https://example.org/Moon
+rdfs:label:
+  en: Moon
+  it: Luna
+rdfs:seeAlso: https://dbpedia.org/resource/Moon
