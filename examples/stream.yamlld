@@ -1,9 +1,11 @@
-"@base": https://schema.org
-"@id": https://w3c.github.io/yaml-ld/
-"@type": WebContent
-name: YAML-LD
+"@context":
+  dbo: http://dbpedia.org/ontology/
+  dbr: http://dbpedia.org/resource/
+"@id": dbr:Proxima_Centauri
+"@type": dbo:Star
 ---
-"@base": https://schema.org
-"@id": https://www.w3.org/TR/json-ld11/
-"@type": WebContent
-name: JSON-LD
+"@context":
+  dbo: http://dbpedia.org/ontology/
+  dbr: http://dbpedia.org/resource/
+"@id": dbr:Proxima_Centauri_b
+"@type": dbo:Planet
