@@ -1,8 +1,9 @@
-"@context": https://schema.org
+"@context":
+  dbo: http://dbpedia.org/ontology/
+  dbr: http://dbpedia.org/resource/
+  dbo:orbits:
+    "@type": "@id"
 
-"@id": https://w3c.github.io/yaml-ld/
-"@type": WebContent
-name: YAML-LD
-author:
-  "@id": https://www.w3.org/community/json-ld
-  name: JSON-LD Community Group
+"@id": dbr:Proxima_Centauri_b
+"@type": dbo:Planet
+dbo:orbits: dbr:Proxima_Centauri
