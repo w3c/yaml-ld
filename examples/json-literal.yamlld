@@ -1,10 +1,12 @@
 "@context":
-  metadata: https://example.org/vocab#metadata
-"@id": https://w3c.github.io/yaml-ld/
-metadata:
+  schema: https://schema.org/
+  dbr: http://dbpedia.org/resource/
+
+"@id": dbr:Proxima_Centauri_b
+schema:additionalProperty:
   "@type": "@json"
   "@value":
-    jsonLd: "1.1"
-    yaml: "1.2"
-    defaultProfile: "basic"
-    testSuite: https://w3c.github.io/yaml-ld/tests/
+    semiMajorAxis: 0.0485
+    orbitalPeriod: 11.186
+    equilibriumTemperature: 234
+    eccentricity: 0.11
