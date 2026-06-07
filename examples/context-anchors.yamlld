@@ -1,21 +1,13 @@
 "@context":
-  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  dbp: http://dbpedia.org/property/
+  dbr: http://dbpedia.org/resource/
 
-  rdfs:domain: &iri
+  dbp:star:            &iri
     "@type": "@id"
+  dbp:discoveryMethod: *iri
+  dbp:discoverySite:   *iri
 
-  rdfs:range:         *iri
-  rdfs:subClassOf:    *iri
-  rdfs:subPropertyOf: *iri
-  rdfs:isDefinedBy:   *iri
-  rdfs:seeAlso:       *iri
-
-  rdfs:label: &lang
-    "@container": "@language"
-  rdfs:comment: *lang
-
-"@id": https://example.org/Moon
-rdfs:label:
-  en: Moon
-  it: Luna
-rdfs:seeAlso: https://dbpedia.org/resource/Moon
+"@id": dbr:Proxima_Centauri_b
+dbp:star:            dbr:Proxima_Centauri
+dbp:discoveryMethod: dbr:Doppler_spectroscopy
+dbp:discoverySite:   dbr:European_Southern_Observatory
