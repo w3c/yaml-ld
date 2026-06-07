@@ -10,5 +10,6 @@ fi
 
 mkdir -p examples/generated
 
-"$PYLD" get    examples/anchors.yamlld       > examples/generated/anchors.jsonld
+"$PYLD" get    examples/basic.yamlld           > examples/generated/basic.jsonld
+"$PYLD" get    examples/context-anchors.yamlld > examples/generated/context-anchors.jsonld
 "$PYLD" expand examples/json-literal.yamlld  > examples/generated/json-literal-expanded.jsonld
