@@ -14,6 +14,23 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+
+    - name: Install uv
+      run: pip install uv
+
+    - name: Install Python dependencies
+      run: uv venv && uv pip install .
+
+    - name: Generate examples
+      run: make generate
+
+    - name: Check generated examples are up to date
+      run: git diff --exit-code examples/generated/
+
     # Setup Ruby environment  
     #- name: Set up Ruby
     #  uses: ruby/setup-ruby@v1
