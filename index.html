@@ -829,7 +829,7 @@
 
     <p>Example: Consider the JSON-LD document below.</p>
     <pre class="example json"
-         data-include="examples/basic.jsonld"
+         data-include="examples/generated/basic.jsonld"
          data-include-format="text"
          data-result-for="Basic YAML-LD document"
          data-content-type="application/ld+json"
@@ -915,32 +915,31 @@
     </p>
 
     <p>
-      The <a>YAML-LD document</a> in the following example
-      contains alias nodes for the `{"@id": "country:US"}` object:
+      Anchors are particularly useful within a <code>@context</code> block.
+      When several terms share the same term definition — for example, all
+      IRI-valued properties — the shared definition can be anchored once and
+      aliased for each term, avoiding repetition.
+      The following example anchors the IRI coercion definition as
+      <code>&amp;iri</code> and reuses it for three properties:
     </p>
 
     <pre class="example yaml"
          id="example-with-anchors"
-         data-include="examples/anchors.yamlld"
+         data-include="examples/context-anchors.yamlld"
          data-include-format="text"
          data-content-type="application/ld+yaml"
-         title="YAML-LD with node anchors"></pre>
+         title="YAML-LD context with anchors"></pre>
 
     <p>
-      While the <a>representation graph</a>
-      (and eventually the in-memory representation
-      of the data structure, e.g., a Python dictionary or a Java hashmap)
-      will still contain references between nodes,
-      the JSON-LD serialization will not — since, by the time it is formed,
-      all the anchors have been resolved, as shown below.
+      Once all anchors and aliases have been resolved, the equivalent JSON-LD is:
     </p>
 
     <pre class="example json"
-         data-include="examples/generated/anchors.jsonld"
+         data-include="examples/generated/context-anchors.jsonld"
          data-include-format="text"
-         data-result-for="YAML-LD with node anchors"
+         data-result-for="YAML-LD context with anchors"
          data-content-type="application/ld+json"
-         title="JSON-LD resulting from YAML with node anchors"></pre>
+         title="JSON-LD resulting from YAML-LD context with anchors"></pre>
 
     <aside class="note" title="Anchors and aliases are features of YAML serialization">
       <p>
@@ -949,33 +948,6 @@
         but is not expected to recreate the original anchors, aliases,
         or anchor names.
       </p>
-    </aside>
-
-    <aside class="note" title="Anchors within a @context block">
-    <p>
-      Anchors are also useful <em>within</em> a <code>@context</code> block.
-      When several terms share the same term definition — for example, all
-      IRI-valued properties, or all language-tagged string properties — the
-      shared definition can be anchored once and aliased for each term,
-      avoiding repetition.
-    </p>
-
-    <p>
-      The example below defines, and uses, a context for
-      <a data-cite="RDF-SCHEMA#">RDF Schema</a> using two anchors:
-      <code>&amp;iri</code> for IRI-valued properties and
-      <code>&amp;lang</code> for language-tagged string properties.
-    </p>
-
-    <pre class="example yaml"
-         data-include="examples/context-anchors.yamlld"
-         data-include-format="text"
-         data-content-type="application/ld+yaml"
-         title="YAML-LD context with anchors"></pre>
-    <p>
-      Note however that only YAML-LD processors are expected to support YAML-LD contexts.
-      In order to be more broadly usable, a context such as this one should also be converted and published in the JSON-LD syntax.
-    </p>
     </aside>
     </section>
 
@@ -1169,7 +1141,7 @@
            data-include="examples/json-literal.yamlld"
            data-include-format="text"
            data-content-type="application/ld+yaml"
-           title="JSON literal metadata about YAML-LD specification"></pre>
+           title="JSON literal with orbital parameters for Proxima Centauri b"></pre>
 
       <p>
         Consider the expanded form.
@@ -1179,7 +1151,7 @@
            data-include="examples/generated/json-literal-expanded.jsonld"
            data-include-format="text"
            data-content-type="application/ld+json"
-           title="Expanded JSON literal metadata about YAML-LD specification"></pre>
+           title="Expanded JSON literal with orbital parameters for Proxima Centauri b"></pre>
 
       <p>
         Although the keyword is named <code>@json</code>, it does not require the
