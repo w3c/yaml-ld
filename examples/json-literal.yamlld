@@ -1,0 +1,10 @@
+"@context":
+  metadata: https://example.org/vocab#metadata
+"@id": https://w3c.github.io/yaml-ld/
+metadata:
+  "@type": "@json"
+  "@value":
+    jsonLd: "1.1"
+    yaml: "1.2"
+    defaultProfile: "basic"
+    testSuite: https://w3c.github.io/yaml-ld/tests/
