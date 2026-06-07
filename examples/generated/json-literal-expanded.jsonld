@@ -1,14 +1,14 @@
 [
   {
-    "@id": "https://w3c.github.io/yaml-ld/",
-    "https://example.org/vocab#metadata": [
+    "@id": "http://dbpedia.org/resource/Proxima_Centauri_b",
+    "https://schema.org/additionalProperty": [
       {
         "@type": "@json",
         "@value": {
-          "jsonLd": "1.1",
-          "yaml": "1.2",
-          "defaultProfile": "basic",
-          "testSuite": "https://w3c.github.io/yaml-ld/tests/"
+          "semiMajorAxis": 0.0485,
+          "orbitalPeriod": 11.186,
+          "equilibriumTemperature": 234,
+          "eccentricity": 0.11
         }
       }
     ]
