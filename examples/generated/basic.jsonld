@@ -1,0 +1,12 @@
+{
+  "@context": {
+    "dbo": "http://dbpedia.org/ontology/",
+    "dbr": "http://dbpedia.org/resource/",
+    "dbo:orbits": {
+      "@type": "@id"
+    }
+  },
+  "@id": "dbr:Proxima_Centauri_b",
+  "@type": "dbo:Planet",
+  "dbo:orbits": "dbr:Proxima_Centauri"
+}
