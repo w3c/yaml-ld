@@ -364,27 +364,10 @@
     </p>
 
       <pre class="example yaml"
-           data-transform="updateExample"
+           data-include="examples/intro.yamlld"
+           data-include-format="text"
            data-content-type="application/ld+yaml"
-           title="Basic YAML-LD document">
-        <!--
-"@context":
-  - https://json-ld.org/contexts/dollar-convenience.jsonld
-  - "@base": https://w3c.github.io/yaml-ld/
-    rdfs: http://www.w3.org/2000/01/rdf-schema#
-    schema: https://schema.org/
-    license:
-      "@type": "@id"
-
-$id: https://w3c.github.io/yaml-ld/
-rdfs:label: YAML-LD
-license: https://spdx.org/licenses/W3C.html
-schema:hasPart:
-  - rdfs:label: Abstract
-  - rdfs:label: Status of This Document
-  - rdfs:label: Introduction
-        -->
-      </pre>
+           title="Basic YAML-LD document"></pre>
 
     <div class="ednote">
       See YAML-LD description of this spec at
@@ -846,24 +829,11 @@ schema:hasPart:
 
     <p>Example: Consider the JSON-LD document below.</p>
     <pre class="example json"
-         data-transform="updateExample"
+         data-include="examples/basic.jsonld"
+         data-include-format="text"
          data-result-for="Basic YAML-LD document"
          data-content-type="application/ld+json"
-         title="Basic JSON-LD document">
-      <!--
-      {
-        "@context": "https://schema.org",
-
-        "@id": "https://w3c.github.io/yaml-ld/",
-        "@type": "WebContent",
-        "name": "YAML-LD",
-        "author": {
-          "@id": "https://www.w3.org/community/json-ld",
-          "name": "JSON-LD Community Group"
-        }
-      }
-      -->
-    </pre>
+         title="Basic JSON-LD document"></pre>
 
     <p>
       This document can be serialized as YAML as follows.
@@ -873,20 +843,10 @@ schema:hasPart:
     </p>
 
     <pre class="example yaml"
-         data-transform="updateExample"
+         data-include="examples/basic.yamlld"
+         data-include-format="text"
          data-content-type="application/ld+yaml"
-         title="Basic YAML-LD document">
-      <!--
-      "@context": https://schema.org
-
-      "@id": https://w3c.github.io/yaml-ld/
-      "@type": WebContent
-      name: YAML-LD
-      author:
-        "@id": https://www.w3.org/community/json-ld
-        name: JSON-LD Community Group
-      -->
-    </pre>
+         title="Basic YAML-LD document"></pre>
   </section>
 
   <section id="core-requirements" class="normative">
@@ -961,29 +921,10 @@ schema:hasPart:
 
     <pre class="example yaml"
          id="example-with-anchors"
-         data-transform="updateExample"
+         data-include="examples/anchors.yamlld"
+         data-include-format="text"
          data-content-type="application/ld+yaml"
-         title="YAML-LD with node anchors">
-       <!--
-      "@context":
-        schema: https://schema.org/
-        country: https://example.org/country/
-
-      "@id": https://www.w3.org/community/json-ld
-      "@type": schema:Organization
-      schema:member:
-        - "@id": https://github.com/gkellogg
-          "@type": schema:Person
-          name: Gregg Kellogg
-          country: &US
-            "@id": country:US
-        - "@id": https://github.com/BigBlueHat
-          "@type": schema:Person
-          name: Benjamin Young
-          country: *US
-        # - …
-      -->
-    </pre>
+         title="YAML-LD with node anchors"></pre>
 
     <p>
       While the <a>representation graph</a>
@@ -995,40 +936,11 @@ schema:hasPart:
     </p>
 
     <pre class="example json"
-         data-transform="updateExample"
+         data-include="examples/anchors.jsonld"
+         data-include-format="text"
          data-result-for="YAML-LD with node anchors"
          data-content-type="application/ld+json"
-         title="JSON-LD resulting from YAML with node anchors">
-      <!--
-        {
-          "@context": {
-            "schema": "https://schema.org/",
-            "country": "https://example.org/country/"
-          },
-          "@id": "https://www.w3.org/community/json-ld",
-          "@type": "schema:Organization",
-          "schema:member": [
-            {
-              "@id": "https://github.com/gkellogg",
-              "@type": "schema:Person",
-              "name": "Gregg Kellogg",
-              "country": {
-                "@id": "country:US"
-              }
-            },
-            {
-              "@id": "https://github.com/BigBlueHat",
-              "@type": "schema:Person",
-              "name": "Benjamin Young",
-              "country": {
-                "@id": "country:US"
-              }
-            },
-            …
-          ]
-        }
-      -->
-    </pre>
+         title="JSON-LD resulting from YAML with node anchors"></pre>
 
     <aside class="note" title="Anchors and aliases are features of YAML serialization">
       <p>
@@ -1056,33 +968,10 @@ schema:hasPart:
     </p>
 
     <pre class="example yaml"
-         data-transform="updateExample"
+         data-include="examples/context-anchors.yamlld"
+         data-include-format="text"
          data-content-type="application/ld+yaml"
-         title="YAML-LD context with anchors">
-      <!--
-      "@context":
-        rdfs: http://www.w3.org/2000/01/rdf-schema#
-
-        rdfs:domain: &iri
-          "@type": "@id"
-
-        rdfs:range:         *iri
-        rdfs:subClassOf:    *iri
-        rdfs:subPropertyOf: *iri
-        rdfs:isDefinedBy:   *iri
-        rdfs:seeAlso:       *iri
-
-        rdfs:label: &lang
-          "@container": "@language"
-        rdfs:comment: *lang
-      
-      "@id": https://example.org/Moon
-      rdfs:label:
-        en: Moon
-        it: Luna
-      rdfs:seeAlso: https://dbpedia.org/resource/Moon
-      -->
-    </pre>
+         title="YAML-LD context with anchors"></pre>
     <p>
       Note however that only YAML-LD processors are expected to support YAML-LD contexts.
       In order to be more broadly usable, a context such as this one should also be converted and published in the JSON-LD syntax.
@@ -1233,22 +1122,11 @@ schema:hasPart:
       </p>
 
       <pre class="example yaml"
-           data-transform="updateExample"
+           data-include="examples/stream.yamlld"
+           data-include-format="text"
            data-result-for="YAML-LD with multiple documents"
            data-content-type="application/ld+json"
-           title="YAML-LD with several documents in one file">
-      <!--
-      "@base": https://schema.org
-      "@id": https://w3c.github.io/yaml-ld/
-      "@type": WebContent
-      name: YAML-LD
-      ---
-      "@base": https://schema.org
-      "@id": https://www.w3.org/TR/json-ld11/
-      "@type": WebContent
-      name: JSON-LD
-      -->
-    </pre>
+           title="YAML-LD with several documents in one file"></pre>
 
       <p class="informative">
         [[JSON-LD11-API]] defines the
@@ -1288,50 +1166,20 @@ schema:hasPart:
       </p>
 
       <pre class="example yaml"
-           data-transform="updateExample"
+           data-include="examples/json-literal.yamlld"
+           data-include-format="text"
            data-content-type="application/ld+yaml"
-           title="JSON literal metadata about YAML-LD specification">
-      <!--
-      "@context":
-        metadata: https://example.org/vocab#metadata
-      "@id": https://w3c.github.io/yaml-ld/
-      metadata:
-        "@type": "@json"
-        "@value":
-          jsonLd: "1.1"
-          yaml: "1.2"
-          defaultProfile: "basic"
-          testSuite: https://w3c.github.io/yaml-ld/tests/
-      -->
-      </pre>
+           title="JSON literal metadata about YAML-LD specification"></pre>
 
       <p>
         Consider the expanded form.
       </p>
 
       <pre class="example json"
-           data-transform="updateExample"
+           data-include="examples/json-literal-expanded.jsonld"
+           data-include-format="text"
            data-content-type="application/ld+json"
-           title="Expanded JSON literal metadata about YAML-LD specification">
-      <!--
-      [
-        {
-          "@id": "https://w3c.github.io/yaml-ld/",
-          "https://example.org/vocab#metadata": [
-            {
-              "@type": "@json",
-              "@value": {
-                "jsonLd": "1.1",
-                "yaml": "1.2",
-                "defaultProfile": "basic",
-                "testSuite": "https://w3c.github.io/yaml-ld/tests/"
-              }
-            }
-          ]
-        }
-      ]
-      -->
-      </pre>
+           title="Expanded JSON literal metadata about YAML-LD specification"></pre>
 
       <p>
         Although the keyword is named <code>@json</code>, it does not require the
@@ -1418,21 +1266,10 @@ enum YamlLdErrorCode {
     </p>
 
     <pre class="example yaml"
-     data-transform="updateExample"
+     data-include="examples/html-embed.html"
+     data-include-format="text"
      data-content-type="application/ld+yaml"
-     title="YAML-LD document embedded in HTML">
-    <!--
-    <script type="application/ld+yaml">
-      "@context": https://json-ld.org/contexts/person.jsonld
-      "@id": https://dbpedia.org/resource/John_Lennon
-      name: John Lennon
-      born: 1940-10-09
-      spouse:
-        - https://dbpedia.org/resource/Yoko_Ono
-        - https://dbpedia.org/resource/Cynthia_Lennon
-    </script>
-    -->
-    </pre>
+     title="YAML-LD document embedded in HTML"></pre>
 
     <p data-tests="manifest.html#html-dedent-needed,manifest.html#html-dedent-not-needed">
       YAML syntax is indentation based. Therefore, when processing each `&lt;script>` block with YAML-LD content,
