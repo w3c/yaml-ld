@@ -22,3 +22,7 @@ serve:
 .ONESHELL: html-manifest
 html-manifest:
 	npm run generate
+
+.PHONY: generate
+generate:
+	bash scripts/generate-examples.sh
