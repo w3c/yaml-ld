@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "dbp": "http://dbpedia.org/property/",
+    "dbr": "http://dbpedia.org/resource/",
+    "dbp:star": {
+      "@type": "@id"
+    },
+    "dbp:discoveryMethod": {
+      "@type": "@id"
+    },
+    "dbp:discoverySite": {
+      "@type": "@id"
+    }
+  },
+  "@id": "dbr:Proxima_Centauri_b",
+  "dbp:star": "dbr:Proxima_Centauri",
+  "dbp:discoveryMethod": "dbr:Doppler_spectroscopy",
+  "dbp:discoverySite": "dbr:European_Southern_Observatory"
+}
