@@ -4,3 +4,4 @@ node_modules
 web/
 !web/.gitkeep
 .python-version
+*.egg-info/
