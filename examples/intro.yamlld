@@ -1,15 +1,17 @@
 "@context":
   - https://json-ld.org/contexts/dollar-convenience.jsonld
-  - "@base": https://w3c.github.io/yaml-ld/
-    rdfs: http://www.w3.org/2000/01/rdf-schema#
-    schema: https://schema.org/
-    license:
+  - schema: https://schema.org/
+    dbo: http://dbpedia.org/ontology/
+    dbp: http://dbpedia.org/property/
+    dbr: http://dbpedia.org/resource/
+    orbits:
+      "@id": http://dbpedia.org/property/star
       "@type": "@id"
 
-$id: https://w3c.github.io/yaml-ld/
-rdfs:label: YAML-LD
-license: https://spdx.org/licenses/W3C.html
-schema:hasPart:
-  - rdfs:label: Abstract
-  - rdfs:label: Status of This Document
-  - rdfs:label: Introduction
+$id: dbr:Proxima_Centauri_b
+$type: dbo:Planet
+schema:description: >-
+  The closest known exoplanet to Earth,
+  orbiting in Proxima Centauri's habitable zone.
+dbp:discovered: 2016-08-24
+orbits: dbr:Proxima_Centauri
