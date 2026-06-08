@@ -6,7 +6,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
 <script src="common/common.js" class="remove" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script src="mermaid.min.js"></script>
 <script>
   if (typeof mermaid !== "undefined") {
     mermaid.initialize({
@@ -22,14 +22,16 @@
       return;
     }
 
-    const diags = [...document.querySelectorAll(".mermaid[data-mmd-src]:not([data-rendered])")];
+    const diags = [...document.querySelectorAll(".mermaid-source:not([data-rendered])")];
     for (const [i, el] of diags.entries()) {
       el.dataset.rendered = "true";
-      const response = await fetch(el.dataset.mmdSrc);
-      const code = await response.text();
+      const code = el.textContent;
+      const diagram = document.createElement("div");
+      diagram.className = "mermaid";
+      el.after(diagram);
       const { svg, bindFunctions } = await mermaid.render(`mermaid-diag-${i}`, code);
-      el.innerHTML = svg;
-      bindFunctions?.(el);
+      diagram.innerHTML = svg;
+      bindFunctions?.(diagram);
     }
   }
 
@@ -423,8 +425,10 @@
              data-content-type="application/ld+yaml"
              title="Basic YAML-LD document"></pre>
         <div class="mermaid-diagram">
-          <div class="mermaid"
-               data-mmd-src="examples/mermaid/intro.mmd"></div>
+          <script type="text/plain"
+                  class="mermaid-source"
+                  data-include="examples/mermaid/intro.mmd"
+                  data-include-format="text"></script>
         </div>
       </div>
 
@@ -908,8 +912,10 @@
            data-content-type="application/ld+yaml"
            title="Basic YAML-LD document"></pre>
       <div class="mermaid-diagram">
-        <div class="mermaid"
-             data-mmd-src="examples/mermaid/basic.mmd"></div>
+        <script type="text/plain"
+                class="mermaid-source"
+                data-include="examples/mermaid/basic.mmd"
+                data-include-format="text"></script>
       </div>
     </div>
   </section>
@@ -996,8 +1002,10 @@
            data-content-type="application/ld+yaml"
            title="YAML-LD context with anchors"></pre>
       <div class="mermaid-diagram">
-        <div class="mermaid"
-             data-mmd-src="examples/mermaid/context-anchors.mmd"></div>
+        <script type="text/plain"
+                class="mermaid-source"
+                data-include="examples/mermaid/context-anchors.mmd"
+                data-include-format="text"></script>
       </div>
     </div>
 
@@ -1172,8 +1180,10 @@
              data-content-type="application/ld+json"
              title="YAML-LD with several documents in one file"></pre>
         <div class="mermaid-diagram">
-          <div class="mermaid"
-               data-mmd-src="examples/mermaid/stream.mmd"></div>
+          <script type="text/plain"
+                  class="mermaid-source"
+                  data-include="examples/mermaid/stream.mmd"
+                  data-include-format="text"></script>
         </div>
       </div>
 
@@ -1221,8 +1231,10 @@
              data-content-type="application/ld+yaml"
              title="JSON literal with orbital parameters for Proxima Centauri b"></pre>
         <div class="mermaid-diagram">
-          <div class="mermaid"
-               data-mmd-src="examples/mermaid/json-literal.mmd"></div>
+          <script type="text/plain"
+                  class="mermaid-source"
+                  data-include="examples/mermaid/json-literal.mmd"
+                  data-include-format="text"></script>
         </div>
       </div>
 
@@ -1327,8 +1339,10 @@ enum YamlLdErrorCode {
            data-content-type="application/ld+yaml"
            title="YAML-LD document embedded in HTML"></pre>
       <div class="mermaid-diagram">
-        <div class="mermaid"
-             data-mmd-src="examples/mermaid/html-embed.mmd"></div>
+        <script type="text/plain"
+                class="mermaid-source"
+                data-include="examples/mermaid/html-embed.mmd"
+                data-include-format="text"></script>
       </div>
     </div>
 
