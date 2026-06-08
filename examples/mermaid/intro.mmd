@@ -3,20 +3,20 @@ graph LR
   click http___dbpedia_org_resource_Proxima_Centauri_b "http://dbpedia.org/resource/Proxima_Centauri_b"
   http___dbpedia_org_ontology_Planet("planet")
   click http___dbpedia_org_ontology_Planet "http://dbpedia.org/ontology/Planet"
-  Literal_27f67571cab3[["2016-08-24"]]
+  Literal_27f67571cab3[["📅 2016-08-24"]]
+  Literal_60f6527b948d[["The closest known exoplanet to Earth, orbiting in Proxima Centauri’s habitable zone."]]
   http___dbpedia_org_resource_Proxima_Centauri("Proxima Centauri")
   click http___dbpedia_org_resource_Proxima_Centauri "http://dbpedia.org/resource/Proxima_Centauri"
-  Literal_60f6527b948d[["The closest known exoplanet to Earth, orbiting in Proxima Centauri’s habitable zone."]]
   http___dbpedia_org_resource_Proxima_Centauri_b --- Edge_540e00cae247(["type"])--> http___dbpedia_org_ontology_Planet
   click Edge_540e00cae247 "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
   http___dbpedia_org_resource_Proxima_Centauri_b --- Edge_a0efd4f3aa3e(["discovered"])--> Literal_27f67571cab3
   click Edge_a0efd4f3aa3e "http://dbpedia.org/property/discovered"
-  http___dbpedia_org_resource_Proxima_Centauri_b --- Edge_d03b11f4404f(["star"])--> http___dbpedia_org_resource_Proxima_Centauri
-  click Edge_d03b11f4404f "http://dbpedia.org/property/star"
   http___dbpedia_org_resource_Proxima_Centauri_b --- Edge_29580035684f(["description"])--> Literal_60f6527b948d
   click Edge_29580035684f "https://schema.org/description"
+  http___dbpedia_org_resource_Proxima_Centauri_b --- Edge_d03b11f4404f(["star"])--> http___dbpedia_org_resource_Proxima_Centauri
+  click Edge_d03b11f4404f "http://dbpedia.org/property/star"
   classDef predicate fill:#1f2233,stroke:transparent,color:#f8fafc,stroke-width:0px;
   classDef hidden fill:transparent,stroke:transparent,color:transparent,stroke-width:0px;
   classDef nanopubdot fill:#0f172a,stroke:#0f172a,color:transparent,stroke-width:2px;
   classDef transparent fill:transparent,stroke:transparent,color:transparent,stroke-width:0px;
-  class Edge_540e00cae247,Edge_a0efd4f3aa3e,Edge_d03b11f4404f,Edge_29580035684f predicate
+  class Edge_540e00cae247,Edge_a0efd4f3aa3e,Edge_29580035684f,Edge_d03b11f4404f predicate
