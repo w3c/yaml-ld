@@ -1,4 +1,5 @@
 "@context":
+  dbo: http://dbpedia.org/ontology/
   dbp: http://dbpedia.org/property/
   dbr: http://dbpedia.org/resource/
 
