@@ -1,0 +1,20 @@
+graph LR
+  http___dbpedia_org_resource_Proxima_Centauri_b("Proxima Centauri b")
+  click http___dbpedia_org_resource_Proxima_Centauri_b "http://dbpedia.org/resource/Proxima_Centauri_b"
+  http___dbpedia_org_resource_European_Southern_Observatory("European Southern Observatory")
+  click http___dbpedia_org_resource_European_Southern_Observatory "http://dbpedia.org/resource/European_Southern_Observatory"
+  http___dbpedia_org_resource_Doppler_spectroscopy("Doppler spectroscopy")
+  click http___dbpedia_org_resource_Doppler_spectroscopy "http://dbpedia.org/resource/Doppler_spectroscopy"
+  http___dbpedia_org_resource_Proxima_Centauri("Proxima Centauri")
+  click http___dbpedia_org_resource_Proxima_Centauri "http://dbpedia.org/resource/Proxima_Centauri"
+  http___dbpedia_org_resource_Proxima_Centauri_b --- Edge_b057205bcac1(["discovery site"])--> http___dbpedia_org_resource_European_Southern_Observatory
+  click Edge_b057205bcac1 "http://dbpedia.org/property/discoverySite"
+  http___dbpedia_org_resource_Proxima_Centauri_b --- Edge_d11d2061f7bd(["discovery method"])--> http___dbpedia_org_resource_Doppler_spectroscopy
+  click Edge_d11d2061f7bd "http://dbpedia.org/property/discoveryMethod"
+  http___dbpedia_org_resource_Proxima_Centauri_b --- Edge_d03b11f4404f(["star"])--> http___dbpedia_org_resource_Proxima_Centauri
+  click Edge_d03b11f4404f "http://dbpedia.org/property/star"
+  classDef predicate fill:#1f2233,stroke:transparent,color:#f8fafc,stroke-width:0px;
+  classDef hidden fill:transparent,stroke:transparent,color:transparent,stroke-width:0px;
+  classDef nanopubdot fill:#0f172a,stroke:#0f172a,color:transparent,stroke-width:2px;
+  classDef transparent fill:transparent,stroke:transparent,color:transparent,stroke-width:0px;
+  class Edge_b057205bcac1,Edge_d11d2061f7bd,Edge_d03b11f4404f predicate
