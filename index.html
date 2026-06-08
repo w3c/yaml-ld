@@ -420,10 +420,11 @@
 
       <div class="example-with-diagram">
         <pre class="example yaml"
+             id="example-introductory-yaml-ld-document"
              data-include="examples/intro.yamlld"
              data-include-format="text"
              data-content-type="application/ld+yaml"
-             title="Basic YAML-LD document"></pre>
+             title="Introductory YAML-LD document"></pre>
         <div class="mermaid-diagram">
           <script type="text/plain"
                   class="mermaid-source"
@@ -890,34 +891,13 @@
       <li>JSON encoding is UTF-8.</li>
     </ul>
 
-    <p>Example: Consider the JSON-LD document below.</p>
+    <p>JSON-LD serialization of <a href="#example-introductory-yaml-ld-document">Example 1</a>:</p>
     <pre class="example json"
-         data-include="examples/generated/basic.jsonld"
+         data-include="examples/generated/intro.jsonld"
          data-include-format="text"
-         data-result-for="Basic YAML-LD document"
+         data-result-for="Introductory YAML-LD document"
          data-content-type="application/ld+json"
-         title="Basic JSON-LD document"></pre>
-
-    <p>
-      This document can be serialized as YAML as follows.
-      Note that entries
-      starting with  `@` need to be enclosed in quotes
-      because `@` is a reserved character in YAML.
-    </p>
-
-    <div class="example-with-diagram">
-      <pre class="example yaml"
-           data-include="examples/basic.yamlld"
-           data-include-format="text"
-           data-content-type="application/ld+yaml"
-           title="Basic YAML-LD document"></pre>
-      <div class="mermaid-diagram">
-        <script type="text/plain"
-                class="mermaid-source"
-                data-include="examples/mermaid/basic.mmd"
-                data-include-format="text"></script>
-      </div>
-    </div>
+         title="JSON-LD equivalent of the introductory example"></pre>
   </section>
 
   <section id="core-requirements" class="normative">
