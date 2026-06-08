@@ -6,6 +6,55 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
 <script src="common/common.js" class="remove" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  if (typeof mermaid !== "undefined") {
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: "default",
+      securityLevel: "antiscript",
+      flowchart: { htmlLabels: false },
+    });
+  }
+
+  async function renderMermaidDiagrams() {
+    if (typeof mermaid === "undefined") {
+      return;
+    }
+
+    const diags = [...document.querySelectorAll(".mermaid[data-mmd-src]:not([data-rendered])")];
+    for (const [i, el] of diags.entries()) {
+      el.dataset.rendered = "true";
+      const response = await fetch(el.dataset.mmdSrc);
+      const code = await response.text();
+      const { svg, bindFunctions } = await mermaid.render(`mermaid-diag-${i}`, code);
+      el.innerHTML = svg;
+      bindFunctions?.(el);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    // ReSpec CLI serves the source from localhost:3000 while saving static HTML.
+    // Skip runtime rendering there so the saved HTML keeps Mermaid source only.
+    if (location.hostname === "localhost" && location.port === "3000") {
+      return;
+    }
+
+    if (navigator.webdriver) {
+      return;
+    }
+
+    if (document.respec?.ready) {
+      await document.respec.ready;
+      // Render just after ReSpec finishes so ReSpec does not process SVG links
+      // as spec links and mark node labels as unresolved references.
+      setTimeout(renderMermaidDiagrams, 250);
+      return;
+    }
+
+    await renderMermaidDiagrams();
+  });
+</script>
 <script class='remove'>
   // Use fragment identifier of test as name.
   function data_test_display() {
@@ -283,6 +332,10 @@
   code {
     color:#c63501
   }  
+
+  .mermaid-diagram {
+    margin-top: 1rem;
+  }
 </style>
 </head>
 <body>
@@ -363,11 +416,17 @@
       <strong>An introductory YAML-LD example</strong> is presented below.
     </p>
 
-      <pre class="example yaml"
-           data-include="examples/intro.yamlld"
-           data-include-format="text"
-           data-content-type="application/ld+yaml"
-           title="Basic YAML-LD document"></pre>
+      <div class="example-with-diagram">
+        <pre class="example yaml"
+             data-include="examples/intro.yamlld"
+             data-include-format="text"
+             data-content-type="application/ld+yaml"
+             title="Basic YAML-LD document"></pre>
+        <div class="mermaid-diagram">
+          <div class="mermaid"
+               data-mmd-src="examples/mermaid/intro.mmd"></div>
+        </div>
+      </div>
 
     <div class="ednote">
       See YAML-LD description of this spec at
@@ -842,11 +901,17 @@
       because `@` is a reserved character in YAML.
     </p>
 
-    <pre class="example yaml"
-         data-include="examples/basic.yamlld"
-         data-include-format="text"
-         data-content-type="application/ld+yaml"
-         title="Basic YAML-LD document"></pre>
+    <div class="example-with-diagram">
+      <pre class="example yaml"
+           data-include="examples/basic.yamlld"
+           data-include-format="text"
+           data-content-type="application/ld+yaml"
+           title="Basic YAML-LD document"></pre>
+      <div class="mermaid-diagram">
+        <div class="mermaid"
+             data-mmd-src="examples/mermaid/basic.mmd"></div>
+      </div>
+    </div>
   </section>
 
   <section id="core-requirements" class="normative">
@@ -923,12 +988,18 @@
       <code>&amp;iri</code> and reuses it for three properties:
     </p>
 
-    <pre class="example yaml"
-         id="example-with-anchors"
-         data-include="examples/context-anchors.yamlld"
-         data-include-format="text"
-         data-content-type="application/ld+yaml"
-         title="YAML-LD context with anchors"></pre>
+    <div class="example-with-diagram">
+      <pre class="example yaml"
+           id="example-with-anchors"
+           data-include="examples/context-anchors.yamlld"
+           data-include-format="text"
+           data-content-type="application/ld+yaml"
+           title="YAML-LD context with anchors"></pre>
+      <div class="mermaid-diagram">
+        <div class="mermaid"
+             data-mmd-src="examples/mermaid/context-anchors.mmd"></div>
+      </div>
+    </div>
 
     <p>
       Once all anchors and aliases have been resolved, the equivalent JSON-LD is:
@@ -1093,12 +1164,18 @@
         as shown in the example below.
       </p>
 
-      <pre class="example yaml"
-           data-include="examples/stream.yamlld"
-           data-include-format="text"
-           data-result-for="YAML-LD with multiple documents"
-           data-content-type="application/ld+json"
-           title="YAML-LD with several documents in one file"></pre>
+      <div class="example-with-diagram">
+        <pre class="example yaml"
+             data-include="examples/stream.yamlld"
+             data-include-format="text"
+             data-result-for="YAML-LD with multiple documents"
+             data-content-type="application/ld+json"
+             title="YAML-LD with several documents in one file"></pre>
+        <div class="mermaid-diagram">
+          <div class="mermaid"
+               data-mmd-src="examples/mermaid/stream.mmd"></div>
+        </div>
+      </div>
 
       <p class="informative">
         [[JSON-LD11-API]] defines the
@@ -1137,11 +1214,17 @@
         interpreting it further as JSON-LD. Consider the following example.
       </p>
 
-      <pre class="example yaml"
-           data-include="examples/json-literal.yamlld"
-           data-include-format="text"
-           data-content-type="application/ld+yaml"
-           title="JSON literal with orbital parameters for Proxima Centauri b"></pre>
+      <div class="example-with-diagram">
+        <pre class="example yaml"
+             data-include="examples/json-literal.yamlld"
+             data-include-format="text"
+             data-content-type="application/ld+yaml"
+             title="JSON literal with orbital parameters for Proxima Centauri b"></pre>
+        <div class="mermaid-diagram">
+          <div class="mermaid"
+               data-mmd-src="examples/mermaid/json-literal.mmd"></div>
+        </div>
+      </div>
 
       <p>
         Consider the expanded form.
@@ -1237,11 +1320,17 @@ enum YamlLdErrorCode {
       `application/ld+yaml`, as illustrated in an example below.
     </p>
 
-    <pre class="example yaml"
-     data-include="examples/html-embed.html"
-     data-include-format="text"
-     data-content-type="application/ld+yaml"
-     title="YAML-LD document embedded in HTML"></pre>
+    <div class="example-with-diagram">
+      <pre class="example yaml"
+           data-include="examples/html-embed.html"
+           data-include-format="text"
+           data-content-type="application/ld+yaml"
+           title="YAML-LD document embedded in HTML"></pre>
+      <div class="mermaid-diagram">
+        <div class="mermaid"
+             data-mmd-src="examples/mermaid/html-embed.mmd"></div>
+      </div>
+    </div>
 
     <p data-tests="manifest.html#html-dedent-needed,manifest.html#html-dedent-not-needed">
       YAML syntax is indentation based. Therefore, when processing each `&lt;script>` block with YAML-LD content,
