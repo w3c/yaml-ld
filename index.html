@@ -19,6 +19,8 @@
   }
 
   async function render_mermaid_diagrams(config, document) {
+      // Keep source blocks off Mermaid's auto-render path until ReSpec has
+      // resolved data-include and finished processing references.
       for (const diagram of document.querySelectorAll('.mermaid-source')) {
           diagram.classList.add('mermaid');
       }
@@ -53,6 +55,10 @@
           const svg = document.importNode(svgDocument.documentElement, true);
           svg.setAttribute('style', img.getAttribute('style') || '');
           img.replaceWith(svg);
+      }
+
+      for (const script of document.querySelectorAll('script[data-webpack^="respec-mermaid:chunk-"]')) {
+          script.remove();
       }
   }
 
