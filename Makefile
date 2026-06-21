@@ -26,7 +26,3 @@ html-manifest:
 .PHONY: generate
 generate:
 	bash scripts/generate-examples.sh
-
-.PHONY: download-mermaid-js
-download-mermaid-js:
-	curl -fsSL -o mermaid.min.js https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js
