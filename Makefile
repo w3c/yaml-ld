@@ -5,7 +5,7 @@ install:
 
 .PHONY: spec
 spec:
-	respec --verbose --localhost --src index.html --out web/index.html
+	respec --verbose --timeout 30 --localhost --src index.html --out web/index.html
 
 .PHONY: extended-profile
 extended-profile:
