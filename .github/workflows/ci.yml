@@ -2,8 +2,8 @@
 name: CI
 
 on:
-  push: {}
-  pull_request:
+  pull_request: {}
+  push:
     branches: [ main ]
 
 jobs:
@@ -58,7 +58,7 @@ jobs:
 
     # Validate via ReSpec
     # See https://github.com/w3c/spec-prod/blob/main/docs/examples.md
-    - name: ReSpec Checker
+    - name: Generate ReSpec (all) and Deploy (main only)
       uses: w3c/spec-prod@v2
       with:
         TOOLCHAIN: respec
