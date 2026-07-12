@@ -455,6 +455,8 @@
 
     <p>A <dfn>YAML-LD stream</dfn> is a <a data-cite="YAML#92-streams" data-no-xref="">YAML stream</a>
       of <a>YAML-LD documents</a>.
+      On disk or on the wire, YAML-LD is always exchanged as a <a>YAML-LD stream</a>
+      (one stream per file or HTTP body), containing one or more <a>YAML-LD documents</a>.
     </p>
     
     <p>A <dfn>YAML-LD document</dfn> is any <a>YAML document</a> from
@@ -875,7 +877,7 @@
     <p id="cr-utf8" data-tests="
       manifest.html#cr-utf8-1-positive,
       manifest.html#cr-utf8-2-negative">
-      A <a>YAML-LD document</a> MUST be encoded in UTF-8,
+      A <a>YAML-LD stream</a> MUST be encoded in UTF-8,
       to ensure interoperability with [[JSON]];
       otherwise, an
       <a data-link-for="YamlLdErrorCode">invalid-encoding</a>
@@ -886,7 +888,7 @@
     <section id="comments">
       <h2>Comments</h2>
       <p id="cr-comments" data-tests="manifest.html#cr-comments-1-positive">
-        Comments in <a>YAML-LD documents</a> are treated as white space.
+        Comments in <a>YAML-LD streams</a> are treated as white space.
       </p>
 
       <p>
@@ -1138,8 +1140,8 @@
       </p>
 
       <p data-tests="manifest.html#two-documents-from-stream,manifest.html#one-document-from-stream">
-        A conformant YAML-LD specification MUST also take this flag into account
-        when parsing a normal YAML-LD <a>stream</a>.
+        A conformant YAML-LD implementation MUST take this flag into account
+        while parsing a YAML-LD <a>stream</a>.
       </p>
 
       <ul>
@@ -1322,7 +1324,7 @@ enum YamlLdErrorCode {
           <dt><code>profile</code></dt>
           <dd>
             <p>A non-empty list of space-separated URIs identifying specific
-              constraints or conventions that apply to a <a>YAML-LD document</a> according to [[RFC6906]].
+              constraints or conventions that apply to a <a>YAML-LD stream</a> according to [[RFC6906]].
               A profile does not change the semantics of the resource representation
               when processed without profile knowledge, so that clients both with
               and without knowledge of a profiled resource can safely use the same
@@ -1339,10 +1341,10 @@ enum YamlLdErrorCode {
             </p>
             <dl>
               <dt><code>http://www.w3.org/ns/json-ld#extended</code></dt>
-              <dd>To request or specify <a data-cite="yaml-ld-extended-profile#">extended</a> <a>YAML-LD document</a> form.
+              <dd>To request or specify the <a data-cite="yaml-ld-extended-profile#">YAML-LD Extended Profile</a>.
                 <div class="ednote">
-                  This is a placeholder for specifying something like an
-                  <a data-cite="yaml-ld-extended-profile#">extended</a> <a>YAML-LD document</a> form
+                  This is a placeholder for specifying something like the
+                  <a data-cite="yaml-ld-extended-profile#">YAML-LD Extended Profile</a>
                   making use of YAML-specific features.
                 </div></dd>
             </dl>
