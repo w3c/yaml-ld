@@ -143,6 +143,17 @@
           "Anatoly Scherbakov",
         ],
       },
+      "eriksson-hallberg": {
+        title: "Comparison between JSON and YAML for data serialization",
+        href: "https://www.csc.kth.se/utbildning/kth/kurser/DD143X/dkand11/Group2Mads/Rapport_Malin_Eriksson_Viktor_Hallberg.pdf",
+        publisher: "KTH Royal Institute of Technology",
+        date: "2011",
+        status: "Bachelor's thesis",
+        authors: [
+          "Malin Eriksson",
+          "Victor Hallberg",
+        ],
+      },
     },
 
     // Cross-reference definitions
@@ -374,7 +385,10 @@
     <p>
       YAML-LD applies JSON-LD's data model and processing model to YAML
       so that Linked Data can be written in a YAML syntax while remaining
-      representable as JSON-LD.
+      representable as JSON-LD.</p>
+
+    <p>It is intended for documents that are read and written by humans and by
+      software agents, including those based on Large Language Models.
     </p>
 
     <p>
@@ -672,9 +686,41 @@
     <section id="json-vs-yaml">
       <h3>JSON vs YAML comparison</h3>
 
-      <p>YAML is a superset of JSON, i.e., every valid JSON document is also a valid YAML document.
+      <p>[[YAML]] is a superset of [[JSON]], i.e., every valid JSON document is also a valid YAML document.
         YAML also offers a number of extra features, chief amongst which is improved human readability due to the ability to use minimal punctuation.</p>
-      <p>YAML is more flexible than JSON, as illustrated by the comparison table below.</p>
+
+      <p>
+        [[eriksson-hallberg]] compared JSON documents vs YAML in size and found that,
+        depending on document structure, YAML can be more compact than pretty-printed JSON:
+      </p>
+      <table class="simple">
+        <thead>
+        <tr>
+          <th>Sample</th>
+          <th>vs<br/>pretty-printed JSON</th>
+          <th>vs<br/>minified (compact) JSON</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th>Flat</th>
+          <td>≈26% smaller</td>
+          <td>≈1% smaller</td>
+        </tr>
+        <tr>
+          <th>Deeply nested</th>
+          <td>≈2% larger</td>
+          <td>≈10% larger</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <p>Although YAML can be larger than equivalent JSON for some deeply nested documents,
+        for many flatter documents it is smaller than pretty-printed JSON while remaining human-readable.
+        That combination can reduce the amount of text that large language models and other software agents
+        must process, without requiring a separate minified encoding.</p>
+
+      <p>YAML is also more flexible than JSON, as illustrated by the comparison table below.</p>
 
       <table class="simple">
         <thead>
