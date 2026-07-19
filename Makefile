@@ -1,7 +1,14 @@
+YAML_PROCESSING_SVG := images/yaml-processing.svg
+YAML_PROCESSING_SVG_URL := https://yaml.org/spec/1.2.2/img/overview2.svg
+
 .PHONY: install
 install:
 	npm install -g respec
 
+.PHONY: vendor-yaml-processing-diagram
+vendor-yaml-processing-diagram:
+	mkdir -p images
+	curl -fsSL -A 'yaml-ld-makefile' -o $(YAML_PROCESSING_SVG) $(YAML_PROCESSING_SVG_URL)
 
 .PHONY: spec
 spec:
