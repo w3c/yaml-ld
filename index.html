@@ -1108,8 +1108,8 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
         manifest.html#aa-cycles-3-positive">
         When composing the <a>representation graph</a>, each <a>alias node</a>
         MUST resolve to the node identified by its target anchor.
-        When constructing the JSON-LD [=internal representation=], repeated references
-        to that node MUST be represented by value.
+        When constructing the JSON-LD [=internal representation=], each reference
+        to that node MUST be treated as a copy of the node.
       </p>
 
       <section id="scalar-value-types">
