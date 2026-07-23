@@ -1145,10 +1145,9 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
           <a data-cite="YAML#103-core-schema">YAML Core Schema</a> for scalar type resolution.
           Float values that cannot be represented in [[JSON]] — specifically
           infinity (<code>.inf</code>, <code>-.inf</code>, <code>+.inf</code>) and
-          not-a-number (<code>.nan</code>) — MUST cause construction of the
-          JSON-LD [=internal representation=] to raise a
+          not-a-number (<code>.nan</code>) — MUST cause a
           <a data-cite="JSON-LD11-API#dom-jsonlderrorcode-loading-document-failed">loading-document-failed</a>
-          error.
+          error to be raised when constructing the JSON-LD [=internal representation=].
         </p>
         <p>
           The <a data-cite="YAML#103-core-schema">YAML Core Schema</a> does not define a timestamp type;
