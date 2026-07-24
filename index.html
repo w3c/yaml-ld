@@ -1292,8 +1292,14 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
           manifest.html#cir-mapping-key-5-negative,
         ">
           Consequently, all mapping keys in YAML-LD MUST be <code>string</code>s.
-          Otherwise, a `mapping-key-error` error is raised.
+          Otherwise, a `mapping-key-error` error is raised, as in the following example:
         </p>
+
+        <pre class="illegal-example yaml"
+             data-include="examples/invalid-mapping-key.yamlld"
+             data-include-format="text"
+             data-content-type="application/ld+yaml"
+             title="Non-string mapping key (raises mapping-key-error)"></pre>
       </section>
 
       <section id="json-literals" class="informative">
