@@ -1,0 +1,16 @@
+"@context":
+  - https://json-ld.org/contexts/dollar-convenience.jsonld
+  - dbo: http://dbpedia.org/ontology/
+    dbp: http://dbpedia.org/property/
+    dbr: http://dbpedia.org/resource/
+    prov: http://www.w3.org/ns/prov#
+    xsd: http://www.w3.org/2001/XMLSchema#
+    dbp:discovered:
+      "@type": xsd:date
+    dbp:star: &iri
+      "@type": "@id"
+    prov:wasDerivedFrom: *iri
+
+{ $id: dbr:Proxima_Centauri_b, $type: dbo:Planet, dbp:star: dbr:Proxima_Centauri }:
+  dbp:discovered: 2016-08-24
+  prov:wasDerivedFrom: https://dbpedia.org/page/Proxima_Centauri_b
