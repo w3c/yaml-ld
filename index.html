@@ -618,7 +618,13 @@
   </section>
   </section>
 
-<section id="conformance">
+<section id="conformance" data-tests="
+    manifest.html#local-json-ld-context,
+    manifest.html#compact-local-json-ld-context,
+    manifest.html#local-yaml-ld-context,
+    manifest.html#compact-local-yaml-ld-context,
+    manifest.html#flatten,
+    manifest.html#frame-t0001">
   <p>
     A <a>YAML-LD document</a> complies with
     the <dfn data-export="">YAML-LD Basic profile</dfn> of this specification
@@ -989,6 +995,19 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
           </div>
         </div>
 
+        <p id="cr-well-formed" data-tests="
+          manifest.html#cr-well-formed-1-positive,
+          manifest.html#cr-well-formed-2-negative,
+          manifest.html#cr-well-formed-3-negative">
+          If a <a>YAML-LD stream</a> is not
+          <a data-cite="YAML#well-formed-streams-and-identified-aliases">
+            well-formed
+          </a>,
+          a
+          <a data-cite="JSON-LD11-API#dom-jsonlderrorcode-loading-document-failed">loading-document-failed</a>
+          error MUST be detected, and processing aborted.
+        </p>
+
         <p class="note" title="Interoperability considerations on YAML streams">
           For interoperability considerations on YAML streams,
           see <a data-cite="RFC9512#section-3.2">the relevant section in YAML Media Type</a>.
@@ -1094,7 +1113,8 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
 
       <p id="aa-cycles" data-tests="
         manifest.html#aa-cycles-1-positive,
-        manifest.html#aa-cycles-2-negative">
+        manifest.html#aa-cycles-2-negative,
+        manifest.html#aa-cycles-3-positive">
         A <a>YAML-LD document</a> MAY contain <a>anchored nodes</a> and <a>alias nodes</a>
         in its serialization,
         but its <a>representation graph</a> MUST NOT contain cycles;
@@ -1105,11 +1125,14 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
 
       <p id="aa-json-aliases" data-tests="
         manifest.html#aa-cycles-1-positive,
-        manifest.html#aa-cycles-3-positive">
+        manifest.html#aa-cycles-3-positive,
+        manifest.html#cr-well-formed-3-negative">
         When composing the <a>representation graph</a>, each <a>alias node</a>
         MUST resolve to the node identified by its target anchor.
         When constructing the JSON-LD [=internal representation=], each reference
         to that node MUST be treated as a copy of the node.
+        Anchor names and alias structure are not retained in the
+        JSON-LD [=internal representation=].
       </p>
 
       <section id="scalar-value-types">
@@ -1140,7 +1163,9 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
           manifest.html#core-yaml11-on,
           manifest.html#core-yaml11-off,
           manifest.html#core-yaml11-yes-title,
-          manifest.html#core-yaml11-yes-upper">
+          manifest.html#core-yaml11-yes-upper,
+          manifest.html#cir-scalar-core-1-positive,
+          manifest.html#cir-scalar-core-2-positive">
           When composing a complete <a>representation graph</a>, YAML-LD uses the
           <a data-cite="YAML#103-core-schema">YAML Core Schema</a> for scalar type resolution.
           Float values that cannot be represented in [[JSON]] — specifically
@@ -1157,10 +1182,22 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
           YAML-LD processors MUST NOT perform such conversion and MUST treat these values as strings.
         </p>
 
-        <p id="node-tags">
+        <p>
           YAML-LD does not assign additional JSON-LD meaning to <a>node tags</a>
           beyond the scalar type resolution defined by the
           <a data-cite="YAML#103-core-schema">YAML Core Schema</a>.
+        </p>
+
+        <p id="node-tags">
+          A <a>YAML scalar</a> whose resolved <a>node tag</a> is outside the
+          <a data-cite="YAML#103-core-schema">YAML Core Schema</a>
+          MUST cause a
+          <a data-cite="JSON-LD11-API#dom-jsonlderrorcode-loading-document-failed">loading-document-failed</a>
+          error to be raised when constructing the JSON-LD [=internal representation=].
+        </p>
+
+        <p class="note">
+          The informative [[[yaml-ld-extended-profile]]] describes alternate handling of such tags.
         </p>
 
         <aside class="note" title="Core Schema type resolution">
@@ -1243,6 +1280,14 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
         is the JSON-LD [=internal representation=].
       </p>
 
+      <p id="cir-document-content" data-tests="manifest.html#cir-document-content-1-negative">
+        The top-level <a>node</a> of each <a>YAML-LD document</a> MUST be a
+        <a>YAML mapping</a> or a <a>YAML sequence</a>;
+        otherwise, a
+        <a data-cite="JSON-LD11-API#dom-jsonlderrorcode-loading-document-failed">loading-document-failed</a>
+        error MUST be detected, and processing aborted.
+      </p>
+
       <section id="stream-processing">
         <h2>Stream Processing</h2>
 
@@ -1255,18 +1300,35 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
         <p data-tests="manifest.html#two-documents-from-stream,manifest.html#one-document-from-stream">
           A conformant YAML-LD implementation MUST apply this flag when constructing
           the JSON-LD [=internal representation=] from a YAML-LD <a>stream</a>.
+          The default value is <code>false</code>, as in [[JSON-LD11-API]].
         </p>
 
-        <ul>
-          <li>
-            If the flag is `true`, the internal representation MUST be an array
-            containing the constructed value of each document in the stream,
-            even if the stream contains only one document.
-          </li>
-          <li>
-            If the flag is `false`, only the first document in the stream MUST be constructed.
-          </li>
-        </ul>
+        <dl>
+          <dt>If the flag is <code>true</code></dt>
+          <dd>
+            <p>
+              The internal representation MUST be an array
+              containing the constructed value of each document in the stream,
+              even if the stream contains only one document.
+            </p>
+            <p>
+              If the stream is empty,
+              the internal representation MUST be an empty array.
+            </p>
+          </dd>
+          <dt>If the flag is <code>false</code></dt>
+          <dd>
+            <p>
+              Only the first document in the stream MUST be constructed.
+            </p>
+            <p>
+              If the stream is empty,
+              a
+              <a data-cite="JSON-LD11-API#dom-jsonlderrorcode-loading-document-failed">loading-document-failed</a>
+              error MUST be detected, and processing aborted.
+            </p>
+          </dd>
+        </dl>
       </section>
 
       <section id="mapping-key-types">
@@ -1291,8 +1353,14 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
           manifest.html#cir-mapping-key-4-negative,
           manifest.html#cir-mapping-key-5-negative,
         ">
-          Consequently, all mapping keys in YAML-LD MUST be <code>string</code>s.
-          Otherwise, a `mapping-key-error` error is raised, as in the following example:
+          Consequently, every mapping key MUST be a
+          <a>YAML scalar</a> whose resolved <a>node tag</a> in the
+          <a>representation graph</a> is
+          <code>tag:yaml.org,2002:str</code>.
+          Otherwise, a
+          <a data-link-for="YamlLdErrorCode">mapping-key-error</a>
+          MUST be detected, and processing aborted,
+          as in the following example:
         </p>
 
         <pre class="illegal-example yaml"
@@ -1364,11 +1432,20 @@ enum YamlLdErrorCode {
 
     <dl data-dfn-for="YamlLdErrorCode" data-sort>
       <dt><dfn>invalid-encoding</dfn></dt>
-      <dd>The character encoding of an input is invalid.</dd>
+      <dd>
+        A <a>YAML-LD stream</a> that does not satisfy
+        <a href="#cr-utf8">Encoding</a>.
+      </dd>
       <dt><dfn>mapping-key-error</dfn></dt>
-      <dd>A <a>YAML mapping</a> key was found that was not a <a>string</a>.</dd>
+      <dd>
+        A <a>YAML mapping</a> key that does not satisfy
+        <a href="#aa-mapping-key-types">Mapping Key Types</a>.
+      </dd>
       <dt><dfn>profile-error</dfn></dt>
-      <dd>The parsed YAML document contains features incompatible with the specified profile.</dd>
+      <dd>
+        A <a>YAML-LD document</a> that does not satisfy
+        <a href="#conformance">Conformance</a>.
+      </dd>
     </dl>
   </section>
 
@@ -1409,7 +1486,7 @@ enum YamlLdErrorCode {
     </p>
   </section>
 
-  <section id="html">
+  <section id="html" data-tests="manifest.html#mixed-script-types">
     <h2>Embedding YAML-LD in HTML Documents</h2>
 
     <p>
