@@ -11,27 +11,21 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const readFile = util.promisify(fs.readFile)
 const writeFile = util.promisify(fs.writeFile)
 
-// Extract a map of manfests to map of test identifiers to the element ids referencing them.
-async function extractIssueMap(source, callback) {
+// Map manifest test identifiers to the specification fragments referencing them.
+async function extractIssueMap(source, specification, issueMap) {
   const spec = path.join(__dirname, source);
-  // Read in spec
-  readFile(spec)
-    .then((data) => new JSDOM(data))
-    .then((dom) => {
-      var issueMap = {};
-      const elements = dom.window.document.querySelectorAll('*[data-tests]');
-      for(const e of elements) {
-        // Map each test to the element ids referencing it.
-        const tests = e.dataset['tests'].split(',').map(e => e.trim());
-        for(const tid of tests) {
-          const [man, tt] = tid.split('#')
-          issueMap[man] ||= {};
-          issueMap[man][tt] ||= [];
-          issueMap[man][tt].push(e.id);
-        }
-      }
-      callback(issueMap);
-    });
+  const data = await readFile(spec);
+  const dom = new JSDOM(data);
+  const elements = dom.window.document.querySelectorAll('*[data-tests]');
+  for(const e of elements) {
+    const tests = e.dataset['tests'].split(',').map(e => e.trim());
+    for(const tid of tests) {
+      const [man, tt] = tid.split('#')
+      issueMap[man] ||= {};
+      issueMap[man][tt] ||= [];
+      issueMap[man][tt].push(`${specification}#${e.id}`);
+    }
+  }
 }
 
 // Add specification references to the manifest test entries.
@@ -211,7 +205,7 @@ async function generateHtml(jsonld, manifest, hpath) {
                   <dt>Purpose</dt><dd>${marked.parseInline(entry.purpose ?? '')}</dd></dt>
                   <dt>Input</dt><dd><a href="${entry.input}">${entry.input}</a></dd></dt>
                   <dt>References</dt><dd>${
-                    entry.specRefs.map((r, ndx) => `(<a href="../index.html#${r}">${ndx + 1}</a>)`).join(' ')
+                    entry.specRefs.map((r, ndx) => `(<a href="${r}">${ndx + 1}</a>)`).join(' ')
                   }</dd></dt>
                   <dt>Requirement</dt><dd><strong>${entry.req || 'must'}</strong></dd>
                   ${entry.context ? `<dt>Context</dt><dd><a href="${entry.context}">${entry.context}</a></dd>` : ''}
@@ -263,8 +257,14 @@ async function main(jsonld, html, issueMap) {
     });
 }
 
-// Create a map of tests to references by manifest.
-extractIssueMap("../index.html", (issueMap) => {
+// Create a map of tests to references from both specifications.
+const issueMap = {};
+await extractIssueMap("../index.html", "../index.html", issueMap);
+await extractIssueMap(
+  "../extended-profile/index.html",
+  "../extended-profile/index.html",
+  issueMap
+);
+
 // Convert manifest, which will recursively convert referenced manifests.
-  main("manifest.jsonld", "manifest.html", issueMap)
-});
+main("manifest.jsonld", "manifest.html", issueMap);
