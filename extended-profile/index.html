@@ -596,7 +596,10 @@
           will be in the <a>extended internal representation</a>.
         </p>
 
-        <p id="aa-json-aliases" data-tests="manifest.html#aa-cycles-1-positive">
+        <p id="aa-json-aliases" data-tests="
+          manifest.html#aa-cycles-1-positive,
+          manifest.html#aa-cycles-3-positive,
+          manifest.html#cr-well-formed-3-negative">
           When processing using the <a>YAML-LD Basic profile</a>,
           <a>alias nodes</a> are resolved by value to their target nodes.
           Anchor names and alias structure are not retained in the
@@ -851,7 +854,8 @@
                     the conversion result is mapped through the
                     <a data-cite="YAML#103-core-schema">YAML Core Schema</a>.
                   </li>
-                  <li id="cir-scalar-i18n">
+                  <li id="cir-scalar-i18n"
+                      data-tests="manifest.html#cir-scalar-i18n-1-positive">
                     Otherwise, if |t| resolves with a prefix of `https://www.w3.org/ns/i18n#`,
                     and the suffix <strong>does not</strong> contain
                     an underscore (`"_"`),
@@ -877,10 +881,7 @@
                   </li>
                 </ol>
               </li>
-              <li id="cir-scalar-json" data-tests="
-            manifest.html#cir-scalar-core-1-positive,
-            manifest.html#cir-scalar-i18n-1-positive,
-            manifest.html#cir-scalar-other-1-positive">
+              <li id="cir-scalar-json">
                 Otherwise, the conversion result is mapped through the
                 <a data-cite="YAML#103-core-schema">YAML Core Schema</a>.
               </li>
@@ -906,9 +907,7 @@
               and processing MUST end in failure.
             </p>
 
-            <p id="cir-alias-json" data-tests="
-          manifest.html#cr-well-formed-1-positive,
-          manifest.html#cr-well-formed-2-negative">
+            <p id="cir-alias-json">
               If an <a>alias node</a> is encountered when processing the
               <a>YAML representation graph</a>
               and the {{JsonLdOptions/processingMode}} option is not equal to `yaml-ld-extended`,
@@ -1145,12 +1144,6 @@
               <a>alias nodes</a>, as long as dereferencing these aliases
               does not result in a loop.
             </p>
-
-            <p>
-              A <a>YAML stream</a> MUST include only a single <a>YAML document</a>,
-              as the <a>JSON-LD internal representation</a> only supports
-              a single document model.
-            </p>
           </section>
 
           <section id="yaml-ld-extended-profile">
@@ -1180,13 +1173,6 @@
             <p>
               YAML-LD documents MAY use <a>alias nodes</a>,
               as long as dereferencing these aliases does not result in a loop.
-            </p>
-
-            <p>
-              As with the <a>YAML-LD Basic profile</a>,
-              a <a>YAML stream</a> MUST include only a single <a>YAML document</a>,
-              as the <a>JSON-LD extended internal representation</a> only supports
-              a single document model.
             </p>
 
             <p class="issue" data-number="79">
