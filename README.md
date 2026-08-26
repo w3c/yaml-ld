@@ -4,7 +4,9 @@
 # YAML-LD
 
 This repository describes the [YAML][] serialization of [JSON-LD 1.1][] 
-as developed by the [JSON for Linking Data Community Group](https://www.w3.org/community/json-ld/). The latest Editor's Draft of the Note can be [read directly](https://w3c.github.io/yaml-ld/).
+as developed by the [JSON for Linking Data Community Group](https://www.w3.org/community/json-ld/),
+and adopted by the [JSON-LD Working Group](https://www.w3.org/groups/wg/json-ld/).
+The latest Editor's Draft of the Note can be [read directly](https://w3c.github.io/yaml-ld/).
 
 The Use Cases and Requirements document can also be [read directly](https://w3c.github.io/yaml-ld/UCR/).
 
