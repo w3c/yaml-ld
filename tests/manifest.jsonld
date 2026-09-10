@@ -73,7 +73,7 @@
     {
       "@id": "#cir-scalar-i18n-1-positive",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "language-tagged string with i18n (ignored without extendedYAML)",
+      "name": "language-tagged string with internationalization (ignored without extendedYAML)",
       "purpose": "Otherwise, the conversion result is mapped through the YAML Core Schema.",
       "req": "must",
       "option": {"extendedYAML": true, "normative": false},
