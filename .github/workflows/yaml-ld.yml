@@ -1,10 +1,33 @@
-# This workflow validates the document for markup and examples.
-name: CI
+# This workflow builds and publishes the YAML-LD specification.
+name: Build and Publish YAML-LD
 
 on:
-  pull_request: {}
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/yaml-ld.yml'
+      - 'common/**'
+      - 'data/**'
+      - 'examples/**'
+      - 'images/**'
+      - 'scripts/**'
+      - 'index.html'
+      - 'Makefile'
+      - 'pyproject.toml'
+      - 'w3c.json'
   push:
     branches: [ main ]
+    paths:
+      - '.github/workflows/yaml-ld.yml'
+      - 'common/**'
+      - 'data/**'
+      - 'examples/**'
+      - 'images/**'
+      - 'scripts/**'
+      - 'index.html'
+      - 'Makefile'
+      - 'pyproject.toml'
+      - 'w3c.json'
 
 jobs:
   tests:
