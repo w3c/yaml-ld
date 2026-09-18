@@ -1,5 +1,9 @@
 # YAML-LD guidance
 
+## Git branches
+
+- Begin issue work with `gh issue develop <issue-id> --checkout`; use the resulting linked branch instead of choosing a name or prefix manually.
+
 ## Spec validation
 
 - When changing `index.html`, validate the rendered ReSpec output with `make spec`.
