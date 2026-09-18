@@ -1,0 +1,98 @@
+# This workflow builds and publishes the YAML-LD specification.
+name: Build and Publish YAML-LD
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/yaml-ld.yml'
+      - 'common/**'
+      - 'data/**'
+      - 'examples/**'
+      - 'images/**'
+      - 'scripts/**'
+      - 'index.html'
+      - 'Makefile'
+      - 'pyproject.toml'
+      - 'w3c.json'
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/yaml-ld.yml'
+      - 'common/**'
+      - 'data/**'
+      - 'examples/**'
+      - 'images/**'
+      - 'scripts/**'
+      - 'index.html'
+      - 'Makefile'
+      - 'pyproject.toml'
+      - 'w3c.json'
+
+jobs:
+  tests:
+    name: Build, Validate and Deploy
+    runs-on: ubuntu-latest
+    env:
+      HOME: ${{ github.workspace }}/.ci-home
+      XDG_CACHE_HOME: ${{ github.workspace }}/.ci-home/.cache
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+
+    - name: Install uv
+      run: pip install uv
+
+    - name: Install Python dependencies
+      run: uv venv && uv pip install .
+
+    - name: Cache iolanta and yaml-ld remote fetches
+      uses: actions/cache@v4
+      with:
+        path: .ci-home/.cache
+        key: iolanta-fetch-${{ runner.os }}-${{ hashFiles('pyproject.toml') }}
+        restore-keys: |
+          iolanta-fetch-${{ runner.os }}-
+
+    - name: Generate examples
+      run: make generate
+
+    - name: Check generated examples are up to date
+      run: git diff --exit-code examples/generated/ examples/mermaid/
+
+    # Setup Ruby environment  
+    #- name: Set up Ruby
+    #  uses: ruby/setup-ruby@v1
+    #  with:
+    #     ruby-version: 3.1
+
+    #- name: Install Gemfile bundles
+    #  run: bundle install --jobs 4 --retry 3
+
+    #- name: Build test manifests
+    #  run: (cd tests; make)
+
+    #- name: Build implementation report
+    #  run: (cd reports; bundle exec rake default)
+
+    # Validate via ReSpec
+    # See https://github.com/w3c/spec-prod/blob/main/docs/examples.md
+    - name: Generate ReSpec (all) and Deploy (main only)
+      uses: w3c/spec-prod@v2
+      with:
+        TOOLCHAIN: respec
+        SOURCE: index.html
+        # We would like to enable link validation here, but spec-prod's
+        # link-checker path currently fails upstream:
+        # https://github.com/w3c/spec-prod/issues/222
+        # VALIDATE_LINKS: true
+        VALIDATE_MARKUP: true
+        W3C_ECHIDNA_TOKEN: ${{ secrets.ECHIDNA_TOKEN }}
+        W3C_WG_DECISION_URL: https://www.w3.org/2026/04/01-json-ld-minutes.html#58ba
+        W3C_BUILD_OVERRIDE: |
+          specStatus: WD
+          shortName: yaml-ld-10
