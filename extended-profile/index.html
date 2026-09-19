@@ -90,9 +90,9 @@
       },
       "yaml-ld-10": {
         title: "YAML-LD 1.0",
-        href: "https://www.w3.org/TR/yaml-ld/",
+        href: "https://www.w3.org/TR/yaml-ld-10/",
         publisher: "W3C",
-        status: "W3C Recommendation",
+        status: "W3C Working Draft",
         authors: [
           "Gregg Kellogg",
           "Pierre-Antoine Champin",
@@ -332,11 +332,6 @@
     <p>This document uses the following terms as defined in external specifications
       and defines terms specific to this note.</p>
 
-    <p>A <dfn>YAML-LD document</dfn> is any <a>YAML document</a> from
-      which a conversion to [[JSON]] produces
-      a valid <a>JSON-LD document</a> which can be interpreted as [[LINKED-DATA]].
-    </p>
-
     <p>
       The term <dfn data-cite="RFC6838#" data-no-xref="">media type</dfn> is imported from [[RFC6838]].</p>
     <p>
@@ -417,9 +412,21 @@
     <p>The term <dfn data-cite="LINKED-DATA#" data-no-xref="">Linked Data</dfn> is imported from [[LINKED-DATA]].
     </p>
 
-    <p>The <dfn data-cite="yaml-ld-10#dfn-yaml-ld-basic-profile" data-no-xref="">YAML-LD Basic profile</dfn>
-      is defined in the <a href="../">YAML-LD specification</a>.
-      The <dfn>YAML-LD extended profile</dfn> is defined in this document.</p>
+    <p>
+      The following terms are defined in the <a href="../">YAML-LD specification</a>:
+    </p>
+    <ul>
+      <li>
+        <dfn data-cite="yaml-ld-10#dfn-yaml-ld-document" data-no-xref="" data-lt="YAML-LD document|YAML-LD documents">YAML-LD document</dfn>
+      </li>
+      <li>
+        <dfn data-cite="yaml-ld-10#dfn-yaml-ld-basic-profile" data-no-xref="">YAML-LD Basic profile</dfn>
+      </li>
+      <li>
+        <dfn data-cite="yaml-ld-10#dfn-yaml-ld-stream" data-no-xref="" data-lt="YAML-LD stream|YAML-LD streams">YAML-LD stream</dfn>
+      </li>
+    </ul>
+    <p>The <dfn>YAML-LD extended profile</dfn> is defined in this document.</p>
 
     <p>The <dfn data-lt="extended internal representation">JSON-LD extended internal representation</dfn>
       is defined in this document as an extension of the <a>internal representation</a>.</p>
@@ -446,12 +453,8 @@
         </p>
 
         <div class="ednote">
-          The Extended Profile is out of scope for the normative part
-          of this specification; we leave it for later versions,
-          pending feedback from the community and new knowledge gained
-          from practical experience of using the basic version
-          of YAML-LD that we will henceforth call
-          <strong>Basic Profile of YAML-LD</strong>.
+          This document specifies the Extended YAML-LD Profile as a W3C Group Note.
+          The YAML-LD Basic profile remains defined in [[yaml-ld-10]].
         </div>
 
         <section>
@@ -484,7 +487,6 @@
               <pre
                 class="example yaml"
                 data-transform="updateExample"
-                data-result-for="YAML-LD: Tags"
                 data-content-type="application/ld+json"
                 title="YAML-LD with tags"
               >
@@ -569,26 +571,15 @@
           without loss of semantic information.
         </p>
 
-        <p id="cr-well-formed" data-tests="
-        manifest.html#cr-well-formed-1-positive,
-        manifest.html#cr-well-formed-2-negative,
+        <p id="cr-identified-aliases" data-tests="
         manifest.html#cr-well-formed-3-negative">
-          As [[YAML]] has well-defined representation requirements,
-          all YAML-LD streams MUST form a
-          <a data-cite="YAML#well-formed-streams-and-identified-aliases">
-            well-formed stream
-          </a>
-          and use <a>alias node</a> defined by a previous <a>node</a>
-          with a corresponding <a data-lt="node anchor">anchor</a>;
+          The <a>YAML-LD extended profile</a> allows full use of
+          <a>anchor names</a> and <a>alias nodes</a>.
+          YAML-LD documents MUST use <a>alias nodes</a> defined by a previous
+          <a>node</a> with a corresponding <a data-lt="node anchor">anchor</a>;
           otherwise, a
           <a data-cite="JSON-LD11-API#dom-jsonlderrorcode-loading-document-failed">loading-document-failed</a>
-          error has been detected and processing is aborted.
-        </p>
-
-        <p>
-          The <a>YAML-LD extended profile</a> allows full use of
-          <a>anchor names</a> and <a>alias nodes</a> subject to
-          the requirements described above in this section.
+          error MUST be detected, and processing aborted.
         </p>
 
         <p id="cir-extended" data-tests="">
@@ -601,9 +592,8 @@
           manifest.html#aa-cycles-3-positive,
           manifest.html#cr-well-formed-3-negative">
           When processing using the <a>YAML-LD Basic profile</a>,
-          <a>alias nodes</a> are resolved by value to their target nodes.
-          Anchor names and alias structure are not retained in the
-          JSON-LD representation.
+          <a>alias nodes</a> are resolved as specified in
+          <a data-cite="yaml-ld-10#aa-json-aliases">YAML-LD 1.0</a>.
         </p>
 
 
@@ -669,42 +659,29 @@
             So that the resulting YAML is valid YAML-LD, resolving to the same graph as the original JSON-LD.
           </p>
 
-          <section id="convert-stream" class="algorithm">
+          <section id="convert-stream">
             <h3>Converting a <a>YAML stream</a></h3>
 
-            <p>A <a>YAML stream</a> is composed of zero or more <a>YAML documents</a>.</p>
+            <p>
+              A <a>YAML-LD stream</a> MAY contain more than one
+              <a>YAML-LD document</a>, as specified in
+              <a data-cite="yaml-ld-10#streams">Streams</a>.
+            </p>
 
-            <ol>
-              <li>Set |stream content| to an empty <a>array</a>.</li>
-              <li>If the <a>stream</a> is empty,
-                set |stream content| to an empty <a>array</a>.
-              </li>
-              <li>Otherwise, if the <a>stream</a> contains a single <a>YAML document</a>,
-                set |stream content| the result of
-                <a href="#convert-document" class="sectionRef"></a>.
-              </li>
-              <li>Otherwise: for each |document| in the <a>stream</a>:
-                <ol>
-                  <li>Set |doc| to the result of <a href="#convert-document" class="sectionRef"></a> for |document|.</li>
-                  <li>If |doc| is an <a>array</a>,
-                    merge it to the end of |stream content|.
-                  </li>
-                  <li>Otherwise, append |doc| to |stream content|</li>
-                </ol>
-                <div class="ednote">
-                  This step is inconsistent with other statements about processing each
-                  document separately, resulting in some other stream of JSON-LD output
-                  (i.e., something like <em>NDJSOND-LD</em>).
-                  Also, presumably an empty stream would result in either
-                  an empty <em>NDJSON-LD</em> document, or an empty [[JSON-LD]] document.
-                </div>
-              </li>
-              <li>The conversion result is |stream content|.</li>
-            </ol>
+            <p>
+              Converting a <a>YAML stream</a> MUST apply
+              <a data-cite="yaml-ld-10#stream-processing">Stream Processing</a>
+              for document cardinality, the default
+              <a data-cite="JSON-LD11-API#dom-jsonldoptions-extractallscripts">`extractAllScripts`</a>
+              value of <code>false</code>, empty-stream errors,
+              and the shape of the JSON-LD [=internal representation=].
+              Each constructed value is the result of
+              <a href="#convert-document" class="sectionRef"></a>
+              for the corresponding <a>YAML document</a>.
+            </p>
 
             <p id="cir-stream" data-tests="
           manifest.html#cr-utf8-2-negative,
-          manifest.html#cr-well-formed-2-negative,
           manifest.html#aa-cycles-2-negative,
           manifest.html#cr-well-formed-3-negative">
               Any error reported in a recursive processing step MUST result
@@ -747,7 +724,7 @@
                 </ul>
 
                 <div class="note">
-                  A <a>node</a> may be of another type, but this is incompatilbe
+                  A <a>node</a> may be of another type, but this is incompatible
                   with JSON-LD, where the top-most node must be either an
                   <a>array</a> or <a>map</a>.
                 </div>
@@ -757,7 +734,6 @@
 
             <p id="cir-document" data-tests="
           manifest.html#cr-utf8-2-negative,
-          manifest.html#cr-well-formed-2-negative,
           manifest.html#aa-cycles-2-negative,
           manifest.html#cr-well-formed-3-negative">
               Any error reported in a recursive processing step MUST result
@@ -831,7 +807,6 @@
 
             <p id="cir-mapping" data-tests="
           manifest.html#cr-utf8-2-negative,
-          manifest.html#cr-well-formed-2-negative,
           manifest.html#aa-cycles-2-negative,
           manifest.html#cr-well-formed-3-negative">
               Any error reported in a recursive processing step MUST result
@@ -850,7 +825,7 @@
                   <li id="cir-scalar-core" data-tests="
                 manifest.html#cir-scalar-core-1-positive,
                 manifest.html#cir-scalar-core-2-positive">
-                    If |t| resolves with a prefix of `tag:yaml.org.2002:`,
+                    If |t| resolves with a prefix of `tag:yaml.org,2002:`,
                     the conversion result is mapped through the
                     <a data-cite="YAML#103-core-schema">YAML Core Schema</a>.
                   </li>
@@ -970,24 +945,6 @@
             they not change the meaning of the encoded scalars.
           </p>
 
-          <!-- fixme: Identical to "Extended YAML-LD with tags" example -->
-
-          <pre class="example yaml"
-               data-transform="updateExample"
-               data-result-for="YAML-LD with multiple documents"
-               data-content-type="application/ld+json"
-               title="Serialized representation of the extended internal representation">
-      <!--
-      %TAG !xsd! http://www.w3.org/2001/XMLSchema%23
-      ---
-      "@context": https://schema.org
-      "@id": https://github.com/gkellogg
-      "@type": Person
-      name: !xsd!string Gregg Kellogg
-      birthDate: !xsd!date 1970-01-01
-      -->
-      </pre>
-
           <p class="note">
             Although allowed within the YAML Grammar, some current YAML parsers
             do not allow the use of `"#"` within a tag URI. Substituting
@@ -1014,8 +971,10 @@
         </pre>
           </div>
 
-          <p>See <a href="#example-serialized-representation-of-the-extended-internal-representation"></a> for an example
-            of serializing the extended internal representation.</p>
+          <p>
+            See <a href="#tags-to-types"></a> for a <code>%TAG</code> serialization
+            illustration of the extended internal representation.
+          </p>
 
           <section id="convert-ir" class="algorithm">
             <h3>Converting From the Internal Representation</h3>
@@ -1116,33 +1075,13 @@
             <h3>YAML-LD Basic Profile</h3>
 
             <p>
-              The <a>YAML-LD Basic profile</a>
-              is based on the <a data-cite="YAML#103-core-schema">YAML Core Schema</a>,
-              which interprets only a limited set of <a>node tags</a>.
-              <a>YAML scalars</a> with <a>node tags</a> outside of the defined range
-              SHOULD be avoided and MUST be converted to the closest
-              scalar type from the <a data-cite="YAML#103-core-schema">YAML Core Schema</a>,
-              if found.
-              See <a href="#convert-scalar" class="sectionRef"></a>
-              for specifics.
-            </p>
-
-            <p id="jp-utf8" data-tests="
-          manifest.html#cr-utf8-1-positive,
-          manifest.html#cr-utf8-2-negative">
-              Although YAML supports several additional encodings,
-              YAML-LD streams in the <a>YAML-LD Basic Profile</a>
-              MUST be encoded in UTF-8.
-            </p>
-
-            <p>
-              Keys used in a <a>YAML mapping</a> MUST be <a>strings</a>.
-            </p>
-
-            <p>
-              YAML-LD documents MAY include <a>node anchors</a> and
-              <a>alias nodes</a>, as long as dereferencing these aliases
-              does not result in a loop.
+              The <a>YAML-LD Basic profile</a> is specified in [[yaml-ld-10]].
+              See
+              <a data-cite="yaml-ld-10#encoding">Encoding</a>,
+              <a data-cite="yaml-ld-10#mapping-key-types">Mapping Key Types</a>,
+              <a data-cite="yaml-ld-10#aa-json-aliases">alias handling</a>,
+              <a data-cite="yaml-ld-10#streams">Streams</a>, and
+              <a data-cite="yaml-ld-10#stream-processing">Stream Processing</a>.
             </p>
           </section>
 
@@ -1160,13 +1099,13 @@
             <p id="ep-utf8" data-tests="
           manifest.html#cr-utf8-1-positive,
           manifest.html#cr-utf8-2-negative">
-              As with the <a>YAML-LD Basic profile</a>,
+              As specified in <a data-cite="yaml-ld-10#encoding">Encoding</a>,
               YAML-LD streams in the <a>YAML-LD extended profile</a>
               MUST be encoded in UTF-8.
             </p>
 
             <p>
-              As with the <a>YAML-LD Basic profile</a>,
+              As specified in <a data-cite="yaml-ld-10#mapping-key-types">Mapping Key Types</a>,
               keys used in a <a>YAML mapping</a> MUST be <a>strings</a>.
             </p>
 
@@ -1649,7 +1588,6 @@
                 <pre
                   class="example yaml"
                   data-transform="updateExample"
-                  data-result-for="YAML-LD: Tags"
                   data-content-type="application/ld+json"
                   title="Extended YAML-LD with tags"
                 >
@@ -1666,7 +1604,7 @@
                 <pre
                   class="example yaml"
                   data-transform="updateExample"
-                  data-result-for="YAML-LD: Tags"
+                  data-result-for="Extended YAML-LD with tags"
                   data-content-type="application/ld+json"
                   title="Basic YAML-LD"
                 >
