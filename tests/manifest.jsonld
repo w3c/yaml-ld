@@ -63,7 +63,7 @@
     {
       "@id": "#cir-scalar-core-1-positive",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "tag:yaml.org.2002 scalars",
+      "name": "tag:yaml.org,2002 scalars",
       "purpose": "Otherwise, the conversion result is mapped through the YAML Core Schema.",
       "req": "must",
       "option": {"extendedYAML": true, "normative": false},
@@ -174,8 +174,8 @@
     {
       "@id": "#cir-scalar-core-2-positive",
       "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
-      "name": "tag:yaml.org.2002 scalars (RDF)",
-      "purpose": "If t resolves with a prefix of `tag:yaml.org.2002:`, the conversion result is mapped through the YAML Core Schema.",
+      "name": "tag:yaml.org,2002 scalars (RDF)",
+      "purpose": "If t resolves with a prefix of `tag:yaml.org,2002:`, the conversion result is mapped through the YAML Core Schema.",
       "req": "must",
       "option": {"extendedYAML": true, "normative": false},
       "input": "cases/cir-scalar-core-2-positive-in.yamlld",
