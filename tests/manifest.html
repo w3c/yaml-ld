@@ -240,13 +240,13 @@
               </dd>
 
               <dt id="cir-scalar-core-1-positive">
-                Test cir-scalar-core-1-positive tag:yaml.org.2002 scalars
+                Test cir-scalar-core-1-positive tag:yaml.org,2002 scalars
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#cir-scalar-core-1-positive</dd></dt>
                   <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>tag:yaml.org.2002 scalars</dd></dt>
+                  <dt>Name</dt><dd>tag:yaml.org,2002 scalars</dd></dt>
                   <dt>Purpose</dt><dd>Otherwise, the conversion result is mapped through the YAML Core Schema.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/cir-scalar-core-1-positive-in.yamlld">cases/cir-scalar-core-1-positive-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>) (<a href="../extended-profile/index.html#cir-scalar-core">2</a>)</dd></dt>
@@ -341,7 +341,7 @@
                   <dt>Name</dt><dd>UTF-8 BOM</dd></dt>
                   <dt>Purpose</dt><dd>A YAML-LD stream MUST be encoded in UTF-8, to ensure interoperability with [[JSON]].</dd></dt>
                   <dt>Input</dt><dd><a href="cases/cr-utf8-1-positive-in.yamlld">cases/cr-utf8-1-positive-in.yamlld</a></dd></dt>
-                  <dt>References</dt><dd>(<a href="../index.html#cr-utf8">1</a>) (<a href="../extended-profile/index.html#jp-utf8">2</a>) (<a href="../extended-profile/index.html#ep-utf8">3</a>)</dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#cr-utf8">1</a>) (<a href="../extended-profile/index.html#ep-utf8">2</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
                   
                   
@@ -361,7 +361,7 @@
                   <dt>Name</dt><dd>UTF-16 BOM</dd></dt>
                   <dt>Purpose</dt><dd>A YAML-LD stream MUST be encoded in UTF-8, to ensure interoperability with [[JSON]].</dd></dt>
                   <dt>Input</dt><dd><a href="cases/cr-utf8-2-negative-in.yamlld">cases/cr-utf8-2-negative-in.yamlld</a></dd></dt>
-                  <dt>References</dt><dd>(<a href="../index.html#cr-utf8">1</a>) (<a href="../extended-profile/index.html#cir-stream">2</a>) (<a href="../extended-profile/index.html#cir-document">3</a>) (<a href="../extended-profile/index.html#cir-mapping">4</a>) (<a href="../extended-profile/index.html#jp-utf8">5</a>) (<a href="../extended-profile/index.html#ep-utf8">6</a>)</dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#cr-utf8">1</a>) (<a href="../extended-profile/index.html#cir-stream">2</a>) (<a href="../extended-profile/index.html#cir-document">3</a>) (<a href="../extended-profile/index.html#cir-mapping">4</a>) (<a href="../extended-profile/index.html#ep-utf8">5</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
                   
                   
@@ -381,7 +381,7 @@
                   <dt>Name</dt><dd>Load a well-formed document</dd></dt>
                   <dt>Purpose</dt><dd>All YAML-LD streams MUST form a well-formed stream.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/cr-well-formed-1-positive-in.yamlld">cases/cr-well-formed-1-positive-in.yamlld</a></dd></dt>
-                  <dt>References</dt><dd>(<a href="../index.html#cr-well-formed">1</a>) (<a href="../extended-profile/index.html#cr-well-formed">2</a>)</dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#cr-well-formed">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
                   
                   
@@ -401,7 +401,7 @@
                   <dt>Name</dt><dd>Fail to load a non-well-formed stream</dd></dt>
                   <dt>Purpose</dt><dd>All YAML-LD streams MUST form a well-formed stream.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/cr-well-formed-2-negative-in.yamlld">cases/cr-well-formed-2-negative-in.yamlld</a></dd></dt>
-                  <dt>References</dt><dd>(<a href="../index.html#cr-well-formed">1</a>) (<a href="../extended-profile/index.html#cr-well-formed">2</a>) (<a href="../extended-profile/index.html#cir-stream">3</a>) (<a href="../extended-profile/index.html#cir-document">4</a>) (<a href="../extended-profile/index.html#cir-mapping">5</a>)</dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#cr-well-formed">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
                   
                   
@@ -492,14 +492,14 @@
               </dd>
 
               <dt id="cir-scalar-core-2-positive">
-                Test cir-scalar-core-2-positive tag:yaml.org.2002 scalars (RDF)
+                Test cir-scalar-core-2-positive tag:yaml.org,2002 scalars (RDF)
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#cir-scalar-core-2-positive</dd></dt>
                   <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ToRDFTest</dd>
-                  <dt>Name</dt><dd>tag:yaml.org.2002 scalars (RDF)</dd></dt>
-                  <dt>Purpose</dt><dd>If t resolves with a prefix of <code>tag:yaml.org.2002:</code>, the conversion result is mapped through the YAML Core Schema.</dd></dt>
+                  <dt>Name</dt><dd>tag:yaml.org,2002 scalars (RDF)</dd></dt>
+                  <dt>Purpose</dt><dd>If t resolves with a prefix of <code>tag:yaml.org,2002:</code>, the conversion result is mapped through the YAML Core Schema.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/cir-scalar-core-2-positive-in.yamlld">cases/cir-scalar-core-2-positive-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#yaml-core-schema-requirement">1</a>) (<a href="../extended-profile/index.html#cir-scalar-core">2</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
@@ -549,7 +549,7 @@
                   <dt>Name</dt><dd>Undefined alias</dd></dt>
                   <dt>Purpose</dt><dd>All document MUST use node aliases defined by a previous node.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/cr-well-formed-3-negative-in.yamlld">cases/cr-well-formed-3-negative-in.yamlld</a></dd></dt>
-                  <dt>References</dt><dd>(<a href="../index.html#cr-well-formed">1</a>) (<a href="../index.html#aa-json-aliases">2</a>) (<a href="../extended-profile/index.html#cr-well-formed">3</a>) (<a href="../extended-profile/index.html#aa-json-aliases">4</a>) (<a href="../extended-profile/index.html#cir-stream">5</a>) (<a href="../extended-profile/index.html#cir-document">6</a>) (<a href="../extended-profile/index.html#cir-mapping">7</a>)</dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#cr-well-formed">1</a>) (<a href="../index.html#aa-json-aliases">2</a>) (<a href="../extended-profile/index.html#cr-identified-aliases">3</a>) (<a href="../extended-profile/index.html#aa-json-aliases">4</a>) (<a href="../extended-profile/index.html#cir-stream">5</a>) (<a href="../extended-profile/index.html#cir-document">6</a>) (<a href="../extended-profile/index.html#cir-mapping">7</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
                   
                   
