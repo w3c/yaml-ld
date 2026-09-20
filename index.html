@@ -118,6 +118,20 @@
           "Philippe Le Hegaret",
         ],
       },
+      // SpecRef's RFC9512 href is rfc-editor.org/info/rfc9512/, which does not
+      // expose #section-N fragments. Point data-cite targets at the RFC HTML.
+      RFC9512: {
+        title: "YAML Media Type",
+        href: "https://www.rfc-editor.org/rfc/rfc9512.html",
+        publisher: "IETF",
+        date: "February 2024",
+        status: "Informational",
+        authors: [
+          "R. Polli",
+          "E. Wilde",
+          "E. Aro",
+        ],
+      },
       // Default [[YAML]] (SpecRef) uses yaml.org/spec/1.2/spec.html, which now redirects to
       // spec/1.2-old/ — fragment ids there do not match this document's data-cite targets (e.g.
       // #node-anchors). YAML-LD targets YAML 1.2.2; point all YAML#… links there.
@@ -1453,7 +1467,23 @@ enum YamlLdErrorCode {
     <h2>Security Considerations</h2>
 
     <p>See <a data-cite="JSON-LD11#iana-security">Security considerations in JSON-LD 1.1</a>
-       and <code>+yaml</code> structured syntax suffix.</p>
+       and
+       <a data-cite="RFC9512#section-4">Security Considerations</a> [[RFC9512]].
+       The <code>+yaml</code> structured syntax suffix uses the same
+       security considerations as <code>application/yaml</code>
+       (<a data-cite="RFC9512#section-2.2">The +yaml Structured Syntax Suffix</a>).</p>
+    <p>
+      Aliases can expand a compact YAML graph into a much larger JSON-LD tree,
+      including when the graph is acyclic
+      (see <a data-cite="RFC9512#section-4.2">Resource Exhaustion</a>).
+      See also <a href="#aa-cycles">cyclic YAML graphs</a>.
+    </p>
+    <p>
+      YAML tags can trigger unexpected code execution in some parsers,
+      including language constructors such as <code>!!python/object</code>
+      (see <a data-cite="RFC9512#section-4.1">Arbitrary Code Execution</a>
+      and <a href="#node-tags">node tags</a>).
+    </p>
   </section>
 
   <section id="privacy" class="informative">
@@ -1467,8 +1497,9 @@ enum YamlLdErrorCode {
 
     <p>
       For general interoperability considerations on the serialization of
-      <a>JSON documents</a> in [[YAML]], see YAML
-      and the Interoperability considerations of the <code>+yaml</code> structured syntax suffix.
+      <a>JSON documents</a> in YAML, see [[YAML]]
+      and
+      <a data-cite="RFC9512#section-3">Interoperability Considerations</a> [[RFC9512]].
     </p>
     <p>
       The considerations and analysis provided here, including interoperability
