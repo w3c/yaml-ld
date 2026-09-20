@@ -1,4 +1,4 @@
-# tag:yaml.org.2002 scalars
+# tag:yaml.org,2002 scalars
 "@context":
   "@vocab": http://example.com/
   values:
