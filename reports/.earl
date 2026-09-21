@@ -1,0 +1,12 @@
+---
+:format: :json
+:manifest: manifests.nt
+:bibRef: ! '[[yaml-ld]]'
+:name: YAML-LD
+:query: |
+  PREFIX mf: <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#>
+  SELECT ?uri ?testAction ?manUri
+  WHERE {
+    ?uri mf:action ?testAction .
+    ?manUri a mf:Manifest .
+  }
