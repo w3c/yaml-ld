@@ -1,0 +1,672 @@
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix earl: <http://www.w3.org/ns/earl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://rubygems.org/gems/yaml-ld> a doap:Project, earl:TestSubject, earl:Software ;
+  doap:name "YAML_LD"^^xsd:string ;
+  doap:shortdesc "YAML-LD support for Ruby."@en ;
+  doap:description "YAML_LD parses and serializes YAML-LD by transforming to and from JSON-LD."@en ;
+  doap:homepage <https://github.com/ruby-rdf/yaml-ld> ;
+  doap:bug-database <https://github.com/ruby-rdf/yaml-ld/issues> ;
+  doap:implements <https://www.w3.org/TR/yaml-ld/> ;
+  doap:license <https://unlicense.org/1.0/> ;
+  doap:programming-language "Ruby" ;
+  doap:developer <https://greggkellogg.net/foaf#me> ;
+  doap:release [
+    doap:name "yaml-ld-0.0.3+55c8c6e" ;
+    doap:revision "55c8c6ef2960a03ecca7ade5a5810e2f25699086" ;
+    doap:created "2025-03-11"^^xsd:date
+  ] .
+
+<https://greggkellogg.net/foaf#me> a foaf:Person ;
+  foaf:name "Gregg Kellogg"^^xsd:string .
+
+<https://github.com/anatoly-scherbakov> a foaf:Person, earl:Assertor ;
+  foaf:name "Anatoly Scherbakov"^^xsd:string ;
+  foaf:homepage <https://github.com/anatoly-scherbakov> .
+
+<https://w3c.github.io/yaml-ld/reports/ruby-yaml-ld-earl.ttl>
+  foaf:primaryTopic <https://rubygems.org/gems/yaml-ld> ;
+  dc:issued "2026-09-21T23:41:47+04:00"^^xsd:dateTime ;
+  foaf:maker <https://github.com/anatoly-scherbakov> .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-document-content-1-negative> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-1-negative> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-2-negative> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-3-negative> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-4-negative> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-5-negative> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-1-positive> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-i18n-1-positive> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-1-positive> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-comments-1-positive> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-1-positive> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-2-negative> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-1-positive> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-2-negative> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-1-positive> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-2-negative> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-3-positive> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-information-1-positive> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-2-positive> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-2-positive> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-3-negative> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#html-and-yaml-streams> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#mixed-script-types> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-needed> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-not-needed> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#two-documents-from-stream> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#one-document-from-stream> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#local-json-ld-context> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-json-ld-context> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#local-yaml-ld-context> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-yaml-ld-context> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#flatten> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#frame-t0001> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:passed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true-title> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false-upper> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-null> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-tilde> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-upper> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-decimal> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-octal> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-hex> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-basic> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-scientific> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-date-ymd> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-inf-negative> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-neg-inf-negative> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-plus-inf-negative> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-negative> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-mixed-negative> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-upper-negative> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-no> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-on> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-off> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-title> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
+
+[ a earl:Assertion ;
+  earl:assertedBy <https://github.com/anatoly-scherbakov> ;
+  earl:subject <https://rubygems.org/gems/yaml-ld> ;
+  earl:test <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-upper> ;
+  earl:result [
+    a earl:TestResult ;
+    earl:outcome earl:failed ;
+    dc:date "2026-09-21T23:41:47+04:00"^^xsd:dateTime
+  ] ;
+  earl:mode earl:automatic ] .
