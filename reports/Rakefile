@@ -1,0 +1,19 @@
+task default: ["manifests.nt"]
+
+desc "Create the YAML-LD test manifest graph"
+file "manifests.nt" do
+  require "rdf"
+  require "json/ld"
+  require "rdf/ntriples"
+
+  graph = RDF::Graph.new do |repository|
+    repository.load(
+      "https://w3c.github.io/yaml-ld/tests/manifest.jsonld",
+      unique_bnodes: true
+    )
+  end
+
+  RDF::NTriples::Writer.open(
+    "manifests.nt", unique_bnodes: true, validate: false
+  ) { |writer| writer << graph }
+end
