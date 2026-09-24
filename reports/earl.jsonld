@@ -1,0 +1,2006 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "http://www.w3.org/ns/earl#",
+    "foaf:homepage": {
+      "@type": "@id"
+    },
+    "dc": "http://purl.org/dc/terms/",
+    "doap": "http://usefulinc.com/ns/doap#",
+    "earl": "http://www.w3.org/ns/earl#",
+    "mf": "http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "assertedBy": {
+      "@type": "@id"
+    },
+    "assertions": {
+      "@id": "mf:report",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "bibRef": {
+      "@id": "dc:bibliographicCitation"
+    },
+    "created": {
+      "@id": "doap:created",
+      "@type": "xsd:date"
+    },
+    "description": {
+      "@id": "rdfs:comment",
+      "@language": "en"
+    },
+    "developer": {
+      "@id": "doap:developer",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "doapDesc": {
+      "@id": "doap:description",
+      "@language": "en"
+    },
+    "entries": {
+      "@id": "mf:entries",
+      "@type": "@id",
+      "@container": "@list",
+      "@context": {
+        "assertions": {
+          "@reverse": "earl:test",
+          "@type": "@id",
+          "@container": "@set"
+        }
+      }
+    },
+    "generatedBy": {
+      "@type": "@id"
+    },
+    "homepage": {
+      "@id": "doap:homepage",
+      "@type": "@id"
+    },
+    "language": {
+      "@id": "doap:programming-language"
+    },
+    "license": {
+      "@id": "doap:license",
+      "@type": "@id"
+    },
+    "mode": {
+      "@type": "@id"
+    },
+    "name": {
+      "@id": "doap:name"
+    },
+    "outcome": {
+      "@type": "@id"
+    },
+    "release": {
+      "@id": "doap:release",
+      "@type": "@id"
+    },
+    "revision": {
+      "@id": "doap:revision"
+    },
+    "shortdesc": {
+      "@id": "doap:shortdesc",
+      "@language": "en"
+    },
+    "subject": {
+      "@type": "@id"
+    },
+    "test": {
+      "@type": "@id"
+    },
+    "testAction": {
+      "@id": "mf:action",
+      "@type": "@id"
+    },
+    "testResult": {
+      "@id": "mf:result",
+      "@type": "@id"
+    },
+    "title": {
+      "@id": "mf:name"
+    },
+    "testSubjects": {
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "xsd": {
+      "@id": "http://www.w3.org/2001/XMLSchema#"
+    }
+  },
+  "@id": "",
+  "@type": [
+    "Software",
+    "doap:Project"
+  ],
+  "name": "YAML-LD",
+  "bibRef": "[[yaml-ld]]",
+  "generatedBy": {
+    "@id": "https://rubygems.org/gems/earl-report",
+    "@type": [
+      "Software",
+      "doap:Project"
+    ],
+    "name": "earl-report",
+    "shortdesc": "Earl Report summary generator",
+    "doapDesc": "EarlReport generates HTML+RDFa rollups of multiple EARL reports",
+    "homepage": "https://github.com/gkellogg/earl-report",
+    "language": "Ruby",
+    "license": "http://unlicense.org",
+    "release": {
+      "@id": "https://github.com/gkellogg/earl-report/tree/0.9.1",
+      "@type": "doap:Version",
+      "name": "earl-report-0.9.1",
+      "doap:created": {
+        "@type": "http://www.w3.org/2001/XMLSchema#date",
+        "@value": "2026-09-21"
+      },
+      "revision": "0.9.1"
+    },
+    "developer": [
+      {
+        "@id": "https://greggkellogg.net/foaf#me",
+        "@type": "foaf:Person",
+        "foaf:name": "Gregg Kellogg"
+      }
+    ]
+  },
+  "assertions": [
+    "ruby-yaml-ld-earl.ttl"
+  ],
+  "testSubjects": [
+    {
+      "@id": "https://rubygems.org/gems/yaml-ld",
+      "@type": [
+        "doap:Project",
+        "TestSubject",
+        "Software"
+      ],
+      "name": "YAML_LD",
+      "developer": [
+        {
+          "@id": "https://greggkellogg.net/foaf#me",
+          "@type": "foaf:Person",
+          "foaf:name": "Gregg Kellogg"
+        }
+      ],
+      "homepage": "https://github.com/ruby-rdf/yaml-ld",
+      "doapDesc": "YAML_LD parses and serializes YAML-LD by transforming to and from JSON-LD.",
+      "language": "Ruby",
+      "release": {
+        "@id": "_:b16",
+        "revision": "55c8c6ef2960a03ecca7ade5a5810e2f25699086"
+      }
+    }
+  ],
+  "entries": [
+    {
+      "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest",
+      "@type": [
+        "mf:Manifest",
+        "Report"
+      ],
+      "title": "Tests using YAML-LD JSON Profile",
+      "rdfs:comment": "These tests implement the requirements for the [YAML-LD JSON Profile](https://w3c.github.io/yaml-ld/#yaml-ld-json-profile).",
+      "https://w3c.github.io/json-ld-api/tests/vocab#baseIri": "https://w3c.github.io/yaml-ld/tests/",
+      "entries": [
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-document-content-1-negative",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Document with scalar content.",
+          "rdfs:comment": "Document content MUST be sequence or mapping.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/cir-document-content-1-negative-in.yamlld",
+          "mf:result": "loading document failed",
+          "assertions": [
+            {
+              "@id": "_:b17",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-document-content-1-negative",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b18",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-1-negative",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Mapping with integer key.",
+          "rdfs:comment": "A mapping key MUST be a string.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/mapping-key-must-be-string/integer.yamlld",
+          "mf:result": "mapping-key-error",
+          "assertions": [
+            {
+              "@id": "_:b19",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-1-negative",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b20",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-2-negative",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Mapping with an object key.",
+          "rdfs:comment": "A mapping key MUST be a string.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/mapping-key-must-be-string/object.yamlld",
+          "mf:result": "mapping-key-error",
+          "assertions": [
+            {
+              "@id": "_:b21",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-2-negative",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b22",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-3-negative",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Mapping with a list key.",
+          "rdfs:comment": "A mapping key MUST be a string.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/mapping-key-must-be-string/list.yamlld",
+          "mf:result": "mapping-key-error",
+          "assertions": [
+            {
+              "@id": "_:b23",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-3-negative",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b24",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-4-negative",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Mapping with a float key.",
+          "rdfs:comment": "A mapping key MUST be a string.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/mapping-key-must-be-string/float.yamlld",
+          "mf:result": "mapping-key-error",
+          "assertions": [
+            {
+              "@id": "_:b25",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-4-negative",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b26",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-5-negative",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Mapping with a null key.",
+          "rdfs:comment": "A mapping key MUST be a string.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/mapping-key-must-be-string/null.yamlld",
+          "mf:result": "mapping-key-error",
+          "assertions": [
+            {
+              "@id": "_:b27",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-5-negative",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b28",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-1-positive",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "tag:yaml.org.2002 scalars",
+          "rdfs:comment": "Otherwise, the conversion result is mapped through the YAML Core Schema.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "https://w3c.github.io/json-ld-api/tests/vocab#option": {
+            "@id": "_:b0",
+            "https://w3c.github.io/json-ld-api/tests/vocab#extendedYAML": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "true"
+            },
+            "https://w3c.github.io/json-ld-api/tests/vocab#normative": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "false"
+            }
+          },
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-core-1-positive-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-core-1-positive-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b29",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-1-positive",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b30",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-i18n-1-positive",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "language-tagged string with internationalization (ignored without extendedYAML)",
+          "rdfs:comment": "Otherwise, the conversion result is mapped through the YAML Core Schema.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "https://w3c.github.io/json-ld-api/tests/vocab#option": {
+            "@id": "_:b1",
+            "https://w3c.github.io/json-ld-api/tests/vocab#extendedYAML": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "true"
+            },
+            "https://w3c.github.io/json-ld-api/tests/vocab#normative": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "false"
+            }
+          },
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-i18n-1-positive-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-i18n-1-positive-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b31",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-i18n-1-positive",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b32",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-1-positive",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Scalars with other node tags (ignored without extendedYAML)",
+          "rdfs:comment": "Otherwise, the conversion result is mapped through the YAML Core Schema.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "https://w3c.github.io/json-ld-api/tests/vocab#option": {
+            "@id": "_:b2",
+            "https://w3c.github.io/json-ld-api/tests/vocab#extendedYAML": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "true"
+            },
+            "https://w3c.github.io/json-ld-api/tests/vocab#normative": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "false"
+            }
+          },
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-other-1-positive-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-other-1-positive-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b33",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-1-positive",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b34",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-comments-1-positive",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Various comment forms",
+          "rdfs:comment": "Comments are white space.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/cr-comments-1-positive-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/cr-comments-1-positive-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b35",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-comments-1-positive",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b36",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-1-positive",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "UTF-8 BOM",
+          "rdfs:comment": "A YAML-LD stream MUST be encoded in UTF-8, to ensure interoperability with [[JSON]].",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/cr-utf8-1-positive-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/cr-utf8-1-positive-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b37",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-1-positive",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b38",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-2-negative",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "UTF-16 BOM",
+          "rdfs:comment": "A YAML-LD stream MUST be encoded in UTF-8, to ensure interoperability with [[JSON]].",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/cr-utf8-2-negative-in.yamlld",
+          "mf:result": "invalid encoding",
+          "assertions": [
+            {
+              "@id": "_:b39",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-2-negative",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b40",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-1-positive",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Load a well-formed document",
+          "rdfs:comment": "All YAML-LD streams MUST form a well-formed stream.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/cr-well-formed-1-positive-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/cr-well-formed-1-positive-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b41",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-1-positive",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b42",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-2-negative",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Fail to load a non-well-formed stream",
+          "rdfs:comment": "All YAML-LD streams MUST form a well-formed stream.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/cr-well-formed-2-negative-in.yamlld",
+          "mf:result": "loading document failed",
+          "assertions": [
+            {
+              "@id": "_:b43",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-2-negative",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b44",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-1-positive",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Use of anchors and aliases",
+          "rdfs:comment": "A YAML-LD document MAY contain anchored nodes and alias nodes.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "may",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/aa-cycles-1-positive-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/aa-cycles-1-positive-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b45",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-1-positive",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b46",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-2-negative",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Anchors and aliases with cycles",
+          "rdfs:comment": "A YAML-LD document ... MUST NOT contain cycles.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/aa-cycles-2-negative-in.yamlld",
+          "mf:result": "loading document failed",
+          "assertions": [
+            {
+              "@id": "_:b47",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-2-negative",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b48",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-3-positive",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Alias node resolution",
+          "rdfs:comment": "Alias nodes MUST be resolved by value to their target nodes.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/aa-cycles-3-positive-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/aa-cycles-3-positive-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b49",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-3-positive",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b50",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-information-1-positive",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ToRDFTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Anchor names do not convey semantic information",
+          "rdfs:comment": "Anchor names are a serialization detail and MUST NOT be used to convey relevant information.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/aa-information-1-positive-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/aa-information-1-positive-out.nq",
+          "assertions": [
+            {
+              "@id": "_:b51",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-information-1-positive",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b52",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-2-positive",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ToRDFTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "tag:yaml.org.2002 scalars (RDF)",
+          "rdfs:comment": "If t resolves with a prefix of `tag:yaml.org.2002:`, the conversion result is mapped through the YAML Core Schema.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "https://w3c.github.io/json-ld-api/tests/vocab#option": {
+            "@id": "_:b3",
+            "https://w3c.github.io/json-ld-api/tests/vocab#extendedYAML": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "true"
+            },
+            "https://w3c.github.io/json-ld-api/tests/vocab#normative": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "false"
+            }
+          },
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-core-2-positive-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-core-2-positive-out.nq",
+          "assertions": [
+            {
+              "@id": "_:b53",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-2-positive",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b54",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-2-positive",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ToRDFTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Scalars with other node tags (RDF)  (ignored without extendedYAML)",
+          "rdfs:comment": "Otherwise, the conversion result is an RDF literal.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "may",
+          "https://w3c.github.io/json-ld-api/tests/vocab#option": {
+            "@id": "_:b4",
+            "https://w3c.github.io/json-ld-api/tests/vocab#extendedYAML": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "true"
+            },
+            "https://w3c.github.io/json-ld-api/tests/vocab#normative": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "false"
+            }
+          },
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-other-2-positive-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-other-2-positive-out.nq",
+          "assertions": [
+            {
+              "@id": "_:b55",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-2-positive",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b56",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-3-negative",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Undefined alias",
+          "rdfs:comment": "All document MUST use node aliases defined by a previous node.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/cr-well-formed-3-negative-in.yamlld",
+          "mf:result": "loading document failed",
+          "assertions": [
+            {
+              "@id": "_:b57",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-3-negative",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b58",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#html-and-yaml-streams",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "YAML Stream with multiple documents embedded into HTML.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "https://w3c.github.io/json-ld-api/tests/vocab#option": {
+            "@id": "_:b5",
+            "https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "true"
+            }
+          },
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/html/stream.html",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/html/stream.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b59",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#html-and-yaml-streams",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b60",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#mixed-script-types",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "YAML Stream with multiple documents embedded into HTML, having JSON-LD and YAML-LD documents in them.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "https://w3c.github.io/json-ld-api/tests/vocab#option": {
+            "@id": "_:b6",
+            "https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "true"
+            }
+          },
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/html/mixed-types.html",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/html/stream.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b61",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#mixed-script-types",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b62",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-needed",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "YAML Stream with multiple documents embedded into HTML.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "https://w3c.github.io/json-ld-api/tests/vocab#option": {
+            "@id": "_:b7",
+            "https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "true"
+            }
+          },
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/html/dedent-needed.html",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/html/stream.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b63",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-needed",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b64",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-not-needed",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "YAML Stream with multiple documents embedded into HTML.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "https://w3c.github.io/json-ld-api/tests/vocab#option": {
+            "@id": "_:b8",
+            "https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "true"
+            }
+          },
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/html/dedent-not-needed.html",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/html/stream.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b65",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-not-needed",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b66",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#two-documents-from-stream",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "YAML Stream with multiple documents.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "https://w3c.github.io/json-ld-api/tests/vocab#option": {
+            "@id": "_:b9",
+            "https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "true"
+            }
+          },
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/streams/two-documents-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/streams/two-documents-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b67",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#two-documents-from-stream",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b68",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#one-document-from-stream",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "YAML Stream with multiple documents.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "https://w3c.github.io/json-ld-api/tests/vocab#option": {
+            "@id": "_:b10",
+            "https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "false"
+            }
+          },
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/streams/two-documents-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/streams/one-document-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b69",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#one-document-from-stream",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b70",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#local-json-ld-context",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Load a context from a local file in JSON-LD format.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "https://w3c.github.io/json-ld-api/tests/vocab#option": {
+            "@id": "_:b11",
+            "https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "false"
+            }
+          },
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/local-context/jsonld-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/local-context/expanded.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b71",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#local-json-ld-context",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b72",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-json-ld-context",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#CompactTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Load a context from a local file in JSON-LD format.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "https://w3c.github.io/json-ld-api/tests/vocab#option": {
+            "@id": "_:b12",
+            "https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "false"
+            }
+          },
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/local-context/expanded.yamlld",
+          "https://w3c.github.io/json-ld-api/tests/vocab#context": {
+            "@id": "https://w3c.github.io/yaml-ld/tests/cases/local-context/context.jsonld"
+          },
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/local-context/compacted.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b73",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-json-ld-context",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b74",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#local-yaml-ld-context",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Load a context from a local file in YAML-LD format.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "https://w3c.github.io/json-ld-api/tests/vocab#option": {
+            "@id": "_:b13",
+            "https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "false"
+            }
+          },
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/local-context/yamlld-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/local-context/expanded.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b75",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#local-yaml-ld-context",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b76",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-yaml-ld-context",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#CompactTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Load a context from a local file in YAML-LD format.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "https://w3c.github.io/json-ld-api/tests/vocab#option": {
+            "@id": "_:b14",
+            "https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "false"
+            }
+          },
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/local-context/expanded.yamlld",
+          "https://w3c.github.io/json-ld-api/tests/vocab#context": {
+            "@id": "https://w3c.github.io/yaml-ld/tests/cases/local-context/context.yamlld"
+          },
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/local-context/compacted.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b77",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-yaml-ld-context",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b78",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#flatten",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#FlattenTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "compactArrays option",
+          "rdfs:comment": "Setting compactArrays to false causes single element arrays to be retained",
+          "https://w3c.github.io/json-ld-api/tests/vocab#option": {
+            "@id": "_:b15",
+            "https://w3c.github.io/json-ld-api/tests/vocab#compactArrays": {
+              "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+              "@value": "false"
+            }
+          },
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/flatten/0044-in.yamlld",
+          "https://w3c.github.io/json-ld-api/tests/vocab#context": {
+            "@id": "https://w3c.github.io/yaml-ld/tests/cases/flatten/0044-context.yamlld"
+          },
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/flatten/0044-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b79",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#flatten",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b80",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#frame-t0001",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#FrameTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Library framing example",
+          "rdfs:comment": "Basic example used in playground and spec examples.",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/frame/0001-in.yamlld",
+          "https://w3c.github.io/json-ld-api/tests/vocab#frame": {
+            "@id": "https://w3c.github.io/yaml-ld/tests/cases/frame/0001-frame.yamlld"
+          },
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/frame/0001-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b81",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#frame-t0001",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b82",
+                "@type": "TestResult",
+                "outcome": "earl:passed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Lowercase true is a boolean",
+          "rdfs:comment": "YAML Core Schema resolves true as boolean.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/bool-true-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/bool-true-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b83",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b84",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Lowercase false is a boolean",
+          "rdfs:comment": "YAML Core Schema resolves false as boolean.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/bool-false-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/bool-false-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b85",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b86",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true-title",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Title-case True is a boolean",
+          "rdfs:comment": "YAML Core Schema resolves True as boolean true.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/bool-true-title-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/bool-true-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b87",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true-title",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b88",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false-upper",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Uppercase FALSE is a boolean",
+          "rdfs:comment": "YAML Core Schema resolves FALSE as boolean false.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/bool-false-upper-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/bool-false-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b89",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false-upper",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b90",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-null",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "null is null",
+          "rdfs:comment": "YAML Core Schema resolves null as null.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/null-null-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/null-null-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b91",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-null",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b92",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-tilde",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Tilde ~ is null",
+          "rdfs:comment": "YAML Core Schema resolves ~ as null.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/null-tilde-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/null-null-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b93",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-tilde",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b94",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-upper",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Uppercase NULL is null",
+          "rdfs:comment": "YAML Core Schema resolves NULL as null.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/null-upper-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/null-null-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b95",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-upper",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b96",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-decimal",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Decimal integer",
+          "rdfs:comment": "YAML Core Schema resolves decimal integers.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/int-decimal-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/int-decimal-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b97",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-decimal",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b98",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-octal",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Octal integer",
+          "rdfs:comment": "YAML Core Schema resolves 0o77 as integer 63.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/int-octal-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/int-octal-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b99",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-octal",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b100",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-hex",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Hex integer",
+          "rdfs:comment": "YAML Core Schema resolves 0x3A as integer 58.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/int-hex-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/int-hex-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b101",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-hex",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b102",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-basic",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Basic float",
+          "rdfs:comment": "YAML Core Schema resolves decimal floats.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-basic-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-basic-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b103",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-basic",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b104",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-scientific",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Scientific notation float",
+          "rdfs:comment": "YAML Core Schema resolves scientific notation floats.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-scientific-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-scientific-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b105",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-scientific",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b106",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-date-ymd",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Date-like scalar YYYY-MM-DD is a string",
+          "rdfs:comment": "YAML 1.2 Core Schema has no timestamp type; 2018-04-01 resolves to a plain string. Some YAML libraries may wish to parse this as a native date object, this should not happen.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/date-ymd-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/date-ymd-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b107",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-date-ymd",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b108",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-inf-negative",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Infinity scalar causes error",
+          "rdfs:comment": "Float infinity (.inf) cannot be represented in JSON and MUST cause loading document failed.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-inf-in.yamlld",
+          "mf:result": "loading document failed",
+          "assertions": [
+            {
+              "@id": "_:b109",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-inf-negative",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b110",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-neg-inf-negative",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Negative infinity scalar causes error",
+          "rdfs:comment": "Float negative infinity (-.inf) cannot be represented in JSON and MUST cause loading document failed.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-neg-inf-in.yamlld",
+          "mf:result": "loading document failed",
+          "assertions": [
+            {
+              "@id": "_:b111",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-neg-inf-negative",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b112",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-plus-inf-negative",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "Plus infinity scalar causes error",
+          "rdfs:comment": "Float plus infinity (+.inf) cannot be represented in JSON and MUST cause loading document failed.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-plus-inf-in.yamlld",
+          "mf:result": "loading document failed",
+          "assertions": [
+            {
+              "@id": "_:b113",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-plus-inf-negative",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b114",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-negative",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "NaN scalar causes error",
+          "rdfs:comment": "Float NaN (.nan) cannot be represented in JSON and MUST cause loading document failed.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-nan-in.yamlld",
+          "mf:result": "loading document failed",
+          "assertions": [
+            {
+              "@id": "_:b115",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-negative",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b116",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-mixed-negative",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "NaN scalar (.NaN) causes error",
+          "rdfs:comment": "Float NaN (.NaN) cannot be represented in JSON and MUST cause loading document failed.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-nan-mixed-in.yamlld",
+          "mf:result": "loading document failed",
+          "assertions": [
+            {
+              "@id": "_:b117",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-mixed-negative",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b118",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-upper-negative",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "NaN scalar (.NAN) causes error",
+          "rdfs:comment": "Float NaN (.NAN) cannot be represented in JSON and MUST cause loading document failed.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-nan-upper-in.yamlld",
+          "mf:result": "loading document failed",
+          "assertions": [
+            {
+              "@id": "_:b119",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-upper-negative",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b120",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "YAML 1.1 'yes' is a string",
+          "rdfs:comment": "YAML 1.2 Core Schema does not recognize yes as boolean; it is a plain string.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-yes-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-yes-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b121",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b122",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-no",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "YAML 1.1 'no' is a string",
+          "rdfs:comment": "YAML 1.2 Core Schema does not recognize no as boolean; it is a plain string.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-no-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-no-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b123",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-no",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b124",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-on",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "YAML 1.1 'on' is a string",
+          "rdfs:comment": "YAML 1.2 Core Schema does not recognize on as boolean; it is a plain string.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-on-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-on-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b125",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-on",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b126",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-off",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "YAML 1.1 'off' is a string",
+          "rdfs:comment": "YAML 1.2 Core Schema does not recognize off as boolean; it is a plain string.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-off-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-off-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b127",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-off",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b128",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-title",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "YAML 1.1 'Yes' is a string",
+          "rdfs:comment": "YAML 1.2 Core Schema does not recognize Yes as boolean; it is a plain string.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-yes-title-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-yes-title-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b129",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-title",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b130",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        },
+        {
+          "@id": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-upper",
+          "@type": [
+            "https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest",
+            "https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest",
+            "TestCriterion",
+            "TestCase"
+          ],
+          "title": "YAML 1.1 'YES' is a string",
+          "rdfs:comment": "YAML 1.2 Core Schema does not recognize YES as boolean; it is a plain string.",
+          "https://w3c.github.io/json-ld-api/tests/vocab#req": "must",
+          "testAction": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-yes-upper-in.yamlld",
+          "testResult": "https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-yes-upper-out.yamlld",
+          "assertions": [
+            {
+              "@id": "_:b131",
+              "@type": "Assertion",
+              "subject": "https://rubygems.org/gems/yaml-ld",
+              "test": "https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-upper",
+              "assertedBy": "https://github.com/anatoly-scherbakov",
+              "mode": "earl:automatic",
+              "result": {
+                "@id": "_:b132",
+                "@type": "TestResult",
+                "outcome": "earl:failed"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

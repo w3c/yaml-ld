@@ -1,0 +1,556 @@
+<https://w3c.github.io/yaml-ld/tests/basic-manifest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#Manifest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Tests using YAML-LD JSON Profile" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest> <http://www.w3.org/2000/01/rdf-schema#comment> "These tests implement the requirements for the [YAML-LD JSON Profile](https://w3c.github.io/yaml-ld/#yaml-ld-json-profile)." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest> <https://w3c.github.io/json-ld-api/tests/vocab#baseIri> "https://w3c.github.io/yaml-ld/tests/" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#entries> _:g7900 .
+_:g7900 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-document-content-1-negative> .
+_:g7900 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g7920 .
+_:g7920 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-1-negative> .
+_:g7920 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g7940 .
+_:g7940 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-2-negative> .
+_:g7940 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g7960 .
+_:g7960 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-3-negative> .
+_:g7960 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g7980 .
+_:g7980 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-4-negative> .
+_:g7980 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8000 .
+_:g8000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-5-negative> .
+_:g8000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8020 .
+_:g8020 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-1-positive> .
+_:g8020 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8040 .
+_:g8040 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-i18n-1-positive> .
+_:g8040 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8060 .
+_:g8060 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-1-positive> .
+_:g8060 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8080 .
+_:g8080 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-comments-1-positive> .
+_:g8080 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8100 .
+_:g8100 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-1-positive> .
+_:g8100 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8120 .
+_:g8120 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-2-negative> .
+_:g8120 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8140 .
+_:g8140 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-1-positive> .
+_:g8140 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8160 .
+_:g8160 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-2-negative> .
+_:g8160 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8180 .
+_:g8180 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-1-positive> .
+_:g8180 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8200 .
+_:g8200 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-2-negative> .
+_:g8200 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8220 .
+_:g8220 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-3-positive> .
+_:g8220 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8240 .
+_:g8240 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-information-1-positive> .
+_:g8240 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8260 .
+_:g8260 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-2-positive> .
+_:g8260 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8280 .
+_:g8280 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-2-positive> .
+_:g8280 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8300 .
+_:g8300 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-3-negative> .
+_:g8300 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8320 .
+_:g8320 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#html-and-yaml-streams> .
+_:g8320 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8340 .
+_:g8340 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#mixed-script-types> .
+_:g8340 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8360 .
+_:g8360 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-needed> .
+_:g8360 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8380 .
+_:g8380 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-not-needed> .
+_:g8380 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8400 .
+_:g8400 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#two-documents-from-stream> .
+_:g8400 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8420 .
+_:g8420 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#one-document-from-stream> .
+_:g8420 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8440 .
+_:g8440 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#local-json-ld-context> .
+_:g8440 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8460 .
+_:g8460 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-json-ld-context> .
+_:g8460 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8480 .
+_:g8480 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#local-yaml-ld-context> .
+_:g8480 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8500 .
+_:g8500 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-yaml-ld-context> .
+_:g8500 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8520 .
+_:g8520 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#flatten> .
+_:g8520 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8540 .
+_:g8540 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#frame-t0001> .
+_:g8540 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8560 .
+_:g8560 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true> .
+_:g8560 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8580 .
+_:g8580 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false> .
+_:g8580 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8600 .
+_:g8600 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true-title> .
+_:g8600 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8620 .
+_:g8620 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false-upper> .
+_:g8620 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8640 .
+_:g8640 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-null> .
+_:g8640 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8660 .
+_:g8660 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-tilde> .
+_:g8660 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8680 .
+_:g8680 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-upper> .
+_:g8680 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8700 .
+_:g8700 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-decimal> .
+_:g8700 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8720 .
+_:g8720 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-octal> .
+_:g8720 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8740 .
+_:g8740 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-hex> .
+_:g8740 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8760 .
+_:g8760 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-basic> .
+_:g8760 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8780 .
+_:g8780 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-scientific> .
+_:g8780 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8800 .
+_:g8800 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-date-ymd> .
+_:g8800 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8820 .
+_:g8820 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-inf-negative> .
+_:g8820 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8840 .
+_:g8840 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-neg-inf-negative> .
+_:g8840 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8860 .
+_:g8860 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-plus-inf-negative> .
+_:g8860 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8880 .
+_:g8880 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-negative> .
+_:g8880 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8900 .
+_:g8900 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-mixed-negative> .
+_:g8900 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8920 .
+_:g8920 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-upper-negative> .
+_:g8920 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8940 .
+_:g8940 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes> .
+_:g8940 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8960 .
+_:g8960 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-no> .
+_:g8960 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g8980 .
+_:g8980 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-on> .
+_:g8980 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g9000 .
+_:g9000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-off> .
+_:g9000 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g9020 .
+_:g9020 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-title> .
+_:g9020 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:g9040 .
+_:g9040 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-upper> .
+_:g9040 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-document-content-1-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-document-content-1-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-document-content-1-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Document with scalar content." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-document-content-1-negative> <http://www.w3.org/2000/01/rdf-schema#comment> "Document content MUST be sequence or mapping." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-document-content-1-negative> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-document-content-1-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/cir-document-content-1-negative-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-document-content-1-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> "loading document failed" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-1-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-1-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-1-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Mapping with integer key." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-1-negative> <http://www.w3.org/2000/01/rdf-schema#comment> "A mapping key MUST be a string." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-1-negative> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-1-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/mapping-key-must-be-string/integer.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-1-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> "mapping-key-error" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-2-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-2-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-2-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Mapping with an object key." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-2-negative> <http://www.w3.org/2000/01/rdf-schema#comment> "A mapping key MUST be a string." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-2-negative> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-2-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/mapping-key-must-be-string/object.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-2-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> "mapping-key-error" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-3-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-3-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-3-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Mapping with a list key." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-3-negative> <http://www.w3.org/2000/01/rdf-schema#comment> "A mapping key MUST be a string." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-3-negative> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-3-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/mapping-key-must-be-string/list.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-3-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> "mapping-key-error" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-4-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-4-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-4-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Mapping with a float key." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-4-negative> <http://www.w3.org/2000/01/rdf-schema#comment> "A mapping key MUST be a string." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-4-negative> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-4-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/mapping-key-must-be-string/float.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-4-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> "mapping-key-error" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-5-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-5-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-5-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Mapping with a null key." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-5-negative> <http://www.w3.org/2000/01/rdf-schema#comment> "A mapping key MUST be a string." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-5-negative> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-5-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/mapping-key-must-be-string/null.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-mapping-key-5-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> "mapping-key-error" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-1-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-1-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "tag:yaml.org.2002 scalars" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-1-positive> <http://www.w3.org/2000/01/rdf-schema#comment> "Otherwise, the conversion result is mapped through the YAML Core Schema." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-1-positive> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-1-positive> <https://w3c.github.io/json-ld-api/tests/vocab#option> _:g9060 .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-core-1-positive-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-core-1-positive-out.yamlld> .
+_:g9060 <https://w3c.github.io/json-ld-api/tests/vocab#extendedYAML> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+_:g9060 <https://w3c.github.io/json-ld-api/tests/vocab#normative> "false"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-i18n-1-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-i18n-1-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-i18n-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "language-tagged string with internationalization (ignored without extendedYAML)" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-i18n-1-positive> <http://www.w3.org/2000/01/rdf-schema#comment> "Otherwise, the conversion result is mapped through the YAML Core Schema." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-i18n-1-positive> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-i18n-1-positive> <https://w3c.github.io/json-ld-api/tests/vocab#option> _:g9080 .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-i18n-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-i18n-1-positive-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-i18n-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-i18n-1-positive-out.yamlld> .
+_:g9080 <https://w3c.github.io/json-ld-api/tests/vocab#extendedYAML> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+_:g9080 <https://w3c.github.io/json-ld-api/tests/vocab#normative> "false"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-1-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-1-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Scalars with other node tags (ignored without extendedYAML)" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-1-positive> <http://www.w3.org/2000/01/rdf-schema#comment> "Otherwise, the conversion result is mapped through the YAML Core Schema." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-1-positive> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-1-positive> <https://w3c.github.io/json-ld-api/tests/vocab#option> _:g9100 .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-other-1-positive-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-other-1-positive-out.yamlld> .
+_:g9100 <https://w3c.github.io/json-ld-api/tests/vocab#extendedYAML> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+_:g9100 <https://w3c.github.io/json-ld-api/tests/vocab#normative> "false"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-comments-1-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-comments-1-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-comments-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Various comment forms" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-comments-1-positive> <http://www.w3.org/2000/01/rdf-schema#comment> "Comments are white space." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-comments-1-positive> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-comments-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/cr-comments-1-positive-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-comments-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/cr-comments-1-positive-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-1-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-1-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "UTF-8 BOM" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-1-positive> <http://www.w3.org/2000/01/rdf-schema#comment> "A YAML-LD stream MUST be encoded in UTF-8, to ensure interoperability with [[JSON]]." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-1-positive> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/cr-utf8-1-positive-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/cr-utf8-1-positive-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-2-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-2-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-2-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "UTF-16 BOM" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-2-negative> <http://www.w3.org/2000/01/rdf-schema#comment> "A YAML-LD stream MUST be encoded in UTF-8, to ensure interoperability with [[JSON]]." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-2-negative> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-2-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/cr-utf8-2-negative-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-utf8-2-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> "invalid encoding" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-1-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-1-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Load a well-formed document" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-1-positive> <http://www.w3.org/2000/01/rdf-schema#comment> "All YAML-LD streams MUST form a well-formed stream." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-1-positive> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/cr-well-formed-1-positive-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/cr-well-formed-1-positive-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-2-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-2-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-2-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Fail to load a non-well-formed stream" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-2-negative> <http://www.w3.org/2000/01/rdf-schema#comment> "All YAML-LD streams MUST form a well-formed stream." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-2-negative> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-2-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/cr-well-formed-2-negative-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-2-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> "loading document failed" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-1-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-1-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Use of anchors and aliases" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-1-positive> <http://www.w3.org/2000/01/rdf-schema#comment> "A YAML-LD document MAY contain anchored nodes and alias nodes." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-1-positive> <https://w3c.github.io/json-ld-api/tests/vocab#req> "may" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/aa-cycles-1-positive-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/aa-cycles-1-positive-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-2-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-2-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-2-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Anchors and aliases with cycles" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-2-negative> <http://www.w3.org/2000/01/rdf-schema#comment> "A YAML-LD document ... MUST NOT contain cycles." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-2-negative> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-2-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/aa-cycles-2-negative-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-2-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> "loading document failed" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-3-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-3-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-3-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Alias node resolution" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-3-positive> <http://www.w3.org/2000/01/rdf-schema#comment> "Alias nodes MUST be resolved by value to their target nodes." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-3-positive> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-3-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/aa-cycles-3-positive-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-cycles-3-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/aa-cycles-3-positive-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-information-1-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-information-1-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ToRDFTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-information-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Anchor names do not convey semantic information" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-information-1-positive> <http://www.w3.org/2000/01/rdf-schema#comment> "Anchor names are a serialization detail and MUST NOT be used to convey relevant information." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-information-1-positive> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-information-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/aa-information-1-positive-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#aa-information-1-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/aa-information-1-positive-out.nq> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-2-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-2-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ToRDFTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-2-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "tag:yaml.org.2002 scalars (RDF)" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-2-positive> <http://www.w3.org/2000/01/rdf-schema#comment> "If t resolves with a prefix of `tag:yaml.org.2002:`, the conversion result is mapped through the YAML Core Schema." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-2-positive> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-2-positive> <https://w3c.github.io/json-ld-api/tests/vocab#option> _:g9120 .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-2-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-core-2-positive-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-core-2-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-core-2-positive-out.nq> .
+_:g9120 <https://w3c.github.io/json-ld-api/tests/vocab#extendedYAML> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+_:g9120 <https://w3c.github.io/json-ld-api/tests/vocab#normative> "false"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-2-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-2-positive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ToRDFTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-2-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Scalars with other node tags (RDF)  (ignored without extendedYAML)" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-2-positive> <http://www.w3.org/2000/01/rdf-schema#comment> "Otherwise, the conversion result is an RDF literal." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-2-positive> <https://w3c.github.io/json-ld-api/tests/vocab#req> "may" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-2-positive> <https://w3c.github.io/json-ld-api/tests/vocab#option> _:g9140 .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-2-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-other-2-positive-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cir-scalar-other-2-positive> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/cir-scalar-other-2-positive-out.nq> .
+_:g9140 <https://w3c.github.io/json-ld-api/tests/vocab#extendedYAML> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+_:g9140 <https://w3c.github.io/json-ld-api/tests/vocab#normative> "false"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-3-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-3-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-3-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Undefined alias" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-3-negative> <http://www.w3.org/2000/01/rdf-schema#comment> "All document MUST use node aliases defined by a previous node." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-3-negative> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-3-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/cr-well-formed-3-negative-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#cr-well-formed-3-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> "loading document failed" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-and-yaml-streams> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-and-yaml-streams> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-and-yaml-streams> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "YAML Stream with multiple documents embedded into HTML." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-and-yaml-streams> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-and-yaml-streams> <https://w3c.github.io/json-ld-api/tests/vocab#option> _:g9160 .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-and-yaml-streams> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/html/stream.html> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-and-yaml-streams> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/html/stream.yamlld> .
+_:g9160 <https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#mixed-script-types> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#mixed-script-types> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#mixed-script-types> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "YAML Stream with multiple documents embedded into HTML, having JSON-LD and YAML-LD documents in them." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#mixed-script-types> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#mixed-script-types> <https://w3c.github.io/json-ld-api/tests/vocab#option> _:g9180 .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#mixed-script-types> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/html/mixed-types.html> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#mixed-script-types> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/html/stream.yamlld> .
+_:g9180 <https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-needed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-needed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-needed> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "YAML Stream with multiple documents embedded into HTML." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-needed> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-needed> <https://w3c.github.io/json-ld-api/tests/vocab#option> _:g9200 .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-needed> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/html/dedent-needed.html> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-needed> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/html/stream.yamlld> .
+_:g9200 <https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-not-needed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-not-needed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-not-needed> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "YAML Stream with multiple documents embedded into HTML." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-not-needed> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-not-needed> <https://w3c.github.io/json-ld-api/tests/vocab#option> _:g9220 .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-not-needed> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/html/dedent-not-needed.html> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#html-dedent-not-needed> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/html/stream.yamlld> .
+_:g9220 <https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#two-documents-from-stream> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#two-documents-from-stream> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#two-documents-from-stream> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "YAML Stream with multiple documents." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#two-documents-from-stream> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#two-documents-from-stream> <https://w3c.github.io/json-ld-api/tests/vocab#option> _:g9240 .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#two-documents-from-stream> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/streams/two-documents-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#two-documents-from-stream> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/streams/two-documents-out.yamlld> .
+_:g9240 <https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#one-document-from-stream> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#one-document-from-stream> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#one-document-from-stream> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "YAML Stream with multiple documents." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#one-document-from-stream> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#one-document-from-stream> <https://w3c.github.io/json-ld-api/tests/vocab#option> _:g9260 .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#one-document-from-stream> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/streams/two-documents-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#one-document-from-stream> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/streams/one-document-out.yamlld> .
+_:g9260 <https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts> "false"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#local-json-ld-context> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#local-json-ld-context> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#local-json-ld-context> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Load a context from a local file in JSON-LD format." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#local-json-ld-context> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#local-json-ld-context> <https://w3c.github.io/json-ld-api/tests/vocab#option> _:g9280 .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#local-json-ld-context> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/local-context/jsonld-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#local-json-ld-context> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/local-context/expanded.yamlld> .
+_:g9280 <https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts> "false"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-json-ld-context> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-json-ld-context> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#CompactTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-json-ld-context> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Load a context from a local file in JSON-LD format." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-json-ld-context> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-json-ld-context> <https://w3c.github.io/json-ld-api/tests/vocab#option> _:g9300 .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-json-ld-context> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/local-context/expanded.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-json-ld-context> <https://w3c.github.io/json-ld-api/tests/vocab#context> <https://w3c.github.io/yaml-ld/tests/cases/local-context/context.jsonld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-json-ld-context> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/local-context/compacted.yamlld> .
+_:g9300 <https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts> "false"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#local-yaml-ld-context> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#local-yaml-ld-context> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#local-yaml-ld-context> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Load a context from a local file in YAML-LD format." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#local-yaml-ld-context> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#local-yaml-ld-context> <https://w3c.github.io/json-ld-api/tests/vocab#option> _:g9320 .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#local-yaml-ld-context> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/local-context/yamlld-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#local-yaml-ld-context> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/local-context/expanded.yamlld> .
+_:g9320 <https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts> "false"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-yaml-ld-context> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-yaml-ld-context> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#CompactTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-yaml-ld-context> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Load a context from a local file in YAML-LD format." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-yaml-ld-context> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-yaml-ld-context> <https://w3c.github.io/json-ld-api/tests/vocab#option> _:g9340 .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-yaml-ld-context> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/local-context/expanded.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-yaml-ld-context> <https://w3c.github.io/json-ld-api/tests/vocab#context> <https://w3c.github.io/yaml-ld/tests/cases/local-context/context.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#compact-local-yaml-ld-context> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/local-context/compacted.yamlld> .
+_:g9340 <https://w3c.github.io/json-ld-api/tests/vocab#extractAllScripts> "false"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#flatten> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#flatten> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#FlattenTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#flatten> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "compactArrays option" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#flatten> <http://www.w3.org/2000/01/rdf-schema#comment> "Setting compactArrays to false causes single element arrays to be retained" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#flatten> <https://w3c.github.io/json-ld-api/tests/vocab#option> _:g9360 .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#flatten> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/flatten/0044-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#flatten> <https://w3c.github.io/json-ld-api/tests/vocab#context> <https://w3c.github.io/yaml-ld/tests/cases/flatten/0044-context.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#flatten> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/flatten/0044-out.yamlld> .
+_:g9360 <https://w3c.github.io/json-ld-api/tests/vocab#compactArrays> "false"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#frame-t0001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#frame-t0001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#FrameTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#frame-t0001> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Library framing example" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#frame-t0001> <http://www.w3.org/2000/01/rdf-schema#comment> "Basic example used in playground and spec examples." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#frame-t0001> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/frame/0001-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#frame-t0001> <https://w3c.github.io/json-ld-api/tests/vocab#frame> <https://w3c.github.io/yaml-ld/tests/cases/frame/0001-frame.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#frame-t0001> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/frame/0001-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Lowercase true is a boolean" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true> <http://www.w3.org/2000/01/rdf-schema#comment> "YAML Core Schema resolves true as boolean." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/bool-true-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/bool-true-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Lowercase false is a boolean" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false> <http://www.w3.org/2000/01/rdf-schema#comment> "YAML Core Schema resolves false as boolean." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/bool-false-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/bool-false-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true-title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true-title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true-title> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Title-case True is a boolean" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true-title> <http://www.w3.org/2000/01/rdf-schema#comment> "YAML Core Schema resolves True as boolean true." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true-title> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true-title> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/bool-true-title-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-true-title> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/bool-true-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false-upper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false-upper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false-upper> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Uppercase FALSE is a boolean" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false-upper> <http://www.w3.org/2000/01/rdf-schema#comment> "YAML Core Schema resolves FALSE as boolean false." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false-upper> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false-upper> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/bool-false-upper-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-bool-false-upper> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/bool-false-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-null> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-null> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-null> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "null is null" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-null> <http://www.w3.org/2000/01/rdf-schema#comment> "YAML Core Schema resolves null as null." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-null> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-null> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/null-null-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-null> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/null-null-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-tilde> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-tilde> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-tilde> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Tilde ~ is null" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-tilde> <http://www.w3.org/2000/01/rdf-schema#comment> "YAML Core Schema resolves ~ as null." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-tilde> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-tilde> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/null-tilde-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-tilde> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/null-null-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-upper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-upper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-upper> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Uppercase NULL is null" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-upper> <http://www.w3.org/2000/01/rdf-schema#comment> "YAML Core Schema resolves NULL as null." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-upper> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-upper> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/null-upper-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-null-upper> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/null-null-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-decimal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-decimal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-decimal> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Decimal integer" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-decimal> <http://www.w3.org/2000/01/rdf-schema#comment> "YAML Core Schema resolves decimal integers." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-decimal> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-decimal> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/int-decimal-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-decimal> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/int-decimal-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-octal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-octal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-octal> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Octal integer" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-octal> <http://www.w3.org/2000/01/rdf-schema#comment> "YAML Core Schema resolves 0o77 as integer 63." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-octal> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-octal> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/int-octal-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-octal> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/int-octal-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-hex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-hex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-hex> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Hex integer" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-hex> <http://www.w3.org/2000/01/rdf-schema#comment> "YAML Core Schema resolves 0x3A as integer 58." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-hex> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-hex> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/int-hex-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-int-hex> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/int-hex-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-basic> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-basic> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-basic> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Basic float" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-basic> <http://www.w3.org/2000/01/rdf-schema#comment> "YAML Core Schema resolves decimal floats." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-basic> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-basic> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-basic-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-basic> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-basic-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-scientific> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-scientific> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-scientific> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Scientific notation float" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-scientific> <http://www.w3.org/2000/01/rdf-schema#comment> "YAML Core Schema resolves scientific notation floats." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-scientific> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-scientific> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-scientific-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-scientific> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-scientific-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-date-ymd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-date-ymd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-date-ymd> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Date-like scalar YYYY-MM-DD is a string" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-date-ymd> <http://www.w3.org/2000/01/rdf-schema#comment> "YAML 1.2 Core Schema has no timestamp type; 2018-04-01 resolves to a plain string. Some YAML libraries may wish to parse this as a native date object, this should not happen." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-date-ymd> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-date-ymd> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/date-ymd-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-date-ymd> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/date-ymd-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-inf-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-inf-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-inf-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Infinity scalar causes error" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-inf-negative> <http://www.w3.org/2000/01/rdf-schema#comment> "Float infinity (.inf) cannot be represented in JSON and MUST cause loading document failed." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-inf-negative> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-inf-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-inf-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-inf-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> "loading document failed" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-neg-inf-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-neg-inf-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-neg-inf-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Negative infinity scalar causes error" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-neg-inf-negative> <http://www.w3.org/2000/01/rdf-schema#comment> "Float negative infinity (-.inf) cannot be represented in JSON and MUST cause loading document failed." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-neg-inf-negative> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-neg-inf-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-neg-inf-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-neg-inf-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> "loading document failed" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-plus-inf-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-plus-inf-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-plus-inf-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "Plus infinity scalar causes error" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-plus-inf-negative> <http://www.w3.org/2000/01/rdf-schema#comment> "Float plus infinity (+.inf) cannot be represented in JSON and MUST cause loading document failed." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-plus-inf-negative> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-plus-inf-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-plus-inf-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-plus-inf-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> "loading document failed" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "NaN scalar causes error" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-negative> <http://www.w3.org/2000/01/rdf-schema#comment> "Float NaN (.nan) cannot be represented in JSON and MUST cause loading document failed." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-negative> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-nan-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> "loading document failed" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-mixed-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-mixed-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-mixed-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "NaN scalar (.NaN) causes error" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-mixed-negative> <http://www.w3.org/2000/01/rdf-schema#comment> "Float NaN (.NaN) cannot be represented in JSON and MUST cause loading document failed." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-mixed-negative> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-mixed-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-nan-mixed-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-mixed-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> "loading document failed" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-upper-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#NegativeEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-upper-negative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-upper-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "NaN scalar (.NAN) causes error" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-upper-negative> <http://www.w3.org/2000/01/rdf-schema#comment> "Float NaN (.NAN) cannot be represented in JSON and MUST cause loading document failed." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-upper-negative> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-upper-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/float-nan-upper-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-float-nan-upper-negative> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> "loading document failed" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "YAML 1.1 'yes' is a string" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes> <http://www.w3.org/2000/01/rdf-schema#comment> "YAML 1.2 Core Schema does not recognize yes as boolean; it is a plain string." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-yes-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-yes-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-no> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-no> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-no> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "YAML 1.1 'no' is a string" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-no> <http://www.w3.org/2000/01/rdf-schema#comment> "YAML 1.2 Core Schema does not recognize no as boolean; it is a plain string." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-no> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-no> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-no-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-no> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-no-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-on> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-on> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-on> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "YAML 1.1 'on' is a string" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-on> <http://www.w3.org/2000/01/rdf-schema#comment> "YAML 1.2 Core Schema does not recognize on as boolean; it is a plain string." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-on> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-on> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-on-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-on> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-on-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-off> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-off> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-off> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "YAML 1.1 'off' is a string" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-off> <http://www.w3.org/2000/01/rdf-schema#comment> "YAML 1.2 Core Schema does not recognize off as boolean; it is a plain string." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-off> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-off> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-off-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-off> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-off-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-title> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "YAML 1.1 'Yes' is a string" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-title> <http://www.w3.org/2000/01/rdf-schema#comment> "YAML 1.2 Core Schema does not recognize Yes as boolean; it is a plain string." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-title> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-title> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-yes-title-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-title> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-yes-title-out.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-upper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#PositiveEvaluationTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-upper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3c.github.io/json-ld-api/tests/vocab#ExpandTest> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-upper> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#name> "YAML 1.1 'YES' is a string" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-upper> <http://www.w3.org/2000/01/rdf-schema#comment> "YAML 1.2 Core Schema does not recognize YES as boolean; it is a plain string." .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-upper> <https://w3c.github.io/json-ld-api/tests/vocab#req> "must" .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-upper> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#action> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-yes-upper-in.yamlld> .
+<https://w3c.github.io/yaml-ld/tests/basic-manifest#core-yaml11-yes-upper> <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#result> <https://w3c.github.io/yaml-ld/tests/cases/yaml-schema/yaml11-yes-upper-out.yamlld> .
