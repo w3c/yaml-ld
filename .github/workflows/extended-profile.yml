@@ -1,15 +1,16 @@
-# This workflow validates the extended profile note for markup and examples.
-name: Extended Profile
+# This workflow builds and publishes the extended profile note.
+name: Build and Publish YAML-LD Extended Profile
 
 on:
   push:
-    branches: [ '**' ]
+    branches: [ main ]
     paths:
       - '.github/workflows/extended-profile.yml'
       - 'common/**'
       - 'extended-profile/**'
       - 'package-lock.json'
       - 'package.json'
+      - 'w3c.json'
   pull_request:
     branches: [ main ]
     paths:
@@ -18,10 +19,11 @@ on:
       - 'extended-profile/**'
       - 'package-lock.json'
       - 'package.json'
+      - 'w3c.json'
 
 jobs:
   tests:
-    name: Build and Validate Extended Profile
+    name: Build, Validate and Deploy Extended Profile
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -38,6 +40,8 @@ jobs:
         # https://github.com/w3c/spec-prod/issues/222
         # VALIDATE_LINKS: true
         VALIDATE_MARKUP: true
+        W3C_ECHIDNA_TOKEN: ${{ secrets.ECHIDNA_TOKEN }}
+        W3C_WG_DECISION_URL: https://www.w3.org/2026/04/08-json-ld-minutes.html#e967
         W3C_BUILD_OVERRIDE: |
           specStatus: DNOTE
           shortName: yaml-ld-extended-profile
