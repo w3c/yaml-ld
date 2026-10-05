@@ -697,6 +697,29 @@
                 </dl>
               </dd>
 
+              <dt id="shared-blank-node-from-stream">
+                Test shared-blank-node-from-stream Shared explicit blank node identifier across YAML documents
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#shared-blank-node-from-stream</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ToRDFTest</dd>
+                  <dt>Name</dt><dd>Shared explicit blank node identifier across YAML documents</dd></dt>
+                  <dt>Purpose</dt><dd>With extractAllScripts, constructed values form one JSON-LD document, so the same explicit blank node identifier identifies one blank node.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/streams/shared-blank-node-in.yamlld">cases/streams/shared-blank-node-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+
+
+                  <dt>Expect</dt><dd><a href="cases/streams/shared-blank-node-out.nq">cases/streams/shared-blank-node-out.nq</a></dd>
+
+                  <dt>Options</dt>
+                    <dd><dl class="options">
+                    <dt>extractAllScripts</dt><dd>true</dd>
+                    </dl></dd>
+                </dl>
+              </dd>
+
               <dt id="empty-document-from-stream">
                 Test empty-document-from-stream Empty middle document in a stream
               </dt>
