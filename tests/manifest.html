@@ -661,7 +661,7 @@
                   <dt>Name</dt><dd>YAML Stream with multiple documents.</dd></dt>
                   <dt>Purpose</dt><dd></dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/two-documents-in.yamlld">cases/streams/two-documents-in.yamlld</a></dd></dt>
-                  <dt>References</dt><dd>(<a href="../index.html#">1</a>)</dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
                   
                   
@@ -684,7 +684,7 @@
                   <dt>Name</dt><dd>YAML Stream with multiple documents.</dd></dt>
                   <dt>Purpose</dt><dd></dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/two-documents-in.yamlld">cases/streams/two-documents-in.yamlld</a></dd></dt>
-                  <dt>References</dt><dd>(<a href="../index.html#">1</a>)</dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
                   
                   
@@ -693,6 +693,52 @@
                   <dt>Options</dt>
                     <dd><dl class="options">
                     <dt>extractAllScripts</dt><dd>false</dd>
+                    </dl></dd>
+                </dl>
+              </dd>
+
+              <dt id="shared-blank-node-from-stream">
+                Test shared-blank-node-from-stream Shared explicit blank node identifier across YAML documents
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#shared-blank-node-from-stream</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ToRDFTest</dd>
+                  <dt>Name</dt><dd>Shared explicit blank node identifier across YAML documents</dd></dt>
+                  <dt>Purpose</dt><dd>With extractAllScripts, constructed values form one JSON-LD document, so the same explicit blank node identifier identifies one blank node.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/streams/shared-blank-node-in.yamlld">cases/streams/shared-blank-node-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+
+
+                  <dt>Expect</dt><dd><a href="cases/streams/shared-blank-node-out.nq">cases/streams/shared-blank-node-out.nq</a></dd>
+
+                  <dt>Options</dt>
+                    <dd><dl class="options">
+                    <dt>extractAllScripts</dt><dd>true</dd>
+                    </dl></dd>
+                </dl>
+              </dd>
+
+              <dt id="empty-document-from-stream-negative">
+                Test empty-document-from-stream-negative Empty YAML document in a stream
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#empty-document-from-stream-negative</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Empty YAML document in a stream</dd></dt>
+                  <dt>Purpose</dt><dd>The top-level node of every YAML-LD document MUST be a mapping or sequence.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/streams/empty-document-in.yamlld">cases/streams/empty-document-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#cir-document-content">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+
+
+
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
+                  <dt>Options</dt>
+                    <dd><dl class="options">
+                    <dt>extractAllScripts</dt><dd>true</dd>
                     </dl></dd>
                 </dl>
               </dd>
