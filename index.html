@@ -1294,12 +1294,15 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
         is the JSON-LD [=internal representation=].
       </p>
 
-      <p id="cir-document-content" data-tests="manifest.html#cir-document-content-1-negative">
+      <p id="cir-document-content" data-tests="manifest.html#cir-document-content-1-negative,manifest.html#empty-document-from-stream-negative">
         The top-level <a>node</a> of each <a>YAML-LD document</a> MUST be a
         <a>YAML mapping</a> or a <a>YAML sequence</a>;
         otherwise, a
         <a data-cite="JSON-LD11-API#dom-jsonlderrorcode-loading-document-failed">loading-document-failed</a>
         error MUST be detected, and processing aborted.
+        A syntactically empty YAML document constructs as <code>null</code>,
+        and therefore fails this requirement. Empty mappings (<code>{}</code>)
+        and sequences (<code>[]</code>) satisfy it.
       </p>
 
       <section id="stream-processing">
@@ -1311,7 +1314,7 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
           multiple `&lt;script&gt;` tags with JSON-LD content in an HTML document.
         </p>
 
-        <p data-tests="manifest.html#two-documents-from-stream,manifest.html#one-document-from-stream">
+        <p id="cir-stream-processing" data-tests="manifest.html#two-documents-from-stream,manifest.html#one-document-from-stream,manifest.html#shared-blank-node-from-stream">
           A conformant YAML-LD implementation MUST apply this flag when constructing
           the JSON-LD [=internal representation=] from a YAML-LD <a>stream</a>.
           The default value is <code>false</code>, as in [[JSON-LD11-API]].
@@ -1326,7 +1329,12 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
               even if the stream contains only one document.
             </p>
             <p>
-              If the stream is empty,
+              This array is one JSON-LD document. If constructed values from
+              different YAML documents contain the same explicit blank node
+              identifier, they MUST identify the same blank node in the RDF output.
+            </p>
+            <p>
+              If the stream contains zero documents,
               the internal representation MUST be an empty array.
             </p>
           </dd>
@@ -1336,7 +1344,7 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
               Only the first document in the stream MUST be constructed.
             </p>
             <p>
-              If the stream is empty,
+              If the stream contains zero documents,
               a
               <a data-cite="JSON-LD11-API#dom-jsonlderrorcode-loading-document-failed">loading-document-failed</a>
               error MUST be detected, and processing aborted.
