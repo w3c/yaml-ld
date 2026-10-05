@@ -1352,7 +1352,8 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
           manifest.html#leading-empty-rdf,
           manifest.html#trailing-empty-all,
           manifest.html#trailing-empty-default,
-          manifest.html#trailing-empty-rdf">
+          manifest.html#trailing-empty-rdf,
+          manifest.html#shared-blank-node-from-stream">
           A conformant YAML-LD implementation MUST apply this flag when constructing
           the JSON-LD [=internal representation=] from a YAML-LD <a>stream</a>.
           The default value is <code>false</code>, as in [[JSON-LD11-API]].
@@ -1366,6 +1367,11 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
               containing the value produced by
               <a data-cite="YAML#constructing-native-data-structures">construction</a>
               of each document in the stream.
+            </p>
+            <p>
+              This array is one JSON-LD document. If constructed values from
+              different YAML documents contain the same explicit blank node
+              identifier, they MUST identify the same blank node in the RDF output.
             </p>
             <p>
               If the stream contains zero documents,
