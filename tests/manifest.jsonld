@@ -255,6 +255,26 @@
       "expect": "cases/streams/one-document-out.yamlld"
     },
     {
+      "@id": "#shared-blank-node-from-stream",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "Shared explicit blank node identifier across YAML documents",
+      "purpose": "With extractAllScripts, constructed values form one JSON-LD document, so the same explicit blank node identifier identifies one blank node.",
+      "req": "must",
+      "option": {"extractAllScripts": true},
+      "input": "cases/streams/shared-blank-node-in.yamlld",
+      "expect": "cases/streams/shared-blank-node-out.nq"
+    },
+    {
+      "@id": "#empty-document-from-stream-negative",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
+      "name": "Empty YAML document in a stream",
+      "purpose": "The top-level node of every YAML-LD document MUST be a mapping or sequence.",
+      "req": "must",
+      "option": {"extractAllScripts": true},
+      "input": "cases/streams/empty-document-in.yamlld",
+      "expectErrorCode": "loading document failed"
+    },
+    {
       "@id": "#local-json-ld-context",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
       "name": "Load a context from a local file in JSON-LD format.",
