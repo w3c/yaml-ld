@@ -255,6 +255,21 @@
       "expect": "cases/streams/one-document-out.yamlld"
     },
     {
+      "@id": "#shared-blank-node-from-stream",
+      "@type": [
+        "jld:PositiveEvaluationTest",
+        "jld:ToRDFTest"
+      ],
+      "name": "Shared explicit blank node identifier across YAML documents",
+      "purpose": "With extractAllScripts, constructed values form one JSON-LD document, so the same explicit blank node identifier identifies one blank node.",
+      "req": "must",
+      "option": {
+        "extractAllScripts": true
+      },
+      "input": "cases/streams/shared-blank-node-in.yamlld",
+      "expect": "cases/streams/shared-blank-node-out.nq"
+    },
+    {
       "@id": "#empty-document-from-stream",
       "@type": [
         "jld:PositiveEvaluationTest",
