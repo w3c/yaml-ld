@@ -663,18 +663,8 @@
             <h3>Converting a <a>YAML stream</a></h3>
 
             <p>
-              A <a>YAML-LD stream</a> MAY contain more than one
-              <a>YAML-LD document</a>, as specified in
-              <a data-cite="yaml-ld-10#streams">Streams</a>.
-            </p>
-
-            <p>
               Converting a <a>YAML stream</a> MUST apply
-              <a data-cite="yaml-ld-10#stream-processing">Stream Processing</a>
-              for document cardinality, the default
-              <a data-cite="JSON-LD11-API#dom-jsonldoptions-extractallscripts">`extractAllScripts`</a>
-              value of <code>false</code>, empty-stream errors,
-              and the shape of the JSON-LD [=internal representation=].
+              <a data-cite="yaml-ld-10#stream-processing">Stream Processing</a>.
               Each constructed value is the result of
               <a href="#convert-document" class="sectionRef"></a>
               for the corresponding <a>YAML document</a>.
@@ -718,16 +708,13 @@
 
                 <ul>
                   <li><a>block sequence</a>,</li>
-                  <li><a>block mapping</a>, or</li>
+                  <li><a>block mapping</a>,</li>
                   <li><a>flow sequence</a>,</li>
                   <li><a>flow mapping</a>, or</li>
+                  <li>a <a>YAML scalar</a> that resolves to <code>null</code>
+                    under the <a data-cite="YAML#103-core-schema">YAML Core Schema</a>.</li>
                 </ul>
 
-                <div class="note">
-                  A <a>node</a> may be of another type, but this is incompatible
-                  with JSON-LD, where the top-most node must be either an
-                  <a>array</a> or <a>map</a>.
-                </div>
               </li>
               <li>The conversion result is |document content|.</li>
             </ol>
@@ -915,12 +902,9 @@
           </p>
 
           <p>
-            As the <a>internal representation</a> is rooted by either
-            an <a>array</a> or a <a>map</a>,
-            the process of transforming the <a>internal representation</a>
-            to YAML begins by preparing an empty <a>representation graph</a>
-            which will be rooted with either a
-            <a>YAML mapping</a> or <a>YAML sequence</a>.
+            The process begins by preparing an empty <a>representation graph</a>
+            and converting the root of the <a>internal representation</a>
+            using <a href="#convert-ir" class="sectionRef"></a>.
           </p>
 
           <p>

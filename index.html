@@ -484,7 +484,7 @@
     <p>A <dfn>YAML-LD stream</dfn> is a <a data-cite="YAML#92-streams" data-no-xref="">YAML stream</a>
       of <a>YAML-LD documents</a>.
       On disk or on the wire, YAML-LD is always exchanged as a <a>YAML-LD stream</a>
-      (one stream per file or HTTP body), containing one or more <a>YAML-LD documents</a>.
+      (one stream per file or HTTP body), containing zero or more <a>YAML-LD documents</a>.
     </p>
     
     <p>A <dfn>YAML-LD document</dfn> is any <a>YAML document</a> from
@@ -826,8 +826,8 @@
         <tr>
           <th>Documents per file</th>
           <td>1</td>
-          <td>⩾ 1 via <a>YAML stream</a></td>
-          <td>⩾ 1 (depending on <code>extractAllScripts</code> flag, see <a href="#stream-processing">Stream Processing</a>)</td>
+          <td>⩾ 0 via <a>YAML stream</a></td>
+          <td>⩾ 0 (depending on <code>extractAllScripts</code> flag, see <a href="#stream-processing">Stream Processing</a>)</td>
         </tr>
 
         <tr>
@@ -991,8 +991,8 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
         </blockquote>
 
         <p>
-          A <a>YAML-LD stream</a> MAY contain more than one
-          <a>YAML-LD document</a>, as shown below.
+          A <a>YAML-LD stream</a> MAY contain zero or more
+          <a>YAML-LD documents</a>. The example below contains multiple documents.
         </p>
 
         <div class="example-with-diagram">
@@ -1294,13 +1294,22 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
         is the JSON-LD [=internal representation=].
       </p>
 
-      <p id="cir-document-content" data-tests="manifest.html#cir-document-content-1-negative">
-        The top-level <a>node</a> of each <a>YAML-LD document</a> MUST be a
-        <a>YAML mapping</a> or a <a>YAML sequence</a>;
-        otherwise, a
-        <a data-cite="JSON-LD11-API#dom-jsonlderrorcode-loading-document-failed">loading-document-failed</a>
-        error MUST be detected, and processing aborted.
-      </p>
+      <div id="cir-document-content" data-tests="manifest.html#cir-document-content-1-negative,
+        manifest.html#root-string-negative,manifest.html#root-integer-negative,
+        manifest.html#root-float-negative,manifest.html#root-boolean-negative,
+        manifest.html#root-quoted-null-negative,manifest.html#root-quoted-tilde-negative">
+        <p>The top-level <a>node</a> of each <a>YAML-LD document</a> MUST be one
+          of the following:</p>
+        <ul>
+          <li>a <a>YAML mapping</a>;</li>
+          <li>a <a>YAML sequence</a>;</li>
+          <li>a <a>YAML scalar</a> that resolves to <code>null</code> under the
+            <a data-cite="YAML#103-core-schema">YAML Core Schema</a>.</li>
+        </ul>
+        <p>Otherwise, a
+          <a data-cite="JSON-LD11-API#dom-jsonlderrorcode-loading-document-failed">loading-document-failed</a>
+          error MUST be detected, and processing aborted.</p>
+      </div>
 
       <section id="stream-processing">
         <h2>Stream Processing</h2>
@@ -1311,7 +1320,41 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
           multiple `&lt;script&gt;` tags with JSON-LD content in an HTML document.
         </p>
 
-        <p data-tests="manifest.html#two-documents-from-stream,manifest.html#one-document-from-stream">
+        <p id="cir-stream-processing" data-tests=
+          "manifest.html#two-documents-from-stream,
+          manifest.html#one-document-from-stream,
+          manifest.html#empty-document-from-stream,
+          manifest.html#empty-document-from-stream-rdf,
+          manifest.html#empty-document,
+          manifest.html#empty-document-all,
+          manifest.html#empty-document-rdf,
+          manifest.html#empty-document-rdf-all,
+          manifest.html#root-null-null,
+          manifest.html#root-null-null-all,
+          manifest.html#root-null-title,
+          manifest.html#root-null-title-all,
+          manifest.html#root-null-upper,
+          manifest.html#root-null-upper-all,
+          manifest.html#root-null-tilde,
+          manifest.html#root-null-tilde-all,
+          manifest.html#zero-documents,
+          manifest.html#zero-documents-all,
+          manifest.html#zero-documents-rdf,
+          manifest.html#zero-documents-rdf-all,
+          manifest.html#whitespace-only,
+          manifest.html#whitespace-only-all,
+          manifest.html#comments-only,
+          manifest.html#comments-only-all,
+          manifest.html#all-empty,
+          manifest.html#all-empty-all,
+          manifest.html#all-empty-rdf,
+          manifest.html#all-empty-rdf-all,
+          manifest.html#leading-empty-all,
+          manifest.html#leading-empty-default,
+          manifest.html#leading-empty-rdf,
+          manifest.html#trailing-empty-all,
+          manifest.html#trailing-empty-default,
+          manifest.html#trailing-empty-rdf">
           A conformant YAML-LD implementation MUST apply this flag when constructing
           the JSON-LD [=internal representation=] from a YAML-LD <a>stream</a>.
           The default value is <code>false</code>, as in [[JSON-LD11-API]].
@@ -1322,11 +1365,12 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
           <dd>
             <p>
               The internal representation MUST be an array
-              containing the constructed value of each document in the stream,
-              even if the stream contains only one document.
+              containing the value produced by the
+              <a data-cite="YAML#constructing-native-data-structures">construction</a>
+              of each document in the stream.
             </p>
             <p>
-              If the stream is empty,
+              If the stream contains zero documents,
               the internal representation MUST be an empty array.
             </p>
           </dd>
@@ -1334,15 +1378,17 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
           <dd>
             <p>
               Only the first document in the stream MUST be constructed.
+              The value produced by the
+              <a data-cite="YAML#constructing-native-data-structures">construction</a>
+              of that document MUST be the internal representation.
             </p>
             <p>
-              If the stream is empty,
-              a
-              <a data-cite="JSON-LD11-API#dom-jsonlderrorcode-loading-document-failed">loading-document-failed</a>
-              error MUST be detected, and processing aborted.
+              If the stream contains zero documents,
+              the internal representation MUST be <code>null</code>.
             </p>
           </dd>
         </dl>
+
       </section>
 
       <section id="mapping-key-types">
