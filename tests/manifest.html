@@ -119,6 +119,132 @@
       <dl class="entry"><dt>baseIri</dt><dd>https://w3c.github.io/yaml-ld/tests/</dd></dl>
       <dl class="entry">
       
+              <dt id="multiple-documents-default">
+                Test multiple-documents-default Reject multiple YAML documents by default
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#multiple-documents-default</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Reject multiple YAML documents by default</dd></dt>
+                  <dt>Purpose</dt><dd>Loading more than one YAML document MUST fail.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/streams/two-documents-in.yamlld">cases/streams/two-documents-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+
+
+
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
+
+                </dl>
+              </dd>
+
+              <dt id="single-document-mapping">
+                Test single-document-mapping Load one mapping document
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#single-document-mapping</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Load one mapping document</dd></dt>
+                  <dt>Purpose</dt><dd>A single YAML document retains its constructed value.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/streams/single-mapping-in.yamlld">cases/streams/single-mapping-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+
+
+                  <dt>Expect</dt><dd><a href="cases/streams/item-out.yamlld">cases/streams/item-out.yamlld</a></dd>
+
+
+                </dl>
+              </dd>
+
+              <dt id="single-document-sequence">
+                Test single-document-sequence Load one sequence document
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#single-document-sequence</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Load one sequence document</dd></dt>
+                  <dt>Purpose</dt><dd>A single YAML document retains its constructed value.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/streams/single-sequence-in.yamlld">cases/streams/single-sequence-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+
+
+                  <dt>Expect</dt><dd><a href="cases/streams/item-out.yamlld">cases/streams/item-out.yamlld</a></dd>
+
+
+                </dl>
+              </dd>
+
+              <dt id="single-document-nested-sequences">
+                Test single-document-nested-sequences Load nested sequences within one document
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#single-document-nested-sequences</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Load nested sequences within one document</dd></dt>
+                  <dt>Purpose</dt><dd>A single YAML document retains its constructed value.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/streams/nested-sequences-in.yamlld">cases/streams/nested-sequences-in.yamlld</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+
+
+                  <dt>Expect</dt><dd><a href="cases/streams/item-out.yamlld">cases/streams/item-out.yamlld</a></dd>
+
+
+                </dl>
+              </dd>
+
+              <dt id="html-unselected-stream">
+                Test html-unselected-stream Do not load an unselected multi-document script
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#html-unselected-stream</dd></dt>
+                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Do not load an unselected multi-document script</dd></dt>
+                  <dt>Purpose</dt><dd>extractAllScripts selects HTML script elements; unselected scripts are not loaded.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/html/unselected-stream.html">cases/html/unselected-stream.html</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#html-script-selection">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+
+
+                  <dt>Expect</dt><dd><a href="cases/streams/item-out.yamlld">cases/streams/item-out.yamlld</a></dd>
+
+                  <dt>Options</dt>
+                    <dd><dl class="options">
+                    <dt>extractAllScripts</dt><dd>false</dd>
+                    </dl></dd>
+                </dl>
+              </dd>
+
+              <dt id="html-selected-stream">
+                Test html-selected-stream Reject a selected multi-document script
+              </dt>
+              <dd>
+                <dl class="entry">
+                  <dt>ID</dt><dd>#html-selected-stream</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Reject a selected multi-document script</dd></dt>
+                  <dt>Purpose</dt><dd>With extractAllScripts true, every selected YAML-LD script MUST satisfy Stream Processing.</dd></dt>
+                  <dt>Input</dt><dd><a href="cases/html/unselected-stream.html">cases/html/unselected-stream.html</a></dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#html-script-selection">1</a>)</dd></dt>
+                  <dt>Requirement</dt><dd><strong>must</strong></dd>
+
+
+
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
+                  <dt>Options</dt>
+                    <dd><dl class="options">
+                    <dt>extractAllScripts</dt><dd>true</dd>
+                    </dl></dd>
+                </dl>
+              </dd>
+
               <dt id="cir-document-content-1-negative">
                 Test cir-document-content-1-negative Document with scalar content.
               </dt>
@@ -560,21 +686,21 @@
               </dd>
 
               <dt id="html-and-yaml-streams">
-                Test html-and-yaml-streams YAML Stream with multiple documents embedded into HTML.
+                Test html-and-yaml-streams Reject multiple documents in a selected YAML-LD script
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#html-and-yaml-streams</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>YAML Stream with multiple documents embedded into HTML.</dd></dt>
-                  <dt>Purpose</dt><dd></dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Reject multiple documents in a selected YAML-LD script</dd></dt>
+                  <dt>Purpose</dt><dd>Each selected YAML-LD script MUST satisfy Stream Processing.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/html/stream.html">cases/html/stream.html</a></dd></dt>
-                  <dt>References</dt><dd>(<a href="../index.html#">1</a>)</dd></dt>
+                  <dt>References</dt><dd>(<a href="../index.html#html-script-selection">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
                   
                   
-                  <dt>Expect</dt><dd><a href="cases/html/stream.yamlld">cases/html/stream.yamlld</a></dd>
                   
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
                   <dt>Options</dt>
                     <dd><dl class="options">
                     <dt>extractAllScripts</dt><dd>true</dd>
@@ -652,21 +778,21 @@
               </dd>
 
               <dt id="two-documents-from-stream">
-                Test two-documents-from-stream YAML Stream with multiple documents.
+                Test two-documents-from-stream Reject multiple YAML documents: two-documents-from-stream
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#two-documents-from-stream</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>YAML Stream with multiple documents.</dd></dt>
-                  <dt>Purpose</dt><dd></dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Reject multiple YAML documents: two-documents-from-stream</dd></dt>
+                  <dt>Purpose</dt><dd>Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/two-documents-in.yamlld">cases/streams/two-documents-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
                   
                   
-                  <dt>Expect</dt><dd><a href="cases/streams/two-documents-out.yamlld">cases/streams/two-documents-out.yamlld</a></dd>
                   
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
                   <dt>Options</dt>
                     <dd><dl class="options">
                     <dt>extractAllScripts</dt><dd>true</dd>
@@ -675,21 +801,21 @@
               </dd>
 
               <dt id="one-document-from-stream">
-                Test one-document-from-stream YAML Stream with multiple documents.
+                Test one-document-from-stream Reject multiple YAML documents: one-document-from-stream
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#one-document-from-stream</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>YAML Stream with multiple documents.</dd></dt>
-                  <dt>Purpose</dt><dd></dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Reject multiple YAML documents: one-document-from-stream</dd></dt>
+                  <dt>Purpose</dt><dd>Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/two-documents-in.yamlld">cases/streams/two-documents-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
                   
                   
-                  <dt>Expect</dt><dd><a href="cases/streams/one-document-out.yamlld">cases/streams/one-document-out.yamlld</a></dd>
                   
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
                   <dt>Options</dt>
                     <dd><dl class="options">
                     <dt>extractAllScripts</dt><dd>false</dd>
@@ -698,21 +824,21 @@
               </dd>
 
               <dt id="shared-blank-node-from-stream">
-                Test shared-blank-node-from-stream Shared explicit blank node identifier across YAML documents
+                Test shared-blank-node-from-stream Reject multiple YAML documents: shared-blank-node-from-stream
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#shared-blank-node-from-stream</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ToRDFTest</dd>
-                  <dt>Name</dt><dd>Shared explicit blank node identifier across YAML documents</dd></dt>
-                  <dt>Purpose</dt><dd>With extractAllScripts, constructed values form one JSON-LD document, so the same explicit blank node identifier identifies one blank node.</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ToRDFTest</dd>
+                  <dt>Name</dt><dd>Reject multiple YAML documents: shared-blank-node-from-stream</dd></dt>
+                  <dt>Purpose</dt><dd>Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/shared-blank-node-in.yamlld">cases/streams/shared-blank-node-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
 
 
-                  <dt>Expect</dt><dd><a href="cases/streams/shared-blank-node-out.nq">cases/streams/shared-blank-node-out.nq</a></dd>
 
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
                   <dt>Options</dt>
                     <dd><dl class="options">
                     <dt>extractAllScripts</dt><dd>true</dd>
@@ -721,21 +847,21 @@
               </dd>
 
               <dt id="empty-document-from-stream">
-                Test empty-document-from-stream Empty middle document in a stream
+                Test empty-document-from-stream Reject multiple YAML documents: empty-document-from-stream
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#empty-document-from-stream</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>Empty middle document in a stream</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Reject multiple YAML documents: empty-document-from-stream</dd></dt>
+                  <dt>Purpose</dt><dd>Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/empty-document-in.yamlld">cases/streams/empty-document-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
 
 
-                  <dt>Expect</dt><dd><a href="cases/streams/empty-document-out.yamlld">cases/streams/empty-document-out.yamlld</a></dd>
 
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
                   <dt>Options</dt>
                     <dd><dl class="options">
                     <dt>extractAllScripts</dt><dd>true</dd>
@@ -744,21 +870,21 @@
               </dd>
 
               <dt id="empty-document-from-stream-rdf">
-                Test empty-document-from-stream-rdf Mixed stream preserves nonempty triples
+                Test empty-document-from-stream-rdf Reject multiple YAML documents: empty-document-from-stream-rdf
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#empty-document-from-stream-rdf</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ToRDFTest</dd>
-                  <dt>Name</dt><dd>Mixed stream preserves nonempty triples</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ToRDFTest</dd>
+                  <dt>Name</dt><dd>Reject multiple YAML documents: empty-document-from-stream-rdf</dd></dt>
+                  <dt>Purpose</dt><dd>Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/empty-document-in.yamlld">cases/streams/empty-document-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
 
 
-                  <dt>Expect</dt><dd><a href="cases/streams/empty-document-out.nq">cases/streams/empty-document-out.nq</a></dd>
 
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
                   <dt>Options</dt>
                     <dd><dl class="options">
                     <dt>extractAllScripts</dt><dd>true</dd>
@@ -767,14 +893,14 @@
               </dd>
 
               <dt id="empty-document">
-                Test empty-document empty-document (first document)
+                Test empty-document empty-document
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#empty-document</dd></dt>
                   <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>empty-document (first document)</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Name</dt><dd>empty-document</dd></dt>
+                  <dt>Purpose</dt><dd>Zero documents construct null; a single document retains its constructed value.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/standalone-empty-document-in.yamlld">cases/streams/standalone-empty-document-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
@@ -782,45 +908,19 @@
 
                   <dt>Expect</dt><dd><a href="cases/streams/empty-out.yamlld">cases/streams/empty-out.yamlld</a></dd>
 
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>false</dd>
-                    </dl></dd>
-                </dl>
-              </dd>
 
-              <dt id="empty-document-all">
-                Test empty-document-all empty-document (all documents)
-              </dt>
-              <dd>
-                <dl class="entry">
-                  <dt>ID</dt><dd>#empty-document-all</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>empty-document (all documents)</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
-                  <dt>Input</dt><dd><a href="cases/streams/standalone-empty-document-in.yamlld">cases/streams/standalone-empty-document-in.yamlld</a></dd></dt>
-                  <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
-                  <dt>Requirement</dt><dd><strong>must</strong></dd>
-
-
-                  <dt>Expect</dt><dd><a href="cases/streams/empty-out.yamlld">cases/streams/empty-out.yamlld</a></dd>
-
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>true</dd>
-                    </dl></dd>
                 </dl>
               </dd>
 
               <dt id="empty-document-rdf">
-                Test empty-document-rdf empty-document produces an empty RDF dataset
+                Test empty-document-rdf empty-document-rdf
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#empty-document-rdf</dd></dt>
                   <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ToRDFTest</dd>
-                  <dt>Name</dt><dd>empty-document produces an empty RDF dataset</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Name</dt><dd>empty-document-rdf</dd></dt>
+                  <dt>Purpose</dt><dd>Zero documents construct null; a single document retains its constructed value.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/standalone-empty-document-in.yamlld">cases/streams/standalone-empty-document-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
@@ -828,45 +928,19 @@
 
                   <dt>Expect</dt><dd><a href="cases/streams/empty-out.nq">cases/streams/empty-out.nq</a></dd>
 
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>false</dd>
-                    </dl></dd>
-                </dl>
-              </dd>
 
-              <dt id="empty-document-rdf-all">
-                Test empty-document-rdf-all empty-document produces an empty RDF dataset
-              </dt>
-              <dd>
-                <dl class="entry">
-                  <dt>ID</dt><dd>#empty-document-rdf-all</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ToRDFTest</dd>
-                  <dt>Name</dt><dd>empty-document produces an empty RDF dataset</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
-                  <dt>Input</dt><dd><a href="cases/streams/standalone-empty-document-in.yamlld">cases/streams/standalone-empty-document-in.yamlld</a></dd></dt>
-                  <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
-                  <dt>Requirement</dt><dd><strong>must</strong></dd>
-
-
-                  <dt>Expect</dt><dd><a href="cases/streams/empty-out.nq">cases/streams/empty-out.nq</a></dd>
-
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>true</dd>
-                    </dl></dd>
                 </dl>
               </dd>
 
               <dt id="root-null-null">
-                Test root-null-null root-null-null (first document)
+                Test root-null-null root-null-null
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#root-null-null</dd></dt>
                   <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>root-null-null (first document)</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Name</dt><dd>root-null-null</dd></dt>
+                  <dt>Purpose</dt><dd>Zero documents construct null; a single document retains its constructed value.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/root-null-null-in.yamlld">cases/streams/root-null-null-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
@@ -874,45 +948,19 @@
 
                   <dt>Expect</dt><dd><a href="cases/streams/empty-out.yamlld">cases/streams/empty-out.yamlld</a></dd>
 
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>false</dd>
-                    </dl></dd>
-                </dl>
-              </dd>
 
-              <dt id="root-null-null-all">
-                Test root-null-null-all root-null-null (all documents)
-              </dt>
-              <dd>
-                <dl class="entry">
-                  <dt>ID</dt><dd>#root-null-null-all</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>root-null-null (all documents)</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
-                  <dt>Input</dt><dd><a href="cases/streams/root-null-null-in.yamlld">cases/streams/root-null-null-in.yamlld</a></dd></dt>
-                  <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
-                  <dt>Requirement</dt><dd><strong>must</strong></dd>
-
-
-                  <dt>Expect</dt><dd><a href="cases/streams/empty-out.yamlld">cases/streams/empty-out.yamlld</a></dd>
-
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>true</dd>
-                    </dl></dd>
                 </dl>
               </dd>
 
               <dt id="root-null-title">
-                Test root-null-title root-null-title (first document)
+                Test root-null-title root-null-title
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#root-null-title</dd></dt>
                   <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>root-null-title (first document)</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Name</dt><dd>root-null-title</dd></dt>
+                  <dt>Purpose</dt><dd>Zero documents construct null; a single document retains its constructed value.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/root-null-title-in.yamlld">cases/streams/root-null-title-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
@@ -920,45 +968,19 @@
 
                   <dt>Expect</dt><dd><a href="cases/streams/empty-out.yamlld">cases/streams/empty-out.yamlld</a></dd>
 
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>false</dd>
-                    </dl></dd>
-                </dl>
-              </dd>
 
-              <dt id="root-null-title-all">
-                Test root-null-title-all root-null-title (all documents)
-              </dt>
-              <dd>
-                <dl class="entry">
-                  <dt>ID</dt><dd>#root-null-title-all</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>root-null-title (all documents)</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
-                  <dt>Input</dt><dd><a href="cases/streams/root-null-title-in.yamlld">cases/streams/root-null-title-in.yamlld</a></dd></dt>
-                  <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
-                  <dt>Requirement</dt><dd><strong>must</strong></dd>
-
-
-                  <dt>Expect</dt><dd><a href="cases/streams/empty-out.yamlld">cases/streams/empty-out.yamlld</a></dd>
-
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>true</dd>
-                    </dl></dd>
                 </dl>
               </dd>
 
               <dt id="root-null-upper">
-                Test root-null-upper root-null-upper (first document)
+                Test root-null-upper root-null-upper
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#root-null-upper</dd></dt>
                   <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>root-null-upper (first document)</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Name</dt><dd>root-null-upper</dd></dt>
+                  <dt>Purpose</dt><dd>Zero documents construct null; a single document retains its constructed value.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/root-null-upper-in.yamlld">cases/streams/root-null-upper-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
@@ -966,45 +988,19 @@
 
                   <dt>Expect</dt><dd><a href="cases/streams/empty-out.yamlld">cases/streams/empty-out.yamlld</a></dd>
 
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>false</dd>
-                    </dl></dd>
-                </dl>
-              </dd>
 
-              <dt id="root-null-upper-all">
-                Test root-null-upper-all root-null-upper (all documents)
-              </dt>
-              <dd>
-                <dl class="entry">
-                  <dt>ID</dt><dd>#root-null-upper-all</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>root-null-upper (all documents)</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
-                  <dt>Input</dt><dd><a href="cases/streams/root-null-upper-in.yamlld">cases/streams/root-null-upper-in.yamlld</a></dd></dt>
-                  <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
-                  <dt>Requirement</dt><dd><strong>must</strong></dd>
-
-
-                  <dt>Expect</dt><dd><a href="cases/streams/empty-out.yamlld">cases/streams/empty-out.yamlld</a></dd>
-
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>true</dd>
-                    </dl></dd>
                 </dl>
               </dd>
 
               <dt id="root-null-tilde">
-                Test root-null-tilde root-null-tilde (first document)
+                Test root-null-tilde root-null-tilde
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#root-null-tilde</dd></dt>
                   <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>root-null-tilde (first document)</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Name</dt><dd>root-null-tilde</dd></dt>
+                  <dt>Purpose</dt><dd>Zero documents construct null; a single document retains its constructed value.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/root-null-tilde-in.yamlld">cases/streams/root-null-tilde-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
@@ -1012,45 +1008,19 @@
 
                   <dt>Expect</dt><dd><a href="cases/streams/empty-out.yamlld">cases/streams/empty-out.yamlld</a></dd>
 
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>false</dd>
-                    </dl></dd>
-                </dl>
-              </dd>
 
-              <dt id="root-null-tilde-all">
-                Test root-null-tilde-all root-null-tilde (all documents)
-              </dt>
-              <dd>
-                <dl class="entry">
-                  <dt>ID</dt><dd>#root-null-tilde-all</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>root-null-tilde (all documents)</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
-                  <dt>Input</dt><dd><a href="cases/streams/root-null-tilde-in.yamlld">cases/streams/root-null-tilde-in.yamlld</a></dd></dt>
-                  <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
-                  <dt>Requirement</dt><dd><strong>must</strong></dd>
-
-
-                  <dt>Expect</dt><dd><a href="cases/streams/empty-out.yamlld">cases/streams/empty-out.yamlld</a></dd>
-
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>true</dd>
-                    </dl></dd>
                 </dl>
               </dd>
 
               <dt id="zero-documents">
-                Test zero-documents zero-documents (first document)
+                Test zero-documents zero-documents
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#zero-documents</dd></dt>
                   <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>zero-documents (first document)</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Name</dt><dd>zero-documents</dd></dt>
+                  <dt>Purpose</dt><dd>Zero documents construct null; a single document retains its constructed value.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/zero-documents-in.yamlld">cases/streams/zero-documents-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
@@ -1058,45 +1028,19 @@
 
                   <dt>Expect</dt><dd><a href="cases/streams/empty-out.yamlld">cases/streams/empty-out.yamlld</a></dd>
 
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>false</dd>
-                    </dl></dd>
-                </dl>
-              </dd>
 
-              <dt id="zero-documents-all">
-                Test zero-documents-all zero-documents (all documents)
-              </dt>
-              <dd>
-                <dl class="entry">
-                  <dt>ID</dt><dd>#zero-documents-all</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>zero-documents (all documents)</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
-                  <dt>Input</dt><dd><a href="cases/streams/zero-documents-in.yamlld">cases/streams/zero-documents-in.yamlld</a></dd></dt>
-                  <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
-                  <dt>Requirement</dt><dd><strong>must</strong></dd>
-
-
-                  <dt>Expect</dt><dd><a href="cases/streams/empty-out.yamlld">cases/streams/empty-out.yamlld</a></dd>
-
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>true</dd>
-                    </dl></dd>
                 </dl>
               </dd>
 
               <dt id="zero-documents-rdf">
-                Test zero-documents-rdf zero-documents produces an empty RDF dataset
+                Test zero-documents-rdf zero-documents-rdf
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#zero-documents-rdf</dd></dt>
                   <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ToRDFTest</dd>
-                  <dt>Name</dt><dd>zero-documents produces an empty RDF dataset</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Name</dt><dd>zero-documents-rdf</dd></dt>
+                  <dt>Purpose</dt><dd>Zero documents construct null; a single document retains its constructed value.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/zero-documents-in.yamlld">cases/streams/zero-documents-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
@@ -1104,45 +1048,19 @@
 
                   <dt>Expect</dt><dd><a href="cases/streams/empty-out.nq">cases/streams/empty-out.nq</a></dd>
 
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>false</dd>
-                    </dl></dd>
-                </dl>
-              </dd>
 
-              <dt id="zero-documents-rdf-all">
-                Test zero-documents-rdf-all zero-documents produces an empty RDF dataset
-              </dt>
-              <dd>
-                <dl class="entry">
-                  <dt>ID</dt><dd>#zero-documents-rdf-all</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ToRDFTest</dd>
-                  <dt>Name</dt><dd>zero-documents produces an empty RDF dataset</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
-                  <dt>Input</dt><dd><a href="cases/streams/zero-documents-in.yamlld">cases/streams/zero-documents-in.yamlld</a></dd></dt>
-                  <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
-                  <dt>Requirement</dt><dd><strong>must</strong></dd>
-
-
-                  <dt>Expect</dt><dd><a href="cases/streams/empty-out.nq">cases/streams/empty-out.nq</a></dd>
-
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>true</dd>
-                    </dl></dd>
                 </dl>
               </dd>
 
               <dt id="whitespace-only">
-                Test whitespace-only whitespace-only (first document)
+                Test whitespace-only whitespace-only
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#whitespace-only</dd></dt>
                   <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>whitespace-only (first document)</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Name</dt><dd>whitespace-only</dd></dt>
+                  <dt>Purpose</dt><dd>Zero documents construct null; a single document retains its constructed value.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/whitespace-only-in.yamlld">cases/streams/whitespace-only-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
@@ -1150,45 +1068,19 @@
 
                   <dt>Expect</dt><dd><a href="cases/streams/empty-out.yamlld">cases/streams/empty-out.yamlld</a></dd>
 
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>false</dd>
-                    </dl></dd>
-                </dl>
-              </dd>
 
-              <dt id="whitespace-only-all">
-                Test whitespace-only-all whitespace-only (all documents)
-              </dt>
-              <dd>
-                <dl class="entry">
-                  <dt>ID</dt><dd>#whitespace-only-all</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>whitespace-only (all documents)</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
-                  <dt>Input</dt><dd><a href="cases/streams/whitespace-only-in.yamlld">cases/streams/whitespace-only-in.yamlld</a></dd></dt>
-                  <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
-                  <dt>Requirement</dt><dd><strong>must</strong></dd>
-
-
-                  <dt>Expect</dt><dd><a href="cases/streams/empty-out.yamlld">cases/streams/empty-out.yamlld</a></dd>
-
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>true</dd>
-                    </dl></dd>
                 </dl>
               </dd>
 
               <dt id="comments-only">
-                Test comments-only comments-only (first document)
+                Test comments-only comments-only
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#comments-only</dd></dt>
                   <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>comments-only (first document)</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Name</dt><dd>comments-only</dd></dt>
+                  <dt>Purpose</dt><dd>Zero documents construct null; a single document retains its constructed value.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/comments-only-in.yamlld">cases/streams/comments-only-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
@@ -1196,52 +1088,26 @@
 
                   <dt>Expect</dt><dd><a href="cases/streams/empty-out.yamlld">cases/streams/empty-out.yamlld</a></dd>
 
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>false</dd>
-                    </dl></dd>
-                </dl>
-              </dd>
 
-              <dt id="comments-only-all">
-                Test comments-only-all comments-only (all documents)
-              </dt>
-              <dd>
-                <dl class="entry">
-                  <dt>ID</dt><dd>#comments-only-all</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>comments-only (all documents)</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
-                  <dt>Input</dt><dd><a href="cases/streams/comments-only-in.yamlld">cases/streams/comments-only-in.yamlld</a></dd></dt>
-                  <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
-                  <dt>Requirement</dt><dd><strong>must</strong></dd>
-
-
-                  <dt>Expect</dt><dd><a href="cases/streams/empty-out.yamlld">cases/streams/empty-out.yamlld</a></dd>
-
-                  <dt>Options</dt>
-                    <dd><dl class="options">
-                    <dt>extractAllScripts</dt><dd>true</dd>
-                    </dl></dd>
                 </dl>
               </dd>
 
               <dt id="all-empty">
-                Test all-empty all-empty (first document)
+                Test all-empty Reject multiple YAML documents: all-empty
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#all-empty</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>all-empty (first document)</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Reject multiple YAML documents: all-empty</dd></dt>
+                  <dt>Purpose</dt><dd>Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/all-empty-in.yamlld">cases/streams/all-empty-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
 
 
-                  <dt>Expect</dt><dd><a href="cases/streams/empty-out.yamlld">cases/streams/empty-out.yamlld</a></dd>
 
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
                   <dt>Options</dt>
                     <dd><dl class="options">
                     <dt>extractAllScripts</dt><dd>false</dd>
@@ -1250,21 +1116,21 @@
               </dd>
 
               <dt id="all-empty-all">
-                Test all-empty-all all-empty (all documents)
+                Test all-empty-all Reject multiple YAML documents: all-empty-all
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#all-empty-all</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>all-empty (all documents)</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Reject multiple YAML documents: all-empty-all</dd></dt>
+                  <dt>Purpose</dt><dd>Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/all-empty-in.yamlld">cases/streams/all-empty-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
 
 
-                  <dt>Expect</dt><dd><a href="cases/streams/empty-out.yamlld">cases/streams/empty-out.yamlld</a></dd>
 
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
                   <dt>Options</dt>
                     <dd><dl class="options">
                     <dt>extractAllScripts</dt><dd>true</dd>
@@ -1273,21 +1139,21 @@
               </dd>
 
               <dt id="all-empty-rdf">
-                Test all-empty-rdf all-empty produces an empty RDF dataset
+                Test all-empty-rdf Reject multiple YAML documents: all-empty-rdf
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#all-empty-rdf</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ToRDFTest</dd>
-                  <dt>Name</dt><dd>all-empty produces an empty RDF dataset</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ToRDFTest</dd>
+                  <dt>Name</dt><dd>Reject multiple YAML documents: all-empty-rdf</dd></dt>
+                  <dt>Purpose</dt><dd>Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/all-empty-in.yamlld">cases/streams/all-empty-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
 
 
-                  <dt>Expect</dt><dd><a href="cases/streams/empty-out.nq">cases/streams/empty-out.nq</a></dd>
 
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
                   <dt>Options</dt>
                     <dd><dl class="options">
                     <dt>extractAllScripts</dt><dd>false</dd>
@@ -1296,21 +1162,21 @@
               </dd>
 
               <dt id="all-empty-rdf-all">
-                Test all-empty-rdf-all all-empty produces an empty RDF dataset
+                Test all-empty-rdf-all Reject multiple YAML documents: all-empty-rdf-all
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#all-empty-rdf-all</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ToRDFTest</dd>
-                  <dt>Name</dt><dd>all-empty produces an empty RDF dataset</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ToRDFTest</dd>
+                  <dt>Name</dt><dd>Reject multiple YAML documents: all-empty-rdf-all</dd></dt>
+                  <dt>Purpose</dt><dd>Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/all-empty-in.yamlld">cases/streams/all-empty-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
 
 
-                  <dt>Expect</dt><dd><a href="cases/streams/empty-out.nq">cases/streams/empty-out.nq</a></dd>
 
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
                   <dt>Options</dt>
                     <dd><dl class="options">
                     <dt>extractAllScripts</dt><dd>true</dd>
@@ -1319,21 +1185,21 @@
               </dd>
 
               <dt id="leading-empty-all">
-                Test leading-empty-all leading-empty aggregated
+                Test leading-empty-all Reject multiple YAML documents: leading-empty-all
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#leading-empty-all</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>leading-empty aggregated</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Reject multiple YAML documents: leading-empty-all</dd></dt>
+                  <dt>Purpose</dt><dd>Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/leading-empty-in.yamlld">cases/streams/leading-empty-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
 
 
-                  <dt>Expect</dt><dd><a href="cases/streams/item-out.yamlld">cases/streams/item-out.yamlld</a></dd>
 
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
                   <dt>Options</dt>
                     <dd><dl class="options">
                     <dt>extractAllScripts</dt><dd>true</dd>
@@ -1342,41 +1208,41 @@
               </dd>
 
               <dt id="leading-empty-default">
-                Test leading-empty-default leading-empty under default processing
+                Test leading-empty-default Reject multiple YAML documents: leading-empty-default
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#leading-empty-default</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>leading-empty under default processing</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Reject multiple YAML documents: leading-empty-default</dd></dt>
+                  <dt>Purpose</dt><dd>Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/leading-empty-in.yamlld">cases/streams/leading-empty-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
 
 
-                  <dt>Expect</dt><dd><a href="cases/streams/empty-out.yamlld">cases/streams/empty-out.yamlld</a></dd>
 
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
 
                 </dl>
               </dd>
 
               <dt id="leading-empty-rdf">
-                Test leading-empty-rdf leading-empty preserves nonempty triples
+                Test leading-empty-rdf Reject multiple YAML documents: leading-empty-rdf
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#leading-empty-rdf</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ToRDFTest</dd>
-                  <dt>Name</dt><dd>leading-empty preserves nonempty triples</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ToRDFTest</dd>
+                  <dt>Name</dt><dd>Reject multiple YAML documents: leading-empty-rdf</dd></dt>
+                  <dt>Purpose</dt><dd>Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/leading-empty-in.yamlld">cases/streams/leading-empty-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
 
 
-                  <dt>Expect</dt><dd><a href="cases/streams/item-out.nq">cases/streams/item-out.nq</a></dd>
 
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
                   <dt>Options</dt>
                     <dd><dl class="options">
                     <dt>extractAllScripts</dt><dd>true</dd>
@@ -1385,21 +1251,21 @@
               </dd>
 
               <dt id="trailing-empty-all">
-                Test trailing-empty-all trailing-empty aggregated
+                Test trailing-empty-all Reject multiple YAML documents: trailing-empty-all
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#trailing-empty-all</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>trailing-empty aggregated</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Reject multiple YAML documents: trailing-empty-all</dd></dt>
+                  <dt>Purpose</dt><dd>Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/trailing-empty-in.yamlld">cases/streams/trailing-empty-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
 
 
-                  <dt>Expect</dt><dd><a href="cases/streams/item-out.yamlld">cases/streams/item-out.yamlld</a></dd>
 
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
                   <dt>Options</dt>
                     <dd><dl class="options">
                     <dt>extractAllScripts</dt><dd>true</dd>
@@ -1408,41 +1274,41 @@
               </dd>
 
               <dt id="trailing-empty-default">
-                Test trailing-empty-default trailing-empty under default processing
+                Test trailing-empty-default Reject multiple YAML documents: trailing-empty-default
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#trailing-empty-default</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ExpandTest</dd>
-                  <dt>Name</dt><dd>trailing-empty under default processing</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ExpandTest</dd>
+                  <dt>Name</dt><dd>Reject multiple YAML documents: trailing-empty-default</dd></dt>
+                  <dt>Purpose</dt><dd>Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/trailing-empty-in.yamlld">cases/streams/trailing-empty-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
 
 
-                  <dt>Expect</dt><dd><a href="cases/streams/item-out.yamlld">cases/streams/item-out.yamlld</a></dd>
 
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
 
                 </dl>
               </dd>
 
               <dt id="trailing-empty-rdf">
-                Test trailing-empty-rdf trailing-empty preserves nonempty triples
+                Test trailing-empty-rdf Reject multiple YAML documents: trailing-empty-rdf
               </dt>
               <dd>
                 <dl class="entry">
                   <dt>ID</dt><dd>#trailing-empty-rdf</dd></dt>
-                  <dt>Type</dt><dd>jld:PositiveEvaluationTest,jld:ToRDFTest</dd>
-                  <dt>Name</dt><dd>trailing-empty preserves nonempty triples</dd></dt>
-                  <dt>Purpose</dt><dd>Empty documents contribute null; streams retain constructed values and select the first document by default.</dd></dt>
+                  <dt>Type</dt><dd>jld:NegativeEvaluationTest,jld:ToRDFTest</dd>
+                  <dt>Name</dt><dd>Reject multiple YAML documents: trailing-empty-rdf</dd></dt>
+                  <dt>Purpose</dt><dd>Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.</dd></dt>
                   <dt>Input</dt><dd><a href="cases/streams/trailing-empty-in.yamlld">cases/streams/trailing-empty-in.yamlld</a></dd></dt>
                   <dt>References</dt><dd>(<a href="../index.html#cir-stream-processing">1</a>)</dd></dt>
                   <dt>Requirement</dt><dd><strong>must</strong></dd>
 
 
-                  <dt>Expect</dt><dd><a href="cases/streams/item-out.nq">cases/streams/item-out.nq</a></dd>
 
+                  <dt>Expect Error Code</dt><dd>loading document failed</dd>
                   <dt>Options</dt>
                     <dd><dl class="options">
                     <dt>extractAllScripts</dt><dd>true</dd>
