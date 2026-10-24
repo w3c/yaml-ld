@@ -227,15 +227,15 @@ $reverse:
     - rdfs:label: Documents per file
       json: 1
       yaml:
-        prov:value: ⩾ 1
+        prov:value: ⩾ 0
         prov:wasDerivedFrom:
           $id: yaml-spec:streams
           $: YAML 9.1 Streams
       yamlld:
-        prov:value: ⩾ 1 (depending on `extractAllScripts` flag, see Stream handling)
+        prov:value: ⩾ 0; loading supports at most 1 (see Stream Processing)
         prov:wasDerivedFrom:
-          $id: yaml-ld:streams
-          $: Stream handling
+          $id: yaml-ld:stream-processing
+          $: Stream Processing
 
     - rdfs:label: Comments
       json: false
