@@ -827,7 +827,7 @@
           <th>Documents per file</th>
           <td>1</td>
           <td>⩾ 0 via <a>YAML stream</a></td>
-          <td>⩾ 0 (depending on <code>extractAllScripts</code> flag, see <a href="#stream-processing">Stream Processing</a>)</td>
+          <td>⩾ 0; loading supports at most 1 (see <a href="#stream-processing">Stream Processing</a>)</td>
         </tr>
 
         <tr>
@@ -993,6 +993,8 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
         <p>
           A <a>YAML-LD stream</a> MAY contain zero or more
           <a>YAML-LD documents</a>. The example below contains multiple documents.
+          Loading these streams with [[JSON-LD11-API]] is subject to
+          <a href="#stream-processing">Stream Processing</a>.
         </p>
 
         <div class="example-with-diagram">
@@ -1314,37 +1316,21 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
       <section id="stream-processing">
         <h2>Stream Processing</h2>
 
-        <p class="informative">
-          [[JSON-LD11-API]] defines the
-          <a data-cite="JSON-LD11-API#dom-jsonldoptions-extractallscripts">`extractAllScripts`</a> flag, which allows to parse
-          multiple `&lt;script&gt;` tags with JSON-LD content in an HTML document.
-        </p>
-
-        <p id="cir-stream-processing" data-tests=
-          "manifest.html#two-documents-from-stream,
+        <div id="cir-stream-processing" data-tests="manifest.html#two-documents-from-stream,
           manifest.html#one-document-from-stream,
+          manifest.html#shared-blank-node-from-stream,
           manifest.html#empty-document-from-stream,
           manifest.html#empty-document-from-stream-rdf,
           manifest.html#empty-document,
-          manifest.html#empty-document-all,
           manifest.html#empty-document-rdf,
-          manifest.html#empty-document-rdf-all,
           manifest.html#root-null-null,
-          manifest.html#root-null-null-all,
           manifest.html#root-null-title,
-          manifest.html#root-null-title-all,
           manifest.html#root-null-upper,
-          manifest.html#root-null-upper-all,
           manifest.html#root-null-tilde,
-          manifest.html#root-null-tilde-all,
           manifest.html#zero-documents,
-          manifest.html#zero-documents-all,
           manifest.html#zero-documents-rdf,
-          manifest.html#zero-documents-rdf-all,
           manifest.html#whitespace-only,
-          manifest.html#whitespace-only-all,
           manifest.html#comments-only,
-          manifest.html#comments-only-all,
           manifest.html#all-empty,
           manifest.html#all-empty-all,
           manifest.html#all-empty-rdf,
@@ -1355,45 +1341,23 @@ The goal of this specification is to allow a <a>JSON-LD document</a> to be
           manifest.html#trailing-empty-all,
           manifest.html#trailing-empty-default,
           manifest.html#trailing-empty-rdf,
-          manifest.html#shared-blank-node-from-stream">
-          A conformant YAML-LD implementation MUST apply this flag when constructing
-          the JSON-LD [=internal representation=] from a YAML-LD <a>stream</a>.
-          The default value is <code>false</code>, as in [[JSON-LD11-API]].
-        </p>
-
-        <dl>
-          <dt>If the flag is <code>true</code></dt>
-          <dd>
-            <p>
-              The internal representation MUST be an array
-              containing the value produced by the
-              <a data-cite="YAML#constructing-native-data-structures">construction</a>
-              of each document in the stream.
-            </p>
-            <p>
-              This array is one JSON-LD document. If constructed values from
-              different YAML documents contain the same explicit blank node
-              identifier, they MUST identify the same blank node in the RDF output.
-            </p>
-            <p>
-              If the stream contains zero documents,
-              the internal representation MUST be an empty array.
-            </p>
-          </dd>
-          <dt>If the flag is <code>false</code></dt>
-          <dd>
-            <p>
-              Only the first document in the stream MUST be constructed.
-              The value produced by the
-              <a data-cite="YAML#constructing-native-data-structures">construction</a>
-              of that document MUST be the internal representation.
-            </p>
-            <p>
-              If the stream contains zero documents,
-              the internal representation MUST be <code>null</code>.
-            </p>
-          </dd>
-        </dl>
+          manifest.html#multiple-documents-default,
+          manifest.html#single-document-mapping,
+          manifest.html#single-document-sequence,
+          manifest.html#single-document-nested-sequences">
+          <p>
+            When loading a <a>YAML-LD stream</a> for processing with [[JSON-LD11-API]],
+            if the stream contains more than one <a>YAML-LD document</a>, a
+            <a data-cite="JSON-LD11-API#dom-jsonlderrorcode-loading-document-failed">loading-document-failed</a>
+            error MUST be detected, and processing aborted.
+          </p>
+          <p>
+            If the stream contains one document, the value produced by its
+            <a data-cite="YAML#constructing-native-data-structures">construction</a>
+            MUST be the [=internal representation=]. If the stream contains zero
+            documents, the internal representation MUST be <code>null</code>.
+          </p>
+        </div>
 
       </section>
 
@@ -1596,8 +1560,12 @@ enum YamlLdErrorCode {
       YAML-LD processor MUST preserve the content of the block for YAML parsing <em>as-is</em>, including whitespace characters.
     </p>
 
-    <p data-tests="manifest.html#html-and-yaml-streams">
-      If the YAML-LD <code>&lt;script></code> tag contains a <a>YAML Stream</a> with multiple <a>YAML documents</a>, each of these documents MUST be treated as if it was included in a separate <code>&lt;script></code> tag. See <a href="#stream-processing">Stream Processing</a> for details.
+    <p id="html-script-selection" data-tests="manifest.html#html-and-yaml-streams,
+      manifest.html#html-unselected-stream,manifest.html#html-selected-stream">
+      The <a data-cite="JSON-LD11-API#dom-jsonldoptions-extractallscripts">`extractAllScripts`</a>
+      option selects script elements as defined by [[JSON-LD11-API]].
+      The content of each selected YAML-LD <code>&lt;script></code> element MUST be
+      loaded according to <a href="#stream-processing">Stream Processing</a>.
     </p>
   </section>
 
