@@ -7,6 +7,84 @@
   "baseIri": "https://w3c.github.io/yaml-ld/tests/",
   "sequence": [
     {
+      "@id": "#multiple-documents-default",
+      "@type": [
+        "jld:NegativeEvaluationTest",
+        "jld:ExpandTest"
+      ],
+      "name": "Reject multiple YAML documents by default",
+      "purpose": "Loading more than one YAML document MUST fail.",
+      "req": "must",
+      "input": "cases/streams/two-documents-in.yamlld",
+      "expectErrorCode": "loading document failed"
+    },
+    {
+      "@id": "#single-document-mapping",
+      "@type": [
+        "jld:PositiveEvaluationTest",
+        "jld:ExpandTest"
+      ],
+      "name": "Load one mapping document",
+      "purpose": "A single YAML document retains its constructed value.",
+      "req": "must",
+      "input": "cases/streams/single-mapping-in.yamlld",
+      "expect": "cases/streams/item-out.yamlld"
+    },
+    {
+      "@id": "#single-document-sequence",
+      "@type": [
+        "jld:PositiveEvaluationTest",
+        "jld:ExpandTest"
+      ],
+      "name": "Load one sequence document",
+      "purpose": "A single YAML document retains its constructed value.",
+      "req": "must",
+      "input": "cases/streams/single-sequence-in.yamlld",
+      "expect": "cases/streams/item-out.yamlld"
+    },
+    {
+      "@id": "#single-document-nested-sequences",
+      "@type": [
+        "jld:PositiveEvaluationTest",
+        "jld:ExpandTest"
+      ],
+      "name": "Load nested sequences within one document",
+      "purpose": "A single YAML document retains its constructed value.",
+      "req": "must",
+      "input": "cases/streams/nested-sequences-in.yamlld",
+      "expect": "cases/streams/item-out.yamlld"
+    },
+    {
+      "@id": "#html-unselected-stream",
+      "@type": [
+        "jld:PositiveEvaluationTest",
+        "jld:ExpandTest"
+      ],
+      "name": "Do not load an unselected multi-document script",
+      "purpose": "extractAllScripts selects HTML script elements; unselected scripts are not loaded.",
+      "req": "must",
+      "input": "cases/html/unselected-stream.html",
+      "option": {
+        "extractAllScripts": false
+      },
+      "expect": "cases/streams/item-out.yamlld"
+    },
+    {
+      "@id": "#html-selected-stream",
+      "@type": [
+        "jld:NegativeEvaluationTest",
+        "jld:ExpandTest"
+      ],
+      "name": "Reject a selected multi-document script",
+      "purpose": "With extractAllScripts true, every selected YAML-LD script MUST satisfy Stream Processing.",
+      "req": "must",
+      "input": "cases/html/unselected-stream.html",
+      "option": {
+        "extractAllScripts": true
+      },
+      "expectErrorCode": "loading document failed"
+    },
+    {
       "@id":  "#cir-document-content-1-negative",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
       "name": "Document with scalar content.",
@@ -202,12 +280,18 @@
     },
     {
       "@id": "#html-and-yaml-streams",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "YAML Stream with multiple documents embedded into HTML.",
+      "@type": [
+        "jld:NegativeEvaluationTest",
+        "jld:ExpandTest"
+      ],
+      "name": "Reject multiple documents in a selected YAML-LD script",
       "req": "must",
-      "option": {"extractAllScripts": true},
+      "option": {
+        "extractAllScripts": true
+      },
       "input": "cases/html/stream.html",
-      "expect": "cases/html/stream.yamlld"
+      "purpose": "Each selected YAML-LD script MUST satisfy Stream Processing.",
+      "expectErrorCode": "loading document failed"
     },
     {
       "@id": "#mixed-script-types",
@@ -238,66 +322,78 @@
     },
     {
       "@id": "#two-documents-from-stream",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "YAML Stream with multiple documents.",
+      "@type": [
+        "jld:NegativeEvaluationTest",
+        "jld:ExpandTest"
+      ],
+      "name": "Reject multiple YAML documents: two-documents-from-stream",
       "req": "must",
-      "option": {"extractAllScripts": true},
+      "option": {
+        "extractAllScripts": true
+      },
       "input": "cases/streams/two-documents-in.yamlld",
-      "expect": "cases/streams/two-documents-out.yamlld"
+      "purpose": "Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.",
+      "expectErrorCode": "loading document failed"
     },
     {
       "@id": "#one-document-from-stream",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "YAML Stream with multiple documents.",
+      "@type": [
+        "jld:NegativeEvaluationTest",
+        "jld:ExpandTest"
+      ],
+      "name": "Reject multiple YAML documents: one-document-from-stream",
       "req": "must",
-      "option": {"extractAllScripts": false},
+      "option": {
+        "extractAllScripts": false
+      },
       "input": "cases/streams/two-documents-in.yamlld",
-      "expect": "cases/streams/one-document-out.yamlld"
+      "purpose": "Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.",
+      "expectErrorCode": "loading document failed"
     },
     {
       "@id": "#shared-blank-node-from-stream",
       "@type": [
-        "jld:PositiveEvaluationTest",
+        "jld:NegativeEvaluationTest",
         "jld:ToRDFTest"
       ],
-      "name": "Shared explicit blank node identifier across YAML documents",
-      "purpose": "With extractAllScripts, constructed values form one JSON-LD document, so the same explicit blank node identifier identifies one blank node.",
+      "name": "Reject multiple YAML documents: shared-blank-node-from-stream",
+      "purpose": "Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.",
       "req": "must",
       "option": {
         "extractAllScripts": true
       },
       "input": "cases/streams/shared-blank-node-in.yamlld",
-      "expect": "cases/streams/shared-blank-node-out.nq"
+      "expectErrorCode": "loading document failed"
     },
     {
       "@id": "#empty-document-from-stream",
       "@type": [
-        "jld:PositiveEvaluationTest",
+        "jld:NegativeEvaluationTest",
         "jld:ExpandTest"
       ],
-      "name": "Empty middle document in a stream",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "Reject multiple YAML documents: empty-document-from-stream",
+      "purpose": "Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.",
       "req": "must",
       "input": "cases/streams/empty-document-in.yamlld",
       "option": {
         "extractAllScripts": true
       },
-      "expect": "cases/streams/empty-document-out.yamlld"
+      "expectErrorCode": "loading document failed"
     },
     {
       "@id": "#empty-document-from-stream-rdf",
       "@type": [
-        "jld:PositiveEvaluationTest",
+        "jld:NegativeEvaluationTest",
         "jld:ToRDFTest"
       ],
-      "name": "Mixed stream preserves nonempty triples",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "Reject multiple YAML documents: empty-document-from-stream-rdf",
+      "purpose": "Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.",
       "req": "must",
       "input": "cases/streams/empty-document-in.yamlld",
       "option": {
         "extractAllScripts": true
       },
-      "expect": "cases/streams/empty-document-out.nq"
+      "expectErrorCode": "loading document failed"
     },
     {
       "@id": "#empty-document",
@@ -305,443 +401,273 @@
         "jld:PositiveEvaluationTest",
         "jld:ExpandTest"
       ],
-      "name": "empty-document (first document)",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "empty-document",
+      "purpose": "Zero documents construct null; a single document retains its constructed value.",
       "req": "must",
       "input": "cases/streams/standalone-empty-document-in.yamlld",
-      "option": {
-        "extractAllScripts": false
-      },
       "expect": "cases/streams/empty-out.yamlld"
     },
-    {
-      "@id": "#empty-document-all",
-      "@type": [
-        "jld:PositiveEvaluationTest",
-        "jld:ExpandTest"
-      ],
-      "name": "empty-document (all documents)",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
-      "req": "must",
-      "input": "cases/streams/standalone-empty-document-in.yamlld",
-      "option": {
-        "extractAllScripts": true
-      },
-      "expect": "cases/streams/empty-out.yamlld"
-    },
+
     {
       "@id": "#empty-document-rdf",
       "@type": [
         "jld:PositiveEvaluationTest",
         "jld:ToRDFTest"
       ],
-      "name": "empty-document produces an empty RDF dataset",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "empty-document-rdf",
+      "purpose": "Zero documents construct null; a single document retains its constructed value.",
       "req": "must",
       "input": "cases/streams/standalone-empty-document-in.yamlld",
-      "option": {
-        "extractAllScripts": false
-      },
       "expect": "cases/streams/empty-out.nq"
     },
-    {
-      "@id": "#empty-document-rdf-all",
-      "@type": [
-        "jld:PositiveEvaluationTest",
-        "jld:ToRDFTest"
-      ],
-      "name": "empty-document produces an empty RDF dataset",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
-      "req": "must",
-      "input": "cases/streams/standalone-empty-document-in.yamlld",
-      "option": {
-        "extractAllScripts": true
-      },
-      "expect": "cases/streams/empty-out.nq"
-    },
+
     {
       "@id": "#root-null-null",
       "@type": [
         "jld:PositiveEvaluationTest",
         "jld:ExpandTest"
       ],
-      "name": "root-null-null (first document)",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "root-null-null",
+      "purpose": "Zero documents construct null; a single document retains its constructed value.",
       "req": "must",
       "input": "cases/streams/root-null-null-in.yamlld",
-      "option": {
-        "extractAllScripts": false
-      },
       "expect": "cases/streams/empty-out.yamlld"
     },
-    {
-      "@id": "#root-null-null-all",
-      "@type": [
-        "jld:PositiveEvaluationTest",
-        "jld:ExpandTest"
-      ],
-      "name": "root-null-null (all documents)",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
-      "req": "must",
-      "input": "cases/streams/root-null-null-in.yamlld",
-      "option": {
-        "extractAllScripts": true
-      },
-      "expect": "cases/streams/empty-out.yamlld"
-    },
+
     {
       "@id": "#root-null-title",
       "@type": [
         "jld:PositiveEvaluationTest",
         "jld:ExpandTest"
       ],
-      "name": "root-null-title (first document)",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "root-null-title",
+      "purpose": "Zero documents construct null; a single document retains its constructed value.",
       "req": "must",
       "input": "cases/streams/root-null-title-in.yamlld",
-      "option": {
-        "extractAllScripts": false
-      },
       "expect": "cases/streams/empty-out.yamlld"
     },
-    {
-      "@id": "#root-null-title-all",
-      "@type": [
-        "jld:PositiveEvaluationTest",
-        "jld:ExpandTest"
-      ],
-      "name": "root-null-title (all documents)",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
-      "req": "must",
-      "input": "cases/streams/root-null-title-in.yamlld",
-      "option": {
-        "extractAllScripts": true
-      },
-      "expect": "cases/streams/empty-out.yamlld"
-    },
+
     {
       "@id": "#root-null-upper",
       "@type": [
         "jld:PositiveEvaluationTest",
         "jld:ExpandTest"
       ],
-      "name": "root-null-upper (first document)",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "root-null-upper",
+      "purpose": "Zero documents construct null; a single document retains its constructed value.",
       "req": "must",
       "input": "cases/streams/root-null-upper-in.yamlld",
-      "option": {
-        "extractAllScripts": false
-      },
       "expect": "cases/streams/empty-out.yamlld"
     },
-    {
-      "@id": "#root-null-upper-all",
-      "@type": [
-        "jld:PositiveEvaluationTest",
-        "jld:ExpandTest"
-      ],
-      "name": "root-null-upper (all documents)",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
-      "req": "must",
-      "input": "cases/streams/root-null-upper-in.yamlld",
-      "option": {
-        "extractAllScripts": true
-      },
-      "expect": "cases/streams/empty-out.yamlld"
-    },
+
     {
       "@id": "#root-null-tilde",
       "@type": [
         "jld:PositiveEvaluationTest",
         "jld:ExpandTest"
       ],
-      "name": "root-null-tilde (first document)",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "root-null-tilde",
+      "purpose": "Zero documents construct null; a single document retains its constructed value.",
       "req": "must",
       "input": "cases/streams/root-null-tilde-in.yamlld",
-      "option": {
-        "extractAllScripts": false
-      },
       "expect": "cases/streams/empty-out.yamlld"
     },
-    {
-      "@id": "#root-null-tilde-all",
-      "@type": [
-        "jld:PositiveEvaluationTest",
-        "jld:ExpandTest"
-      ],
-      "name": "root-null-tilde (all documents)",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
-      "req": "must",
-      "input": "cases/streams/root-null-tilde-in.yamlld",
-      "option": {
-        "extractAllScripts": true
-      },
-      "expect": "cases/streams/empty-out.yamlld"
-    },
+
     {
       "@id": "#zero-documents",
       "@type": [
         "jld:PositiveEvaluationTest",
         "jld:ExpandTest"
       ],
-      "name": "zero-documents (first document)",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "zero-documents",
+      "purpose": "Zero documents construct null; a single document retains its constructed value.",
       "req": "must",
       "input": "cases/streams/zero-documents-in.yamlld",
-      "option": {
-        "extractAllScripts": false
-      },
       "expect": "cases/streams/empty-out.yamlld"
     },
-    {
-      "@id": "#zero-documents-all",
-      "@type": [
-        "jld:PositiveEvaluationTest",
-        "jld:ExpandTest"
-      ],
-      "name": "zero-documents (all documents)",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
-      "req": "must",
-      "input": "cases/streams/zero-documents-in.yamlld",
-      "option": {
-        "extractAllScripts": true
-      },
-      "expect": "cases/streams/empty-out.yamlld"
-    },
+
     {
       "@id": "#zero-documents-rdf",
       "@type": [
         "jld:PositiveEvaluationTest",
         "jld:ToRDFTest"
       ],
-      "name": "zero-documents produces an empty RDF dataset",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "zero-documents-rdf",
+      "purpose": "Zero documents construct null; a single document retains its constructed value.",
       "req": "must",
       "input": "cases/streams/zero-documents-in.yamlld",
-      "option": {
-        "extractAllScripts": false
-      },
       "expect": "cases/streams/empty-out.nq"
     },
-    {
-      "@id": "#zero-documents-rdf-all",
-      "@type": [
-        "jld:PositiveEvaluationTest",
-        "jld:ToRDFTest"
-      ],
-      "name": "zero-documents produces an empty RDF dataset",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
-      "req": "must",
-      "input": "cases/streams/zero-documents-in.yamlld",
-      "option": {
-        "extractAllScripts": true
-      },
-      "expect": "cases/streams/empty-out.nq"
-    },
+
     {
       "@id": "#whitespace-only",
       "@type": [
         "jld:PositiveEvaluationTest",
         "jld:ExpandTest"
       ],
-      "name": "whitespace-only (first document)",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "whitespace-only",
+      "purpose": "Zero documents construct null; a single document retains its constructed value.",
       "req": "must",
       "input": "cases/streams/whitespace-only-in.yamlld",
-      "option": {
-        "extractAllScripts": false
-      },
       "expect": "cases/streams/empty-out.yamlld"
     },
-    {
-      "@id": "#whitespace-only-all",
-      "@type": [
-        "jld:PositiveEvaluationTest",
-        "jld:ExpandTest"
-      ],
-      "name": "whitespace-only (all documents)",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
-      "req": "must",
-      "input": "cases/streams/whitespace-only-in.yamlld",
-      "option": {
-        "extractAllScripts": true
-      },
-      "expect": "cases/streams/empty-out.yamlld"
-    },
+
     {
       "@id": "#comments-only",
       "@type": [
         "jld:PositiveEvaluationTest",
         "jld:ExpandTest"
       ],
-      "name": "comments-only (first document)",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "comments-only",
+      "purpose": "Zero documents construct null; a single document retains its constructed value.",
       "req": "must",
       "input": "cases/streams/comments-only-in.yamlld",
-      "option": {
-        "extractAllScripts": false
-      },
       "expect": "cases/streams/empty-out.yamlld"
     },
-    {
-      "@id": "#comments-only-all",
-      "@type": [
-        "jld:PositiveEvaluationTest",
-        "jld:ExpandTest"
-      ],
-      "name": "comments-only (all documents)",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
-      "req": "must",
-      "input": "cases/streams/comments-only-in.yamlld",
-      "option": {
-        "extractAllScripts": true
-      },
-      "expect": "cases/streams/empty-out.yamlld"
-    },
+
     {
       "@id": "#all-empty",
       "@type": [
-        "jld:PositiveEvaluationTest",
+        "jld:NegativeEvaluationTest",
         "jld:ExpandTest"
       ],
-      "name": "all-empty (first document)",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "Reject multiple YAML documents: all-empty",
+      "purpose": "Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.",
       "req": "must",
       "input": "cases/streams/all-empty-in.yamlld",
       "option": {
         "extractAllScripts": false
       },
-      "expect": "cases/streams/empty-out.yamlld"
+      "expectErrorCode": "loading document failed"
     },
     {
       "@id": "#all-empty-all",
       "@type": [
-        "jld:PositiveEvaluationTest",
+        "jld:NegativeEvaluationTest",
         "jld:ExpandTest"
       ],
-      "name": "all-empty (all documents)",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "Reject multiple YAML documents: all-empty-all",
+      "purpose": "Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.",
       "req": "must",
       "input": "cases/streams/all-empty-in.yamlld",
       "option": {
         "extractAllScripts": true
       },
-      "expect": "cases/streams/empty-out.yamlld"
+      "expectErrorCode": "loading document failed"
     },
     {
       "@id": "#all-empty-rdf",
       "@type": [
-        "jld:PositiveEvaluationTest",
+        "jld:NegativeEvaluationTest",
         "jld:ToRDFTest"
       ],
-      "name": "all-empty produces an empty RDF dataset",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "Reject multiple YAML documents: all-empty-rdf",
+      "purpose": "Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.",
       "req": "must",
       "input": "cases/streams/all-empty-in.yamlld",
       "option": {
         "extractAllScripts": false
       },
-      "expect": "cases/streams/empty-out.nq"
+      "expectErrorCode": "loading document failed"
     },
     {
       "@id": "#all-empty-rdf-all",
       "@type": [
-        "jld:PositiveEvaluationTest",
+        "jld:NegativeEvaluationTest",
         "jld:ToRDFTest"
       ],
-      "name": "all-empty produces an empty RDF dataset",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "Reject multiple YAML documents: all-empty-rdf-all",
+      "purpose": "Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.",
       "req": "must",
       "input": "cases/streams/all-empty-in.yamlld",
       "option": {
         "extractAllScripts": true
       },
-      "expect": "cases/streams/empty-out.nq"
+      "expectErrorCode": "loading document failed"
     },
     {
       "@id": "#leading-empty-all",
       "@type": [
-        "jld:PositiveEvaluationTest",
+        "jld:NegativeEvaluationTest",
         "jld:ExpandTest"
       ],
-      "name": "leading-empty aggregated",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "Reject multiple YAML documents: leading-empty-all",
+      "purpose": "Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.",
       "req": "must",
       "input": "cases/streams/leading-empty-in.yamlld",
       "option": {
         "extractAllScripts": true
       },
-      "expect": "cases/streams/item-out.yamlld"
+      "expectErrorCode": "loading document failed"
     },
     {
       "@id": "#leading-empty-default",
       "@type": [
-        "jld:PositiveEvaluationTest",
+        "jld:NegativeEvaluationTest",
         "jld:ExpandTest"
       ],
-      "name": "leading-empty under default processing",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "Reject multiple YAML documents: leading-empty-default",
+      "purpose": "Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.",
       "req": "must",
       "input": "cases/streams/leading-empty-in.yamlld",
-      "expect": "cases/streams/empty-out.yamlld"
+      "expectErrorCode": "loading document failed"
     },
     {
       "@id": "#leading-empty-rdf",
       "@type": [
-        "jld:PositiveEvaluationTest",
+        "jld:NegativeEvaluationTest",
         "jld:ToRDFTest"
       ],
-      "name": "leading-empty preserves nonempty triples",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "Reject multiple YAML documents: leading-empty-rdf",
+      "purpose": "Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.",
       "req": "must",
       "input": "cases/streams/leading-empty-in.yamlld",
       "option": {
         "extractAllScripts": true
       },
-      "expect": "cases/streams/item-out.nq"
+      "expectErrorCode": "loading document failed"
     },
     {
       "@id": "#trailing-empty-all",
       "@type": [
-        "jld:PositiveEvaluationTest",
+        "jld:NegativeEvaluationTest",
         "jld:ExpandTest"
       ],
-      "name": "trailing-empty aggregated",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "Reject multiple YAML documents: trailing-empty-all",
+      "purpose": "Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.",
       "req": "must",
       "input": "cases/streams/trailing-empty-in.yamlld",
       "option": {
         "extractAllScripts": true
       },
-      "expect": "cases/streams/item-out.yamlld"
+      "expectErrorCode": "loading document failed"
     },
     {
       "@id": "#trailing-empty-default",
       "@type": [
-        "jld:PositiveEvaluationTest",
+        "jld:NegativeEvaluationTest",
         "jld:ExpandTest"
       ],
-      "name": "trailing-empty under default processing",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "Reject multiple YAML documents: trailing-empty-default",
+      "purpose": "Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.",
       "req": "must",
       "input": "cases/streams/trailing-empty-in.yamlld",
-      "expect": "cases/streams/item-out.yamlld"
+      "expectErrorCode": "loading document failed"
     },
     {
       "@id": "#trailing-empty-rdf",
       "@type": [
-        "jld:PositiveEvaluationTest",
+        "jld:NegativeEvaluationTest",
         "jld:ToRDFTest"
       ],
-      "name": "trailing-empty preserves nonempty triples",
-      "purpose": "Empty documents contribute null; streams retain constructed values and select the first document by default.",
+      "name": "Reject multiple YAML documents: trailing-empty-rdf",
+      "purpose": "Loading a YAML-LD stream with more than one document MUST fail, regardless of extractAllScripts.",
       "req": "must",
       "input": "cases/streams/trailing-empty-in.yamlld",
       "option": {
         "extractAllScripts": true
       },
-      "expect": "cases/streams/item-out.nq"
+      "expectErrorCode": "loading document failed"
     },
     {
       "@id": "#root-string-negative",
