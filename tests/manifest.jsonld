@@ -835,23 +835,13 @@
       "expect": "cases/local-context/compacted.yamlld"
     },
     {
-      "@id": "#local-yaml-ld-context",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "Load a context from a local file in YAML-LD format.",
+      "@id": "#local-yaml-ld-context-negative",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
+      "name": "Reject a context from a local file in YAML-LD format.",
       "req": "must",
       "option": {"extractAllScripts": false},
       "input": "cases/local-context/yamlld-in.yamlld",
-      "expect": "cases/local-context/expanded.yamlld"
-    },
-    {
-      "@id": "#compact-local-yaml-ld-context",
-      "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
-      "name": "Load a context from a local file in YAML-LD format.",
-      "req": "must",
-      "option": {"extractAllScripts": false},
-      "input": "cases/local-context/expanded.yamlld",
-      "context": "cases/local-context/context.yamlld",
-      "expect": "cases/local-context/compacted.yamlld"
+      "expectErrorCode": "loading remote context failed"
     },
     {
       "@id": "#flatten",
@@ -862,7 +852,7 @@
         "compactArrays": false
       },
       "input": "cases/flatten/0044-in.yamlld",
-      "context": "cases/flatten/0044-context.yamlld",
+      "context": "cases/flatten/0044-context.jsonld",
       "expect": "cases/flatten/0044-out.yamlld"
     },
     {
