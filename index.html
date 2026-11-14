@@ -635,8 +635,6 @@
 <section id="conformance" data-tests="
     manifest.html#local-json-ld-context,
     manifest.html#compact-local-json-ld-context,
-    manifest.html#local-yaml-ld-context,
-    manifest.html#compact-local-yaml-ld-context,
     manifest.html#flatten,
     manifest.html#frame-t0001">
   <p>
@@ -651,6 +649,22 @@
   <p>
     For convenience, normative statements for documents are often phrased
     as statements on the properties of the document.
+  </p>
+
+  <p id="json-ld-contexts">
+    YAML-LD does not define a separate context or frame language. After conversion
+    to the JSON-LD [=internal representation=], <code>@context</code> and frame values
+    MUST follow the grammar and value space defined by [[JSON-LD11]] and
+    [[JSON-LD11-FRAMING]], or later versions. A context written inline in a
+    YAML-LD document MAY use YAML syntax.
+  </p>
+
+  <p id="external-contexts" data-tests="manifest.html#local-yaml-ld-context-negative">
+    A context document loaded from a URI MUST be serialized as JSON. A processor MUST reject an
+    external context document with the media type <code>application/yaml</code>
+    or a media type ending in <code>+yaml</code>, and MUST report a
+    <a data-cite="JSON-LD11-API#dom-jsonlderrorcode-loading-remote-context-failed">loading-remote-context-failed</a>
+    error. This requirement also applies to nested contexts and <code>@import</code>.
   </p>
 
   <section id="versions">

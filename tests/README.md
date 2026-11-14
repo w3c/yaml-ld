@@ -14,6 +14,10 @@ Tests are driven from top-level [manifest](manifest.jsonld). Tests have _input_,
 Tests may have a `expandContext` option, which is treated
   as an IRI relative to the manifest.
 
+Contexts embedded in YAML-LD inputs may use YAML syntax. Context documents
+retrieved by URI must use JSON serialization and a JSON media type; YAML
+serialization is rejected, including for nested contexts and `@import`.
+
 The _expected_ results with file extension `.jsonld` or `.yamlld` can be compared using [YAML-LD object comparison](#yaml-ld-object-comparison) with the processor output. Additionally, if the `ordered` option is not set, the result should be expanded and compared with the expanded _expected_ document also using [YAML-LD object comparison](#yaml-ld-object-comparison).
 
 Test results that include a context input presume that the context is provided locally, and not from the referenced location, thus the results will include the content of the context file, rather than a reference.
